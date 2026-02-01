@@ -112,10 +112,7 @@ public class ImperioFurnace extends BlockContainer {
         if (stack.hasDisplayName()) {
             TileEntity tile = world.getTileEntity(x, y, z);
             if (tile instanceof TileEntityImperioFurnace) {
-                // FIX 1: func_145951_a -> func_145951_a (Если IDEA ругается, значит в TileEntityImperioFurnace метод должен называться func_145951_a или вы его не создали)
-                // Но в стандартной печке 1.7.10 этот метод называется func_145951_a (или 'func_145951_a' в SRG)
-                // Если TileEntity его не видит, проверьте само наличие метода в TileEntityImperioFurnace.
-                ((TileEntityImperioFurnace)tile).func_145951_a(stack.getDisplayName());
+                ((TileEntityImperioFurnace)tile).setCustomInventoryName(stack.getDisplayName());
             }
         }
     }
@@ -175,9 +172,7 @@ public class ImperioFurnace extends BlockContainer {
                         }
                     }
                 }
-                // FIX 3: func_147453_f -> func_147453_f (Это обновление силы сигнала компаратора)
-                // В чистом MCP 1.7.10 это: func_147453_f
-                world.func_147453_f(x, y, z, block);
+                world.updateComparatorOutputLevel(x, y, z, block);
             }
         }
         super.breakBlock(world, x, y, z, block, meta);

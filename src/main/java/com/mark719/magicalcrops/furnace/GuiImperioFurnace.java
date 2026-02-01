@@ -21,7 +21,7 @@ public class GuiImperioFurnace extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        String string = this.tileFurnace.func_145818_k_() ? this.tileFurnace.getInventoryName() : I18n.format(this.tileFurnace.getInventoryName());
+        String string = this.tileFurnace.hasCustomInventoryName() ? this.tileFurnace.getInventoryName() : I18n.format(this.tileFurnace.getInventoryName());
         this.fontRendererObj.drawString(string, this.xSize / 2 - this.fontRendererObj.getStringWidth(string) / 2, 6, 4210752);
         this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 94, 4210752);
     }

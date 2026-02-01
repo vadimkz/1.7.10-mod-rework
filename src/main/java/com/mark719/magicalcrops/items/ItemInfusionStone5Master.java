@@ -17,9 +17,9 @@ public class ItemInfusionStone5Master extends Item {
         super();
         this.maxStackSize = 1; // field_77777_bU
         this.setMaxDamage(0); // func_77656_e(0) - бесконечный ресурс
-        this.setCreativeTab(MagicalCrops.tabMagical); // func_77637_a
-        this.setTextureName("magicalcrops:InfusionStone_T5"); // func_111206_d
-        this.setUnlocalizedName("InfusionStoneMaster"); // func_77655_b
+        this.setCreativeTab(MagicalCrops.tabMagical); // setCreativeTab
+        this.setTextureName("magicalcrops:InfusionStone_T5"); // setTextureName
+        this.setUnlocalizedName("InfusionStoneMaster"); // setUnlocalizedName
         this.canRepair = false;
         this.bFull3D = true; // field_77787_bX
     }
@@ -44,7 +44,7 @@ public class ItemInfusionStone5Master extends Item {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         // Просто возвращаем копию без изменений (прочность не тратится)
-        return itemStack.copy(); // func_77946_l
+        return itemStack.copy(); // copy
     }
 
     @Override

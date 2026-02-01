@@ -35,7 +35,7 @@ public class TileEntityImperioFurnace extends TileEntity implements ISidedInvent
     /**
      * Метод для установки кастомного имени (из блока)
      */
-    public void func_145951_a(String name) {
+    public void setCustomInventoryName(String name) {
         this.furnaceName = name;
     }
 

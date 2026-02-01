@@ -35,7 +35,7 @@ public class TileEntityUltimateFurnace extends TileEntity implements ISidedInven
     /**
      * Метод для установки имени (вызывается из класса блока)
      */
-    public void func_145951_a(String name) {
+    public void setCustomInventoryName(String name) {
         this.furnaceName = name;
     }
 

@@ -38,7 +38,7 @@ public class WorldGenEssence implements IWorldGenerator {
                 int posY = random.nextInt(ConfigMain.oreGenerateYCord);
                 int posZ = j + random.nextInt(16);
 
-                // .generate(...) вместо .func_76484_a(...)
+                // .generate(...) вместо .generate(...)
                 new WorldGenMinable(MBlocks.MinicioOre, ConfigMain.maxVeinSize).generate(world, random, posX, posY, posZ);
             }
         }

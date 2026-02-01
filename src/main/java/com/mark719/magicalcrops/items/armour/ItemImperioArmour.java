@@ -25,32 +25,32 @@
 /*    */ {
 /*    */   public ItemImperioArmour(ItemArmor.ArmorMaterial material, int armorType, String name) {
 /* 27 */     super(material, 0, armorType);
-/* 28 */     func_77655_b(name);
-/* 29 */     func_77637_a(MagicalCrops.tabMagical);
+/* 28 */     setUnlocalizedName(name);
+/* 29 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     
 /* 31 */     if (armorType == 0) {
-/* 32 */       func_111206_d("magicalcrops:armour_imperio_helmet");
+/* 32 */       setTextureName("magicalcrops:armour_imperio_helmet");
 /*    */     }
 /* 34 */     else if (armorType == 1) {
-/* 35 */       func_111206_d("magicalcrops:armour_imperio_chestplate");
+/* 35 */       setTextureName("magicalcrops:armour_imperio_chestplate");
 /*    */     }
 /* 37 */     else if (armorType == 2) {
-/* 38 */       func_111206_d("magicalcrops:armour_imperio_leggings");
+/* 38 */       setTextureName("magicalcrops:armour_imperio_leggings");
 /*    */     }
 /* 40 */     else if (armorType == 3) {
-/* 41 */       func_111206_d("magicalcrops:armour_imperio_boots");
+/* 41 */       setTextureName("magicalcrops:armour_imperio_boots");
 /*    */     } 
 /*    */   }
 /*    */ 
 /*    */ 
 /*    */   
 /*    */   public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-/* 48 */     if (stack.func_77973_b() == Armour.ImperioArmourHelmet || stack.func_77973_b() == Armour.ImperioArmourChestplate || stack.func_77973_b() == Armour.ImperioArmourBoots)
+/* 48 */     if (stack.getItem() == Armour.ImperioArmourHelmet || stack.getItem() == Armour.ImperioArmourChestplate || stack.getItem() == Armour.ImperioArmourBoots)
 /*    */     {
 /* 50 */       return "magicalcrops:textures/armour/imperio_armour_1.png";
 /*    */     }
 /*    */     
-/* 53 */     if (stack.func_77973_b() == Armour.ImperioArmourLeggings)
+/* 53 */     if (stack.getItem() == Armour.ImperioArmourLeggings)
 /*    */     {
 /* 55 */       return "magicalcrops:textures/armour/imperio_armour_2.png";
 /*    */     }
@@ -62,22 +62,22 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public boolean func_82789_a(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-/* 66 */     return (par2ItemStack.func_77969_a(new ItemStack(Essence.ImperioEssence)) || super.func_82789_a(par1ItemStack, par2ItemStack));
+/*    */   public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
+/* 66 */     return (par2ItemStack.isItemEqual(new ItemStack(Essence.ImperioEssence)) || super.getIsRepairable(par1ItemStack, par2ItemStack));
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 71 */     return EnumChatFormatting.AQUA + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 71 */     return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 76 */     par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for info:");
 /* 77 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
 /* 78 */       par3List.add(EnumChatFormatting.ITALIC + "- 92% Damage Reduction");
 /*    */     }
-/* 80 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (func_77612_l() - getDamage(par1ItemStack)) + "/" + func_77612_l());
+/* 80 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDamage() - getDamage(par1ItemStack)) + "/" + getMaxDamage());
 /*    */   }
 /*    */ }
 

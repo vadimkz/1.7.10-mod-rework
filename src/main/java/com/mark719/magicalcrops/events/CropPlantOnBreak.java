@@ -19,7 +19,7 @@ public class CropPlantOnBreak {
             // Проверяем, является ли блок нашим магическим растением и созрело ли оно (метадата 7)
             if (event.block instanceof BlockMagicalCrops && event.blockMetadata == 7) {
 
-                // func_147465_d — это setBlock. Устанавливаем стадию роста 1 (после посадки)
+                // setBlock — это setBlock. Устанавливаем стадию роста 1 (после посадки)
                 // Параметры: x, y, z, block, metadata, flag
                 event.world.setBlock(event.x, event.y, event.z, event.block, 1, 2);
             }

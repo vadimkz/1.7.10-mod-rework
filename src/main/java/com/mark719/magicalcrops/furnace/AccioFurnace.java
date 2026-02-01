@@ -190,7 +190,7 @@ public class AccioFurnace extends Block implements ITileEntityProvider {
                             EntityItem entityItem = new EntityItem(
                                     world,
                                     x + f, y + f1, z + f2,
-                                    new ItemStack(stack.getItem(), j, stack.getMetadata())
+                                    new ItemStack(stack.getItem(), j, stack.getItemDamage())
                             );
 
                             if (stack.hasTagCompound()) {
