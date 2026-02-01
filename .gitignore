@@ -1,0 +1,62 @@
+############################
+# IntelliJ IDEA
+############################
+.idea/
+*.iml
+out/
+.kotlin
+
+############################
+# Eclipse (workspace рядом с проектом)
+############################
+eclipse/
+eclipse/**
+
+############################
+# NetBeans
+############################
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+############################
+# VS Code
+############################
+.vscode/
+
+############################
+# Gradle
+############################
+.gradle/
+build/
+run/
+gradle-cache/
+.gradle-cache/
+
+############################
+# Forge / Minecraft runtime
+# (dev-мир, конфиги, сейвы — НЕ КОМИТИМ)
+############################
+MagicCropsDev/
+MagicCropsDev/**
+mods/
+resourcepacks/
+saves/
+logs/
+config/
+crash-reports/
+
+############################
+# OS
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# IDE module junk
+############################
+.settings/
+MagicCropsDev/.settings/
+MagicCropsDev/.settings/**

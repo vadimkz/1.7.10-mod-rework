@@ -1,0 +1,7 @@
+# Настройки безопасности и сети
+org.gradle.jvmargs=-Dhttps.protocols=TLSv1.2
+systemProp.http.keepAlive=false
+
+# ПУТЬ К JDK (Самое важное сейчас)
+# Если ты установил Adoptium по ссылке выше, путь будет именно таким:
+org.gradle.java.home=C:/Program Files/Eclipse Adoptium/jdk-8.0.412.8-hotspot

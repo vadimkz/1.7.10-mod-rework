@@ -1,0 +1,16 @@
+[
+{
+  "modid": "magicalcrops",
+  "name": "Magical Crops",
+  "description": "A Magical farming mod that allows you to grow and harvest all type of Minecraft resources, and make many magical items and armours. Also a massive thank you to the Painterly Pack team for giving me permission to use and edit some of there fantastic Minecraft textures!",
+  "version": "4.0.0_PUBLIC_BETA_3",
+  "mcversion": "1.7.10",
+  "url": "http://minecraft.curseforge.com/mc-mods/228834-magical-crops",
+  "updateUrl": "",
+  "authorList": ["Mark719"],
+  "credits": "BaconDonut, Speedcrafter442 & Jacobi Carter for the amazing support given to me.",
+  "logoFile": "assets/magicalcrops/textures/magical_title.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
