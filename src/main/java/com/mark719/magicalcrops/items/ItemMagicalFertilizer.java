@@ -18,9 +18,9 @@ public class ItemMagicalFertilizer extends Item {
 
     public ItemMagicalFertilizer() {
         super();
-        this.setMaxStackSize(64); // func_77625_d
-        this.setCreativeTab(MagicalCrops.tabMagical); // func_77637_a
-        this.setTextureName("magicalcrops:MagicalFertilizer"); // func_111206_d
+        this.setMaxStackSize(64); // setMaxStackSize
+        this.setCreativeTab(MagicalCrops.tabMagical); // setCreativeTab
+        this.setTextureName("magicalcrops:MagicalFertilizer"); // setTextureName
         this.setUnlocalizedName("MagicalFertilizer");
     }
 
@@ -34,15 +34,15 @@ public class ItemMagicalFertilizer extends Item {
 
         if (meta < 7) {
             // Проверка прав игрока на редактирование блока
-            if (!player.canPlayerEdit(x, y, z, side, stack)) { // func_82247_a
+            if (!player.canPlayerEdit(x, y, z, side, stack)) { // canPlayerEdit
                 return false;
             }
 
             // Пытаемся применить удобрение
             if (applyBonemeal(stack, world, x, y, z, player)) {
-                if (!world.isRemote) { // field_72995_K
+                if (!world.isRemote) { // isRemote
                     // Спавним частицы костной муки (ID 2005)
-                    world.playAuxSFX(2005, x, y, z, 0); // func_72926_e
+                    world.playAuxSFX(2005, x, y, z, 0); // playAuxSFX
                 }
                 return true;
             }
@@ -58,7 +58,7 @@ public class ItemMagicalFertilizer extends Item {
     }
 
     public static boolean applyBonemeal(ItemStack stack, World world, int x, int y, int z, EntityPlayer player) {
-        Block block = world.getBlock(x, y, z); // func_147439_a
+        Block block = world.getBlock(x, y, z); // getBlock
 
         // Генерируем событие BonemealEvent для совместимости с Forge
         BonemealEvent event = new BonemealEvent(player, world, block, x, y, z);
@@ -69,7 +69,7 @@ public class ItemMagicalFertilizer extends Item {
         // Если другие моды разрешили использование через Event
         if (event.getResult() == Event.Result.ALLOW) {
             if (!world.isRemote) {
-                stack.stackSize--; // field_77994_a
+                stack.stackSize--; // stackSize
             }
             return true;
         }
@@ -86,7 +86,7 @@ public class ItemMagicalFertilizer extends Item {
                 }
 
                 // Устанавливаем новую мету (стадию роста)
-                world.setBlockMetadataWithNotify(x, y, z, newMeta, 2); // func_72921_c
+                world.setBlockMetadataWithNotify(x, y, z, newMeta, 2); // setBlockMetadataWithNotify
                 stack.stackSize--;
             }
             return true;

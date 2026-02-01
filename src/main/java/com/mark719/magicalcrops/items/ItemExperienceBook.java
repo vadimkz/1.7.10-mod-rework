@@ -28,8 +28,8 @@ public class ItemExperienceBook extends Item {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        // Заменяем func_77960_j() на getItemDamage() или getMetadata()
-        int meta = stack.getMetadata();
+        // Используем метаданные предмета для выбора цвета названия.
+        int meta = stack.getItemDamage();
         switch (meta) {
             case 1: return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
             case 2: return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
@@ -48,7 +48,7 @@ public class ItemExperienceBook extends Item {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        int i = MathHelper.clamp_int(stack.getMetadata(), 0, 4);
+        int i = MathHelper.clamp_int(stack.getItemDamage(), 0, 4);
         return super.getUnlocalizedName() + "." + subNames[i];
     }
 
@@ -63,7 +63,7 @@ public class ItemExperienceBook extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        int meta = stack.getMetadata();
+        int meta = stack.getItemDamage();
         list.add("Level " + (meta + 1));
     }
 

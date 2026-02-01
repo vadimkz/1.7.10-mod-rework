@@ -16,9 +16,9 @@ public class ItemInfusionStone2Regular extends Item {
         super();
         this.maxStackSize = 1; // field_77777_bU
         this.setMaxDamage(ConfigMain.REGULAR_DURABILITY); // Метод, который пока пропускаем
-        this.setCreativeTab(MagicalCrops.tabMagical); // func_77637_a
-        this.setTextureName("magicalcrops:InfusionStone_T2"); // func_111206_d
-        this.setUnlocalizedName("InfusionStoneRegular"); // func_77655_b
+        this.setCreativeTab(MagicalCrops.tabMagical); // setCreativeTab
+        this.setTextureName("magicalcrops:InfusionStone_T2"); // setTextureName
+        this.setUnlocalizedName("InfusionStoneRegular"); // setUnlocalizedName
         this.canRepair = false;
         this.bFull3D = true; // field_77787_bX
     }
@@ -36,16 +36,16 @@ public class ItemInfusionStone2Regular extends Item {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         // Создаем копию предмета для возврата в сетку крафта
-        ItemStack cStack = itemStack.copy(); // func_77946_l
+        ItemStack cStack = itemStack.copy(); // copy
 
         if (ConfigMain.INFUSION_DURABILITY) {
             // Увеличиваем урон (Metadata) на 1
-            int newDamage = cStack.getMetadata() + 1; // func_77960_j
-            cStack.setMetadata(newDamage); // func_77964_b
-            cStack.stackSize = 1; // field_77994_a
+            int newDamage = cStack.getItemDamage() + 1; // getItemDamage
+            cStack.setItemDamage(newDamage); // setItemDamage
+            cStack.stackSize = 1; // stackSize
 
             // Если предмет полностью сломался — возвращаем null (исчезает)
-            if (cStack.getMetadata() >= cStack.getMaxDurability()) {
+            if (cStack.getItemDamage() >= cStack.getMaxDamage()) {
                 return null;
             }
         }
@@ -64,8 +64,8 @@ public class ItemInfusionStone2Regular extends Item {
         list.add("Accio -> Crucio");
         if (ConfigMain.INFUSION_DURABILITY) {
             // Отображение прочности: (Макс - Текущий) / Макс
-            int maxDur = stack.getMaxDurability(); // func_77958_k
-            int currentDur = maxDur - stack.getMetadata(); // func_77960_j
+            int maxDur = stack.getMaxDamage(); // getMaxDamage
+            int currentDur = maxDur - stack.getItemDamage(); // getItemDamage
             list.add("Durability: " + currentDur + "/" + maxDur);
         }
     }

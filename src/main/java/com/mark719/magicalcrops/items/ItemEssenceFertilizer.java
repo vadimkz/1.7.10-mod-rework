@@ -34,8 +34,8 @@ public class ItemEssenceFertilizer extends Item {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        // Заменил getItemDamage() на getItemDamage(), если ошибка останется - используй stack.getItemDamage()
-        switch (stack.getMetadata()) {
+        // Цвет названия зависит от метаданных предмета.
+        switch (stack.getItemDamage()) {
             case 0: return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
             case 1: return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
             case 2: return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
@@ -53,7 +53,7 @@ public class ItemEssenceFertilizer extends Item {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        int i = MathHelper.clamp_int(stack.getMetadata(), 0, 3);
+        int i = MathHelper.clamp_int(stack.getItemDamage(), 0, 3);
         return super.getUnlocalizedName() + "." + names[i];
     }
 
@@ -67,7 +67,7 @@ public class ItemEssenceFertilizer extends Item {
 
     @Override
     public EnumRarity getRarity(ItemStack stack) {
-        switch (stack.getMetadata()) {
+        switch (stack.getItemDamage()) {
             case 0: return EnumRarity.common;
             case 1: return EnumRarity.uncommon;
             case 2: return EnumRarity.rare;
@@ -86,7 +86,7 @@ public class ItemEssenceFertilizer extends Item {
         // Проверяем, является ли блок ванильной грядкой
         if (world.getBlock(x, y, z) == Blocks.farmland) {
             if (!world.isRemote) {
-                int damage = stack.getMetadata();
+                int damage = stack.getItemDamage();
                 if (damage == 0) world.setBlock(x, y, z, MBlocks.FarmlandAccio);
                 else if (damage == 1) world.setBlock(x, y, z, MBlocks.FarmlandCrucio);
                 else if (damage == 2) world.setBlock(x, y, z, MBlocks.FarmlandImperio);

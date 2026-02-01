@@ -17,9 +17,9 @@ public class ItemInfusionStone3Strong extends Item {
         super();
         this.maxStackSize = 1; // field_77777_bU
         this.setMaxDamage(ConfigMain.STRONG_DURABILITY); // Пропускаем проблему здесь
-        this.setCreativeTab(MagicalCrops.tabMagical); // func_77637_a
-        this.setTextureName("magicalcrops:InfusionStone_T3"); // func_111206_d
-        this.setUnlocalizedName("InfusionStoneStrong"); // func_77655_b
+        this.setCreativeTab(MagicalCrops.tabMagical); // setCreativeTab
+        this.setTextureName("magicalcrops:InfusionStone_T3"); // setTextureName
+        this.setUnlocalizedName("InfusionStoneStrong"); // setUnlocalizedName
         this.canRepair = false;
         this.bFull3D = true; // field_77787_bX
     }
@@ -43,15 +43,15 @@ public class ItemInfusionStone3Strong extends Item {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         // Копия предмета для крафта
-        ItemStack cStack = itemStack.copy(); // func_77946_l
+        ItemStack cStack = itemStack.copy(); // copy
 
         if (ConfigMain.INFUSION_DURABILITY) {
-            int newDamage = cStack.getMetadata() + 1; // func_77960_j
-            cStack.setMetadata(newDamage); // func_77964_b
-            cStack.stackSize = 1; // field_77994_a
+            int newDamage = cStack.getItemDamage() + 1; // getItemDamage
+            cStack.setItemDamage(newDamage); // setItemDamage
+            cStack.stackSize = 1; // stackSize
 
             // Удаление если сломан
-            if (cStack.getMetadata() >= cStack.getMaxDurability()) {
+            if (cStack.getItemDamage() >= cStack.getMaxDamage()) {
                 return null;
             }
         }
@@ -69,8 +69,8 @@ public class ItemInfusionStone3Strong extends Item {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         list.add("Crucio -> Imperio");
         if (ConfigMain.INFUSION_DURABILITY) {
-            int maxDur = stack.getMaxDurability(); // func_77958_k
-            int currentDur = maxDur - stack.getMetadata(); // func_77960_j
+            int maxDur = stack.getMaxDamage(); // getMaxDamage
+            int currentDur = maxDur - stack.getItemDamage(); // getItemDamage
             list.add("Durability: " + currentDur + "/" + maxDur);
         }
     }
