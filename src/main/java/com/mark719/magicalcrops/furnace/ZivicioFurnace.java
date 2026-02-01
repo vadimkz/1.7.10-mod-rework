@@ -215,3 +215,4 @@ public class ZivicioFurnace extends BlockContainer {
             }
         }
     }
+}
