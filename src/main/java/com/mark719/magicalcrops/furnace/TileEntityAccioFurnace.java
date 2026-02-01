@@ -115,6 +115,7 @@ public class TileEntityAccioFurnace extends TileEntity implements ISidedInventor
         }
         this.furnaceBurnTime = nbt.getShort("BurnTime");
         this.furnaceCookTime = nbt.getShort("CookTime");
+        this.currentBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
 
         if (nbt.hasKey("CustomName", 8)) {
             this.customName = nbt.getString("CustomName");
@@ -147,6 +148,93 @@ public class TileEntityAccioFurnace extends TileEntity implements ISidedInventor
         return 64;
     }
 
+    @SideOnly(Side.CLIENT)
+    public int getCookProgressScaled(int scale) {
+        return this.furnaceCookTime * scale / 50;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public int getBurnTimeRemainingScaled(int scale) {
+        if (this.currentBurnTime == 0) this.currentBurnTime = 100;
+        return this.furnaceBurnTime * scale / this.currentBurnTime;
+    }
+
+    public boolean isBurning() {
+        return this.furnaceBurnTime > 0;
+    }
+
+    @Override
+    public void updateEntity() {
+        boolean wasBurning = this.furnaceBurnTime > 0;
+        boolean stateChanged = false;
+
+        if (this.furnaceBurnTime > 0) {
+            --this.furnaceBurnTime;
+        }
+
+        if (!this.worldObj.isRemote) {
+            if (this.furnaceBurnTime != 0 || this.furnaceItemStacks[1] != null && this.furnaceItemStacks[0] != null) {
+                if (this.furnaceBurnTime == 0 && this.canSmelt()) {
+                    this.currentBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
+                    if (this.furnaceBurnTime > 0) {
+                        stateChanged = true;
+                        if (this.furnaceItemStacks[1] != null) {
+                            --this.furnaceItemStacks[1].stackSize;
+                            if (this.furnaceItemStacks[1].stackSize == 0) {
+                                this.furnaceItemStacks[1] = this.furnaceItemStacks[1].getItem().getContainerItem(this.furnaceItemStacks[1]);
+                            }
+                        }
+                    }
+                }
+
+                if (this.isBurning() && this.canSmelt()) {
+                    ++this.furnaceCookTime;
+                    if (this.furnaceCookTime == 50) {
+                        this.furnaceCookTime = 0;
+                        this.smeltItem();
+                        stateChanged = true;
+                    }
+                } else {
+                    this.furnaceCookTime = 0;
+                }
+            }
+
+            if (wasBurning != this.furnaceBurnTime > 0) {
+                stateChanged = true;
+                AccioFurnace.updateBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+            }
+        }
+
+        if (stateChanged) {
+            this.markDirty();
+        }
+    }
+
+    private boolean canSmelt() {
+        if (this.furnaceItemStacks[0] == null) return false;
+        ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
+        if (itemstack == null) return false;
+        if (this.furnaceItemStacks[2] == null) return true;
+        if (!this.furnaceItemStacks[2].isItemEqual(itemstack)) return false;
+        int result = this.furnaceItemStacks[2].stackSize + itemstack.stackSize;
+        return result <= getInventoryStackLimit() && result <= this.furnaceItemStacks[2].getMaxStackSize();
+    }
+
+    public void smeltItem() {
+        if (this.canSmelt()) {
+            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
+            if (this.furnaceItemStacks[2] == null) {
+                this.furnaceItemStacks[2] = itemstack.copy();
+            } else if (this.furnaceItemStacks[2].getItem() == itemstack.getItem()) {
+                this.furnaceItemStacks[2].stackSize += itemstack.stackSize;
+            }
+            --this.furnaceItemStacks[0].stackSize;
+            if (this.furnaceItemStacks[0].stackSize <= 0) {
+                this.furnaceItemStacks[0] = null;
+            }
+        }
+    }
+
     @Override
     public boolean isUseableByPlayer(EntityPlayer player) {
         return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
@@ -171,13 +259,25 @@ public class TileEntityAccioFurnace extends TileEntity implements ISidedInventor
     public static int getItemBurnTime(ItemStack stack) {
         if (stack == null) return 0;
         Item item = stack.getItem();
+        if (item instanceof net.minecraft.item.ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
+            Block block = Block.getBlockFromItem(item);
+            if (block == Blocks.wooden_slab) return 150;
+            if (block.getMaterial() == Material.wood) return 300;
+            if (block == Blocks.coal_block) return 16000;
+        }
+        if (item instanceof ItemTool && ((ItemTool)item).getToolMaterialName().equals("WOOD")) return 200;
+        if (item instanceof ItemSword && ((ItemSword)item).getToolMaterialName().equals("WOOD")) return 200;
+        if (item instanceof ItemHoe && ((ItemHoe)item).getToolMaterialName().equals("WOOD")) return 200;
+        if (item == Items.stick) return 100;
         if (item == Items.coal) return 1600;
         if (item == Items.lava_bucket) return 20000;
+        if (item == Item.getItemFromBlock(Blocks.sapling)) return 100;
+        if (item == Items.blaze_rod) return 2400;
         return GameRegistry.getFuelValue(stack);
     }
 
     @Override
-    public int[] getSlotsForFace(int side) {
+    public int[] getAccessibleSlotsFromSide(int side) {
         return side == 0 ? slotsBottom : (side == 1 ? slotsTop : slotsSides);
     }
 

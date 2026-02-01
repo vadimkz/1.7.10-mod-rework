@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -137,8 +136,8 @@ public class AccioFurnace extends Block implements ITileEntityProvider {
 
         if (stack.hasDisplayName()) {
             TileEntity te = world.getTileEntity(x, y, z);
-            if (te instanceof TileEntityFurnace) {
-                ((TileEntityFurnace) te).setCustomInventoryName(stack.getDisplayName());
+            if (te instanceof TileEntityAccioFurnace) {
+                ((TileEntityAccioFurnace) te).setCustomInventoryName(stack.getDisplayName());
             }
         }
     }
