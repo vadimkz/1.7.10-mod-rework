@@ -6,33 +6,44 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
 public class ItemInfusionStone3Strong extends Item {
 
+    private final int durability = ConfigMain.STRONG_DURABILITY;
+
     public ItemInfusionStone3Strong() {
-        super();
-        this.maxStackSize = 1; // field_77777_bU
-        this.setMaxDamage(ConfigMain.STRONG_DURABILITY); // Пропускаем проблему здесь
-        this.setCreativeTab(MagicalCrops.tabMagical); // setCreativeTab
-        this.setTextureName("magicalcrops:InfusionStone_T3"); // setTextureName
-        this.setUnlocalizedName("InfusionStoneStrong"); // setUnlocalizedName
+        this.maxStackSize = 1;
+        this.setMaxDurability(this.durability);              // func_77656_e
+        this.setCreativeTab(MagicalCrops.tabMagical);    // func_77637_a
+        this.setTextureName("magicalcrops:InfusionStone_T3"); // func_111206_d
+        this.setUnlocalizedName("InfusionStoneStrong");  // func_77655_b
         this.canRepair = false;
-        this.bFull3D = true; // field_77787_bX
+        this.setHasSubtypes(true);                       // field_77787_bX
     }
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        // Цветной текст названия (AQUA)
         return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
     }
 
     @Override
-    public boolean isDamageable() {
-        return true;
+    public boolean hasEffect(ItemStack stack) {
+        return false;
+    }
+
+    @Override
+    public ItemStack getContainerItem(ItemStack itemStack) {
+        ItemStack cStack = itemStack.copy();
+
+        if (ConfigMain.INFUSION_DURABILITY) {
+            cStack.setMetadata(cStack.getMetadata() + 1); // func_77964_b / func_77960_j
+            cStack.stackSize = 1;
+        }
+
+        return cStack;
     }
 
     @Override
@@ -40,38 +51,15 @@ public class ItemInfusionStone3Strong extends Item {
         return true;
     }
 
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack) {
-        // Копия предмета для крафта
-        ItemStack cStack = itemStack.copy(); // copy
-
-        if (ConfigMain.INFUSION_DURABILITY) {
-            int newDamage = cStack.getItemDamage() + 1; // getItemDamage
-            cStack.setItemDamage(newDamage); // setItemDamage
-            cStack.stackSize = 1; // stackSize
-
-            // Удаление если сломан
-            if (cStack.getItemDamage() >= cStack.getMaxDamage()) {
-                return null;
-            }
-        }
-        return cStack;
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
-    public EnumRarity getRarity(ItemStack par2) {
-        return EnumRarity.rare;
-    }
-
     @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean advanced) {
         list.add("Crucio -> Imperio");
+
         if (ConfigMain.INFUSION_DURABILITY) {
-            int maxDur = stack.getMaxDamage(); // getMaxDamage
-            int currentDur = maxDur - stack.getItemDamage(); // getItemDamage
-            list.add("Durability: " + currentDur + "/" + maxDur);
+            int max = stack.getMaxDurability();   // func_77958_k
+            int used = stack.getMetadata();       // func_77960_j
+            list.add("Durability: " + (max - used) + "/" + max);
         }
     }
 }
