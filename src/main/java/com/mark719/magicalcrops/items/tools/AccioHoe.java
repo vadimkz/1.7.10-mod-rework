@@ -37,9 +37,9 @@ public class AccioHoe extends ItemHoe {
             }
         }
 
-        // В 1.7.10 getMaxDamage требует ItemStack в качестве аргумента
-        int maxDmg = this.getMaxDamage(stack);
-        int currentDmg = maxDmg - this.getDamage(stack);
+        // Используем метаданные ItemStack для расчета прочности
+        int maxDmg = stack.getMaxDurability();
+        int currentDmg = maxDmg - stack.getMetadata();
 
         list.add(EnumChatFormatting.WHITE + "Durability: " +
                 EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" +

@@ -26,8 +26,8 @@ public class AccioSword extends ItemSword {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        int maxDmg = this.getMaxDamage(stack);
-        int currentDmg = maxDmg - this.getDamage(stack);
+        int maxDmg = stack.getMaxDurability();
+        int currentDmg = maxDmg - stack.getMetadata();
 
         list.add(EnumChatFormatting.WHITE + "Durability: " +
                 EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" +

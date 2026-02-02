@@ -158,7 +158,7 @@ public class CrucioFurnace extends BlockContainer {
                             itemstack.stackSize -= j;
 
                             // Метод получения урона/метадаты предмета
-                            EntityItem entityitem = new EntityItem(world, (double)(x + f), (double)(y + f1), (double)(z + f2), new ItemStack(itemstack.getItem(), j, itemstack.getItemDamage()));
+                            EntityItem entityitem = new EntityItem(world, (double)(x + f), (double)(y + f1), (double)(z + f2), new ItemStack(itemstack.getItem(), j, itemstack.getMetadata()));
 
                             if (itemstack.hasTagCompound()) {
                                 entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());

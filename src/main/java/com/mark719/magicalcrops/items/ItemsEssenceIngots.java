@@ -30,7 +30,7 @@ public class ItemsEssenceIngots extends Item {
     public ItemsEssenceIngots() {
         super();
         this.setHasSubtypes(true); // Разрешаем метадату (подтипы)
-        this.setMaxDamage(0);      // Слитки не ломаются
+        this.setMaxDurability(0);  // Слитки не ломаются
         this.setCreativeTab(MagicalCrops.tabMagical);
     }
 
@@ -40,13 +40,17 @@ public class ItemsEssenceIngots extends Item {
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
         String name = super.getItemStackDisplayName(stack);
-        switch (stack.getItemDamage()) {
-            case 0: return EnumChatFormatting.GOLD + name;          // Accio
-            case 1: return EnumChatFormatting.YELLOW + name;        // Crucio
-            case 2: return EnumChatFormatting.AQUA + name;          // Imperio
-            case 3: return EnumChatFormatting.LIGHT_PURPLE + name;  // Zivicio
-            default: return EnumChatFormatting.GRAY + name;
+        int meta = stack.getMetadata();
+        if (meta == 0) {
+            return EnumChatFormatting.GOLD + name;          // Accio
+        } else if (meta == 1) {
+            return EnumChatFormatting.YELLOW + name;        // Crucio
+        } else if (meta == 2) {
+            return EnumChatFormatting.AQUA + name;          // Imperio
+        } else if (meta == 3) {
+            return EnumChatFormatting.LIGHT_PURPLE + name;  // Zivicio
         }
+        return EnumChatFormatting.GRAY + name;
     }
 
     @Override
@@ -61,7 +65,7 @@ public class ItemsEssenceIngots extends Item {
      */
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        int meta = MathHelper.clamp_int(stack.getItemDamage(), 0, names.length - 1);
+        int meta = MathHelper.clamp_int(stack.getMetadata(), 0, names.length - 1);
         return super.getUnlocalizedName() + "." + names[meta];
     }
 

@@ -155,10 +155,10 @@ public class ImperioFurnace extends BlockContainer {
                             if (j > itemstack.stackSize) j = itemstack.stackSize;
                             itemstack.stackSize -= j;
 
-                            // FIX 2: getItemDamage() -> В 1.7.10 ItemStack.getItemDamage() существует.
+                            // FIX 2: используем метаданные ItemStack для сохранения правильного типа.
                             // Если IDEA его не видит, значит используется старый Forge/MCP. Попробуйте getMetadata() или просто напрямую .itemDamage
                             EntityItem entityitem = new EntityItem(world, (double)(x + f), (double)(y + f1), (double)(z + f2),
-                                    new ItemStack(itemstack.getItem(), j, itemstack.getItemDamage()));
+                                    new ItemStack(itemstack.getItem(), j, itemstack.getMetadata()));
 
                             if (itemstack.hasTagCompound()) {
                                 entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());

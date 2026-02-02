@@ -36,8 +36,8 @@ public class AccioPickaxe extends ItemPickaxe {
             }
         }
 
-        int maxDmg = this.getMaxDamage(stack);
-        int currentDmg = maxDmg - this.getDamage(stack);
+        int maxDmg = stack.getMaxDurability();
+        int currentDmg = maxDmg - stack.getMetadata();
 
         list.add(EnumChatFormatting.WHITE + "Durability: " +
                 EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" +

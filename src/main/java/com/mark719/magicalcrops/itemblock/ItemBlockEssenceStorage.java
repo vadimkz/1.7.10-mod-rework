@@ -24,22 +24,27 @@
 /*    */   }
 /*    */   
 /*    */   public String getUnlocalizedName(ItemStack par1ItemStack) {
-/* 27 */     int i = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, 5);
+/* 27 */     int i = MathHelper.clamp_int(par1ItemStack.getMetadata(), 0, 5);
 /* 28 */     return getUnlocalizedName() + "." + SUBNAMES[i];
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   public String getItemStackDisplayName(ItemStack stack) {
-/* 33 */     switch (stack.getItemDamage()) {
-/*    */       case 0:
-/* 35 */         return EnumChatFormatting.GREEN + super.getItemStackDisplayName(stack);
-/* 36 */       case 1: return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
-/* 37 */       case 2: return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
-/* 38 */       case 3: return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
-/* 39 */       case 4: return EnumChatFormatting.LIGHT_PURPLE + super.getItemStackDisplayName(stack);
-/* 40 */       case 5: return EnumChatFormatting.DARK_GRAY + super.getItemStackDisplayName(stack);
-/*    */     } 
-/* 42 */     return EnumChatFormatting.GRAY + super.getItemStackDisplayName(stack);
+/* 33 */     int meta = stack.getMetadata();
+/* 34 */     if (meta == 0) {
+/* 35 */       return EnumChatFormatting.GREEN + super.getItemStackDisplayName(stack);
+/* 36 */     } else if (meta == 1) {
+/* 37 */       return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
+/* 38 */     } else if (meta == 2) {
+/* 39 */       return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
+/* 40 */     } else if (meta == 3) {
+/* 41 */       return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
+/* 42 */     } else if (meta == 4) {
+/* 43 */       return EnumChatFormatting.LIGHT_PURPLE + super.getItemStackDisplayName(stack);
+/* 44 */     } else if (meta == 5) {
+/* 45 */       return EnumChatFormatting.DARK_GRAY + super.getItemStackDisplayName(stack);
+/*    */     }
+/* 47 */     return EnumChatFormatting.GRAY + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */ }
 

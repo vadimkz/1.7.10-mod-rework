@@ -20,7 +20,7 @@ public class ItemUltimateEmeraldApple extends ItemFood {
         super(hunger, saturation, isWolfFood);
         this.setCreativeTab(MagicalCrops.tabMagical);
         this.setAlwaysEdible();
-        this.setMaxDamage(0);
+        this.setMaxDurability(0);
     }
 
     @Override
