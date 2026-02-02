@@ -1,85 +1,74 @@
-package com.mark719.magicalcrops.items;
+/*    */ package com.mark719.magicalcrops.items;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.MagicalCrops;
+/*    */ import com.mark719.magicalcrops.config.ConfigMain;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import java.util.List;
+/*    */ import net.minecraft.entity.player.EntityPlayer;
+/*    */ import net.minecraft.item.EnumRarity;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.item.ItemStack;
+/*    */ import net.minecraft.util.EnumChatFormatting;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ItemInfusionStone1Weak
+/*    */   extends Item
+/*    */ {
+/* 19 */   int durability = ConfigMain.WEAK_DURABILITY;
+/*    */ 
+/*    */   
+/*    */   public ItemInfusionStone1Weak() {
+/* 23 */     this.field_77777_bU = 1;
+/* 24 */     func_77656_e(this.durability);
+/* 25 */     func_77637_a(MagicalCrops.tabMagical);
+/* 26 */     func_111206_d("magicalcrops:InfusionStone_T1");
+/* 27 */     func_77655_b("InfusionStoneWeak");
+/* 28 */     this.canRepair = false;
+/* 29 */     this.field_77787_bX = true;
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   public String func_77653_i(ItemStack stack) {
+/* 34 */     return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   public boolean func_77630_h(ItemStack itemstack) {
+/* 39 */     return false;
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   public ItemStack getContainerItem(ItemStack itemStack) {
+/* 44 */     ItemStack cStack = itemStack.func_77946_l();
+/* 45 */     if (ConfigMain.INFUSION_DURABILITY) {
+/* 46 */       cStack.func_77964_b(cStack.func_77960_j() + 1);
+/* 47 */       cStack.field_77994_a = 1;
+/*    */     } 
+/* 49 */     return cStack;
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   public boolean hasContainerItem(ItemStack stack) {
+/* 54 */     return true;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public EnumRarity func_77613_e(ItemStack par2) {
+/* 59 */     return EnumRarity.common;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/* 64 */     par3List.add("Minicio -> Accio");
+/* 65 */     if (ConfigMain.INFUSION_DURABILITY)
+/* 66 */       par3List.add("Durability: " + (par1ItemStack.func_77958_k() - par1ItemStack.func_77960_j()) + "/" + par1ItemStack.func_77958_k()); 
+/*    */   }
+/*    */ }
 
-import com.mark719.magicalcrops.MagicalCrops;
-import com.mark719.magicalcrops.config.ConfigMain;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import java.util.List;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 
-/**
- * Исправленная версия камня инфузии.
- * Исправляет баг бесконечной прочности при крафте.
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\items\ItemInfusionStone1Weak.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
  */
-public class ItemInfusionStone1Weak extends Item {
-
-    public ItemInfusionStone1Weak() {
-        super();
-        this.maxStackSize = 1; // field_77777_bU
-        this.setMaxDamage(ConfigMain.WEAK_DURABILITY); // was: field_77779_bT
-        this.setCreativeTab(MagicalCrops.tabMagical); // setCreativeTab
-        this.setTextureName("magicalcrops:InfusionStone_T1"); // setTextureName
-        this.setUnlocalizedName("InfusionStoneWeak"); // setUnlocalizedName
-        this.canRepair = false;
-        this.bFull3D = true; // field_77787_bX
-    }
-
-    @Override
-    public String getItemStackDisplayName(ItemStack stack) {
-        return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
-    }
-
-    @Override
-    public boolean isDamageable() {
-        return true;
-    }
-
-    // ВАЖНО: Мы НЕ переопределяем func_77630_h (isItemTool),
-    // чтобы игра позволяла наносить урон в рецептах крафта.
-
-    @Override
-    public boolean hasContainerItem(ItemStack stack) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack) {
-        // Создаем копию предмета для возврата в сетку крафта
-        ItemStack cStack = itemStack.copy(); // copy
-
-        if (ConfigMain.INFUSION_DURABILITY) {
-            // Увеличиваем урон (Metadata) на 1
-            int newDamage = cStack.getItemDamage() + 1; // getItemDamage
-            cStack.setItemDamage(newDamage); // setItemDamage
-            cStack.stackSize = 1; // stackSize
-
-            // Если предмет полностью сломался — возвращаем null (исчезает)
-            if (cStack.getItemDamage() >= cStack.getMaxDamage()) {
-                return null;
-            }
-        }
-        return cStack;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public EnumRarity getRarity(ItemStack par2) {
-        return EnumRarity.common;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add("Minicio -> Accio");
-        if (ConfigMain.INFUSION_DURABILITY) {
-            // Отображение прочности: (Макс - Текущий) / Макс
-            int maxDur = stack.getMaxDamage(); // getMaxDamage
-            int currentDur = maxDur - stack.getItemDamage(); // getItemDamage
-            list.add("Durability: " + currentDur + "/" + maxDur);
-        }
-    }
-}
