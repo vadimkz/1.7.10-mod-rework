@@ -27,10 +27,10 @@ public class AccioAxe extends ItemAxe {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        // Исправлено: в 1.7.10 метод getMaxDamage требует ItemStack в качестве аргумента
-        int maxDmg = this.getMaxDamage(stack);
+        // Используем метаданные ItemStack для расчета прочности
+        int maxDmg = stack.getMaxDurability();
         // Вычисляем оставшуюся прочность
-        int currentDmg = maxDmg - this.getDamage(stack);
+        int currentDmg = maxDmg - stack.getMetadata();
 
         // Добавляем информацию о прочности в описание (Lore)
         list.add(EnumChatFormatting.WHITE + "Durability: " +

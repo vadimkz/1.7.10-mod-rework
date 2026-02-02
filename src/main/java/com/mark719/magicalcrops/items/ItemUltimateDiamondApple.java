@@ -20,8 +20,7 @@ public class ItemUltimateDiamondApple extends ItemFood {
         super(hunger, saturation, isWolfFood);
         this.setCreativeTab(MagicalCrops.tabMagical);
         this.setAlwaysEdible();
-        // В 1.7.10 метод называется setMaxDamage, но в некоторых средах MCP он может быть func_77656_e
-        this.setMaxDamage(0);
+        this.setMaxDurability(0);
     }
 
     @Override

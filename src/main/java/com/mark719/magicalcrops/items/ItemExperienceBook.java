@@ -29,14 +29,17 @@ public class ItemExperienceBook extends Item {
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
         // Используем метаданные предмета для выбора цвета названия.
-        int meta = stack.getItemDamage();
-        switch (meta) {
-            case 1: return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
-            case 2: return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
-            case 3: return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
-            case 4: return EnumChatFormatting.LIGHT_PURPLE + super.getItemStackDisplayName(stack);
-            default: return EnumChatFormatting.WHITE + super.getItemStackDisplayName(stack);
+        int meta = stack.getMetadata();
+        if (meta == 1) {
+            return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
+        } else if (meta == 2) {
+            return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
+        } else if (meta == 3) {
+            return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
+        } else if (meta == 4) {
+            return EnumChatFormatting.LIGHT_PURPLE + super.getItemStackDisplayName(stack);
         }
+        return EnumChatFormatting.WHITE + super.getItemStackDisplayName(stack);
     }
 
     @Override
@@ -48,7 +51,7 @@ public class ItemExperienceBook extends Item {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        int i = MathHelper.clamp_int(stack.getItemDamage(), 0, 4);
+        int i = MathHelper.clamp_int(stack.getMetadata(), 0, 4);
         return super.getUnlocalizedName() + "." + subNames[i];
     }
 
@@ -63,7 +66,7 @@ public class ItemExperienceBook extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        int meta = stack.getItemDamage();
+        int meta = stack.getMetadata();
         list.add("Level " + (meta + 1));
     }
 

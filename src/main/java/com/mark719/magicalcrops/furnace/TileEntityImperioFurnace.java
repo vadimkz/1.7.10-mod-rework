@@ -212,7 +212,7 @@ public class TileEntityImperioFurnace extends TileEntity implements ISidedInvent
         if (this.furnaceItemStacks[0] == null) {
             return false;
         } else {
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
+            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
             if (itemstack == null) return false;
             if (this.furnaceItemStacks[2] == null) return true;
             if (!this.furnaceItemStacks[2].isItemEqual(itemstack)) return false;
@@ -223,7 +223,7 @@ public class TileEntityImperioFurnace extends TileEntity implements ISidedInvent
 
     public void smeltItem() {
         if (this.canSmelt()) {
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
+            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
             if (this.furnaceItemStacks[2] == null) {
                 this.furnaceItemStacks[2] = itemstack.copy();
             } else if (this.furnaceItemStacks[2].getItem() == itemstack.getItem()) {
