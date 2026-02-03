@@ -182,7 +182,7 @@ public class ZivicioFurnace extends BlockContainer {
                         }
                     }
                 }
-                world.updateComparatorOutputLevel(x, y, z, block);
+                world.updateNeighborsAboutBlockChange(x, y, z, block);
             }
         }
         super.breakBlock(world, x, y, z, block, meta);
