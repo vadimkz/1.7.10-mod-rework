@@ -194,6 +194,17 @@ public class TileEntityCrucioFurnace extends TileEntity implements ISidedInvento
         return this.furnaceBurnTime > 0;
     }
 
+    public int getCookProgressScaled(int scale) {
+        return this.furnaceCookTime * scale / 25;
+    }
+
+    public int getBurnTimeRemainingScaled(int scale) {
+        if (this.currentBurnTime == 0) {
+            this.currentBurnTime = 200;
+        }
+        return this.furnaceBurnTime * scale / this.currentBurnTime;
+    }
+
     private static int getItemBurnTime(ItemStack stack) {
         if (stack == null) return 0;
         Item item = stack.getItem();

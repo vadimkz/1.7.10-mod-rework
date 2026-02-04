@@ -46,7 +46,7 @@ public class CrucioFurnace extends BlockContainer {
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
+
     public void registerBlockIcons(IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon("magicalcrops:furnacecrucio_side");
         this.iconFront = iconRegister.registerIcon(this.isActive ? "magicalcrops:furnacecrucio_front_on" : "magicalcrops:furnacecrucio_front_off");
@@ -114,7 +114,7 @@ public class CrucioFurnace extends BlockContainer {
             if (tile instanceof TileEntityCrucioFurnace) {
                 // Пытаемся вызвать метод установки имени.
                 // В зависимости от маппингов это может быть func_145951_a или setGuiDisplayName
-                ((TileEntityCrucioFurnace)tile).setGuiDisplayName(stack.getDisplayName());
+                ((TileEntityCrucioFurnace)tile).setCustomInventoryName(stack.getDisplayName());
             }
         }
     }

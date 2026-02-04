@@ -47,7 +47,7 @@ public class UltimateFurnace extends BlockContainer {
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
+
     public void registerBlockIcons(IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon("magicalcrops:furnaceultimate_side");
         this.iconFront = iconRegister.registerIcon(this.isBurning2 ? "magicalcrops:furnaceultimate_front_on" : "magicalcrops:furnaceultimate_front_off");

@@ -57,7 +57,6 @@ public class ZivicioFurnace extends BlockContainer {
         return (side != meta) ? this.blockIcon : this.iconFront;
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon("magicalcrops:furnacezivicio_side");
@@ -122,7 +121,7 @@ public class ZivicioFurnace extends BlockContainer {
         if (l == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 
         if (stack.hasDisplayName()) {
-            ((TileEntityFurnace)world.getTileEntity(x, y, z)).setFurnaceName(stack.getDisplayName());
+            ((TileEntityFurnace)world.getTileEntity(x, y, z)).setCustomInventoryName(stack.getDisplayName());
         }
     }
 

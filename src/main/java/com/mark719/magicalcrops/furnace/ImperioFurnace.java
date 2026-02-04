@@ -46,7 +46,7 @@ public class ImperioFurnace extends BlockContainer {
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
+
     public void registerBlockIcons(IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon("magicalcrops:furnaceimperio_side");
         this.iconFront = iconRegister.registerIcon(this.isActive ? "magicalcrops:furnaceimperio_front_on" : "magicalcrops:furnaceimperio_front_off");

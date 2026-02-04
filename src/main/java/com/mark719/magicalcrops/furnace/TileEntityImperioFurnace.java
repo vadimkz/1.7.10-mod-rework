@@ -189,7 +189,16 @@ public class TileEntityImperioFurnace extends TileEntity implements ISidedInvent
     }
 
     /* ================= Furnace logic ================= */
+    public int getCookProgressScaled(int scale) {
+        return this.furnaceCookTime * scale / 25;
+    }
 
+    public int getBurnTimeRemainingScaled(int scale) {
+        if (this.currentBurnTime == 0) {
+            this.currentBurnTime = 200;
+        }
+        return this.furnaceBurnTime * scale / this.currentBurnTime;
+    }
     public boolean isBurning() {
         return this.furnaceBurnTime > 0;
     }
