@@ -187,10 +187,10 @@
 /*     */       {
 /*     */         
 /* 189 */         if (!player.isInWater() && !player.capabilities.isFlying) {
-/* 190 */           player.moveFlying(player.moveStrafing * 0.4F, player.moveForward * 0.4F);
-/* 191 */         } else if (!player.isInWater() && player.isAirBorne) {
-/* 192 */           player.moveFlying(player.moveStrafing * 0.1F, player.moveForward * 0.1F);
-/*     */         } 
+                player.moveFlying(player.moveStrafing * 0.4F, player.moveForward * 0.4F, 0.02F);
+                /* 191 */         } else if (!player.isInWater() && player.isAirBorne) {
+                player.moveFlying(player.moveStrafing * 0.1F, player.moveForward * 0.1F, 0.02F);
+                /*     */         }
 /*     */       }
 /*     */       
 /* 196 */       if (getBoots.getItem() == Armour.ZivicioArmourBootsJump && getLegs.getItem() instanceof ItemZivicioArmour && getChest.getItem() instanceof ItemZivicioArmour && getHelm.getItem() instanceof ItemZivicioArmour)

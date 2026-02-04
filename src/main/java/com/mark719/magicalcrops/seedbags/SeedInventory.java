@@ -79,9 +79,13 @@ public class SeedInventory implements IInventory {
     }
 
     // ВАЖНО: Используем имя из вашего интерфейса
+    public boolean hasCustomInventoryName() {
+        return this.customName != null && !this.customName.isEmpty();
+    }
+
     @Override
     public boolean isCustomInventoryName() {
-        return this.customName != null && this.customName.length() > 0;
+        return hasCustomInventoryName();
     }
 
     @Override
