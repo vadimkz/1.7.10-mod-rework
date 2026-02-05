@@ -17,6 +17,12 @@ public class PlatinumCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public PlatinumCrop() {
+        super();
+        this.setUnlocalizedName("PlatinumCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         // Семена платины из обработчика совместимости модов
@@ -29,24 +35,21 @@ public class PlatinumCrop extends BlockMagicalCrops {
         return ModCompat.PlatinumEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Регистрация текстур: assets/magicalcrops/textures/blocks/CropPlatinum_i.png
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropPlatinum_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropPlatinum_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Логика выбора иконки в зависимости от стадии роста
-        if (metadata < 7) {
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
         return this.iconArray[3];
     }

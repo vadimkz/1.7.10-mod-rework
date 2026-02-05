@@ -18,6 +18,12 @@ public class QuartzCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public QuartzCrop() {
+        super();
+        this.setUnlocalizedName("QuartzCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         // Семена кварца из основного реестра семян
@@ -30,24 +36,21 @@ public class QuartzCrop extends BlockMagicalCrops {
         return Essence.QuartzEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Путь к текстуре: magicalcrops:textures/blocks/CropQuartz_i.png
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropQuartz_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropQuartz_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Алгоритм смены иконок в зависимости от стадии (метаданных)
-        if (metadata < 7) {
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
         return this.iconArray[3];
     }

@@ -18,6 +18,12 @@ public class NatureCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public NatureCrop() {
+        super();
+        this.setUnlocalizedName("NatureCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         // Возвращает предмет семян природы
@@ -30,29 +36,22 @@ public class NatureCrop extends BlockMagicalCrops {
         return Essence.NatureEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        // Инициализация массива иконок для 4 стадий отрисовки
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Регистрация текстур: "magicalcrops:CropNature_0", "magicalcrops:CropNature_1", и т.д.
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropNature_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropNature_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Логика выбора текстуры в зависимости от стадии роста (метаданных блока)
-        if (metadata < 7) {
-            // Искусственное замедление смены текстуры на 6-й стадии
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            // Выбор иконки (0-1 -> индекс 0, 2-3 -> индекс 1, 4-6 -> индекс 2)
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
-        // Метаданные 7 — полностью созревшая культура (индекс 3)
         return this.iconArray[3];
     }
 }

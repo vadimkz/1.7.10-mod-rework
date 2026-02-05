@@ -17,6 +17,12 @@ public class IronCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public IronCrop() {
+        super();
+        this.setUnlocalizedName("IronCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         // Стандартные семена из MSeeds
@@ -29,24 +35,21 @@ public class IronCrop extends BlockMagicalCrops {
         return Essence.IronEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Путь к текстуре: assets/magicalcrops/textures/blocks/CropIron_X.png
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropIron_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropIron_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Логика стадий роста (0-7 метаданных распределяются по 4 текстурам)
-        if (metadata < 7) {
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
         return this.iconArray[3];
     }

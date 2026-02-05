@@ -17,6 +17,12 @@ public class ManasteelCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public ManasteelCrop() {
+        super();
+        this.setUnlocalizedName("ManasteelCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         // Получаем семена Манастали из обработчика совместимости
@@ -29,27 +35,22 @@ public class ManasteelCrop extends BlockMagicalCrops {
         return ModCompat.ManasteelEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Регистрация текстур: assets/magicalcrops/textures/blocks/CropManasteel_X.png
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropManasteel_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropManasteel_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Логика выбора иконки в зависимости от стадии роста (metadata)
-        if (metadata < 7) {
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            // Используем сдвиг вправо (>> 1) для распределения 4 текстур на 7 стадий
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
-        // Финальная стадия роста
         return this.iconArray[3];
     }
 }

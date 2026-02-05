@@ -10,11 +10,13 @@ import net.minecraft.util.IIcon;
 public class NetherCrop extends BlockCrops {
 
     @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
+    private IIcon[] iconArray;
 
     public NetherCrop() {
-        this.setUnlocalizedName("nether_crop");
+        super();
+        this.setUnlocalizedName("NetherCrop");
     }
+
 
     @Override
     protected Item getSeed() { // семя
@@ -28,19 +30,20 @@ public class NetherCrop extends BlockCrops {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister reg) {
-        this.icons = new IIcon[4];
-        for (int i = 0; i < 4; i++) {
-            this.icons[i] = reg.registerIcon("magicalcrops:CropNether_" + i);
+        this.iconArray = new IIcon[4];
+        for (int i = 0; i < this.iconArray.length; i++) {
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropNether_" + i);
         }
     }
 
+
+    @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (icons == null) return null;
-
-        int stage = meta >> 1;
-        if (stage < 0) stage = 0;
-        if (stage >= icons.length) stage = icons.length - 1;
-        return icons[stage];
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
+        }
+        return this.iconArray[3];
     }
 }
