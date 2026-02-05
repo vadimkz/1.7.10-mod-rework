@@ -495,7 +495,7 @@ public class ModCompat {
     // Вспомогательный метод для регистрации
     private static void register(Item essence, Block crop, Item seeds) {
         ItemRegisterHelper.registerItem(essence);
-        BlockRegisterHelper.registerBlock(crop);
+        BlockRegisterHelper.registerBlock(crop, crop.getUnlocalizedName().replace("tile.", ""));
         ItemRegisterHelper.registerItem(seeds);
     }
 

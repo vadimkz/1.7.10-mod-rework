@@ -1,57 +1,46 @@
 package com.mark719.magicalcrops.blocks.crops;
 
-import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
-import com.mark719.magicalcrops.handlers.Essence;
-import com.mark719.magicalcrops.handlers.MSeeds;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
-/**
- * Класс блока культуры Нижнего Мира (Nether).
- */
-public class NetherCrop extends BlockMagicalCrops {
+public class NetherCrop extends BlockCrops {
 
     @SideOnly(Side.CLIENT)
-    private IIcon[] iconArray;
+    private IIcon[] icons;
 
-    @Override
-    public Item getSeed() {
-        // Возвращает семена Nether
-        return MSeeds.NetherSeeds;
+    public NetherCrop() {
+        this.setUnlocalizedName("nether_crop");
     }
 
     @Override
-    public Item getCrop() {
-        // Возвращает эссенцию Nether
-        return Essence.NetherEssence;
+    protected Item getSeed() { // семя
+        return com.mark719.magicalcrops.handlers.MSeeds.NetherSeeds;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        // Инициализация 4 стадий роста
-        this.iconArray = new IIcon[4];
-        for (int i = 0; i < this.iconArray.length; i++) {
-            // Регистрация текстур: "magicalcrops:CropNether_0" и т.д.
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropNether_" + i);
+    @Override
+    protected Item getCrop() { // дроп (эссенция)
+        return com.mark719.magicalcrops.handlers.Essence.NetherEssence;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
+        this.icons = new IIcon[4];
+        for (int i = 0; i < 4; i++) {
+            this.icons[i] = reg.registerIcon("magicalcrops:CropNether_" + i);
         }
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Метаданные от 0 до 7 (стадии роста)
-        if (metadata < 7) {
-            // На 6-й стадии используется иконка от 5-й (для плавности/замедления)
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            // Сдвиг вправо на 1 (деление на 2) для выбора индекса 0, 1 или 2
-            return this.iconArray[metadata >> 1];
-        }
-        // Метаданные 7 — финальная стадия
-        return this.iconArray[3];
+    public IIcon getIcon(int side, int meta) {
+        if (icons == null) return null;
+
+        int stage = meta >> 1;
+        if (stage < 0) stage = 0;
+        if (stage >= icons.length) stage = icons.length - 1;
+        return icons[stage];
     }
 }

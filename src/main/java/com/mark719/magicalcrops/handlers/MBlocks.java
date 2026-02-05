@@ -3,8 +3,6 @@ package com.mark719.magicalcrops.handlers;
 import com.mark719.magicalcrops.MagicalCrops;
 import com.mark719.magicalcrops.blocks.*;
 import com.mark719.magicalcrops.furnace.*;
-import com.mark719.magicalcrops.itemblock.ItemBlockEssenceBlock;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -42,68 +40,64 @@ public class MBlocks {
 
     public static void init() {
         // РУДЫ
-        MinicioOre = register(new BlockMinicioOre(), "MinicioOre");
-        MinicioOreNether = register(new BlockMinicioOreNether(), "MinicioOreNether");
-        MinicioOreEnd = register(new BlockMinicioOreEnd(), "MinicioOreEnd");
+        MinicioOre = setup(new BlockMinicioOre(), "MinicioOre");
+        MinicioOreNether = setup(new BlockMinicioOreNether(), "MinicioOreNether");
+        MinicioOreEnd = setup(new BlockMinicioOreEnd(), "MinicioOreEnd");
 
         // ФУНКЦИОНАЛЬНЫЕ
-        CropBooster = register(new BlockCropBooster(), "CropBooster");
-        FarmlandAccio = register(new BlockFarmlandAccio(), "FarmlandAccio");
-        FarmlandCrucio = register(new BlockFarmlandCrucio(), "FarmlandCrucio");
-        FarmlandImperio = register(new BlockFarmlandImperio(), "FarmlandImperio");
-        FarmlandZivicio = register(new BlockFarmlandZivicio(), "FarmlandZivicio");
+        CropBooster = setup(new BlockCropBooster(), "CropBooster");
+        FarmlandAccio = setup(new BlockFarmlandAccio(), "FarmlandAccio");
+        FarmlandCrucio = setup(new BlockFarmlandCrucio(), "FarmlandCrucio");
+        FarmlandImperio = setup(new BlockFarmlandImperio(), "FarmlandImperio");
+        FarmlandZivicio = setup(new BlockFarmlandZivicio(), "FarmlandZivicio");
 
         // ДЕКОРАТИВНЫЕ
-        EssenceStone = register(new BlockEssenceStone(), "EssenceStone");
-        EssenceStorage = register(new BlockEssenceStorage(Material.rock), "EssenceStorage");
-        EssenceLamp = register(new BlockEssenceLamp(Material.rock), "EssenceLamp");
-        EssenceBrick = register(new BlockEssenceBrick(Material.rock), "EssenceBrick");
-        EssenceBrick2 = register(new BlockEssenceBrick2(Material.rock), "EssenceBrick2");
-        EssenceSquare = register(new BlockEssenceSquare(Material.rock), "EssenceSquare");
+        EssenceStone = setup(new BlockEssenceStone(), "EssenceStone");
+        EssenceStorage = setup(new BlockEssenceStorage(Material.rock), "EssenceStorage");
+        EssenceLamp = setup(new BlockEssenceLamp(Material.rock), "EssenceLamp");
+        EssenceBrick = setup(new BlockEssenceBrick(Material.rock), "EssenceBrick");
+        EssenceBrick2 = setup(new BlockEssenceBrick2(Material.rock), "EssenceBrick2");
+        EssenceSquare = setup(new BlockEssenceSquare(Material.rock), "EssenceSquare");
 
-        // Блок с метаданными (оставляем как у вас, но через переменную)
-        // Блок с метаданными (теперь ПРАВИЛЬНО привязываем существующий ItemBlock)
+        // Блок с метаданными: создание здесь, регистрация (с ItemBlock) делается в BlockRegister
         EssenceBlock = new BlockEssenceBlock(Material.rock).setUnlocalizedName("EssenceBlock");
-        GameRegistry.registerBlock(EssenceBlock, ItemBlockEssenceBlock.class, "EssenceBlock");
 
         // ЗАЩИТА
-        WitherProof = register(new BlockWitherProof(), "WitherProof");
-        WitherProofGlass = register(new BlockWitherProofGlass(), "WitherProofGlass");
+        WitherProof = setup(new BlockWitherProof(), "WitherProof");
+        WitherProofGlass = setup(new BlockWitherProofGlass(), "WitherProofGlass");
 
         // ПЕЧИ (Выключаем дублирование через передачу параметров)
-        AccioFurnace = registerFurnace(new AccioFurnace(false), "AccioFurnace", true);
-        AccioFurnaceActive = registerFurnace(new AccioFurnace(true), "AccioFurnaceActive", false);
+        AccioFurnace = setupFurnace(new AccioFurnace(false), "AccioFurnace", true);
+        AccioFurnaceActive = setupFurnace(new AccioFurnace(true), "AccioFurnaceActive", false);
 
-        CrucioFurnace = registerFurnace(new CrucioFurnace(false), "CrucioFurnace", true);
-        CrucioFurnaceActive = registerFurnace(new CrucioFurnace(true), "CrucioFurnaceActive", false);
+        CrucioFurnace = setupFurnace(new CrucioFurnace(false), "CrucioFurnace", true);
+        CrucioFurnaceActive = setupFurnace(new CrucioFurnace(true), "CrucioFurnaceActive", false);
 
-        ImperioFurnace = registerFurnace(new ImperioFurnace(false), "ImperioFurnace", true);
-        ImperioFurnaceActive = registerFurnace(new ImperioFurnace(true), "ImperioFurnaceActive", false);
+        ImperioFurnace = setupFurnace(new ImperioFurnace(false), "ImperioFurnace", true);
+        ImperioFurnaceActive = setupFurnace(new ImperioFurnace(true), "ImperioFurnaceActive", false);
 
-        ZivicioFurnace = registerFurnace(new ZivicioFurnace(false), "ZivicioFurnace", true);
-        ZivicioFurnaceActive = registerFurnace(new ZivicioFurnace(true), "ZivicioFurnaceActive", false);
+        ZivicioFurnace = setupFurnace(new ZivicioFurnace(false), "ZivicioFurnace", true);
+        ZivicioFurnaceActive = setupFurnace(new ZivicioFurnace(true), "ZivicioFurnaceActive", false);
 
-        UltimateFurnace = registerFurnace(new UltimateFurnace(false), "UltimateFurnace", true);
-        UltimateFurnaceActive = registerFurnace(new UltimateFurnace(true), "UltimateFurnaceActive", false);
+        UltimateFurnace = setupFurnace(new UltimateFurnace(false), "UltimateFurnace", true);
+        UltimateFurnaceActive = setupFurnace(new UltimateFurnace(true), "UltimateFurnaceActive", false);
+    }
+
+
+    /**
+     * Создание (и настройка) блока. Регистрация делается отдельно в BlockRegister.
+     */
+    private static Block setup(Block block, String unlocalizedName) {
+        return block.setUnlocalizedName(unlocalizedName);
     }
 
     /**
-     * Основной метод регистрации. Теперь он принимает ИМЯ вторым параметром.
-     * Это гарантирует, что IDE перестанет считать вызовы дубликатами.
+     * Создание печей: активная версия без creative tab, неактивная — с tab.
+     * Регистрация делается отдельно в BlockRegister.
      */
-    private static Block register(Block block, String name) {
-        block.setUnlocalizedName(name);
-        // Рекомендуется также добавлять ID мода в TextureName здесь, если они совпадают с именем
-        // block.setBlockTextureName("magicalcrops:" + name);
-        GameRegistry.registerBlock(block, name);
-        return block;
-    }
-
-    /**
-     * Специальный метод для печей, чтобы не прописывать Tab вручную каждый раз
-     */
-    private static Block registerFurnace(Block block, String name, boolean hasTab) {
+    private static Block setupFurnace(Block block, String unlocalizedName, boolean hasTab) {
         if (hasTab) block.setCreativeTab(MagicalCrops.tabMagical);
-        return register(block, name);
+        return setup(block, unlocalizedName);
     }
+
 }

@@ -1,19 +1,39 @@
-/*    */ package com.mark719.magicalcrops.help;
-/*    */ 
-/*    */ import cpw.mods.fml.common.registry.GameRegistry;
-/*    */ import net.minecraft.block.Block;
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ public class BlockRegisterHelper
-/*    */ {
-/*    */   public static void registerBlock(Block block) {
-/* 11 */     GameRegistry.registerBlock(block, "magicalcrops_" + block.getUnlocalizedName().substring(5));
-/*    */   }
-/*    */ }
+package com.mark719.magicalcrops.help;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 
-/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\help\BlockRegisterHelper.class
- * Java compiler version: 6 (50.0)
- * JD-Core Version:       1.1.3
+/**
+ * Регистрация блоков как в оригинальном Magical Crops 4.0.0_PUBLIC_BETA_3.
+ *
+ * Оригинал использовал имя вида: "magicalcrops_" + unlocalizedName.substring(5)
+ * где unlocalizedName начинается с "tile.".
+ *
+ * Важно: это предотвращает двойную регистрацию (например MinicioOre vs minicio_ore),
+ * которая ломает загрузку и приводит к missing textures/крашам.
  */
+public class BlockRegisterHelper {
+
+    /** Оригинальный вариант (рекомендуемый) */
+    public static void registerBlock(Block block) {
+        if (block == null) {
+            throw new IllegalArgumentException("Tried to register null block");
+        }
+
+        String unloc = block.getUnlocalizedName(); // например "tile.MinicioOre"
+        String suffix = (unloc != null && unloc.startsWith("tile.")) ? unloc.substring(5) : unloc;
+
+        GameRegistry.registerBlock(block, "magicalcrops_" + suffix);
+    }
+
+    /**
+     * Совместимость с кодом, который ожидал registerBlock(Block, String).
+     * Используй только если реально нужно задать имя вручную.
+     */
+    public static void registerBlock(Block block, String name) {
+        if (block == null) {
+            throw new IllegalArgumentException("Tried to register null block: " + name);
+        }
+        GameRegistry.registerBlock(block, name);
+    }
+}

@@ -1,27 +1,23 @@
 package com.mark719.magicalcrops.handlers;
 
 import com.mark719.magicalcrops.blocks.crops.*;
+import com.mark719.magicalcrops.config.ConfigDisable;
 import net.minecraft.block.Block;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MCrops {
-    // Базовые культуры
+
     public static Block AirCrop;
     public static Block CoalCrop;
     public static Block DyeCrop;
     public static Block EarthCrop;
     public static Block FireCrop;
-    public static Block NatureCrop;
     public static Block MinicioCrop;
+    public static Block NatureCrop;
     public static Block WaterCrop;
-
-    // Ресурсы мира
     public static Block RedstoneCrop;
     public static Block GlowstoneCrop;
     public static Block ObsidianCrop;
     public static Block NetherCrop;
-
-    // Металлы и драгоценности
     public static Block IronCrop;
     public static Block GoldCrop;
     public static Block LapisCrop;
@@ -30,7 +26,6 @@ public class MCrops {
     public static Block DiamondCrop;
     public static Block EmeraldCrop;
 
-    // Монстры
     public static Block BlazeCrop;
     public static Block CreeperCrop;
     public static Block EndermanCrop;
@@ -40,59 +35,45 @@ public class MCrops {
     public static Block SpiderCrop;
     public static Block WitherCrop;
 
-    // Животные
     public static Block ChickenCrop;
     public static Block CowCrop;
     public static Block PigCrop;
     public static Block SheepCrop;
 
     public static void init() {
-        // Базовые культуры
-        AirCrop = new AirCrop().setUnlocalizedName("AirCrop");
-        CoalCrop = new CoalCrop().setUnlocalizedName("CoalCrop");
-        DyeCrop = new DyeCrop().setUnlocalizedName("DyeCrop");
-        EarthCrop = new EarthCrop().setUnlocalizedName("EarthCrop");
-        FireCrop = new FireCrop().setUnlocalizedName("FireCrop");
-        NatureCrop = new NatureCrop().setUnlocalizedName("NatureCrop");
-        MinicioCrop = new MinicioCrop().setUnlocalizedName("MinicioCrop");
-        WaterCrop = new WaterCrop().setUnlocalizedName("WaterCrop");
 
-        // Ресурсы мира
-        RedstoneCrop = new RedstoneCrop().setUnlocalizedName("RedstoneCrop");
-        GlowstoneCrop = new GlowstoneCrop().setUnlocalizedName("GlowstoneCrop");
-        ObsidianCrop = new ObsidianCrop().setUnlocalizedName("ObsidianCrop");
-        NetherCrop = new NetherCrop().setUnlocalizedName("NetherCrop");
+        if (ConfigDisable.AIR) AirCrop = new AirCrop();
+        if (ConfigDisable.COAL) CoalCrop = new CoalCrop();
+        if (ConfigDisable.DYE) DyeCrop = new DyeCrop();
+        if (ConfigDisable.EARTH) EarthCrop = new EarthCrop();
+        if (ConfigDisable.FIRE) FireCrop = new FireCrop();
+        if (ConfigDisable.MINICIO) MinicioCrop = new MinicioCrop();
+        if (ConfigDisable.NATURE) NatureCrop = new NatureCrop();
+        if (ConfigDisable.WATER) WaterCrop = new WaterCrop();
+        if (ConfigDisable.REDSTONE) RedstoneCrop = new RedstoneCrop();
+        if (ConfigDisable.GLOWSTONE) GlowstoneCrop = new GlowstoneCrop();
+        if (ConfigDisable.OBSIDIAN) ObsidianCrop = new ObsidianCrop();
+        if (ConfigDisable.NETHER) NetherCrop = new NetherCrop();
+        if (ConfigDisable.IRON) IronCrop = new IronCrop();
+        if (ConfigDisable.GOLD) GoldCrop = new GoldCrop();
+        if (ConfigDisable.LAPIS) LapisCrop = new LapisCrop();
+        if (ConfigDisable.EXPERIENCE) ExperienceCrop = new ExperienceCrop();
+        if (ConfigDisable.QUARTZ) QuartzCrop = new QuartzCrop();
+        if (ConfigDisable.DIAMOND) DiamondCrop = new DiamondCrop();
+        if (ConfigDisable.EMERALD) EmeraldCrop = new EmeraldCrop();
 
-        // Металлы и драгоценности
-        IronCrop = new IronCrop().setUnlocalizedName("IronCrop");
-        GoldCrop = new GoldCrop().setUnlocalizedName("GoldCrop");
-        LapisCrop = new LapisCrop().setUnlocalizedName("LapisCrop");
-        ExperienceCrop = new ExperienceCrop().setUnlocalizedName("ExperienceCrop");
-        QuartzCrop = new QuartzCrop().setUnlocalizedName("QuartzCrop");
-        DiamondCrop = new DiamondCrop().setUnlocalizedName("DiamondCrop");
-        EmeraldCrop = new EmeraldCrop().setUnlocalizedName("EmeraldCrop");
+        if (ConfigDisable.BLAZE) BlazeCrop = new BlazeCrop();
+        if (ConfigDisable.CREEPER) CreeperCrop = new CreeperCrop();
+        if (ConfigDisable.ENDERMAN) EndermanCrop = new EndermanCrop();
+        if (ConfigDisable.GHAST) GhastCrop = new GhastCrop();
+        if (ConfigDisable.SKELETON) SkeletonCrop = new SkeletonCrop();
+        if (ConfigDisable.SLIME) SlimeCrop = new SlimeCrop();
+        if (ConfigDisable.SPIDER) SpiderCrop = new SpiderCrop();
+        if (ConfigDisable.WITHER) WitherCrop = new WitherCrop();
 
-        // Монстры
-        BlazeCrop = new BlazeCrop().setUnlocalizedName("BlazeCrop");
-        CreeperCrop = new CreeperCrop().setUnlocalizedName("CreeperCrop");
-        EndermanCrop = new EndermanCrop().setUnlocalizedName("EndermanCrop");
-        GhastCrop = new GhastCrop().setUnlocalizedName("GhastCrop");
-        SkeletonCrop = new SkeletonCrop().setUnlocalizedName("SkeletonCrop");
-        SlimeCrop = new SlimeCrop().setUnlocalizedName("SlimeCrop");
-        SpiderCrop = new SpiderCrop().setUnlocalizedName("SpiderCrop");
-        WitherCrop = new WitherCrop().setUnlocalizedName("WitherCrop");
-
-        // Животные
-        ChickenCrop = new ChickenCrop().setUnlocalizedName("ChickenCrop");
-        CowCrop = new CowCrop().setUnlocalizedName("CowCrop");
-        PigCrop = new PigCrop().setUnlocalizedName("PigCrop");
-        SheepCrop = new SheepCrop().setUnlocalizedName("SheepCrop");
-
-        registerBlocks();
-    }
-
-    private static void registerBlocks() {
-        // Здесь должна быть регистрация в GameRegistry, если вы её не делаете в другом месте
-        // Пример: GameRegistry.registerBlock(AirCrop, "AirCrop");
+        if (ConfigDisable.CHICKEN) ChickenCrop = new ChickenCrop();
+        if (ConfigDisable.COW) CowCrop = new CowCrop();
+        if (ConfigDisable.PIG) PigCrop = new PigCrop();
+        if (ConfigDisable.SHEEP) SheepCrop = new SheepCrop();
     }
 }
