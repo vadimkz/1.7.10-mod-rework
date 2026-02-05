@@ -18,6 +18,12 @@ public class MinicioCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public MinicioCrop() {
+        super();
+        this.setUnlocalizedName("MinicioCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         // Получаем стандартные семена Миничио из общего обработчика семян
@@ -30,28 +36,22 @@ public class MinicioCrop extends BlockMagicalCrops {
         return Essence.MinicioEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Регистрация текстур: "magicalcrops:CropMinicio_0" и т.д.
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropMinicio_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropMinicio_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Стандартная логика выбора иконки в зависимости от стадии роста (метаданных)
-        if (metadata < 7) {
-            // На 6-й стадии используется та же иконка, что и на 5-й (визуальный хак мода)
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            // Сдвиг вправо на 1 эквивалентен делению на 2 (0-1 -> 0, 2-3 -> 1, 4-6 -> 2)
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
-        // Метаданные 7 соответствуют финальной стадии роста
         return this.iconArray[3];
     }
 }

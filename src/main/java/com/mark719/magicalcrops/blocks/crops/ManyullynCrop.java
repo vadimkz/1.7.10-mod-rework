@@ -17,6 +17,12 @@ public class ManyullynCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public ManyullynCrop() {
+        super();
+        this.setUnlocalizedName("ManyullynCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         // Получаем семена Манюллина
@@ -29,26 +35,22 @@ public class ManyullynCrop extends BlockMagicalCrops {
         return ModCompat.ManyullynEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Путь к текстуре: magicalcrops:textures/blocks/CropManyullyn_X.png
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropManyullyn_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropManyullyn_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Логика отображения стадий роста
-        if (metadata < 7) {
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
-        // Возвращаем иконку полностью выросшего растения
         return this.iconArray[3];
     }
 }

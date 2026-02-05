@@ -17,6 +17,12 @@ public class GlowstoneCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public GlowstoneCrop() {
+        super();
+        this.setUnlocalizedName("GlowstoneCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         return MSeeds.GlowstoneSeeds;
@@ -27,26 +33,22 @@ public class GlowstoneCrop extends BlockMagicalCrops {
         return Essence.GlowstoneEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Регистрация текстур: magicalcrops:CropGlowstone_0, _1, _2, _3
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropGlowstone_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropGlowstone_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Логика выбора иконки в зависимости от стадии роста (метадаты)
-        if (metadata < 7) {
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
-        // Финальная стадия роста
         return this.iconArray[3];
     }
 }

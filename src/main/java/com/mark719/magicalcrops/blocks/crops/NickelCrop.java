@@ -17,6 +17,12 @@ public class NickelCrop extends BlockMagicalCrops {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
+    public NickelCrop() {
+        super();
+        this.setUnlocalizedName("NickelCrop");
+    }
+
+
     @Override
     public Item getSeed() {
         // Получение семян из обработчика совместимости модов
@@ -29,24 +35,21 @@ public class NickelCrop extends BlockMagicalCrops {
         return ModCompat.NickelEssence;
     }
 
-        @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            // Регистрация текстур по пути: assets/magicalcrops/textures/blocks/CropNickel_i.png
-            this.iconArray[i] = iconRegister.registerIcon("magicalcrops:CropNickel_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropNickel_" + i);
         }
     }
 
+
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        // Стандартная логика отображения 4-х иконок на 8-ми стадиях роста
-        if (metadata < 7) {
-            if (metadata == 6) {
-                metadata = 5;
-            }
-            return this.iconArray[metadata >> 1];
+    public IIcon getIcon(int side, int meta) {
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.iconArray[meta >> 1];
         }
         return this.iconArray[3];
     }
