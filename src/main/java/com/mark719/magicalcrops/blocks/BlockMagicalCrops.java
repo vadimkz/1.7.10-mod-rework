@@ -13,6 +13,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 
 /**
  * Исправленная версия для Minecraft 1.7.10
@@ -135,4 +138,49 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     public int getRenderType() {
         return 1; // Cross texture (как трава/пшеница)
     }
+    /**
+     * Harvest-on-right-click: if crop is mature (meta >= 7), drop crop + seed and reset to stage 0.
+     */
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z,
+                                    EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+
+        int meta = world.getBlockMetadata(x, y, z);
+
+        // Fully grown -> harvest
+        if (meta >= 7) {
+            if (!world.isRemote) {
+
+                Item crop = getCrop();
+                Item seed = getSeed();
+
+                if (crop != null) {
+                    dropItem(world, x, y, z, new ItemStack(crop, 1));
+                }
+
+                if (seed != null) {
+                    dropItem(world, x, y, z, new ItemStack(seed, 1));
+                }
+
+                // Replant: reset growth stage
+                world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    private void dropItem(World world, int x, int y, int z, ItemStack stack) {
+        float f = 0.7F;
+
+        double dx = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+        double dy = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+        double dz = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+
+        EntityItem entity = new EntityItem(world, x + dx, y + dy, z + dz, stack);
+        entity.delayBeforeCanPickup = 10;
+        world.spawnEntityInWorld(entity);
+    }
+
 }
