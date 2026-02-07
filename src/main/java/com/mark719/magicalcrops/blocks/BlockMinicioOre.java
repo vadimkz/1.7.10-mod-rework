@@ -10,13 +10,13 @@ import net.minecraft.item.Item;
 public class BlockMinicioOre extends Block {
 
     public BlockMinicioOre() {
-        // Material.field_151576_e — это Material.rock (камень)
+        // Material.rock — это Material.rock (камень)
         super(Material.rock);
 
         // func_149658_d — это setTextureName
         this.setTextureName("magicalcrops:EssenceOre");
 
-        // func_149647_a — это setCreativeTab
+        // setCreativeTab — это setCreativeTab
         this.setCreativeTab(MagicalCrops.tabMagical);
 
         // func_149672_a(field_149780_i) — это setStepSound(soundTypeStone)

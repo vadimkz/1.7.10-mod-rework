@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 public class BlockMinicioOreEnd extends Block {
 
     public BlockMinicioOreEnd() {
-        // Material.field_151576_e -> Material.rock
+        // Material.rock -> Material.rock
         super(Material.rock);
 
         // Установка текстуры руды для Энда

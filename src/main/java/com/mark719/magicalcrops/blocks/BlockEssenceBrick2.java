@@ -25,7 +25,7 @@ public class BlockEssenceBrick2 extends Block {
         this.icon = new IIcon[8];
 
         // Установка параметров блока
-        this.setCreativeTab(MagicalCrops.tabMagical); // func_149647_a
+        this.setCreativeTab(MagicalCrops.tabMagical); // setCreativeTab
         this.setHardness(2.0F);                       // func_149711_c
         this.setResistance(10.0F);                    // func_149752_b
         this.setLightLevel(1.0F);                     // func_149715_a

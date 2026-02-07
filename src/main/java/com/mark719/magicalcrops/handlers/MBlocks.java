@@ -1,103 +1,78 @@
-package com.mark719.magicalcrops.handlers;
-
-import com.mark719.magicalcrops.MagicalCrops;
-import com.mark719.magicalcrops.blocks.*;
-import com.mark719.magicalcrops.furnace.*;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-
-public class MBlocks {
-    // 1. Только объявляем переменные.
-    // Создавать объекты лучше прямо в init(), чтобы избежать проблем с порядком загрузки мода.
-
-    public static Block MinicioOre;
-    public static Block MinicioOreNether;
-    public static Block MinicioOreEnd;
-    public static Block CropBooster;
-    public static Block FarmlandAccio;
-    public static Block FarmlandCrucio;
-    public static Block FarmlandImperio;
-    public static Block FarmlandZivicio;
-    public static Block EssenceStone;
-    public static Block EssenceStorage;
-    public static Block EssenceBlock;
-    public static Block EssenceLamp;
-    public static Block EssenceBrick;
-    public static Block EssenceBrick2;
-    public static Block EssenceSquare;
-    public static Block WitherProof;
-    public static Block WitherProofGlass;
-    public static Block AccioFurnace;
-    public static Block AccioFurnaceActive;
-    public static Block CrucioFurnace;
-    public static Block CrucioFurnaceActive;
-    public static Block ImperioFurnace;
-    public static Block ImperioFurnaceActive;
-    public static Block ZivicioFurnace;
-    public static Block ZivicioFurnaceActive;
-    public static Block UltimateFurnace;
-    public static Block UltimateFurnaceActive;
-
-    public static void init() {
-        // РУДЫ
-        MinicioOre = setup(new BlockMinicioOre(), "MinicioOre");
-        MinicioOreNether = setup(new BlockMinicioOreNether(), "MinicioOreNether");
-        MinicioOreEnd = setup(new BlockMinicioOreEnd(), "MinicioOreEnd");
-
-        // ФУНКЦИОНАЛЬНЫЕ
-        CropBooster = setup(new BlockCropBooster(), "CropBooster");
-        FarmlandAccio = setup(new BlockFarmlandAccio(), "FarmlandAccio");
-        FarmlandCrucio = setup(new BlockFarmlandCrucio(), "FarmlandCrucio");
-        FarmlandImperio = setup(new BlockFarmlandImperio(), "FarmlandImperio");
-        FarmlandZivicio = setup(new BlockFarmlandZivicio(), "FarmlandZivicio");
-
-        // ДЕКОРАТИВНЫЕ
-        EssenceStone = setup(new BlockEssenceStone(), "EssenceStone");
-        EssenceStorage = setup(new BlockEssenceStorage(Material.rock), "EssenceStorage");
-        EssenceLamp = setup(new BlockEssenceLamp(Material.rock), "EssenceLamp");
-        EssenceBrick = setup(new BlockEssenceBrick(Material.rock), "EssenceBrick");
-        EssenceBrick2 = setup(new BlockEssenceBrick2(Material.rock), "EssenceBrick2");
-        EssenceSquare = setup(new BlockEssenceSquare(Material.rock), "EssenceSquare");
-
-        // Блок с метаданными: создание здесь, регистрация (с ItemBlock) делается в BlockRegister
-        EssenceBlock = new BlockEssenceBlock(Material.rock).setUnlocalizedName("EssenceBlock");
-
-        // ЗАЩИТА
-        WitherProof = setup(new BlockWitherProof(), "WitherProof");
-        WitherProofGlass = setup(new BlockWitherProofGlass(), "WitherProofGlass");
-
-        // ПЕЧИ (Выключаем дублирование через передачу параметров)
-        AccioFurnace = setupFurnace(new AccioFurnace(false), "AccioFurnace", true);
-        AccioFurnaceActive = setupFurnace(new AccioFurnace(true), "AccioFurnaceActive", false);
-
-        CrucioFurnace = setupFurnace(new CrucioFurnace(false), "CrucioFurnace", true);
-        CrucioFurnaceActive = setupFurnace(new CrucioFurnace(true), "CrucioFurnaceActive", false);
-
-        ImperioFurnace = setupFurnace(new ImperioFurnace(false), "ImperioFurnace", true);
-        ImperioFurnaceActive = setupFurnace(new ImperioFurnace(true), "ImperioFurnaceActive", false);
-
-        ZivicioFurnace = setupFurnace(new ZivicioFurnace(false), "ZivicioFurnace", true);
-        ZivicioFurnaceActive = setupFurnace(new ZivicioFurnace(true), "ZivicioFurnaceActive", false);
-
-        UltimateFurnace = setupFurnace(new UltimateFurnace(false), "UltimateFurnace", true);
-        UltimateFurnaceActive = setupFurnace(new UltimateFurnace(true), "UltimateFurnaceActive", false);
-    }
+/*    */ package com.mark719.magicalcrops.handlers;
+/*    */
+/*    */ import com.mark719.magicalcrops.MagicalCrops;
+/*    */ import com.mark719.magicalcrops.blocks.BlockCropBooster;
+/*    */ import com.mark719.magicalcrops.blocks.BlockEssenceBlock;
+/*    */ import com.mark719.magicalcrops.blocks.BlockEssenceBrick;
+/*    */ import com.mark719.magicalcrops.blocks.BlockEssenceBrick2;
+/*    */ import com.mark719.magicalcrops.blocks.BlockEssenceLamp;
+/*    */ import com.mark719.magicalcrops.blocks.BlockEssenceSquare;
+/*    */ import com.mark719.magicalcrops.blocks.BlockEssenceStone;
+/*    */ import com.mark719.magicalcrops.blocks.BlockEssenceStorage;
+/*    */ import com.mark719.magicalcrops.blocks.BlockFarmlandAccio;
+/*    */ import com.mark719.magicalcrops.blocks.BlockFarmlandCrucio;
+/*    */ import com.mark719.magicalcrops.blocks.BlockFarmlandImperio;
+/*    */ import com.mark719.magicalcrops.blocks.BlockFarmlandZivicio;
+/*    */ import com.mark719.magicalcrops.blocks.BlockMinicioOre;
+/*    */ import com.mark719.magicalcrops.blocks.BlockMinicioOreEnd;
+/*    */ import com.mark719.magicalcrops.blocks.BlockMinicioOreNether;
+/*    */ import com.mark719.magicalcrops.blocks.BlockWitherProof;
+/*    */ import com.mark719.magicalcrops.blocks.BlockWitherProofGlass;
+/*    */ import com.mark719.magicalcrops.furnace.AccioFurnace;
+/*    */ import com.mark719.magicalcrops.furnace.CrucioFurnace;
+/*    */ import com.mark719.magicalcrops.furnace.ImperioFurnace;
+/*    */ import com.mark719.magicalcrops.furnace.UltimateFurnace;
+/*    */ import com.mark719.magicalcrops.furnace.ZivicioFurnace;
+/*    */ import net.minecraft.block.Block;
+/*    */ import net.minecraft.block.material.Material;
+/*    */
+/*    */
+/*    */
+/*    */ public class MBlocks
+        /*    */ {
+    /* 33 */   public static Block MinicioOre = (new BlockMinicioOre()).setUnlocalizedName("MinicioOre");
+    /* 34 */   public static Block MinicioOreNether = (new BlockMinicioOreNether()).setUnlocalizedName("MinicioOreNether");
+    /* 35 */   public static Block MinicioOreEnd = (new BlockMinicioOreEnd()).setUnlocalizedName("MinicioOreEnd");
+    /*    */
+    /*    */
+    /* 38 */   public static Block CropBooster = (new BlockCropBooster()).setUnlocalizedName("CropBooster");
+    /*    */
+    /*    */
+    /* 41 */   public static Block FarmlandAccio = (new BlockFarmlandAccio()).setUnlocalizedName("FarmlandAccio");
+    /* 42 */   public static Block FarmlandCrucio = (new BlockFarmlandCrucio()).setUnlocalizedName("FarmlandCrucio");
+    /* 43 */   public static Block FarmlandImperio = (new BlockFarmlandImperio()).setUnlocalizedName("FarmlandImperio");
+    /* 44 */   public static Block FarmlandZivicio = (new BlockFarmlandZivicio()).setUnlocalizedName("FarmlandZivicio");
+    /*    */
+    /*    */
+    /* 47 */   public static Block EssenceStone = (new BlockEssenceStone()).setUnlocalizedName("EssenceStone");
+    /* 48 */   public static Block EssenceStorage = (new BlockEssenceStorage(Material.rock)).setUnlocalizedName("EssenceStorage");
+    /* 49 */   public static Block EssenceBlock = (new BlockEssenceBlock(Material.rock)).setUnlocalizedName("EssenceBlock");
+    /* 50 */   public static Block EssenceLamp = (new BlockEssenceLamp(Material.rock)).setUnlocalizedName("EssenceLamp");
+    /* 51 */   public static Block EssenceBrick = (new BlockEssenceBrick(Material.rock)).setUnlocalizedName("EssenceBrick");
+    /* 52 */   public static Block EssenceBrick2 = (new BlockEssenceBrick2(Material.rock)).setUnlocalizedName("EssenceBrick2");
+    /* 53 */   public static Block EssenceSquare = (new BlockEssenceSquare(Material.rock)).setUnlocalizedName("EssenceSquare");
+    /* 54 */   public static Block WitherProof = (new BlockWitherProof()).setUnlocalizedName("WitherProof");
+    /* 55 */   public static Block WitherProofGlass = (new BlockWitherProofGlass()).setUnlocalizedName("WitherProofGlass");
+    /*    */
+    /*    */
+    /* 58 */   public static Block AccioFurnace = (new AccioFurnace(false)).setUnlocalizedName("AccioFurnace").setCreativeTab(MagicalCrops.tabMagical);
+    /* 59 */   public static Block AccioFurnaceActive = (new AccioFurnace(true)).setUnlocalizedName("AccioFurnaceActive");
+    /*    */
+    /* 61 */   public static Block CrucioFurnace = (new CrucioFurnace(false)).setUnlocalizedName("CrucioFurnace").setCreativeTab(MagicalCrops.tabMagical);
+    /* 62 */   public static Block CrucioFurnaceActive = (new CrucioFurnace(true)).setUnlocalizedName("CrucioFurnaceActive");
+    /*    */
+    /* 64 */   public static Block ImperioFurnace = (new ImperioFurnace(false)).setUnlocalizedName("ImperioFurnace").setCreativeTab(MagicalCrops.tabMagical);
+    /* 65 */   public static Block ImperioFurnaceActive = (new ImperioFurnace(true)).setUnlocalizedName("ImperioFurnaceActive");
+    /*    */
+    /* 67 */   public static Block ZivicioFurnace = (new ZivicioFurnace(false)).setUnlocalizedName("ZivicioFurnace").setCreativeTab(MagicalCrops.tabMagical);
+    /* 68 */   public static Block ZivicioFurnaceActive = (new ZivicioFurnace(true)).setUnlocalizedName("ZivicioFurnaceActive");
+    /*    */
+    /* 70 */   public static Block UltimateFurnace = (new UltimateFurnace(false)).setUnlocalizedName("UltimateFurnace").setCreativeTab(MagicalCrops.tabMagical);
+    /* 71 */   public static Block UltimateFurnaceActive = (new UltimateFurnace(true)).setUnlocalizedName("UltimateFurnaceActive");
+    /*    */ }
 
 
-    /**
-     * Создание (и настройка) блока. Регистрация делается отдельно в BlockRegister.
-     */
-    private static Block setup(Block block, String unlocalizedName) {
-        return block.setUnlocalizedName(unlocalizedName);
-    }
-
-    /**
-     * Создание печей: активная версия без creative tab, неактивная — с tab.
-     * Регистрация делается отдельно в BlockRegister.
-     */
-    private static Block setupFurnace(Block block, String unlocalizedName, boolean hasTab) {
-        if (hasTab) block.setCreativeTab(MagicalCrops.tabMagical);
-        return setup(block, unlocalizedName);
-    }
-
-}
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\handlers\MBlocks.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */

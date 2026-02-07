@@ -43,8 +43,8 @@ public class BlockCropBooster extends Block {
     // Попробуем убрать @Override, если компилятор жалуется,
     // но в 1.7.10 этот метод ДОЛЖЕН быть в классе Block.
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIconInstance = iconRegister.registerIcon("magicalcrops:booster_block");
+    public void registerBlockIcons(IIconRegister reg) {
+        this.blockIcon = reg.registerIcon("magicalcrops:booster_block");
     }
 
     @Override

@@ -1,43 +1,46 @@
 package com.mark719.magicalcrops.blocks.crops;
 
 import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
-import com.mark719.magicalcrops.handlers.Essence;
-import com.mark719.magicalcrops.handlers.MSeeds;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
 public class AirCrop extends BlockMagicalCrops {
 
     @SideOnly(Side.CLIENT)
-    private IIcon[] iconArray;
+    private IIcon[] growthIcons;
 
-    @Override
-    protected Item getSeed() {
-        return MSeeds.AirSeeds;
+    public AirCrop() {
+        super();
+        this.setUnlocalizedName("AirCrop");
     }
 
-    @Override
-    protected Item getCrop() {
-        return Essence.AirEssence;
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
+    public void registerBlockIcons(IIconRegister reg) {
 
-        if (iconArray == null) {
-            System.out.println("AirCrop iconArray NULL — registerBlockIcons not called!");
-            return net.minecraft.init.Blocks.wheat.getIcon(0,0);
+        this.growthIcons = new IIcon[4];
+
+        for (int i = 0; i < 4; i++) {
+            this.growthIcons[i] = reg.registerIcon("magicalcrops:CropAir_" + i);
+        }
+    }
+
+    /**
+     * ВАЖНО:
+     * В 1.7.10 растения используют этот метод для стадий роста,
+     * а не getIcon()
+     */
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(int stage) {
+
+        if (this.growthIcons == null) {
+            return null;
         }
 
-        if (meta < 7) {
-            if (meta == 6) meta = 5;
-            return iconArray[meta >> 1];
-        }
+        if (stage < 0) stage = 0;
+        if (stage >= this.growthIcons.length) stage = this.growthIcons.length - 1;
 
-        return iconArray[3];
+        return this.growthIcons[stage];
     }
 }

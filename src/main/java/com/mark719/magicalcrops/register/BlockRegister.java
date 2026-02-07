@@ -10,12 +10,12 @@ import com.mark719.magicalcrops.itemblock.ItemBlockEssenceBrick2;
 import com.mark719.magicalcrops.itemblock.ItemBlockEssenceLamp;
 import com.mark719.magicalcrops.itemblock.ItemBlockEssenceSquare;
 import com.mark719.magicalcrops.itemblock.ItemBlockEssenceStorage;
-import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.block.Block;
 
 /**
- * Регистрация блоков (как в оригинале), но с защитой от null,
- * чтобы не ловить "Tried to register null block: ...".
+ * Регистрация блоков — логика как в оригинале Magical Crops.
+ * ConfigDisable = флаг отключения, поэтому регистрируем при false.
  */
 public class BlockRegister {
 
@@ -25,40 +25,42 @@ public class BlockRegister {
         safe(MBlocks.MinicioOreNether);
         safe(MBlocks.MinicioOreEnd);
 
-        if (ConfigDisable.AIR) safe(MCrops.AirCrop);
-        if (ConfigDisable.COAL) safe(MCrops.CoalCrop);
-        if (ConfigDisable.DYE) safe(MCrops.DyeCrop);
-        if (ConfigDisable.EARTH) safe(MCrops.EarthCrop);
-        if (ConfigDisable.FIRE) safe(MCrops.FireCrop);
-        if (ConfigDisable.MINICIO) safe(MCrops.MinicioCrop);
-        if (ConfigDisable.NATURE) safe(MCrops.NatureCrop);
-        if (ConfigDisable.WATER) safe(MCrops.WaterCrop);
-        if (ConfigDisable.REDSTONE) safe(MCrops.RedstoneCrop);
-        if (ConfigDisable.GLOWSTONE) safe(MCrops.GlowstoneCrop);
-        if (ConfigDisable.OBSIDIAN) safe(MCrops.ObsidianCrop);
-        if (ConfigDisable.NETHER) safe(MCrops.NetherCrop);
-        if (ConfigDisable.IRON) safe(MCrops.IronCrop);
-        if (ConfigDisable.GOLD) safe(MCrops.GoldCrop);
-        if (ConfigDisable.LAPIS) safe(MCrops.LapisCrop);
-        if (ConfigDisable.EXPERIENCE) safe(MCrops.ExperienceCrop);
-        if (ConfigDisable.QUARTZ) safe(MCrops.QuartzCrop);
-        if (ConfigDisable.DIAMOND) safe(MCrops.DiamondCrop);
-        if (ConfigDisable.EMERALD) safe(MCrops.EmeraldCrop);
+        // === CROPS (регистрируем когда НЕ отключены) ===
+        if (!ConfigDisable.AIR) safe(MCrops.AirCrop);
+        if (!ConfigDisable.COAL) safe(MCrops.CoalCrop);
+        if (!ConfigDisable.DYE) safe(MCrops.DyeCrop);
+        if (!ConfigDisable.EARTH) safe(MCrops.EarthCrop);
+        if (!ConfigDisable.FIRE) safe(MCrops.FireCrop);
+        if (!ConfigDisable.MINICIO) safe(MCrops.MinicioCrop);
+        if (!ConfigDisable.NATURE) safe(MCrops.NatureCrop);
+        if (!ConfigDisable.WATER) safe(MCrops.WaterCrop);
+        if (!ConfigDisable.REDSTONE) safe(MCrops.RedstoneCrop);
+        if (!ConfigDisable.GLOWSTONE) safe(MCrops.GlowstoneCrop);
+        if (!ConfigDisable.OBSIDIAN) safe(MCrops.ObsidianCrop);
+        if (!ConfigDisable.NETHER) safe(MCrops.NetherCrop);
+        if (!ConfigDisable.IRON) safe(MCrops.IronCrop);
+        if (!ConfigDisable.GOLD) safe(MCrops.GoldCrop);
+        if (!ConfigDisable.LAPIS) safe(MCrops.LapisCrop);
+        if (!ConfigDisable.EXPERIENCE) safe(MCrops.ExperienceCrop);
+        if (!ConfigDisable.QUARTZ) safe(MCrops.QuartzCrop);
+        if (!ConfigDisable.DIAMOND) safe(MCrops.DiamondCrop);
+        if (!ConfigDisable.EMERALD) safe(MCrops.EmeraldCrop);
 
-        if (ConfigDisable.BLAZE) safe(MCrops.BlazeCrop);
-        if (ConfigDisable.CREEPER) safe(MCrops.CreeperCrop);
-        if (ConfigDisable.ENDERMAN) safe(MCrops.EndermanCrop);
-        if (ConfigDisable.GHAST) safe(MCrops.GhastCrop);
-        if (ConfigDisable.SKELETON) safe(MCrops.SkeletonCrop);
-        if (ConfigDisable.SLIME) safe(MCrops.SlimeCrop);
-        if (ConfigDisable.SPIDER) safe(MCrops.SpiderCrop);
-        if (ConfigDisable.WITHER) safe(MCrops.WitherCrop);
+        if (!ConfigDisable.BLAZE) safe(MCrops.BlazeCrop);
+        if (!ConfigDisable.CREEPER) safe(MCrops.CreeperCrop);
+        if (!ConfigDisable.ENDERMAN) safe(MCrops.EndermanCrop);
+        if (!ConfigDisable.GHAST) safe(MCrops.GhastCrop);
+        if (!ConfigDisable.SKELETON) safe(MCrops.SkeletonCrop);
+        if (!ConfigDisable.SLIME) safe(MCrops.SlimeCrop);
+        if (!ConfigDisable.SPIDER) safe(MCrops.SpiderCrop);
+        if (!ConfigDisable.WITHER) safe(MCrops.WitherCrop);
 
-        if (ConfigDisable.CHICKEN) safe(MCrops.ChickenCrop);
-        if (ConfigDisable.COW) safe(MCrops.CowCrop);
-        if (ConfigDisable.PIG) safe(MCrops.PigCrop);
-        if (ConfigDisable.SHEEP) safe(MCrops.SheepCrop);
+        if (!ConfigDisable.CHICKEN) safe(MCrops.ChickenCrop);
+        if (!ConfigDisable.COW) safe(MCrops.CowCrop);
+        if (!ConfigDisable.PIG) safe(MCrops.PigCrop);
+        if (!ConfigDisable.SHEEP) safe(MCrops.SheepCrop);
 
+        // === OTHER BLOCKS ===
         safe(MBlocks.CropBooster);
         safe(MBlocks.EssenceStone);
 
@@ -81,18 +83,19 @@ public class BlockRegister {
         safe(MBlocks.UltimateFurnace);
         safe(MBlocks.UltimateFurnaceActive);
 
+        // === BLOCKS WITH CUSTOM ITEMBLOCK ===
         if (MBlocks.EssenceStorage != null)
-            GameRegistry.registerBlock(MBlocks.EssenceStorage, ItemBlockEssenceStorage.class, "essence_storage");
+            BlockRegisterHelper.registerBlock(MBlocks.EssenceStorage, ItemBlockEssenceStorage.class, "essence_storage");
         if (MBlocks.EssenceBrick != null)
-            GameRegistry.registerBlock(MBlocks.EssenceBrick, ItemBlockEssenceBrick.class, "essence_brick");
+            BlockRegisterHelper.registerBlock(MBlocks.EssenceBrick, ItemBlockEssenceBrick.class, "essence_brick");
         if (MBlocks.EssenceBlock != null)
-            GameRegistry.registerBlock(MBlocks.EssenceBlock, ItemBlockEssenceBlock.class, "essence_block");
+            BlockRegisterHelper.registerBlock(MBlocks.EssenceBlock, ItemBlockEssenceBlock.class, "essence_block");
         if (MBlocks.EssenceBrick2 != null)
-            GameRegistry.registerBlock(MBlocks.EssenceBrick2, ItemBlockEssenceBrick2.class, "essence_brick2");
+            BlockRegisterHelper.registerBlock(MBlocks.EssenceBrick2, ItemBlockEssenceBrick2.class, "essence_brick2");
         if (MBlocks.EssenceSquare != null)
-            GameRegistry.registerBlock(MBlocks.EssenceSquare, ItemBlockEssenceSquare.class, "essence_Square");
+            BlockRegisterHelper.registerBlock(MBlocks.EssenceSquare, ItemBlockEssenceSquare.class, "essence_square");
         if (MBlocks.EssenceLamp != null)
-            GameRegistry.registerBlock(MBlocks.EssenceLamp, ItemBlockEssenceLamp.class, "essence_lamp");
+            BlockRegisterHelper.registerBlock(MBlocks.EssenceLamp, ItemBlockEssenceLamp.class, "essence_lamp");
     }
 
     private static void safe(Block block) {

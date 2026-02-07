@@ -128,11 +128,19 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        if (this.icons == null || meta < 0 || meta >= this.icons.length) {
-            return Blocks.wheat.getIcon(0, meta);
+
+        if (this.icons == null) {
+            return net.minecraft.init.Blocks.wheat.getIcon(0, 0);
         }
-        return this.icons[meta];
+
+        if (meta < 7) {
+            if (meta == 6) meta = 5;
+            return this.icons[meta >> 1];
+        }
+
+        return this.icons[3];
     }
+
 
     @Override
     public int getRenderType() {

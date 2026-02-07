@@ -8,11 +8,7 @@ import com.mark719.magicalcrops.events.FireProtectionEvent;
 import com.mark719.magicalcrops.events.MinicioCropBreak;
 import com.mark719.magicalcrops.events.MinicioOreBreak;
 import com.mark719.magicalcrops.events.MobDropEvent;
-import com.mark719.magicalcrops.handlers.Essence;
-import com.mark719.magicalcrops.handlers.MBlocks;
-import com.mark719.magicalcrops.handlers.MCrops;
-import com.mark719.magicalcrops.handlers.MSeeds;
-import com.mark719.magicalcrops.handlers.ModCompat;
+import com.mark719.magicalcrops.handlers.*;
 import com.mark719.magicalcrops.recipes.BlockRecipes;
 import com.mark719.magicalcrops.recipes.EnchantmentRecipes;
 import com.mark719.magicalcrops.recipes.ItemRecipes;
@@ -98,13 +94,14 @@ public class MagicalCrops {
     public void init(FMLInitializationEvent event) {
 
         // 1) Создаём содержимое (в нашем проекте это вынесено в init())
-        MBlocks.init();
         MCrops.init();
+        BlockRegister.registerBlock();
+
         MSeeds.init();
 
         // 2) Регистрируем предметы/блоки (как в оригинале, но после создания объектов)
         ItemRegister.registerItem();
-        BlockRegister.registerBlock();
+
 
         // 3) Совместимости (как в оригинале)
         ModCompat.loadCompat();

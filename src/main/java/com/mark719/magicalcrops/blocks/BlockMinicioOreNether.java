@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 public class BlockMinicioOreNether extends Block {
 
     public BlockMinicioOreNether() {
-        // Material.field_151576_e -> Material.rock (камень)
+        // Material.rock -> Material.rock (камень)
         super(Material.rock);
 
         // Установка пути к текстуре руды для Незера
