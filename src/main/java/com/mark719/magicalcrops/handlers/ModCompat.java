@@ -69,6 +69,7 @@ import com.mark719.magicalcrops.items.seeds.SulfurSeeds;
 import com.mark719.magicalcrops.items.seeds.TerrasteelSeeds;
 import com.mark719.magicalcrops.items.seeds.TinSeeds;
 import com.mark719.magicalcrops.items.seeds.YelloriteSeeds;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -117,7 +118,7 @@ public class ModCompat {
             AluminiumSeeds = (new AluminiumSeeds(AluminiumCrop, net.minecraft.init.Blocks.farmland))
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("AluminiumSeeds");
-            register(AluminiumEssence, AluminiumCrop, AluminiumSeeds);
+            register(AluminiumEssence, "AluminiumEssence", AluminiumCrop, "AluminiumCrop", AluminiumSeeds, "AluminiumSeeds");
             addRecipe(AluminiumSeeds, crucioEssence, "ingotAluminium");
             addEssenceToItemRecipe(AluminiumEssence, "ingotAluminium", ConfigCrafting.outPutAluminium);
             OreDictionary.registerOre("essenceAluminium", AluminiumEssence);
@@ -130,7 +131,7 @@ public class ModCompat {
             ArditeSeeds = (new ArditeSeeds(ArditeCrop, net.minecraft.init.Blocks.farmland))
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("ArditeSeeds");
-            register(ArditeEssence, ArditeCrop, ArditeSeeds);
+            register(ArditeEssence, "ArditeEssence", ArditeCrop, "ArditeCrop", ArditeSeeds, "ArditeSeeds");
             addRecipe(ArditeSeeds, imperioEssence, "ingotArdite");
             addEssenceToItemRecipe(ArditeEssence, "ingotArdite", ConfigCrafting.outPutArdite);
             OreDictionary.registerOre("essenceArdite", ArditeEssence);
@@ -143,7 +144,7 @@ public class ModCompat {
             CobaltSeeds = (new CobaltSeeds(CobaltCrop, net.minecraft.init.Blocks.farmland))
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("CobaltSeeds");
-            register(CobaltEssence, CobaltCrop, CobaltSeeds);
+            register(CobaltEssence, "CobaltEssence", CobaltCrop, "CobaltCrop", CobaltSeeds, "CobaltSeeds");
             addRecipe(CobaltSeeds, zivicioEssence, "ingotCobalt");
             addEssenceToItemRecipe(CobaltEssence, "ingotCobalt", ConfigCrafting.outPutCobalt);
             OreDictionary.registerOre("essenceCobalt", CobaltEssence);
@@ -156,7 +157,7 @@ public class ModCompat {
             CopperSeeds = (new CopperSeeds(CopperCrop, net.minecraft.init.Blocks.farmland))
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("CopperSeeds");
-            register(CopperEssence, CopperCrop, CopperSeeds);
+            register(CopperEssence, "CopperEssence", CopperCrop, "CopperCrop", CopperSeeds, "CopperSeeds");
             addRecipe(CopperSeeds, crucioEssence, "ingotCopper");
             addEssenceToItemRecipe(CopperEssence, "ingotCopper", ConfigCrafting.outPutCopper);
             OreDictionary.registerOre("essenceCopper", CopperEssence);
@@ -169,7 +170,7 @@ public class ModCompat {
             CertusQuartzSeeds = (new CertusQuartzSeeds(CertusQuartzCrop, net.minecraft.init.Blocks.farmland))
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("CertusQuartzSeeds");
-            register(CertusQuartzEssence, CertusQuartzCrop, CertusQuartzSeeds);
+            register(CertusQuartzEssence, "CertusQuartzEssence", CertusQuartzCrop, "CertusQuartzCrop", CertusQuartzSeeds, "CertusQuartzSeeds");
             addRecipe(CertusQuartzSeeds, crucioEssence, "crystalCertusQuartz");
             addEssenceToItemRecipe(CertusQuartzEssence, "crystalCertusQuartz", ConfigCrafting.outPutCertusQuartz);
             OreDictionary.registerOre("essenceCertusQuartz", CertusQuartzEssence);
@@ -183,7 +184,7 @@ public class ModCompat {
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("LeadSeeds");
 
-            register(LeadEssence, LeadCrop, LeadSeeds);
+            register(LeadEssence, "LeadEssence", LeadCrop, "LeadCrop", LeadSeeds, "LeadSeeds");
             addRecipe(LeadSeeds, crucioEssence, "ingotLead");
             addEssenceToItemRecipe(LeadEssence, "ingotLead", ConfigCrafting.outPutLead);
             OreDictionary.registerOre("essenceLead", LeadEssence);
@@ -198,7 +199,7 @@ public class ModCompat {
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("NickelSeeds");
 
-            register(NickelEssence, NickelCrop, NickelSeeds);
+            register(NickelEssence, "NickelEssence", NickelCrop, "NickelCrop", NickelSeeds, "NickelSeeds");
             addRecipe(NickelSeeds, imperioEssence, "ingotNickel");
             addEssenceToItemRecipe(NickelEssence, "ingotNickel", ConfigCrafting.outPutNickel);
             OreDictionary.registerOre("essenceNickel", NickelEssence);
@@ -212,7 +213,7 @@ public class ModCompat {
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("OsmiumSeeds");
 
-            register(OsmiumEssence, OsmiumCrop, OsmiumSeeds);
+            register(OsmiumEssence, "OsmiumEssence", OsmiumCrop, "OsmiumCrop", OsmiumSeeds, "OsmiumSeeds");
             addRecipe(OsmiumSeeds, imperioEssence, "ingotOsmium");
             addEssenceToItemRecipe(OsmiumEssence, "ingotOsmium", ConfigCrafting.outPutOsmium);
             OreDictionary.registerOre("essenceOsmium", OsmiumEssence);
@@ -224,7 +225,7 @@ public class ModCompat {
             PeridotCrop = (new PeridotCrop()).setUnlocalizedName("PeridotCrop");
             PeridotSeeds = (new PeridotSeeds(PeridotCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("PeridotSeeds");
 
-            register(PeridotEssence, PeridotCrop, PeridotSeeds);
+            register(PeridotEssence, "PeridotEssence", PeridotCrop, "PeridotCrop", PeridotSeeds, "PeridotSeeds");
             addRecipe(PeridotSeeds, imperioEssence, "gemPeridot");
             addEssenceToItemRecipe(PeridotEssence, "gemPeridot", ConfigCrafting.outPutPeridot);
             OreDictionary.registerOre("essencePeridot", PeridotEssence);
@@ -236,7 +237,7 @@ public class ModCompat {
             RubyCrop = (new RubyCrop()).setUnlocalizedName("RubyCrop");
             RubySeeds = (new RubySeeds(RubyCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("RubySeeds");
 
-            register(RubyEssence, RubyCrop, RubySeeds);
+            register(RubyEssence, "RubyEssence", RubyCrop, "RubyCrop", RubySeeds, "RubySeeds");
             addRecipe(RubySeeds, imperioEssence, "gemRuby");
             addEssenceToItemRecipe(RubyEssence, "gemRuby", ConfigCrafting.outPutRuby);
             OreDictionary.registerOre("essenceRuby", RubyEssence);
@@ -248,7 +249,7 @@ public class ModCompat {
             SapphireCrop = (new SapphireCrop()).setUnlocalizedName("SapphireCrop");
             SapphireSeeds = (new SapphireSeeds(SapphireCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SapphireSeeds");
 
-            register(SapphireEssence, SapphireCrop, SapphireSeeds);
+            register(SapphireEssence, "SapphireEssence", SapphireCrop, "SapphireCrop", SapphireSeeds, "SapphireSeeds");
             addRecipe(SapphireSeeds, imperioEssence, "gemSapphire");
             addEssenceToItemRecipe(SapphireEssence, "gemSapphire", ConfigCrafting.outPutSapphire);
             OreDictionary.registerOre("essenceSapphire", SapphireEssence);
@@ -260,7 +261,7 @@ public class ModCompat {
             PlatinumCrop = (new PlatinumCrop()).setUnlocalizedName("PlatinumCrop");
             PlatinumSeeds = (new PlatinumSeeds(PlatinumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("PlatinumSeeds");
 
-            register(PlatinumEssence, PlatinumCrop, PlatinumSeeds);
+            register(PlatinumEssence, "PlatinumEssence", PlatinumCrop, "PlatinumCrop", PlatinumSeeds, "PlatinumSeeds");
             addRecipe(PlatinumSeeds, zivicioEssence, "ingotPlatinum");
             addEssenceToItemRecipe(PlatinumEssence, "ingotPlatinum", ConfigCrafting.outPutPlatinum);
             OreDictionary.registerOre("essencePlatinum", PlatinumEssence);
@@ -273,7 +274,7 @@ public class ModCompat {
             RubberSeeds = (new RubberSeeds(RubberCrop, farmland))
                     .setTextureName("magicalcrops:seeds_blank")
                     .setUnlocalizedName("RubberSeeds");
-            register(RubberEssence, RubberCrop, RubberSeeds);
+            register(RubberEssence, "RubberEssence", RubberCrop, "RubberCrop", RubberSeeds, "RubberSeeds");
             addRecipe(RubberSeeds, accioEssence, "itemRubber");
             addEssenceToItemRecipe(RubberEssence, "itemRubber", ConfigCrafting.outPutRubber);
             OreDictionary.registerOre("essenceRubber", RubberEssence);
@@ -285,7 +286,7 @@ public class ModCompat {
             SilverCrop = (new SilverCrop()).setUnlocalizedName("SilverCrop");
             SilverSeeds = (new SilverSeeds(SilverCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SilverSeeds");
 
-            register(SilverEssence, SilverCrop, SilverSeeds);
+            register(SilverEssence, "SilverEssence", SilverCrop, "SilverCrop", SilverSeeds, "SilverSeeds");
             addRecipe(SilverSeeds, imperioEssence, "ingotSilver");
             addEssenceToItemRecipe(SilverEssence, "ingotSilver", ConfigCrafting.outPutSilver);
             OreDictionary.registerOre("essenceSilver", SilverEssence);
@@ -297,7 +298,7 @@ public class ModCompat {
             TinCrop = (new TinCrop()).setUnlocalizedName("TinCrop");
             TinSeeds = (new TinSeeds(TinCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("TinSeeds");
 
-            register(TinEssence, TinCrop, TinSeeds);
+            register(TinEssence, "TinEssence", TinCrop, "TinCrop", TinSeeds, "TinSeeds");
             addRecipe(TinSeeds, crucioEssence, "ingotTin");
             addEssenceToItemRecipe(TinEssence, "ingotTin", ConfigCrafting.outPutTin);
             OreDictionary.registerOre("essenceTin", TinEssence);
@@ -310,7 +311,7 @@ public class ModCompat {
             SulfurSeeds = (new SulfurSeeds(SulfurCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SulfurSeeds");
 
 
-            register(SulfurEssence, SulfurCrop, SulfurSeeds);
+            register(SulfurEssence, "SulfurEssence", SulfurCrop, "SulfurCrop", SulfurSeeds, "SulfurSeeds");
             addRecipe(SulfurSeeds, crucioEssence, "dustSulfur");
             addEssenceToItemRecipe(SulfurEssence, "dustSulfur", ConfigCrafting.outPutSulfur);
             OreDictionary.registerOre("essenceSulfur", SulfurEssence);
@@ -322,7 +323,7 @@ public class ModCompat {
             YelloriteCrop = (new YelloriteCrop()).setUnlocalizedName("YelloriteCrop");
             YelloriteSeeds = (new YelloriteSeeds(YelloriteCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("YelloriteSeeds");
 
-            register(YelloriteEssence, YelloriteCrop, YelloriteSeeds);
+            register(YelloriteEssence, "YelloriteEssence", YelloriteCrop, "YelloriteCrop", YelloriteSeeds, "YelloriteSeeds");
             addRecipe(YelloriteSeeds, imperioEssence, "ingotYellorium");
             addEssenceToItemRecipe(YelloriteEssence, "ingotYellorium", ConfigCrafting.outPutYellorite);
             OreDictionary.registerOre("essenceYellorite", YelloriteEssence);
@@ -334,7 +335,7 @@ public class ModCompat {
             AlumiteCrop = (new AlumiteCrop()).setUnlocalizedName("AlumiteCrop");
             AlumiteSeeds = (new AlumiteSeeds(AlumiteCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("AlumiteSeeds");
 
-            register(AlumiteEssence, AlumiteCrop, AlumiteSeeds);
+            register(AlumiteEssence, "AlumiteEssence", AlumiteCrop, "AlumiteCrop", AlumiteSeeds, "AlumiteSeeds");
             addRecipe(AlumiteSeeds, imperioEssence, "ingotAlumite");
             addEssenceToItemRecipe(AlumiteEssence, "ingotAlumite", ConfigCrafting.outPutAlumite);
             OreDictionary.registerOre("essenceAlumite", AlumiteEssence);
@@ -346,7 +347,7 @@ public class ModCompat {
             BlizzCrop = (new BlizzCrop()).setUnlocalizedName("BlizzCrop");
             BlizzSeeds = (new BlizzSeeds(BlizzCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("BlizzSeeds");
 
-            register(BlizzEssence, BlizzCrop, BlizzSeeds);
+            register(BlizzEssence, "BlizzEssence", BlizzCrop, "BlizzCrop", BlizzSeeds, "BlizzSeeds");
             addRecipe(BlizzSeeds, imperioEssence, "rodBlizz");
             addEssenceToItemRecipe(BlizzEssence, "rodBlizz", ConfigCrafting.outPutBlizz);
             OreDictionary.registerOre("essenceBlizz", BlizzEssence);
@@ -358,7 +359,7 @@ public class ModCompat {
             BronzeCrop = (new BronzeCrop()).setUnlocalizedName("BronzeCrop");
             BronzeSeeds = (new BronzeSeeds(BronzeCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("BronzeSeeds");
 
-            register(BronzeEssence, BronzeCrop, BronzeSeeds);
+            register(BronzeEssence, "BronzeEssence", BronzeCrop, "BronzeCrop", BronzeSeeds, "BronzeSeeds");
             addRecipe(BronzeSeeds, crucioEssence, "ingotBronze");
             addEssenceToItemRecipe(BronzeEssence, "ingotBronze", ConfigCrafting.outPutBronze);
             OreDictionary.registerOre("essenceBronze", BronzeEssence);
@@ -370,7 +371,7 @@ public class ModCompat {
             ElectrumCrop = (new ElectrumCrop()).setUnlocalizedName("ElectrumCrop");
             ElectrumSeeds = (new ElectrumSeeds(ElectrumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("ElectrumSeeds");
 
-            register(ElectrumEssence, ElectrumCrop, ElectrumSeeds);
+            register(ElectrumEssence, "ElectrumEssence", ElectrumCrop, "ElectrumCrop", ElectrumSeeds, "ElectrumSeeds");
             addRecipe(ElectrumSeeds, imperioEssence, "ingotElectrum");
             addEssenceToItemRecipe(ElectrumEssence, "ingotElectrum", ConfigCrafting.outPutElectrum);
             OreDictionary.registerOre("essenceElectrum", ElectrumEssence);
@@ -382,7 +383,7 @@ public class ModCompat {
             EnderiumCrop = (new EnderiumCrop()).setUnlocalizedName("EnderiumCrop");
             EnderiumSeeds = (new EnderiumSeeds(EnderiumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("EnderiumSeeds");
 
-            register(EnderiumEssence, EnderiumCrop, EnderiumSeeds);
+            register(EnderiumEssence, "EnderiumEssence", EnderiumCrop, "EnderiumCrop", EnderiumSeeds, "EnderiumSeeds");
             addRecipe(EnderiumSeeds, zivicioEssence, "ingotEnderium");
             addEssenceToItemRecipe(EnderiumEssence, "ingotEnderium", ConfigCrafting.outPutEnderium);
             OreDictionary.registerOre("essenceEnderium", EnderiumEssence);
@@ -394,7 +395,7 @@ public class ModCompat {
             FluixCrop = (new FluixCrop()).setUnlocalizedName("FluixCrop");
             FluixSeeds = (new FluixSeeds(FluixCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("FluixSeeds");
 
-            register(FluixEssence, FluixCrop, FluixSeeds);
+            register(FluixEssence, "FluixEssence", FluixCrop, "FluixCrop", FluixSeeds, "FluixSeeds");
             addRecipe(FluixSeeds, imperioEssence, "crystalFluix");
             addEssenceToItemRecipe(FluixEssence, "crystalFluix", ConfigCrafting.outPutFluix);
             OreDictionary.registerOre("essenceFluix", FluixEssence);
@@ -406,7 +407,7 @@ public class ModCompat {
             InvarCrop = (new InvarCrop()).setUnlocalizedName("InvarCrop");
             InvarSeeds = (new InvarSeeds(InvarCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("InvarSeeds");
 
-            register(InvarEssence, InvarCrop, InvarSeeds);
+            register(InvarEssence, "InvarEssence", InvarCrop, "InvarCrop", InvarSeeds, "InvarSeeds");
             addRecipe(InvarSeeds, imperioEssence, "ingotInvar");
             addEssenceToItemRecipe(InvarEssence, "ingotInvar", ConfigCrafting.outPutInvar);
             OreDictionary.registerOre("essenceInvar", InvarEssence);
@@ -418,7 +419,7 @@ public class ModCompat {
             LumiumCrop = (new LumiumCrop()).setUnlocalizedName("LumiumCrop");
             LumiumSeeds = (new LumiumSeeds(LumiumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("LumiumSeeds");
 
-            register(LumiumEssence, LumiumCrop, LumiumSeeds);
+            register(LumiumEssence, "LumiumEssence", LumiumCrop, "LumiumCrop", LumiumSeeds, "LumiumSeeds");
             addRecipe(LumiumSeeds, imperioEssence, "ingotLumium");
             addEssenceToItemRecipe(LumiumEssence, "ingotLumium", ConfigCrafting.outPutLumium);
             OreDictionary.registerOre("essenceLumium", LumiumEssence);
@@ -430,7 +431,7 @@ public class ModCompat {
             ManasteelCrop = (new ManasteelCrop()).setUnlocalizedName("ManasteelCrop");
             ManasteelSeeds = (new ManasteelSeeds(ManasteelCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("ManasteelSeeds");
 
-            register(ManasteelEssence, ManasteelCrop, ManasteelSeeds);
+            register(ManasteelEssence, "ManasteelEssence", ManasteelCrop, "ManasteelCrop", ManasteelSeeds, "ManasteelSeeds");
             addRecipe(ManasteelSeeds, crucioEssence, "ingotManasteel");
             addEssenceToItemRecipe(ManasteelEssence, "ingotManasteel", ConfigCrafting.outPutManasteel);
             OreDictionary.registerOre("essenceManasteel", ManasteelEssence);
@@ -442,7 +443,7 @@ public class ModCompat {
             ManyullynCrop = (new ManyullynCrop()).setUnlocalizedName("ManyullynCrop");
             ManyullynSeeds = (new ManyullynSeeds(ManyullynCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("ManyullynSeeds");
 
-            register(ManyullynEssence, ManyullynCrop, ManyullynSeeds);
+            register(ManyullynEssence, "ManyullynEssence", ManyullynCrop, "ManyullynCrop", ManyullynSeeds, "ManyullynSeeds");
             addRecipe(ManyullynSeeds, zivicioEssence, "ingotManyullyn");
             addEssenceToItemRecipe(ManyullynEssence, "ingotManyullyn", ConfigCrafting.outPutManyullyn);
             OreDictionary.registerOre("essenceManyullyn", ManyullynEssence);
@@ -454,7 +455,7 @@ public class ModCompat {
             SaltpeterCrop = (new SaltpeterCrop()).setUnlocalizedName("SaltpeterCrop");
             SaltpeterSeeds = (new SaltpeterSeeds(SaltpeterCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SaltpeterSeeds");
 
-            register(SaltpeterEssence, SaltpeterCrop, SaltpeterSeeds);
+            register(SaltpeterEssence, "SaltpeterEssence", SaltpeterCrop, "SaltpeterCrop", SaltpeterSeeds, "SaltpeterSeeds");
             addRecipe(SaltpeterSeeds, crucioEssence, "dustSaltpeter");
             addEssenceToItemRecipe(SaltpeterEssence, "dustSaltpeter", ConfigCrafting.outPutSaltpeter);
             OreDictionary.registerOre("essenceSaltpeter", SaltpeterEssence);
@@ -466,7 +467,7 @@ public class ModCompat {
             SignalumCrop = (new SignalumCrop()).setUnlocalizedName("SignalumCrop");
             SignalumSeeds = (new SignalumSeeds(SignalumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SignalumSeeds");
 
-            register(SignalumEssence, SignalumCrop, SignalumSeeds);
+            register(SignalumEssence, "SignalumEssence", SignalumCrop, "SignalumCrop", SignalumSeeds, "SignalumSeeds");
             addRecipe(SignalumSeeds, imperioEssence, "ingotSignalum");
             addEssenceToItemRecipe(SignalumEssence, "ingotSignalum", ConfigCrafting.outPutSignalum);
             OreDictionary.registerOre("essenceSignalum", SignalumEssence);
@@ -478,7 +479,7 @@ public class ModCompat {
             SteelCrop = (new SteelCrop()).setUnlocalizedName("SteelCrop");
             SteelSeeds = (new SteelSeeds(SteelCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SteelSeeds");
 
-            register(SteelEssence, SteelCrop, SteelSeeds);
+            register(SteelEssence, "SteelEssence", SteelCrop, "SteelCrop", SteelSeeds, "SteelSeeds");
             addRecipe(SteelSeeds, imperioEssence, "ingotSteel");
             addEssenceToItemRecipe(SteelEssence, "ingotSteel", ConfigCrafting.outPutSteel);
             OreDictionary.registerOre("essenceSteel", SteelEssence);
@@ -490,7 +491,7 @@ public class ModCompat {
             TerrasteelCrop = (new TerrasteelCrop()).setUnlocalizedName("TerrasteelCrop");
             TerrasteelSeeds = (new TerrasteelSeeds(TerrasteelCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("TerrasteelSeeds");
 
-            register(TerrasteelEssence, TerrasteelCrop, TerrasteelSeeds);
+            register(TerrasteelEssence, "TerrasteelEssence", TerrasteelCrop, "TerrasteelCrop", TerrasteelSeeds, "TerrasteelSeeds");
             addRecipe(TerrasteelSeeds, zivicioEssence, "ingotTerrasteel");
             addEssenceToItemRecipe(TerrasteelEssence, "ingotTerrasteel", ConfigCrafting.outPutTerrasteel);
             OreDictionary.registerOre("essenceTerrasteel", TerrasteelEssence);
@@ -498,10 +499,14 @@ public class ModCompat {
     }
 
     // Вспомогательный метод для регистрации
-    private static void register(Item essence, Block crop, Item seeds) {
-        ItemRegisterHelper.registerItem(essence);
-        BlockRegisterHelper.registerBlock(crop, crop.getUnlocalizedName().replace("tile.", ""));
-        ItemRegisterHelper.registerItem(seeds);
+    private static void register(Item essence, String essenceFieldName, Block crop, String cropFieldName, Item seeds, String seedsFieldName) {
+        ItemRegisterHelper.registerItem(essence, essenceFieldName);
+        if (crop == null) {
+            FMLLog.severe("[MagicalCrops] Skipping null block registration for field: %s", cropFieldName);
+        } else {
+            BlockRegisterHelper.registerBlock(crop, crop.getUnlocalizedName().replace("tile.", ""));
+        }
+        ItemRegisterHelper.registerItem(seeds, seedsFieldName);
     }
 
     // Вспомогательный метод для добавления рецепта семян

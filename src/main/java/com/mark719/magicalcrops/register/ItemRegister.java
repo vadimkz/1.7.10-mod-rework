@@ -8,174 +8,179 @@ import com.mark719.magicalcrops.handlers.MItems;
 import com.mark719.magicalcrops.handlers.MSeeds;
 import com.mark719.magicalcrops.handlers.Tools;
 import com.mark719.magicalcrops.help.ItemRegisterHelper;
+import net.minecraft.item.Item;
 
 public class ItemRegister {
 
     public static void registerItem() {
 
         // Infusion stones
-        ItemRegisterHelper.registerItem(MItems.InfusionStoneWeak);
-        ItemRegisterHelper.registerItem(MItems.InfusionStoneRegular);
-        ItemRegisterHelper.registerItem(MItems.InfusionStoneStrong);
-        ItemRegisterHelper.registerItem(MItems.InfusionStoneExtreme);
-        ItemRegisterHelper.registerItem(MItems.InfusionStoneMaster);
+        registerItem(MItems.InfusionStoneWeak, "InfusionStoneWeak");
+        registerItem(MItems.InfusionStoneRegular, "InfusionStoneRegular");
+        registerItem(MItems.InfusionStoneStrong, "InfusionStoneStrong");
+        registerItem(MItems.InfusionStoneExtreme, "InfusionStoneExtreme");
+        registerItem(MItems.InfusionStoneMaster, "InfusionStoneMaster");
 
         // === SEEDS (register only when NOT disabled) ===
-        if (!ConfigDisable.AIR && MSeeds.AirSeeds != null) ItemRegisterHelper.registerItem(MSeeds.AirSeeds);
-        if (!ConfigDisable.COAL && MSeeds.CoalSeeds != null) ItemRegisterHelper.registerItem(MSeeds.CoalSeeds);
-        if (!ConfigDisable.DYE && MSeeds.DyeSeeds != null) ItemRegisterHelper.registerItem(MSeeds.DyeSeeds);
-        if (!ConfigDisable.EARTH && MSeeds.EarthSeeds != null) ItemRegisterHelper.registerItem(MSeeds.EarthSeeds);
-        if (!ConfigDisable.FIRE && MSeeds.FireSeeds != null) ItemRegisterHelper.registerItem(MSeeds.FireSeeds);
-        if (!ConfigDisable.MINICIO && MSeeds.MinicioSeeds != null) ItemRegisterHelper.registerItem(MSeeds.MinicioSeeds);
-        if (!ConfigDisable.NATURE && MSeeds.NatureSeeds != null) ItemRegisterHelper.registerItem(MSeeds.NatureSeeds);
-        if (!ConfigDisable.WATER && MSeeds.WaterSeeds != null) ItemRegisterHelper.registerItem(MSeeds.WaterSeeds);
-        if (!ConfigDisable.REDSTONE && MSeeds.RedstoneSeeds != null) ItemRegisterHelper.registerItem(MSeeds.RedstoneSeeds);
-        if (!ConfigDisable.GLOWSTONE && MSeeds.GlowstoneSeeds != null) ItemRegisterHelper.registerItem(MSeeds.GlowstoneSeeds);
-        if (!ConfigDisable.OBSIDIAN && MSeeds.ObsidianSeeds != null) ItemRegisterHelper.registerItem(MSeeds.ObsidianSeeds);
-        if (!ConfigDisable.NETHER && MSeeds.NetherSeeds != null) ItemRegisterHelper.registerItem(MSeeds.NetherSeeds);
-        if (!ConfigDisable.IRON && MSeeds.IronSeeds != null) ItemRegisterHelper.registerItem(MSeeds.IronSeeds);
-        if (!ConfigDisable.GOLD && MSeeds.GoldSeeds != null) ItemRegisterHelper.registerItem(MSeeds.GoldSeeds);
-        if (!ConfigDisable.LAPIS && MSeeds.LapisSeeds != null) ItemRegisterHelper.registerItem(MSeeds.LapisSeeds);
-        if (!ConfigDisable.EXPERIENCE && MSeeds.ExperienceSeeds != null) ItemRegisterHelper.registerItem(MSeeds.ExperienceSeeds);
-        if (!ConfigDisable.QUARTZ && MSeeds.QuartzSeeds != null) ItemRegisterHelper.registerItem(MSeeds.QuartzSeeds);
-        if (!ConfigDisable.DIAMOND && MSeeds.DiamondSeeds != null) ItemRegisterHelper.registerItem(MSeeds.DiamondSeeds);
-        if (!ConfigDisable.EMERALD && MSeeds.EmeraldSeeds != null) ItemRegisterHelper.registerItem(MSeeds.EmeraldSeeds);
+        if (!ConfigDisable.AIR && MSeeds.AirSeeds != null) registerItem(MSeeds.AirSeeds, "AirSeeds");
+        if (!ConfigDisable.COAL && MSeeds.CoalSeeds != null) registerItem(MSeeds.CoalSeeds, "CoalSeeds");
+        if (!ConfigDisable.DYE && MSeeds.DyeSeeds != null) registerItem(MSeeds.DyeSeeds, "DyeSeeds");
+        if (!ConfigDisable.EARTH && MSeeds.EarthSeeds != null) registerItem(MSeeds.EarthSeeds, "EarthSeeds");
+        if (!ConfigDisable.FIRE && MSeeds.FireSeeds != null) registerItem(MSeeds.FireSeeds, "FireSeeds");
+        if (!ConfigDisable.MINICIO && MSeeds.MinicioSeeds != null) registerItem(MSeeds.MinicioSeeds, "MinicioSeeds");
+        if (!ConfigDisable.NATURE && MSeeds.NatureSeeds != null) registerItem(MSeeds.NatureSeeds, "NatureSeeds");
+        if (!ConfigDisable.WATER && MSeeds.WaterSeeds != null) registerItem(MSeeds.WaterSeeds, "WaterSeeds");
+        if (!ConfigDisable.REDSTONE && MSeeds.RedstoneSeeds != null) registerItem(MSeeds.RedstoneSeeds, "RedstoneSeeds");
+        if (!ConfigDisable.GLOWSTONE && MSeeds.GlowstoneSeeds != null) registerItem(MSeeds.GlowstoneSeeds, "GlowstoneSeeds");
+        if (!ConfigDisable.OBSIDIAN && MSeeds.ObsidianSeeds != null) registerItem(MSeeds.ObsidianSeeds, "ObsidianSeeds");
+        if (!ConfigDisable.NETHER && MSeeds.NetherSeeds != null) registerItem(MSeeds.NetherSeeds, "NetherSeeds");
+        if (!ConfigDisable.IRON && MSeeds.IronSeeds != null) registerItem(MSeeds.IronSeeds, "IronSeeds");
+        if (!ConfigDisable.GOLD && MSeeds.GoldSeeds != null) registerItem(MSeeds.GoldSeeds, "GoldSeeds");
+        if (!ConfigDisable.LAPIS && MSeeds.LapisSeeds != null) registerItem(MSeeds.LapisSeeds, "LapisSeeds");
+        if (!ConfigDisable.EXPERIENCE && MSeeds.ExperienceSeeds != null) registerItem(MSeeds.ExperienceSeeds, "ExperienceSeeds");
+        if (!ConfigDisable.QUARTZ && MSeeds.QuartzSeeds != null) registerItem(MSeeds.QuartzSeeds, "QuartzSeeds");
+        if (!ConfigDisable.DIAMOND && MSeeds.DiamondSeeds != null) registerItem(MSeeds.DiamondSeeds, "DiamondSeeds");
+        if (!ConfigDisable.EMERALD && MSeeds.EmeraldSeeds != null) registerItem(MSeeds.EmeraldSeeds, "EmeraldSeeds");
 
-        if (!ConfigDisable.BLAZE && MSeeds.BlazeSeeds != null) ItemRegisterHelper.registerItem(MSeeds.BlazeSeeds);
-        if (!ConfigDisable.CREEPER && MSeeds.CreeperSeeds != null) ItemRegisterHelper.registerItem(MSeeds.CreeperSeeds);
-        if (!ConfigDisable.ENDERMAN && MSeeds.EndermanSeeds != null) ItemRegisterHelper.registerItem(MSeeds.EndermanSeeds);
-        if (!ConfigDisable.GHAST && MSeeds.GhastSeeds != null) ItemRegisterHelper.registerItem(MSeeds.GhastSeeds);
-        if (!ConfigDisable.SKELETON && MSeeds.SkeletonSeeds != null) ItemRegisterHelper.registerItem(MSeeds.SkeletonSeeds);
-        if (!ConfigDisable.SLIME && MSeeds.SlimeSeeds != null) ItemRegisterHelper.registerItem(MSeeds.SlimeSeeds);
-        if (!ConfigDisable.SPIDER && MSeeds.SpiderSeeds != null) ItemRegisterHelper.registerItem(MSeeds.SpiderSeeds);
-        if (!ConfigDisable.WITHER && MSeeds.WitherSeeds != null) ItemRegisterHelper.registerItem(MSeeds.WitherSeeds);
+        if (!ConfigDisable.BLAZE && MSeeds.BlazeSeeds != null) registerItem(MSeeds.BlazeSeeds, "BlazeSeeds");
+        if (!ConfigDisable.CREEPER && MSeeds.CreeperSeeds != null) registerItem(MSeeds.CreeperSeeds, "CreeperSeeds");
+        if (!ConfigDisable.ENDERMAN && MSeeds.EndermanSeeds != null) registerItem(MSeeds.EndermanSeeds, "EndermanSeeds");
+        if (!ConfigDisable.GHAST && MSeeds.GhastSeeds != null) registerItem(MSeeds.GhastSeeds, "GhastSeeds");
+        if (!ConfigDisable.SKELETON && MSeeds.SkeletonSeeds != null) registerItem(MSeeds.SkeletonSeeds, "SkeletonSeeds");
+        if (!ConfigDisable.SLIME && MSeeds.SlimeSeeds != null) registerItem(MSeeds.SlimeSeeds, "SlimeSeeds");
+        if (!ConfigDisable.SPIDER && MSeeds.SpiderSeeds != null) registerItem(MSeeds.SpiderSeeds, "SpiderSeeds");
+        if (!ConfigDisable.WITHER && MSeeds.WitherSeeds != null) registerItem(MSeeds.WitherSeeds, "WitherSeeds");
 
-        if (!ConfigDisable.CHICKEN && MSeeds.ChickenSeeds != null) ItemRegisterHelper.registerItem(MSeeds.ChickenSeeds);
-        if (!ConfigDisable.COW && MSeeds.CowSeeds != null) ItemRegisterHelper.registerItem(MSeeds.CowSeeds);
-        if (!ConfigDisable.PIG && MSeeds.PigSeeds != null) ItemRegisterHelper.registerItem(MSeeds.PigSeeds);
-        if (!ConfigDisable.SHEEP && MSeeds.SheepSeeds != null) ItemRegisterHelper.registerItem(MSeeds.SheepSeeds);
+        if (!ConfigDisable.CHICKEN && MSeeds.ChickenSeeds != null) registerItem(MSeeds.ChickenSeeds, "ChickenSeeds");
+        if (!ConfigDisable.COW && MSeeds.CowSeeds != null) registerItem(MSeeds.CowSeeds, "CowSeeds");
+        if (!ConfigDisable.PIG && MSeeds.PigSeeds != null) registerItem(MSeeds.PigSeeds, "PigSeeds");
+        if (!ConfigDisable.SHEEP && MSeeds.SheepSeeds != null) registerItem(MSeeds.SheepSeeds, "SheepSeeds");
 
         // Fertilizers & misc
-        ItemRegisterHelper.registerItem(MItems.MagicalFertilizer);
-        ItemRegisterHelper.registerItem(MItems.EssenceFertilizer);
-        ItemRegisterHelper.registerItem(MItems.EssenceIngots);
+        registerItem(MItems.MagicalFertilizer, "MagicalFertilizer");
+        registerItem(MItems.EssenceFertilizer, "EssenceFertilizer");
+        registerItem(MItems.EssenceIngots, "EssenceIngots");
 
         if (ConfigMain.ENCHANT_CRAFT)
-            ItemRegisterHelper.registerItem(MItems.ExperienceBook);
+            registerItem(MItems.ExperienceBook, "ExperienceBook");
 
         // Base essences
-        ItemRegisterHelper.registerItem(Essence.MinicioEssence);
-        ItemRegisterHelper.registerItem(Essence.AccioEssence);
-        ItemRegisterHelper.registerItem(Essence.CrucioEssence);
-        ItemRegisterHelper.registerItem(Essence.ImperioEssence);
-        ItemRegisterHelper.registerItem(Essence.ZivicioEssence);
-        ItemRegisterHelper.registerItem(Essence.TaintedEssence);
+        registerItem(Essence.MinicioEssence, "MinicioEssence");
+        registerItem(Essence.AccioEssence, "AccioEssence");
+        registerItem(Essence.CrucioEssence, "CrucioEssence");
+        registerItem(Essence.ImperioEssence, "ImperioEssence");
+        registerItem(Essence.ZivicioEssence, "ZivicioEssence");
+        registerItem(Essence.TaintedEssence, "TaintedEssence");
 
         // === ESSENCES (register only when NOT disabled) ===
-        if (!ConfigDisable.AIR) ItemRegisterHelper.registerItem(Essence.AirEssence);
-        if (!ConfigDisable.COAL) ItemRegisterHelper.registerItem(Essence.CoalEssence);
-        if (!ConfigDisable.DYE) ItemRegisterHelper.registerItem(Essence.DyeEssence);
-        if (!ConfigDisable.EARTH) ItemRegisterHelper.registerItem(Essence.EarthEssence);
-        if (!ConfigDisable.FIRE) ItemRegisterHelper.registerItem(Essence.FireEssence);
-        if (!ConfigDisable.NATURE) ItemRegisterHelper.registerItem(Essence.NatureEssence);
-        if (!ConfigDisable.WATER) ItemRegisterHelper.registerItem(Essence.WaterEssence);
-        if (!ConfigDisable.REDSTONE) ItemRegisterHelper.registerItem(Essence.RedstoneEssence);
-        if (!ConfigDisable.GLOWSTONE) ItemRegisterHelper.registerItem(Essence.GlowstoneEssence);
-        if (!ConfigDisable.OBSIDIAN) ItemRegisterHelper.registerItem(Essence.ObsidianEssence);
-        if (!ConfigDisable.NETHER) ItemRegisterHelper.registerItem(Essence.NetherEssence);
-        if (!ConfigDisable.IRON) ItemRegisterHelper.registerItem(Essence.IronEssence);
-        if (!ConfigDisable.GOLD) ItemRegisterHelper.registerItem(Essence.GoldEssence);
-        if (!ConfigDisable.LAPIS) ItemRegisterHelper.registerItem(Essence.LapisEssence);
-        if (!ConfigDisable.EXPERIENCE) ItemRegisterHelper.registerItem(Essence.ExperienceEssence);
-        if (!ConfigDisable.QUARTZ) ItemRegisterHelper.registerItem(Essence.QuartzEssence);
-        if (!ConfigDisable.DIAMOND) ItemRegisterHelper.registerItem(Essence.DiamondEssence);
-        if (!ConfigDisable.EMERALD) ItemRegisterHelper.registerItem(Essence.EmeraldEssence);
+        if (!ConfigDisable.AIR) registerItem(Essence.AirEssence, "AirEssence");
+        if (!ConfigDisable.COAL) registerItem(Essence.CoalEssence, "CoalEssence");
+        if (!ConfigDisable.DYE) registerItem(Essence.DyeEssence, "DyeEssence");
+        if (!ConfigDisable.EARTH) registerItem(Essence.EarthEssence, "EarthEssence");
+        if (!ConfigDisable.FIRE) registerItem(Essence.FireEssence, "FireEssence");
+        if (!ConfigDisable.NATURE) registerItem(Essence.NatureEssence, "NatureEssence");
+        if (!ConfigDisable.WATER) registerItem(Essence.WaterEssence, "WaterEssence");
+        if (!ConfigDisable.REDSTONE) registerItem(Essence.RedstoneEssence, "RedstoneEssence");
+        if (!ConfigDisable.GLOWSTONE) registerItem(Essence.GlowstoneEssence, "GlowstoneEssence");
+        if (!ConfigDisable.OBSIDIAN) registerItem(Essence.ObsidianEssence, "ObsidianEssence");
+        if (!ConfigDisable.NETHER) registerItem(Essence.NetherEssence, "NetherEssence");
+        if (!ConfigDisable.IRON) registerItem(Essence.IronEssence, "IronEssence");
+        if (!ConfigDisable.GOLD) registerItem(Essence.GoldEssence, "GoldEssence");
+        if (!ConfigDisable.LAPIS) registerItem(Essence.LapisEssence, "LapisEssence");
+        if (!ConfigDisable.EXPERIENCE) registerItem(Essence.ExperienceEssence, "ExperienceEssence");
+        if (!ConfigDisable.QUARTZ) registerItem(Essence.QuartzEssence, "QuartzEssence");
+        if (!ConfigDisable.DIAMOND) registerItem(Essence.DiamondEssence, "DiamondEssence");
+        if (!ConfigDisable.EMERALD) registerItem(Essence.EmeraldEssence, "EmeraldEssence");
 
-        if (!ConfigDisable.BLAZE) ItemRegisterHelper.registerItem(Essence.BlazeEssence);
-        if (!ConfigDisable.CREEPER) ItemRegisterHelper.registerItem(Essence.CreeperEssence);
-        if (!ConfigDisable.ENDERMAN) ItemRegisterHelper.registerItem(Essence.EndermanEssence);
-        if (!ConfigDisable.GHAST) ItemRegisterHelper.registerItem(Essence.GhastEssence);
-        if (!ConfigDisable.SKELETON) ItemRegisterHelper.registerItem(Essence.SkeletonEssence);
-        if (!ConfigDisable.SLIME) ItemRegisterHelper.registerItem(Essence.SlimeEssence);
-        if (!ConfigDisable.SPIDER) ItemRegisterHelper.registerItem(Essence.SpiderEssence);
-        if (!ConfigDisable.WITHER) ItemRegisterHelper.registerItem(Essence.WitherEssence);
-        if (!ConfigDisable.CHICKEN) ItemRegisterHelper.registerItem(Essence.ChickenEssence);
-        if (!ConfigDisable.COW) ItemRegisterHelper.registerItem(Essence.CowEssence);
-        if (!ConfigDisable.PIG) ItemRegisterHelper.registerItem(Essence.PigEssence);
-        if (!ConfigDisable.SHEEP) ItemRegisterHelper.registerItem(Essence.SheepEssence);
+        if (!ConfigDisable.BLAZE) registerItem(Essence.BlazeEssence, "BlazeEssence");
+        if (!ConfigDisable.CREEPER) registerItem(Essence.CreeperEssence, "CreeperEssence");
+        if (!ConfigDisable.ENDERMAN) registerItem(Essence.EndermanEssence, "EndermanEssence");
+        if (!ConfigDisable.GHAST) registerItem(Essence.GhastEssence, "GhastEssence");
+        if (!ConfigDisable.SKELETON) registerItem(Essence.SkeletonEssence, "SkeletonEssence");
+        if (!ConfigDisable.SLIME) registerItem(Essence.SlimeEssence, "SlimeEssence");
+        if (!ConfigDisable.SPIDER) registerItem(Essence.SpiderEssence, "SpiderEssence");
+        if (!ConfigDisable.WITHER) registerItem(Essence.WitherEssence, "WitherEssence");
+        if (!ConfigDisable.CHICKEN) registerItem(Essence.ChickenEssence, "ChickenEssence");
+        if (!ConfigDisable.COW) registerItem(Essence.CowEssence, "CowEssence");
+        if (!ConfigDisable.PIG) registerItem(Essence.PigEssence, "PigEssence");
+        if (!ConfigDisable.SHEEP) registerItem(Essence.SheepEssence, "SheepEssence");
 
         // Armour
-        ItemRegisterHelper.registerItem(Armour.AccioArmourHelmet);
-        ItemRegisterHelper.registerItem(Armour.AccioArmourChestplate);
-        ItemRegisterHelper.registerItem(Armour.AccioArmourLeggings);
-        ItemRegisterHelper.registerItem(Armour.AccioArmourBoots);
+        registerItem(Armour.AccioArmourHelmet, "AccioArmourHelmet");
+        registerItem(Armour.AccioArmourChestplate, "AccioArmourChestplate");
+        registerItem(Armour.AccioArmourLeggings, "AccioArmourLeggings");
+        registerItem(Armour.AccioArmourBoots, "AccioArmourBoots");
 
-        ItemRegisterHelper.registerItem(Armour.CrucioArmourHelmet);
-        ItemRegisterHelper.registerItem(Armour.CrucioArmourChestplate);
-        ItemRegisterHelper.registerItem(Armour.CrucioArmourLeggings);
-        ItemRegisterHelper.registerItem(Armour.CrucioArmourBoots);
+        registerItem(Armour.CrucioArmourHelmet, "CrucioArmourHelmet");
+        registerItem(Armour.CrucioArmourChestplate, "CrucioArmourChestplate");
+        registerItem(Armour.CrucioArmourLeggings, "CrucioArmourLeggings");
+        registerItem(Armour.CrucioArmourBoots, "CrucioArmourBoots");
 
-        ItemRegisterHelper.registerItem(Armour.ImperioArmourHelmet);
-        ItemRegisterHelper.registerItem(Armour.ImperioArmourChestplate);
-        ItemRegisterHelper.registerItem(Armour.ImperioArmourLeggings);
-        ItemRegisterHelper.registerItem(Armour.ImperioArmourBoots);
+        registerItem(Armour.ImperioArmourHelmet, "ImperioArmourHelmet");
+        registerItem(Armour.ImperioArmourChestplate, "ImperioArmourChestplate");
+        registerItem(Armour.ImperioArmourLeggings, "ImperioArmourLeggings");
+        registerItem(Armour.ImperioArmourBoots, "ImperioArmourBoots");
 
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourHelmet);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourChestplate);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourLeggings);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourBoots);
+        registerItem(Armour.ZivicioArmourHelmet, "ZivicioArmourHelmet");
+        registerItem(Armour.ZivicioArmourChestplate, "ZivicioArmourChestplate");
+        registerItem(Armour.ZivicioArmourLeggings, "ZivicioArmourLeggings");
+        registerItem(Armour.ZivicioArmourBoots, "ZivicioArmourBoots");
 
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourHelmetFeed);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourHelmetNight);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourHelmetWater);
+        registerItem(Armour.ZivicioArmourHelmetFeed, "ZivicioArmourHelmetFeed");
+        registerItem(Armour.ZivicioArmourHelmetNight, "ZivicioArmourHelmetNight");
+        registerItem(Armour.ZivicioArmourHelmetWater, "ZivicioArmourHelmetWater");
 
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourChestplateFire);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourChestplateWither);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourChestplatePoison);
+        registerItem(Armour.ZivicioArmourChestplateFire, "ZivicioArmourChestplateFire");
+        registerItem(Armour.ZivicioArmourChestplateWither, "ZivicioArmourChestplateWither");
+        registerItem(Armour.ZivicioArmourChestplatePoison, "ZivicioArmourChestplatePoison");
 
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourLeggingsBlind);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourLeggingsWeak);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourLeggingsConfusion);
+        registerItem(Armour.ZivicioArmourLeggingsBlind, "ZivicioArmourLeggingsBlind");
+        registerItem(Armour.ZivicioArmourLeggingsWeak, "ZivicioArmourLeggingsWeak");
+        registerItem(Armour.ZivicioArmourLeggingsConfusion, "ZivicioArmourLeggingsConfusion");
 
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourBootsStep);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourBootsSpeed);
-        ItemRegisterHelper.registerItem(Armour.ZivicioArmourBootsJump);
+        registerItem(Armour.ZivicioArmourBootsStep, "ZivicioArmourBootsStep");
+        registerItem(Armour.ZivicioArmourBootsSpeed, "ZivicioArmourBootsSpeed");
+        registerItem(Armour.ZivicioArmourBootsJump, "ZivicioArmourBootsJump");
 
         // Tools
-        ItemRegisterHelper.registerItem(Tools.AccioPickaxe);
-        ItemRegisterHelper.registerItem(Tools.AccioSword);
-        ItemRegisterHelper.registerItem(Tools.AccioAxe);
-        ItemRegisterHelper.registerItem(Tools.AccioShovel);
-        ItemRegisterHelper.registerItem(Tools.AccioHoe);
+        registerItem(Tools.AccioPickaxe, "AccioPickaxe");
+        registerItem(Tools.AccioSword, "AccioSword");
+        registerItem(Tools.AccioAxe, "AccioAxe");
+        registerItem(Tools.AccioShovel, "AccioShovel");
+        registerItem(Tools.AccioHoe, "AccioHoe");
 
-        ItemRegisterHelper.registerItem(Tools.CrucioPickaxe);
-        ItemRegisterHelper.registerItem(Tools.CrucioSword);
-        ItemRegisterHelper.registerItem(Tools.CrucioAxe);
-        ItemRegisterHelper.registerItem(Tools.CrucioShovel);
-        ItemRegisterHelper.registerItem(Tools.CrucioHoe);
+        registerItem(Tools.CrucioPickaxe, "CrucioPickaxe");
+        registerItem(Tools.CrucioSword, "CrucioSword");
+        registerItem(Tools.CrucioAxe, "CrucioAxe");
+        registerItem(Tools.CrucioShovel, "CrucioShovel");
+        registerItem(Tools.CrucioHoe, "CrucioHoe");
 
-        ItemRegisterHelper.registerItem(Tools.ImperioPickaxe);
-        ItemRegisterHelper.registerItem(Tools.ImperioSword);
-        ItemRegisterHelper.registerItem(Tools.ImperioAxe);
-        ItemRegisterHelper.registerItem(Tools.ImperioShovel);
-        ItemRegisterHelper.registerItem(Tools.ImperioHoe);
+        registerItem(Tools.ImperioPickaxe, "ImperioPickaxe");
+        registerItem(Tools.ImperioSword, "ImperioSword");
+        registerItem(Tools.ImperioAxe, "ImperioAxe");
+        registerItem(Tools.ImperioShovel, "ImperioShovel");
+        registerItem(Tools.ImperioHoe, "ImperioHoe");
 
-        ItemRegisterHelper.registerItem(Tools.ZivicioPickaxe);
-        ItemRegisterHelper.registerItem(Tools.ZivicioSword);
-        ItemRegisterHelper.registerItem(Tools.ZivicioAxe);
-        ItemRegisterHelper.registerItem(Tools.ZivicioShovel);
-        ItemRegisterHelper.registerItem(Tools.ZivicioHoe);
+        registerItem(Tools.ZivicioPickaxe, "ZivicioPickaxe");
+        registerItem(Tools.ZivicioSword, "ZivicioSword");
+        registerItem(Tools.ZivicioAxe, "ZivicioAxe");
+        registerItem(Tools.ZivicioShovel, "ZivicioShovel");
+        registerItem(Tools.ZivicioHoe, "ZivicioHoe");
 
         // Seed bags
-        ItemRegisterHelper.registerItem(MItems.SeedBagAccio);
-        ItemRegisterHelper.registerItem(MItems.SeedBagCrucio);
-        ItemRegisterHelper.registerItem(MItems.SeedBagImperio);
-        ItemRegisterHelper.registerItem(MItems.SeedBagZivicio);
+        registerItem(MItems.SeedBagAccio, "SeedBagAccio");
+        registerItem(MItems.SeedBagCrucio, "SeedBagCrucio");
+        registerItem(MItems.SeedBagImperio, "SeedBagImperio");
+        registerItem(MItems.SeedBagZivicio, "SeedBagZivicio");
 
         if (ConfigMain.APPLES) {
-            ItemRegisterHelper.registerItem(MItems.UltimateDiamondApple);
-            ItemRegisterHelper.registerItem(MItems.EmeraldApple);
-            ItemRegisterHelper.registerItem(MItems.UltimateEmeraldApple);
+            registerItem(MItems.UltimateDiamondApple, "UltimateDiamondApple");
+            registerItem(MItems.EmeraldApple, "EmeraldApple");
+            registerItem(MItems.UltimateEmeraldApple, "UltimateEmeraldApple");
         }
+    }
+
+    private static void registerItem(Item item, String fieldName) {
+        ItemRegisterHelper.registerItem(item, fieldName);
     }
 }

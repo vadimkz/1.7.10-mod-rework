@@ -31,7 +31,7 @@ public class ExperienceCrop extends BlockMagicalCrops {
     public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            this.iconArray[i] = reg.registerIcon("magicalcrops:CropExperience_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropXP_" + i);
         }
     }
 
