@@ -50,7 +50,7 @@
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
+/*    */   public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 /* 54 */     for (int var4 = 0; var4 < 8; var4++) {
 /* 55 */       list.add(new ItemStack(MBlocks.EssenceLamp, 1, var4));
 /*    */     }

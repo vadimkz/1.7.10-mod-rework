@@ -46,7 +46,7 @@
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
+/*    */   public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 /* 50 */     for (int var4 = 0; var4 < 6; var4++) {
 /* 51 */       list.add(new ItemStack(MBlocks.EssenceStorage, 1, var4));
 /*    */     }

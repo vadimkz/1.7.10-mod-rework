@@ -75,7 +75,7 @@
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
+/*    */   public void getSubItems(Item item, CreativeTabs tab, List list) {
 /* 79 */     for (int i = 0; i < 4; i++)
 /*    */     {
 /* 81 */       list.add(new ItemStack(item, 1, i));
