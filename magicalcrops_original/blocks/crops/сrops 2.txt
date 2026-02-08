@@ -1,0 +1,1955 @@
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ExperienceCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.ExperienceSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.ExperienceEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropXP_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\ExperienceCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+--------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class FireCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 25 */     return MSeeds.FireSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 29 */     return Essence.FireEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 34 */     this.iconArray = new IIcon[4];
+/* 35 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 36 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropFire_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 42 */     if (par2 < 7) {
+/* 43 */       if (par2 == 6) {
+/* 44 */         par2 = 5;
+/*    */       }
+/* 46 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 49 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\FireCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class FluixCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.FluixSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.FluixEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropFluix_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\FluixCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class GhastCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.GhastSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.GhastEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:SoulCropGhast_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\GhastCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class GlowstoneCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.GlowstoneSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.GlowstoneEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.registerIcon("magicalcrops:CropGlowstone_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\GlowstoneCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class GoldCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.GoldSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.GoldEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropGold_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\GoldCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+-----------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class InvarCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.InvarSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.InvarEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropInvar_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\InvarCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+--------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class IronCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.IronSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.IronEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropIron_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\IronCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class LapisCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.LapisSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.LapisEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropLapis_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\LapisCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+-----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class LeadCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.LeadSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.LeadEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropLead_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\LeadCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+-------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class LumiumCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.LumiumSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.LumiumEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropLumium_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\LumiumCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+--------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ManasteelCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.ManasteelSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.ManasteelEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropManasteel_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\ManasteelCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+-----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ManyullynCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.ManyullynSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.ManyullynEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropManyullyn_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\ManyullynCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+--------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class MinicioCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 34 */     return MSeeds.MinicioSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 38 */     return Essence.MinicioEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 43 */     this.iconArray = new IIcon[4];
+/* 44 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 45 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropMinicio_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 51 */     if (par2 < 7) {
+/* 52 */       if (par2 == 6) {
+/* 53 */         par2 = 5;
+/*    */       }
+/* 55 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 58 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\MinicioCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+-----------------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class NatureCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 25 */     return MSeeds.NatureSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 29 */     return Essence.NatureEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 34 */     this.iconArray = new IIcon[4];
+/* 35 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 36 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropNature_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 42 */     if (par2 < 7) {
+/* 43 */       if (par2 == 6) {
+/* 44 */         par2 = 5;
+/*    */       }
+/* 46 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 49 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\NatureCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class NetherCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.NetherSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.NetherEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropNether_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\NetherCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+--------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class NickelCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.NickelSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.NickelEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropNickel_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\NickelCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+------------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ObsidianCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.ObsidianSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.ObsidianEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropObsidian_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\ObsidianCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+--------------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class OsmiumCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.OsmiumSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.OsmiumEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropOsmium_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\OsmiumCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class PeridotCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.PeridotSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.PeridotEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropPeridot_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\PeridotCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class PigCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.PigSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.PigEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:SoulCropPig_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\PigCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class PlatinumCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.PlatinumSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.PlatinumEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropPlatinum_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\PlatinumCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class QuartzCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.QuartzSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.QuartzEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropQuartz_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\QuartzCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class RedstoneCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.RedstoneSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.RedstoneEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropRedstone_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\RedstoneCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+------------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class RubberCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.RubberSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.RubberEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropRubber_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\RubberCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+--------------------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class RubyCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.RubySeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.RubyEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropRuby_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\RubyCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+-----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class SaltpeterCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.SaltpeterSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.SaltpeterEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropSaltpeter_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\SaltpeterCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+---------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class SapphireCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.SapphireSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.SapphireEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropSapphire_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\SapphireCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+---------------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class SheepCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.SheepSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.SheepEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:SoulCropSheep_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\SheepCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class SignalumCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.SignalumSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.SignalumEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropSignalum_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\SignalumCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+-----------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.ModCompat;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class SilverCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return ModCompat.SilverSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return ModCompat.SilverEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropSilver_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\SilverCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
+
+---------------------------
+
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class SkeletonCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 26 */     return MSeeds.SkeletonSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 30 */     return Essence.SkeletonEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 35 */     this.iconArray = new IIcon[4];
+/* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:SoulCropSkeleton_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 43 */     if (par2 < 7) {
+/* 44 */       if (par2 == 6) {
+/* 45 */         par2 = 5;
+/*    */       }
+/* 47 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 50 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\SkeletonCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */
