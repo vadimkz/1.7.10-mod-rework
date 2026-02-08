@@ -23,11 +23,11 @@ public class BlockFarmlandZivicio extends Block {
     private IIcon iconDry;
 
     public BlockFarmlandZivicio() {
-        // Если Material.field_151578_c не красный — оставляй его
-        super(Material.field_151578_c);
+        // Если Material.ground не красный — оставляй его
+        super(Material.ground);
         this.setTickRandomly(true);
-        // Если func_149658_d красный, попробуй заменить на setBlockTextureName
-        this.func_149658_d("magicalcrops:farmland_");
+        // Если setTextureName красный, попробуй заменить на setBlockTextureName
+        this.setTextureName("magicalcrops:farmland_");
         this.setBlockName("ZivicioFarmland");
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
         this.setLightOpacity(255);

@@ -13,12 +13,12 @@
 /*    */   extends Block
 /*    */ {
 /*    */   public BlockWitherProof() {
-/* 16 */     super(Material.field_151576_e);
-/* 17 */     func_149658_d("magicalcrops:wither_block");
-/* 18 */     func_149647_a(MagicalCrops.tabMagical);
-/* 19 */     func_149672_a(field_149780_i);
-/* 20 */     func_149711_c(2.0F);
-/* 21 */     func_149752_b(2000.0F);
+/* 16 */     super(Material.rock);
+/* 17 */     setTextureName("magicalcrops:wither_block");
+/* 18 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 19 */     setStepSound(soundTypePiston);
+/* 20 */     setHardness(2.0F);
+/* 21 */     setResistance(2000.0F);
 /*    */   }
 /*    */ 
 /*    */   
@@ -32,7 +32,7 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public boolean func_149659_a(Explosion p_149659_1_) {
+/*    */   public boolean canDropFromExplosion(Explosion p_149659_1_) {
 /* 36 */     return false;
 /*    */   }
 /*    */ }

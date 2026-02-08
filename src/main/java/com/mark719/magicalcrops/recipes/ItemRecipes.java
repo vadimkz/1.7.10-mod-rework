@@ -33,7 +33,7 @@
 /*  33 */   static ItemStack infusionExtreme = new ItemStack(MItems.InfusionStoneExtreme, 1, 32767);
 /*  34 */   static ItemStack infusionMaster = new ItemStack(MItems.InfusionStoneMaster, 1, 32767);
 /*     */   
-/*  36 */   static ItemStack allWool = new ItemStack(Blocks.field_150325_L, 1, 32767);
+/*  36 */   static ItemStack allWool = new ItemStack(Blocks.wool, 1, 32767);
 /*     */   
 /*  38 */   static ItemStack accioIngot = new ItemStack(MItems.EssenceIngots, 1, 0);
 /*  39 */   static ItemStack crucioIngot = new ItemStack(MItems.EssenceIngots, 1, 1);
@@ -66,32 +66,32 @@
 /*  66 */     GameRegistry.addShapelessRecipe(new ItemStack(Essence.ImperioEssence, 4), new Object[] { zivicioEssence });
 /*     */ 
 /*     */     
-/*  69 */     GameRegistry.addRecipe(new ItemStack(MItems.MagicalFertilizer, 4), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), minicioEssence, Character.valueOf('Y'), new ItemStack(Items.field_151100_aR, 1, 15), Character.valueOf('Z'), Items.field_151045_i });
+/*  69 */     GameRegistry.addRecipe(new ItemStack(MItems.MagicalFertilizer, 4), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), minicioEssence, Character.valueOf('Y'), new ItemStack(Items.dye, 1, 15), Character.valueOf('Z'), Items.diamond });
 /*     */ 
 /*     */     
-/*  72 */     GameRegistry.addRecipe(new ItemStack(MItems.SeedBagAccio, 1), new Object[] { " X ", "XZX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Z'), Items.field_151116_aA });
+/*  72 */     GameRegistry.addRecipe(new ItemStack(MItems.SeedBagAccio, 1), new Object[] { " X ", "XZX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Z'), Items.leather });
 /*  73 */     GameRegistry.addRecipe(new ItemStack(MItems.SeedBagCrucio, 1), new Object[] { " X ", "XZX", " X ", Character.valueOf('X'), crucioEssence, Character.valueOf('Z'), new ItemStack(MItems.SeedBagAccio, 1) });
 /*  74 */     GameRegistry.addRecipe(new ItemStack(MItems.SeedBagImperio, 1), new Object[] { " X ", "XZX", " X ", Character.valueOf('X'), imperioEssence, Character.valueOf('Z'), new ItemStack(MItems.SeedBagCrucio, 1) });
 /*  75 */     GameRegistry.addRecipe(new ItemStack(MItems.SeedBagZivicio, 1), new Object[] { " X ", "XZX", " X ", Character.valueOf('X'), zivicioEssence, Character.valueOf('Z'), new ItemStack(MItems.SeedBagImperio, 1) });
 /*     */ 
 /*     */     
-/*  78 */     GameRegistry.addRecipe(new ItemStack(MItems.EssenceIngots, ConfigMain.ESSENCE_INGOTS, 0), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), Items.field_151042_j, Character.valueOf('Z'), accioEssence, Character.valueOf('Y'), Items.field_151074_bl });
-/*  79 */     GameRegistry.addRecipe(new ItemStack(MItems.EssenceIngots, ConfigMain.ESSENCE_INGOTS, 1), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), Items.field_151042_j, Character.valueOf('Z'), crucioEssence, Character.valueOf('Y'), Items.field_151074_bl });
-/*  80 */     GameRegistry.addRecipe(new ItemStack(MItems.EssenceIngots, ConfigMain.ESSENCE_INGOTS, 2), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), Items.field_151042_j, Character.valueOf('Z'), imperioEssence, Character.valueOf('Y'), Items.field_151074_bl });
-/*  81 */     GameRegistry.addRecipe(new ItemStack(MItems.EssenceIngots, ConfigMain.ESSENCE_INGOTS, 3), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), Items.field_151042_j, Character.valueOf('Z'), zivicioEssence, Character.valueOf('Y'), Items.field_151074_bl });
+/*  78 */     GameRegistry.addRecipe(new ItemStack(MItems.EssenceIngots, ConfigMain.ESSENCE_INGOTS, 0), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), Items.iron_ingot, Character.valueOf('Z'), accioEssence, Character.valueOf('Y'), Items.gold_nugget });
+/*  79 */     GameRegistry.addRecipe(new ItemStack(MItems.EssenceIngots, ConfigMain.ESSENCE_INGOTS, 1), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), Items.iron_ingot, Character.valueOf('Z'), crucioEssence, Character.valueOf('Y'), Items.gold_nugget });
+/*  80 */     GameRegistry.addRecipe(new ItemStack(MItems.EssenceIngots, ConfigMain.ESSENCE_INGOTS, 2), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), Items.iron_ingot, Character.valueOf('Z'), imperioEssence, Character.valueOf('Y'), Items.gold_nugget });
+/*  81 */     GameRegistry.addRecipe(new ItemStack(MItems.EssenceIngots, ConfigMain.ESSENCE_INGOTS, 3), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), Items.iron_ingot, Character.valueOf('Z'), zivicioEssence, Character.valueOf('Y'), Items.gold_nugget });
 /*     */ 
 /*     */     
-/*  84 */     GameRegistry.addRecipe(new ItemStack(Armour.AccioArmourHelmet, 1), new Object[] { "XXX", "XYX", Character.valueOf('X'), accioIngot, Character.valueOf('Y'), Items.field_151161_ac });
-/*  85 */     GameRegistry.addRecipe(new ItemStack(Armour.AccioArmourChestplate, 1), new Object[] { "XYX", "XXX", "XXX", Character.valueOf('X'), accioIngot, Character.valueOf('Y'), Items.field_151163_ad });
-/*  86 */     GameRegistry.addRecipe(new ItemStack(Armour.AccioArmourLeggings, 1), new Object[] { "XXX", "XYX", "X X", Character.valueOf('X'), accioIngot, Character.valueOf('Y'), Items.field_151173_ae });
-/*  87 */     GameRegistry.addRecipe(new ItemStack(Armour.AccioArmourBoots, 1), new Object[] { "X X", "XYX", Character.valueOf('X'), accioIngot, Character.valueOf('Y'), Items.field_151175_af });
+/*  84 */     GameRegistry.addRecipe(new ItemStack(Armour.AccioArmourHelmet, 1), new Object[] { "XXX", "XYX", Character.valueOf('X'), accioIngot, Character.valueOf('Y'), Items.diamond_helmet });
+/*  85 */     GameRegistry.addRecipe(new ItemStack(Armour.AccioArmourChestplate, 1), new Object[] { "XYX", "XXX", "XXX", Character.valueOf('X'), accioIngot, Character.valueOf('Y'), Items.diamond_chestplate });
+/*  86 */     GameRegistry.addRecipe(new ItemStack(Armour.AccioArmourLeggings, 1), new Object[] { "XXX", "XYX", "X X", Character.valueOf('X'), accioIngot, Character.valueOf('Y'), Items.diamond_leggings });
+/*  87 */     GameRegistry.addRecipe(new ItemStack(Armour.AccioArmourBoots, 1), new Object[] { "X X", "XYX", Character.valueOf('X'), accioIngot, Character.valueOf('Y'), Items.diamond_boots });
 /*     */ 
 /*     */     
-/*  90 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioAxe, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151056_x });
-/*  91 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioHoe, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151012_L });
-/*  92 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioPickaxe, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151046_w });
-/*  93 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioShovel, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151047_v });
-/*  94 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioSword, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151048_u });
+/*  90 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioAxe, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.diamond_axe });
+/*  91 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioHoe, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.diamond_hoe });
+/*  92 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioPickaxe, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.diamond_pickaxe });
+/*  93 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioShovel, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.diamond_shovel });
+/*  94 */     GameRegistry.addRecipe(new ItemStack(Tools.AccioSword, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.diamond_sword });
 /*     */ 
 /*     */     
 /*  97 */     GameRegistry.addRecipe(new ItemStack(Armour.CrucioArmourHelmet, 1), new Object[] { "XXX", "X X", Character.valueOf('X'), crucioIngot });
@@ -141,9 +141,9 @@
 /* 141 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceStorage, 9, 4), new Object[] { "X", Character.valueOf('X'), new ItemStack(MBlocks.EssenceStorage, 1, 5) });
 /*     */ 
 /*     */     
-/* 144 */     GameRegistry.addRecipe(new ItemStack(MItems.UltimateDiamondApple, 1), new Object[] { "XZX", "ZYZ", "XZX", Character.valueOf('Y'), Items.field_151034_e, Character.valueOf('X'), Blocks.field_150484_ah, Character.valueOf('Z'), Items.field_151045_i });
-/* 145 */     GameRegistry.addRecipe(new ItemStack(MItems.EmeraldApple, 1), new Object[] { "ZZZ", "ZYZ", "ZZZ", Character.valueOf('Y'), Items.field_151034_e, Character.valueOf('Z'), Items.field_151166_bC });
-/* 146 */     GameRegistry.addRecipe(new ItemStack(MItems.UltimateEmeraldApple, 1), new Object[] { "XZX", "ZYZ", "XZX", Character.valueOf('Y'), Items.field_151034_e, Character.valueOf('X'), Blocks.field_150475_bE, Character.valueOf('Z'), Items.field_151166_bC });
+/* 144 */     GameRegistry.addRecipe(new ItemStack(MItems.UltimateDiamondApple, 1), new Object[] { "XZX", "ZYZ", "XZX", Character.valueOf('Y'), Items.apple, Character.valueOf('X'), Blocks.diamond_block, Character.valueOf('Z'), Items.diamond });
+/* 145 */     GameRegistry.addRecipe(new ItemStack(MItems.EmeraldApple, 1), new Object[] { "ZZZ", "ZYZ", "ZZZ", Character.valueOf('Y'), Items.apple, Character.valueOf('Z'), Items.emerald });
+/* 146 */     GameRegistry.addRecipe(new ItemStack(MItems.UltimateEmeraldApple, 1), new Object[] { "XZX", "ZYZ", "XZX", Character.valueOf('Y'), Items.apple, Character.valueOf('X'), Blocks.emerald_block, Character.valueOf('Z'), Items.emerald });
 /*     */   }
 /*     */ }
 

@@ -17,7 +17,7 @@
 /*    */   implements IWorldGenerator
 /*    */ {
 /*    */   public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-/* 20 */     switch (world.field_73011_w.field_76574_g) {
+/* 20 */     switch (world.provider.dimensionId) {
 /*    */       
 /*    */       case -1:
 /* 23 */         generateNether(world, random, chunkX * 16, chunkZ * 16);
@@ -41,7 +41,7 @@
 /* 41 */         int chunkY = random.nextInt(ConfigMain.oreGenerateYCord);
 /* 42 */         int chunkZ = j + random.nextInt(16);
 /*    */         
-/* 44 */         (new WorldGenMinable(MBlocks.MinicioOre, ConfigMain.maxVeinSize)).func_76484_a(world, random, chunkX, chunkY, chunkZ);
+/* 44 */         (new WorldGenMinable(MBlocks.MinicioOre, ConfigMain.maxVeinSize)).generate(world, random, chunkX, chunkY, chunkZ);
 /*    */       } 
 /*    */     }
 /*    */   }

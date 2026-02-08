@@ -15,19 +15,19 @@
 /*    */ {
 /*    */   public ItemSeedBagCrucio() {
 /* 17 */     super(18, 4);
-/* 18 */     func_77655_b("SeedBagCrucio");
-/* 19 */     func_111206_d("MagicalCrops:seedbag_2");
-/* 20 */     func_77637_a(MagicalCrops.tabMagical);
+/* 18 */     setUnlocalizedName("SeedBagCrucio");
+/* 19 */     setTextureName("MagicalCrops:seedbag_2");
+/* 20 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public EnumRarity func_77613_e(ItemStack par2) {
+/*    */   public EnumRarity getRarity(ItemStack par2) {
 /* 25 */     return EnumRarity.uncommon;
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 31 */     par3List.add("Plants seeds 4x4");
 /*    */   }
 /*    */ }

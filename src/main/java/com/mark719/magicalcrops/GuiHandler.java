@@ -42,40 +42,40 @@
 /*     */   
 /*     */   public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 /*  44 */     if (ID == 0) {
-/*  45 */       TileEntity tileEntity = world.func_147438_o(x, y, z);
+/*  45 */       TileEntity tileEntity = world.getTileEntity(x, y, z);
 /*     */       
-/*  47 */       if (player == null || player.func_71045_bC() == null || player.func_71045_bC().func_77973_b() == null) {
+/*  47 */       if (player == null || player.getCurrentEquippedItem() == null || player.getCurrentEquippedItem().getItem() == null) {
 /*  48 */         return null;
 /*     */       }
 /*     */       
-/*  51 */       Item currentItem = player.func_71045_bC().func_77973_b();
+/*  51 */       Item currentItem = player.getCurrentEquippedItem().getItem();
 /*  52 */       if (!(currentItem instanceof com.mark719.magicalcrops.seedbags.Planter)) {
 /*  53 */         return null;
 /*     */       }
 /*     */       
 /*  56 */       if (currentItem instanceof com.mark719.magicalcrops.seedbags.ItemSeedBagAccio || currentItem instanceof com.mark719.magicalcrops.seedbags.ItemSeedBagCrucio || currentItem instanceof com.mark719.magicalcrops.seedbags.ItemSeedBagImperio || currentItem instanceof com.mark719.magicalcrops.seedbags.ItemSeedBagZivicio) {
-/*  57 */         return new SeedContainer(player.field_71071_by, new SeedInventory(player.func_70694_bm()));
+/*  57 */         return new SeedContainer(player.inventory, new SeedInventory(player.getHeldItem()));
 /*     */       }
 /*     */     } 
 /*  60 */     if (ID == 1) {
-/*  61 */       TileEntityAccioFurnace tileEntityAccioFurnace = (TileEntityAccioFurnace)world.func_147438_o(x, y, z);
-/*  62 */       return new ContainerAccioFurnace(player.field_71071_by, tileEntityAccioFurnace);
+/*  61 */       TileEntityAccioFurnace tileEntityAccioFurnace = (TileEntityAccioFurnace)world.getTileEntity(x, y, z);
+/*  62 */       return new ContainerAccioFurnace(player.inventory, tileEntityAccioFurnace);
 /*     */     } 
 /*  64 */     if (ID == 2) {
-/*  65 */       TileEntityCrucioFurnace tileEntityCrucioFurnace = (TileEntityCrucioFurnace)world.func_147438_o(x, y, z);
-/*  66 */       return new ContainerCrucioFurnace(player.field_71071_by, tileEntityCrucioFurnace);
+/*  65 */       TileEntityCrucioFurnace tileEntityCrucioFurnace = (TileEntityCrucioFurnace)world.getTileEntity(x, y, z);
+/*  66 */       return new ContainerCrucioFurnace(player.inventory, tileEntityCrucioFurnace);
 /*     */     } 
 /*  68 */     if (ID == 3) {
-/*  69 */       TileEntityImperioFurnace tileEntityImperioFurnace = (TileEntityImperioFurnace)world.func_147438_o(x, y, z);
-/*  70 */       return new ContainerImperioFurnace(player.field_71071_by, tileEntityImperioFurnace);
+/*  69 */       TileEntityImperioFurnace tileEntityImperioFurnace = (TileEntityImperioFurnace)world.getTileEntity(x, y, z);
+/*  70 */       return new ContainerImperioFurnace(player.inventory, tileEntityImperioFurnace);
 /*     */     } 
 /*  72 */     if (ID == 4) {
-/*  73 */       TileEntityZivicioFurnace tileEntityZivicioFurnace = (TileEntityZivicioFurnace)world.func_147438_o(x, y, z);
-/*  74 */       return new ContainerZivicioFurnace(player.field_71071_by, tileEntityZivicioFurnace);
+/*  73 */       TileEntityZivicioFurnace tileEntityZivicioFurnace = (TileEntityZivicioFurnace)world.getTileEntity(x, y, z);
+/*  74 */       return new ContainerZivicioFurnace(player.inventory, tileEntityZivicioFurnace);
 /*     */     } 
 /*  76 */     if (ID == 5) {
-/*  77 */       TileEntityUltimateFurnace tileEntityUltimateFurnace = (TileEntityUltimateFurnace)world.func_147438_o(x, y, z);
-/*  78 */       return new ContainerUltimateFurnace(player.field_71071_by, tileEntityUltimateFurnace);
+/*  77 */       TileEntityUltimateFurnace tileEntityUltimateFurnace = (TileEntityUltimateFurnace)world.getTileEntity(x, y, z);
+/*  78 */       return new ContainerUltimateFurnace(player.inventory, tileEntityUltimateFurnace);
 /*     */     } 
 /*     */     
 /*  81 */     return null;
@@ -85,40 +85,40 @@
 /*     */   
 /*     */   public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 /*  87 */     if (ID == 0) {
-/*  88 */       TileEntity tileEntity = world.func_147438_o(x, y, z);
+/*  88 */       TileEntity tileEntity = world.getTileEntity(x, y, z);
 /*     */       
-/*  90 */       if (player == null || player.func_71045_bC() == null || player.func_71045_bC().func_77973_b() == null) {
+/*  90 */       if (player == null || player.getCurrentEquippedItem() == null || player.getCurrentEquippedItem().getItem() == null) {
 /*  91 */         return null;
 /*     */       }
 /*     */       
-/*  94 */       Item currentItem = player.func_71045_bC().func_77973_b();
+/*  94 */       Item currentItem = player.getCurrentEquippedItem().getItem();
 /*  95 */       if (!(currentItem instanceof com.mark719.magicalcrops.seedbags.Planter)) {
 /*  96 */         return null;
 /*     */       }
 /*     */       
 /*  99 */       if (currentItem instanceof com.mark719.magicalcrops.seedbags.ItemSeedBagAccio || currentItem instanceof com.mark719.magicalcrops.seedbags.ItemSeedBagCrucio || currentItem instanceof com.mark719.magicalcrops.seedbags.ItemSeedBagImperio || currentItem instanceof com.mark719.magicalcrops.seedbags.ItemSeedBagZivicio) {
-/* 100 */         return new SeedPlanterGui(player.field_71071_by, new SeedInventory(player.func_70694_bm()));
+/* 100 */         return new SeedPlanterGui(player.inventory, new SeedInventory(player.getHeldItem()));
 /*     */       }
 /*     */     } 
 /* 103 */     if (ID == 1) {
-/* 104 */       TileEntityAccioFurnace tileEntityAccioFurnace = (TileEntityAccioFurnace)world.func_147438_o(x, y, z);
-/* 105 */       return new GuiAccioFurnace(player.field_71071_by, tileEntityAccioFurnace);
+/* 104 */       TileEntityAccioFurnace tileEntityAccioFurnace = (TileEntityAccioFurnace)world.getTileEntity(x, y, z);
+/* 105 */       return new GuiAccioFurnace(player.inventory, tileEntityAccioFurnace);
 /*     */     } 
 /* 107 */     if (ID == 2) {
-/* 108 */       TileEntityCrucioFurnace tileEntityCrucioFurnace = (TileEntityCrucioFurnace)world.func_147438_o(x, y, z);
-/* 109 */       return new GuiCrucioFurnace(player.field_71071_by, tileEntityCrucioFurnace);
+/* 108 */       TileEntityCrucioFurnace tileEntityCrucioFurnace = (TileEntityCrucioFurnace)world.getTileEntity(x, y, z);
+/* 109 */       return new GuiCrucioFurnace(player.inventory, tileEntityCrucioFurnace);
 /*     */     } 
 /* 111 */     if (ID == 3) {
-/* 112 */       TileEntityImperioFurnace tileEntityImperioFurnace = (TileEntityImperioFurnace)world.func_147438_o(x, y, z);
-/* 113 */       return new GuiImperioFurnace(player.field_71071_by, tileEntityImperioFurnace);
+/* 112 */       TileEntityImperioFurnace tileEntityImperioFurnace = (TileEntityImperioFurnace)world.getTileEntity(x, y, z);
+/* 113 */       return new GuiImperioFurnace(player.inventory, tileEntityImperioFurnace);
 /*     */     } 
 /* 115 */     if (ID == 4) {
-/* 116 */       TileEntityZivicioFurnace tileEntityZivicioFurnace = (TileEntityZivicioFurnace)world.func_147438_o(x, y, z);
-/* 117 */       return new GuiZivicioFurnace(player.field_71071_by, tileEntityZivicioFurnace);
+/* 116 */       TileEntityZivicioFurnace tileEntityZivicioFurnace = (TileEntityZivicioFurnace)world.getTileEntity(x, y, z);
+/* 117 */       return new GuiZivicioFurnace(player.inventory, tileEntityZivicioFurnace);
 /*     */     } 
 /* 119 */     if (ID == 5) {
-/* 120 */       TileEntityUltimateFurnace tileEntityUltimateFurnace = (TileEntityUltimateFurnace)world.func_147438_o(x, y, z);
-/* 121 */       return new GuiUltimateFurnace(player.field_71071_by, tileEntityUltimateFurnace);
+/* 120 */       TileEntityUltimateFurnace tileEntityUltimateFurnace = (TileEntityUltimateFurnace)world.getTileEntity(x, y, z);
+/* 121 */       return new GuiUltimateFurnace(player.inventory, tileEntityUltimateFurnace);
 /*     */     } 
 /*     */     
 /* 124 */     return null;

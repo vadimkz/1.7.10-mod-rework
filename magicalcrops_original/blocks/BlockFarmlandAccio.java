@@ -23,7 +23,7 @@ public class BlockFarmlandAccio extends Block {
     private IIcon iconDry;
 
     public BlockFarmlandAccio() {
-        super(Material.ground); // Вместо field_151578_c
+        super(Material.ground); // Вместо ground
         this.setTickRandomly(true);
         this.setBlockTextureName("magicalcrops:farmland_");
         this.setBlockName("AccioFarmland");

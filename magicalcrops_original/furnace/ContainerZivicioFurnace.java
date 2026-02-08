@@ -21,44 +21,44 @@
 /*     */   
 /*     */   public ContainerZivicioFurnace(InventoryPlayer player, TileEntityZivicioFurnace tileEntityZivicioFurnace) {
 /*  23 */     this.tileZivicioFurnace = tileEntityZivicioFurnace;
-/*  24 */     func_75146_a(new Slot((IInventory)tileEntityZivicioFurnace, 0, 56, 17));
-/*  25 */     func_75146_a(new Slot((IInventory)tileEntityZivicioFurnace, 1, 56, 53));
-/*  26 */     func_75146_a((Slot)new SlotFurnace(player.field_70458_d, (IInventory)tileEntityZivicioFurnace, 2, 116, 35));
+/*  24 */     addSlotToContainer(new Slot((IInventory)tileEntityZivicioFurnace, 0, 56, 17));
+/*  25 */     addSlotToContainer(new Slot((IInventory)tileEntityZivicioFurnace, 1, 56, 53));
+/*  26 */     addSlotToContainer((Slot)new SlotFurnace(player.player, (IInventory)tileEntityZivicioFurnace, 2, 116, 35));
 /*     */     
 /*     */     int i;
 /*  29 */     for (i = 0; i < 3; i++) {
 /*  30 */       for (int j = 0; j < 9; j++) {
-/*  31 */         func_75146_a(new Slot((IInventory)player, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+/*  31 */         addSlotToContainer(new Slot((IInventory)player, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
 /*     */       }
 /*     */     } 
 /*     */     
 /*  35 */     for (i = 0; i < 9; i++) {
-/*  36 */       func_75146_a(new Slot((IInventory)player, i, 8 + i * 18, 142));
+/*  36 */       addSlotToContainer(new Slot((IInventory)player, i, 8 + i * 18, 142));
 /*     */     }
 /*     */   }
 /*     */   
-/*     */   public void func_75132_a(ICrafting craft) {
-/*  41 */     super.func_75132_a(craft);
-/*  42 */     craft.func_71112_a(this, 0, this.tileZivicioFurnace.furnaceCookTime);
-/*  43 */     craft.func_71112_a(this, 1, this.tileZivicioFurnace.furnaceBurnTime);
-/*  44 */     craft.func_71112_a(this, 2, this.tileZivicioFurnace.currentBurnTime);
+/*     */   public void onCraftGuiOpened(ICrafting craft) {
+/*  41 */     super.onCraftGuiOpened(craft);
+/*  42 */     craft.sendProgressBarUpdate(this, 0, this.tileZivicioFurnace.furnaceCookTime);
+/*  43 */     craft.sendProgressBarUpdate(this, 1, this.tileZivicioFurnace.furnaceBurnTime);
+/*  44 */     craft.sendProgressBarUpdate(this, 2, this.tileZivicioFurnace.currentBurnTime);
 /*     */   }
 /*     */   
-/*     */   public void func_75142_b() {
-/*  48 */     super.func_75142_b();
-/*  49 */     for (int i = 0; i < this.field_75149_d.size(); i++) {
-/*  50 */       ICrafting craft = this.field_75149_d.get(i);
+/*     */   public void detectAndSendChanges() {
+/*  48 */     super.detectAndSendChanges();
+/*  49 */     for (int i = 0; i < this.crafters.size(); i++) {
+/*  50 */       ICrafting craft = this.crafters.get(i);
 /*     */       
 /*  52 */       if (this.lastCookTime != this.tileZivicioFurnace.furnaceCookTime) {
-/*  53 */         craft.func_71112_a(this, 0, this.tileZivicioFurnace.furnaceCookTime);
+/*  53 */         craft.sendProgressBarUpdate(this, 0, this.tileZivicioFurnace.furnaceCookTime);
 /*     */       }
 /*     */       
 /*  56 */       if (this.lastBurnTime != this.tileZivicioFurnace.furnaceBurnTime) {
-/*  57 */         craft.func_71112_a(this, 1, this.tileZivicioFurnace.furnaceBurnTime);
+/*  57 */         craft.sendProgressBarUpdate(this, 1, this.tileZivicioFurnace.furnaceBurnTime);
 /*     */       }
 /*     */       
 /*  60 */       if (this.lastItemBurnTime != this.tileZivicioFurnace.currentBurnTime) {
-/*  61 */         craft.func_71112_a(this, 2, this.tileZivicioFurnace.currentBurnTime);
+/*  61 */         craft.sendProgressBarUpdate(this, 2, this.tileZivicioFurnace.currentBurnTime);
 /*     */       }
 /*     */     } 
 /*     */     
@@ -68,7 +68,7 @@
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void func_75137_b(int par1, int par2) {
+/*     */   public void updateProgressBar(int par1, int par2) {
 /*  72 */     if (par1 == 0) {
 /*  73 */       this.tileZivicioFurnace.furnaceCookTime = par2;
 /*     */     }
@@ -83,78 +83,78 @@
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public boolean func_75145_c(EntityPlayer player) {
-/*  87 */     return this.tileZivicioFurnace.func_70300_a(player);
+/*     */   public boolean canInteractWith(EntityPlayer player) {
+/*  87 */     return this.tileZivicioFurnace.isUseableByPlayer(player);
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public ItemStack func_82846_b(EntityPlayer p_82846_1_, int p_82846_2_) {
+/*     */   public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_) {
 /*  93 */     ItemStack itemstack = null;
-/*  94 */     Slot slot = this.field_75151_b.get(p_82846_2_);
+/*  94 */     Slot slot = this.inventorySlots.get(p_82846_2_);
 /*     */     
-/*  96 */     if (slot != null && slot.func_75216_d()) {
+/*  96 */     if (slot != null && slot.getHasStack()) {
 /*     */       
-/*  98 */       ItemStack itemstack1 = slot.func_75211_c();
-/*  99 */       itemstack = itemstack1.func_77946_l();
+/*  98 */       ItemStack itemstack1 = slot.getStack();
+/*  99 */       itemstack = itemstack1.copy();
 /*     */       
 /* 101 */       if (p_82846_2_ == 2) {
 /*     */         
-/* 103 */         if (!func_75135_a(itemstack1, 3, 39, true))
+/* 103 */         if (!mergeItemStack(itemstack1, 3, 39, true))
 /*     */         {
 /* 105 */           return null;
 /*     */         }
 /*     */         
-/* 108 */         slot.func_75220_a(itemstack1, itemstack);
+/* 108 */         slot.onSlotChange(itemstack1, itemstack);
 /*     */       }
 /* 110 */       else if (p_82846_2_ != 1 && p_82846_2_ != 0) {
 /*     */         
-/* 112 */         if (FurnaceRecipes.func_77602_a().func_151395_a(itemstack1) != null)
+/* 112 */         if (FurnaceRecipes.instance().getSmeltingResult(itemstack1) != null)
 /*     */         {
-/* 114 */           if (!func_75135_a(itemstack1, 0, 1, false))
+/* 114 */           if (!mergeItemStack(itemstack1, 0, 1, false))
 /*     */           {
 /* 116 */             return null;
 /*     */           }
 /*     */         }
 /* 119 */         else if (TileEntityZivicioFurnace.isItemFuel(itemstack1))
 /*     */         {
-/* 121 */           if (!func_75135_a(itemstack1, 1, 2, false))
+/* 121 */           if (!mergeItemStack(itemstack1, 1, 2, false))
 /*     */           {
 /* 123 */             return null;
 /*     */           }
 /*     */         }
 /* 126 */         else if (p_82846_2_ >= 3 && p_82846_2_ < 30)
 /*     */         {
-/* 128 */           if (!func_75135_a(itemstack1, 30, 39, false))
+/* 128 */           if (!mergeItemStack(itemstack1, 30, 39, false))
 /*     */           {
 /* 130 */             return null;
 /*     */           }
 /*     */         }
-/* 133 */         else if (p_82846_2_ >= 30 && p_82846_2_ < 39 && !func_75135_a(itemstack1, 3, 30, false))
+/* 133 */         else if (p_82846_2_ >= 30 && p_82846_2_ < 39 && !mergeItemStack(itemstack1, 3, 30, false))
 /*     */         {
 /* 135 */           return null;
 /*     */         }
 /*     */       
-/* 138 */       } else if (!func_75135_a(itemstack1, 3, 39, false)) {
+/* 138 */       } else if (!mergeItemStack(itemstack1, 3, 39, false)) {
 /*     */         
 /* 140 */         return null;
 /*     */       } 
 /*     */       
-/* 143 */       if (itemstack1.field_77994_a == 0) {
+/* 143 */       if (itemstack1.stackSize == 0) {
 /*     */         
-/* 145 */         slot.func_75215_d((ItemStack)null);
+/* 145 */         slot.putStack((ItemStack)null);
 /*     */       }
 /*     */       else {
 /*     */         
-/* 149 */         slot.func_75218_e();
+/* 149 */         slot.onSlotChanged();
 /*     */       } 
 /*     */       
-/* 152 */       if (itemstack1.field_77994_a == itemstack.field_77994_a)
+/* 152 */       if (itemstack1.stackSize == itemstack.stackSize)
 /*     */       {
 /* 154 */         return null;
 /*     */       }
 /*     */       
-/* 157 */       slot.func_82870_a(p_82846_1_, itemstack1);
+/* 157 */       slot.onPickupFromSlot(p_82846_1_, itemstack1);
 /*     */     } 
 /*     */     
 /* 160 */     return itemstack;

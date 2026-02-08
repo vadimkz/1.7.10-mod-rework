@@ -26,9 +26,9 @@
 /*  26 */   static Item imperioEssence = Essence.ImperioEssence;
 /*  27 */   static Item zivicioEssence = Essence.ZivicioEssence;
 /*     */   
-/*  29 */   static ItemStack allDye = new ItemStack(Items.field_151100_aR, 1, 32767);
+/*  29 */   static ItemStack allDye = new ItemStack(Items.dye, 1, 32767);
 /*  30 */   static ItemStack minicioSeed = new ItemStack(MSeeds.MinicioSeeds);
-/*  31 */   static ItemStack enchantedBook = new ItemStack((Item)Items.field_151134_bR, 1, 32767);
+/*  31 */   static ItemStack enchantedBook = new ItemStack((Item)Items.enchanted_book, 1, 32767);
 /*     */   
 /*  33 */   static ItemStack airSeeds = new ItemStack(MSeeds.AirSeeds, 1, 32767);
 /*  34 */   static ItemStack coalSeeds = new ItemStack(MSeeds.CoalSeeds, 1, 32767);
@@ -66,44 +66,44 @@
 /*     */ 
 /*     */   
 /*     */   public static void loadRecipes() {
-/*  69 */     GameRegistry.addRecipe(new ItemStack(MSeeds.MinicioSeeds, 1), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('X'), minicioEssence, Character.valueOf('Y'), Items.field_151014_N });
+/*  69 */     GameRegistry.addRecipe(new ItemStack(MSeeds.MinicioSeeds, 1), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('X'), minicioEssence, Character.valueOf('Y'), Items.wheat_seeds });
 /*     */ 
 /*     */     
-/*  72 */     GameRegistry.addRecipe(new ItemStack(MSeeds.CoalSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151044_h, Character.valueOf('Z'), minicioSeed });
+/*  72 */     GameRegistry.addRecipe(new ItemStack(MSeeds.CoalSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.coal, Character.valueOf('Z'), minicioSeed });
 /*  73 */     GameRegistry.addRecipe(new ItemStack(MSeeds.DyeSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), allDye, Character.valueOf('Z'), minicioSeed });
-/*  74 */     GameRegistry.addRecipe(new ItemStack(MSeeds.WaterSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151131_as, Character.valueOf('Z'), minicioSeed });
-/*  75 */     GameRegistry.addRecipe(new ItemStack(MSeeds.FireSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151129_at, Character.valueOf('Z'), minicioSeed });
-/*  76 */     GameRegistry.addRecipe(new ItemStack(MSeeds.EarthSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Blocks.field_150346_d, Character.valueOf('Z'), minicioSeed });
-/*  77 */     GameRegistry.addRecipe(new ItemStack(MSeeds.AirSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.field_151069_bo, Character.valueOf('Z'), minicioSeed });
+/*  74 */     GameRegistry.addRecipe(new ItemStack(MSeeds.WaterSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.water_bucket, Character.valueOf('Z'), minicioSeed });
+/*  75 */     GameRegistry.addRecipe(new ItemStack(MSeeds.FireSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.lava_bucket, Character.valueOf('Z'), minicioSeed });
+/*  76 */     GameRegistry.addRecipe(new ItemStack(MSeeds.EarthSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Blocks.dirt, Character.valueOf('Z'), minicioSeed });
+/*  77 */     GameRegistry.addRecipe(new ItemStack(MSeeds.AirSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Items.glass_bottle, Character.valueOf('Z'), minicioSeed });
 /*  78 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(MSeeds.NatureSeeds, seedOutPut), new Object[] { Boolean.valueOf(true), { "YXY", "XZX", "YXY", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), "natureMaterial", Character.valueOf('Z'), minicioSeed } }));
 /*     */     
-/*  80 */     GameRegistry.addRecipe(new ItemStack(MSeeds.RedstoneSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.field_151137_ax, Character.valueOf('Z'), minicioSeed });
-/*  81 */     GameRegistry.addRecipe(new ItemStack(MSeeds.GlowstoneSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.field_151114_aO, Character.valueOf('Z'), minicioSeed });
-/*  82 */     GameRegistry.addRecipe(new ItemStack(MSeeds.ObsidianSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Blocks.field_150343_Z, Character.valueOf('Z'), minicioSeed });
+/*  80 */     GameRegistry.addRecipe(new ItemStack(MSeeds.RedstoneSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.redstone, Character.valueOf('Z'), minicioSeed });
+/*  81 */     GameRegistry.addRecipe(new ItemStack(MSeeds.GlowstoneSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.glowstone_dust, Character.valueOf('Z'), minicioSeed });
+/*  82 */     GameRegistry.addRecipe(new ItemStack(MSeeds.ObsidianSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Blocks.obsidian, Character.valueOf('Z'), minicioSeed });
 /*  83 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(new ItemStack(MSeeds.NetherSeeds, seedOutPut), new Object[] { Boolean.valueOf(true), { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), "netherMaterial", Character.valueOf('Z'), minicioSeed } }));
 /*     */     
-/*  85 */     GameRegistry.addRecipe(new ItemStack(MSeeds.IronSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151042_j, Character.valueOf('Z'), minicioSeed });
-/*  86 */     GameRegistry.addRecipe(new ItemStack(MSeeds.GoldSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151043_k, Character.valueOf('Z'), minicioSeed });
-/*  87 */     GameRegistry.addRecipe(new ItemStack(MSeeds.LapisSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), new ItemStack(Items.field_151100_aR, 1, 4), Character.valueOf('Z'), minicioSeed });
+/*  85 */     GameRegistry.addRecipe(new ItemStack(MSeeds.IronSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.iron_ingot, Character.valueOf('Z'), minicioSeed });
+/*  86 */     GameRegistry.addRecipe(new ItemStack(MSeeds.GoldSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.gold_ingot, Character.valueOf('Z'), minicioSeed });
+/*  87 */     GameRegistry.addRecipe(new ItemStack(MSeeds.LapisSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), new ItemStack(Items.dye, 1, 4), Character.valueOf('Z'), minicioSeed });
 /*  88 */     GameRegistry.addRecipe(new ItemStack(MSeeds.ExperienceSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Z'), minicioSeed, Character.valueOf('Y'), enchantedBook });
-/*  89 */     GameRegistry.addRecipe(new ItemStack(MSeeds.QuartzSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151128_bU, Character.valueOf('Z'), minicioSeed });
+/*  89 */     GameRegistry.addRecipe(new ItemStack(MSeeds.QuartzSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.quartz, Character.valueOf('Z'), minicioSeed });
 /*     */     
-/*  91 */     GameRegistry.addRecipe(new ItemStack(MSeeds.DiamondSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), Items.field_151045_i, Character.valueOf('Z'), minicioSeed });
-/*  92 */     GameRegistry.addRecipe(new ItemStack(MSeeds.EmeraldSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), Items.field_151166_bC, Character.valueOf('Z'), minicioSeed });
+/*  91 */     GameRegistry.addRecipe(new ItemStack(MSeeds.DiamondSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), Items.diamond, Character.valueOf('Z'), minicioSeed });
+/*  92 */     GameRegistry.addRecipe(new ItemStack(MSeeds.EmeraldSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), Items.emerald, Character.valueOf('Z'), minicioSeed });
 /*     */ 
 /*     */     
-/*  95 */     GameRegistry.addRecipe(new ItemStack(MSeeds.CowSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.field_151116_aA, Character.valueOf('Z'), minicioSeeds });
-/*  96 */     GameRegistry.addRecipe(new ItemStack(MSeeds.PigSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.field_151147_al, Character.valueOf('Z'), minicioSeeds });
-/*  97 */     GameRegistry.addRecipe(new ItemStack(MSeeds.ChickenSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.field_151110_aK, Character.valueOf('Z'), minicioSeeds });
-/*  98 */     GameRegistry.addRecipe(new ItemStack(MSeeds.SheepSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Blocks.field_150325_L, Character.valueOf('Z'), minicioSeeds });
-/*  99 */     GameRegistry.addRecipe(new ItemStack(MSeeds.CreeperSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151016_H, Character.valueOf('Z'), minicioSeeds });
-/* 100 */     GameRegistry.addRecipe(new ItemStack(MSeeds.BlazeSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151072_bj, Character.valueOf('Z'), minicioSeeds });
-/* 101 */     GameRegistry.addRecipe(new ItemStack(MSeeds.EndermanSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151079_bi, Character.valueOf('Z'), minicioSeeds });
-/* 102 */     GameRegistry.addRecipe(new ItemStack(MSeeds.SkeletonSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151103_aS, Character.valueOf('Z'), minicioSeeds });
-/* 103 */     GameRegistry.addRecipe(new ItemStack(MSeeds.SlimeSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151123_aH, Character.valueOf('Z'), minicioSeeds });
-/* 104 */     GameRegistry.addRecipe(new ItemStack(MSeeds.SpiderSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151070_bp, Character.valueOf('Z'), minicioSeeds });
-/* 105 */     GameRegistry.addRecipe(new ItemStack(MSeeds.GhastSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.field_151073_bk, Character.valueOf('Z'), minicioSeeds });
-/* 106 */     GameRegistry.addRecipe(new ItemStack(MSeeds.WitherSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), new ItemStack(Items.field_151144_bL, 1, 1), Character.valueOf('Z'), skeletonSeeds });
+/*  95 */     GameRegistry.addRecipe(new ItemStack(MSeeds.CowSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.leather, Character.valueOf('Z'), minicioSeeds });
+/*  96 */     GameRegistry.addRecipe(new ItemStack(MSeeds.PigSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.porkchop, Character.valueOf('Z'), minicioSeeds });
+/*  97 */     GameRegistry.addRecipe(new ItemStack(MSeeds.ChickenSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Items.egg, Character.valueOf('Z'), minicioSeeds });
+/*  98 */     GameRegistry.addRecipe(new ItemStack(MSeeds.SheepSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Blocks.wool, Character.valueOf('Z'), minicioSeeds });
+/*  99 */     GameRegistry.addRecipe(new ItemStack(MSeeds.CreeperSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.gunpowder, Character.valueOf('Z'), minicioSeeds });
+/* 100 */     GameRegistry.addRecipe(new ItemStack(MSeeds.BlazeSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.blaze_rod, Character.valueOf('Z'), minicioSeeds });
+/* 101 */     GameRegistry.addRecipe(new ItemStack(MSeeds.EndermanSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.ender_pearl, Character.valueOf('Z'), minicioSeeds });
+/* 102 */     GameRegistry.addRecipe(new ItemStack(MSeeds.SkeletonSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.bone, Character.valueOf('Z'), minicioSeeds });
+/* 103 */     GameRegistry.addRecipe(new ItemStack(MSeeds.SlimeSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.slime_ball, Character.valueOf('Z'), minicioSeeds });
+/* 104 */     GameRegistry.addRecipe(new ItemStack(MSeeds.SpiderSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.spider_eye, Character.valueOf('Z'), minicioSeeds });
+/* 105 */     GameRegistry.addRecipe(new ItemStack(MSeeds.GhastSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Items.ghast_tear, Character.valueOf('Z'), minicioSeeds });
+/* 106 */     GameRegistry.addRecipe(new ItemStack(MSeeds.WitherSeeds, seedOutPut), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), new ItemStack(Items.skull, 1, 1), Character.valueOf('Z'), skeletonSeeds });
 /*     */ 
 /*     */     
 /* 109 */     GameRegistry.addRecipe(new ItemStack(Essence.AirEssence, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), airSeeds });

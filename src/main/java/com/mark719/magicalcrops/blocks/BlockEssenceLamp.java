@@ -35,22 +35,22 @@
 /*    */ 
 /*    */     
 /* 37 */     this.icon = new IIcon[8];
-/*    */     func_149647_a(MagicalCrops.tabMagical);
-/*    */     func_149711_c(2.0F);
-/*    */     func_149752_b(10.0F);
-/* 41 */     func_149715_a(1.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) { this.icon[0] = par1IconRegister.func_94245_a(textureName + "EssLamp_coal");
-/* 42 */     this.icon[1] = par1IconRegister.func_94245_a(textureName + "EssLamp_brown");
-/* 43 */     this.icon[2] = par1IconRegister.func_94245_a(textureName + "EssLamp_emerald");
-/* 44 */     this.icon[3] = par1IconRegister.func_94245_a(textureName + "EssLamp_blaze");
-/* 45 */     this.icon[4] = par1IconRegister.func_94245_a(textureName + "EssLamp_glowstone");
-/* 46 */     this.icon[5] = par1IconRegister.func_94245_a(textureName + "EssLamp_lapis");
-/* 47 */     this.icon[6] = par1IconRegister.func_94245_a(textureName + "EssLamp_obsidian");
-/* 48 */     this.icon[7] = par1IconRegister.func_94245_a(textureName + "EssLamp_redstone"); }
+/*    */     setCreativeTab(MagicalCrops.tabMagical);
+/*    */     setHardness(2.0F);
+/*    */     setResistance(10.0F);
+/* 41 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) { this.icon[0] = par1IconRegister.registerIcon(textureName + "EssLamp_coal");
+/* 42 */     this.icon[1] = par1IconRegister.registerIcon(textureName + "EssLamp_brown");
+/* 43 */     this.icon[2] = par1IconRegister.registerIcon(textureName + "EssLamp_emerald");
+/* 44 */     this.icon[3] = par1IconRegister.registerIcon(textureName + "EssLamp_blaze");
+/* 45 */     this.icon[4] = par1IconRegister.registerIcon(textureName + "EssLamp_glowstone");
+/* 46 */     this.icon[5] = par1IconRegister.registerIcon(textureName + "EssLamp_lapis");
+/* 47 */     this.icon[6] = par1IconRegister.registerIcon(textureName + "EssLamp_obsidian");
+/* 48 */     this.icon[7] = par1IconRegister.registerIcon(textureName + "EssLamp_redstone"); }
 /*    */ 
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_149666_a(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
+/*    */   public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
 /* 54 */     for (int var4 = 0; var4 < 8; var4++) {
 /* 55 */       par3List.add(new ItemStack(MBlocks.EssenceLamp, 1, var4));
 /*    */     }
@@ -63,7 +63,7 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public int func_149692_a(int meta) {
+/*    */   public int damageDropped(int meta) {
 /* 67 */     return meta;
 /*    */   }
 /*    */ }

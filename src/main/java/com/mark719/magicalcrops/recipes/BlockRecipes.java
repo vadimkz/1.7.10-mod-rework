@@ -29,26 +29,26 @@
 /*     */   
 /*  30 */   static ItemStack zivicioBlock = new ItemStack(MBlocks.EssenceStorage, 1, 4);
 /*     */   
-/*  32 */   static ItemStack black = new ItemStack(Items.field_151100_aR, 1, 0);
-/*  33 */   static ItemStack brown = new ItemStack(Items.field_151100_aR, 1, 3);
-/*  34 */   static ItemStack green = new ItemStack(Items.field_151100_aR, 1, 2);
-/*  35 */   static ItemStack orange = new ItemStack(Items.field_151100_aR, 1, 14);
-/*  36 */   static ItemStack yellow = new ItemStack(Items.field_151100_aR, 1, 11);
-/*  37 */   static ItemStack blue = new ItemStack(Items.field_151100_aR, 1, 4);
-/*  38 */   static ItemStack purple = new ItemStack(Items.field_151100_aR, 1, 5);
-/*  39 */   static ItemStack red = new ItemStack(Items.field_151100_aR, 1, 1);
+/*  32 */   static ItemStack black = new ItemStack(Items.dye, 1, 0);
+/*  33 */   static ItemStack brown = new ItemStack(Items.dye, 1, 3);
+/*  34 */   static ItemStack green = new ItemStack(Items.dye, 1, 2);
+/*  35 */   static ItemStack orange = new ItemStack(Items.dye, 1, 14);
+/*  36 */   static ItemStack yellow = new ItemStack(Items.dye, 1, 11);
+/*  37 */   static ItemStack blue = new ItemStack(Items.dye, 1, 4);
+/*  38 */   static ItemStack purple = new ItemStack(Items.dye, 1, 5);
+/*  39 */   static ItemStack red = new ItemStack(Items.dye, 1, 1);
 /*     */ 
 /*     */ 
 /*     */   
 /*     */   public static void loadRecipes() {
-/*  44 */     GameRegistry.addRecipe(new ItemStack(MBlocks.AccioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Blocks.field_150460_al });
+/*  44 */     GameRegistry.addRecipe(new ItemStack(MBlocks.AccioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Blocks.furnace });
 /*  45 */     GameRegistry.addRecipe(new ItemStack(MBlocks.CrucioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), accioFurnace });
 /*  46 */     GameRegistry.addRecipe(new ItemStack(MBlocks.ImperioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), crucioFurnace });
 /*  47 */     GameRegistry.addRecipe(new ItemStack(MBlocks.ZivicioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), imperioFurnace });
 /*  48 */     GameRegistry.addRecipe(new ItemStack(MBlocks.UltimateFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), zivicioBlock, Character.valueOf('Y'), zivicioFurnace });
 /*     */ 
 /*     */     
-/*  51 */     GameRegistry.addRecipe(new ItemStack(MBlocks.CropBooster, 1), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), new ItemStack(MBlocks.EssenceStorage, 1, 0), Character.valueOf('Y'), Blocks.field_150348_b, Character.valueOf('Z'), Items.field_151045_i });
+/*  51 */     GameRegistry.addRecipe(new ItemStack(MBlocks.CropBooster, 1), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), new ItemStack(MBlocks.EssenceStorage, 1, 0), Character.valueOf('Y'), Blocks.stone, Character.valueOf('Z'), Items.diamond });
 /*     */ 
 /*     */ 
 /*     */     
@@ -60,7 +60,7 @@
 /*  60 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceStorage, 1, 5), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), new ItemStack(MBlocks.EssenceStorage, 1, 4) });
 /*     */ 
 /*     */     
-/*  63 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceStone, 8), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), minicioEssence, Character.valueOf('X'), Blocks.field_150347_e });
+/*  63 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceStone, 8), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), minicioEssence, Character.valueOf('X'), Blocks.cobblestone });
 /*     */     
 /*  65 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceBlock, 8, 0), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), black, Character.valueOf('X'), essenceStone });
 /*  66 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceBlock, 8, 1), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), brown, Character.valueOf('X'), essenceStone });
@@ -98,14 +98,14 @@
 /*  98 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceBrick2, 4, 6), new Object[] { "XX", "XX", Character.valueOf('X'), new ItemStack(MBlocks.EssenceBrick, 1, 6) });
 /*  99 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceBrick2, 4, 7), new Object[] { "XX", "XX", Character.valueOf('X'), new ItemStack(MBlocks.EssenceBrick, 1, 7) });
 /*     */     
-/* 101 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 0), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.field_150426_aN, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 0) });
-/* 102 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 1), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.field_150426_aN, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 1) });
-/* 103 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 2), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.field_150426_aN, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 2) });
-/* 104 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 3), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.field_150426_aN, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 3) });
-/* 105 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 4), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.field_150426_aN, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 4) });
-/* 106 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 5), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.field_150426_aN, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 5) });
-/* 107 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 6), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.field_150426_aN, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 6) });
-/* 108 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 7), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.field_150426_aN, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 7) });
+/* 101 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 0), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.glowstone, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 0) });
+/* 102 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 1), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.glowstone, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 1) });
+/* 103 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 2), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.glowstone, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 2) });
+/* 104 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 3), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.glowstone, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 3) });
+/* 105 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 4), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.glowstone, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 4) });
+/* 106 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 5), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.glowstone, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 5) });
+/* 107 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 6), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.glowstone, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 6) });
+/* 108 */     GameRegistry.addRecipe(new ItemStack(MBlocks.EssenceLamp, 8, 7), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), Blocks.glowstone, Character.valueOf('X'), new ItemStack(MBlocks.EssenceBlock, 1, 7) });
 /*     */   }
 /*     */ }
 

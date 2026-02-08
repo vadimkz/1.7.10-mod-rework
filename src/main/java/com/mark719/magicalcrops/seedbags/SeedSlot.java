@@ -14,8 +14,8 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_75214_a(ItemStack stack) {
-/* 18 */     return (stack != null && stack.func_77973_b() instanceof net.minecraftforge.common.IPlantable);
+/*    */   public boolean isItemValid(ItemStack stack) {
+/* 18 */     return (stack != null && stack.getItem() instanceof net.minecraftforge.common.IPlantable);
 /*    */   }
 /*    */ }
 
