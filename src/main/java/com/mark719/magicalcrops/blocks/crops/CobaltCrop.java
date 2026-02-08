@@ -28,11 +28,11 @@ public class CobaltCrop extends BlockMagicalCrops {
   }
   
   @SideOnly(Side.CLIENT)
-  public IIcon getIcon(int par1, int par2) {
-    if (par2 < 7) {
-      if (par2 == 6)
-        par2 = 5; 
-      return this.iconArray[par2 >> 1];
+  public IIcon getIcon(int side, int metadata) {
+    if (metadata < 7) {
+      if (metadata == 6)
+        metadata = 5; 
+      return this.iconArray[metadata >> 1];
     } 
     return this.iconArray[3];
   }

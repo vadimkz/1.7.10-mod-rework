@@ -19,8 +19,8 @@
 /*    */ public class AccioAxe
 /*    */   extends ItemAxe
 /*    */ {
-/*    */   public AccioAxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
-/* 23 */     super(par2EnumToolMaterial);
+/*    */   public AccioAxe(int itemId, Item.ToolMaterial toolMaterial) {
+/* 23 */     super(toolMaterial);
 /* 24 */     this.maxStackSize = 1;
 /* 25 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
@@ -31,8 +31,8 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 35 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 35 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(stack)) + "/" + getMaxDurability());
 /*    */   }
 /*    */ }
 

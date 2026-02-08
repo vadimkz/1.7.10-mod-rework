@@ -18,8 +18,8 @@
 /*    */ public class AccioPickaxe
 /*    */   extends ItemPickaxe
 /*    */ {
-/*    */   public AccioPickaxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
-/* 22 */     super(par2EnumToolMaterial);
+/*    */   public AccioPickaxe(int itemId, Item.ToolMaterial toolMaterial) {
+/* 22 */     super(toolMaterial);
 /* 23 */     this.maxStackSize = 1;
 /* 24 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
@@ -30,14 +30,14 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 /* 34 */     if (ConfigMain.EXTRA_PICKAXE) {
-/* 35 */       par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
+/* 35 */       tooltip.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
 /* 36 */       if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
-/* 37 */         par3List.add(EnumChatFormatting.ITALIC + "- 2 Extra essence from Minicio Ores");
+/* 37 */         tooltip.add(EnumChatFormatting.ITALIC + "- 2 Extra essence from Minicio Ores");
 /*    */       }
 /*    */     } 
-/* 40 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
+/* 40 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(stack)) + "/" + getMaxDurability());
 /*    */   }
 /*    */ }
 

@@ -47,7 +47,7 @@
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+/*     */   public String getArmorTexture(ItemStack itemToRepair, Entity entity, int slot, String type) {
 /*  51 */     if (this.armorType == 0 || this.armorType == 1 || this.armorType == 3) {
 /*  52 */       return "magicalcrops:textures/armour/zivicio_armour_1.png";
 /*     */     }
@@ -59,8 +59,8 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-/*  63 */     return (par2ItemStack.isItemEqual(new ItemStack(Essence.ZivicioEssence)) || super.getIsRepairable(par1ItemStack, par2ItemStack));
+/*     */   public boolean getIsRepairable(ItemStack itemToRepair, ItemStack repairItem) {
+/*  63 */     return (repairItem.isItemEqual(new ItemStack(Essence.ZivicioEssence)) || super.getIsRepairable(itemToRepair, repairItem));
 /*     */   }
 /*     */ 
 /*     */   
@@ -69,62 +69,62 @@
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/*  73 */     par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for info:");
+/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*  73 */     tooltip.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for info:");
 /*  74 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
-/*  75 */       par3List.add(EnumChatFormatting.ITALIC + "- 96% Damage Reduction");
+/*  75 */       tooltip.add(EnumChatFormatting.ITALIC + "- 96% Damage Reduction");
 /*  76 */       if (ConfigMain.ARMOUR_FLIGHT) {
-/*  77 */         par3List.add(EnumChatFormatting.ITALIC + "- Negates fall damage");
-/*  78 */         par3List.add(EnumChatFormatting.ITALIC + "- Flight");
+/*  77 */         tooltip.add(EnumChatFormatting.ITALIC + "- Negates fall damage");
+/*  78 */         tooltip.add(EnumChatFormatting.ITALIC + "- Flight");
 /*     */       } 
-/*  80 */     }  par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
-/*  81 */     par3List.add(EnumChatFormatting.GREEN + "Gem Socket:");
-/*  82 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourHelmet || par1ItemStack.getItem() == Armour.ZivicioArmourChestplate || par1ItemStack.getItem() == Armour.ZivicioArmourLeggings || par1ItemStack.getItem() == Armour.ZivicioArmourBoots)
+/*  80 */     }  tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(stack)) + "/" + getMaxDurability());
+/*  81 */     tooltip.add(EnumChatFormatting.GREEN + "Gem Socket:");
+/*  82 */     if (stack.getItem() == Armour.ZivicioArmourHelmet || stack.getItem() == Armour.ZivicioArmourChestplate || stack.getItem() == Armour.ZivicioArmourLeggings || stack.getItem() == Armour.ZivicioArmourBoots)
 /*     */     {
-/*  84 */       par3List.add(EnumChatFormatting.ITALIC + "- Empty");
+/*  84 */       tooltip.add(EnumChatFormatting.ITALIC + "- Empty");
 /*     */     }
 /*     */     
-/*  87 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourHelmetFeed) {
-/*  88 */       par3List.add(EnumChatFormatting.ITALIC + "- Saturation");
+/*  87 */     if (stack.getItem() == Armour.ZivicioArmourHelmetFeed) {
+/*  88 */       tooltip.add(EnumChatFormatting.ITALIC + "- Saturation");
 /*     */     }
-/*  90 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourHelmetNight) {
-/*  91 */       par3List.add(EnumChatFormatting.ITALIC + "- Night Vision");
+/*  90 */     if (stack.getItem() == Armour.ZivicioArmourHelmetNight) {
+/*  91 */       tooltip.add(EnumChatFormatting.ITALIC + "- Night Vision");
 /*     */     }
-/*  93 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourHelmetWater) {
-/*  94 */       par3List.add(EnumChatFormatting.ITALIC + "- Water Breathing");
+/*  93 */     if (stack.getItem() == Armour.ZivicioArmourHelmetWater) {
+/*  94 */       tooltip.add(EnumChatFormatting.ITALIC + "- Water Breathing");
 /*     */     }
 /*     */ 
 /*     */     
-/*  98 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourChestplateFire) {
-/*  99 */       par3List.add(EnumChatFormatting.ITALIC + "- Fire Protection");
+/*  98 */     if (stack.getItem() == Armour.ZivicioArmourChestplateFire) {
+/*  99 */       tooltip.add(EnumChatFormatting.ITALIC + "- Fire Protection");
 /*     */     }
-/* 101 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourChestplateWither) {
-/* 102 */       par3List.add(EnumChatFormatting.ITALIC + "- Wither Protection");
+/* 101 */     if (stack.getItem() == Armour.ZivicioArmourChestplateWither) {
+/* 102 */       tooltip.add(EnumChatFormatting.ITALIC + "- Wither Protection");
 /*     */     }
-/* 104 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourChestplatePoison) {
-/* 105 */       par3List.add(EnumChatFormatting.ITALIC + "- Poison Protection");
-/*     */     }
-/*     */ 
-/*     */     
-/* 109 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourLeggingsWeak) {
-/* 110 */       par3List.add(EnumChatFormatting.ITALIC + "- Weakness Protection");
-/*     */     }
-/* 112 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourLeggingsConfusion) {
-/* 113 */       par3List.add(EnumChatFormatting.ITALIC + "- Confusion Protection");
-/*     */     }
-/* 115 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourLeggingsBlind) {
-/* 116 */       par3List.add(EnumChatFormatting.ITALIC + "- Blindness Protection");
+/* 104 */     if (stack.getItem() == Armour.ZivicioArmourChestplatePoison) {
+/* 105 */       tooltip.add(EnumChatFormatting.ITALIC + "- Poison Protection");
 /*     */     }
 /*     */ 
 /*     */     
-/* 120 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourBootsSpeed) {
-/* 121 */       par3List.add(EnumChatFormatting.ITALIC + "- Speed Increase");
+/* 109 */     if (stack.getItem() == Armour.ZivicioArmourLeggingsWeak) {
+/* 110 */       tooltip.add(EnumChatFormatting.ITALIC + "- Weakness Protection");
 /*     */     }
-/* 123 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourBootsStep) {
-/* 124 */       par3List.add(EnumChatFormatting.ITALIC + "- Step Assist");
+/* 112 */     if (stack.getItem() == Armour.ZivicioArmourLeggingsConfusion) {
+/* 113 */       tooltip.add(EnumChatFormatting.ITALIC + "- Confusion Protection");
 /*     */     }
-/* 126 */     if (par1ItemStack.getItem() == Armour.ZivicioArmourBootsJump) {
-/* 127 */       par3List.add(EnumChatFormatting.ITALIC + "- Jump Boost");
+/* 115 */     if (stack.getItem() == Armour.ZivicioArmourLeggingsBlind) {
+/* 116 */       tooltip.add(EnumChatFormatting.ITALIC + "- Blindness Protection");
+/*     */     }
+/*     */ 
+/*     */     
+/* 120 */     if (stack.getItem() == Armour.ZivicioArmourBootsSpeed) {
+/* 121 */       tooltip.add(EnumChatFormatting.ITALIC + "- Speed Increase");
+/*     */     }
+/* 123 */     if (stack.getItem() == Armour.ZivicioArmourBootsStep) {
+/* 124 */       tooltip.add(EnumChatFormatting.ITALIC + "- Step Assist");
+/*     */     }
+/* 126 */     if (stack.getItem() == Armour.ZivicioArmourBootsJump) {
+/* 127 */       tooltip.add(EnumChatFormatting.ITALIC + "- Jump Boost");
 /*     */     }
 /*     */   }
 /*     */ 

@@ -27,18 +27,18 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
-/* 31 */     if (p_77648_7_ != 1)
+/*    */   public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+/* 31 */     if (side != 1)
 /*    */     {
 /* 33 */       return false;
 /*    */     }
-/* 35 */     if (p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.dirt) {
+/* 35 */     if (player.canPlayerEdit(x, y, z, side, stack) && world.getBlock(x, y, z) == Blocks.dirt) {
 /*    */ 
 /*    */       
-/* 38 */       if (!p_77648_3_.isRemote) {
-/* 39 */         p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, (Block)Blocks.grass, 0, 1);
-/* 40 */         p_77648_3_.playAuxSFX(2005, p_77648_4_, p_77648_5_ + 1, p_77648_6_, 0);
-/* 41 */         p_77648_1_.stackSize--;
+/* 38 */       if (!world.isRemote) {
+/* 39 */         world.setBlock(x, y, z, (Block)Blocks.grass, 0, 1);
+/* 40 */         world.playAuxSFX(2005, x, y + 1, z, 0);
+/* 41 */         stack.stackSize--;
 /* 42 */         return true;
 /*    */       } 
 /*    */     } else {
@@ -50,8 +50,8 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 54 */     par3List.add(EnumChatFormatting.YELLOW + "Right Click: " + EnumChatFormatting.WHITE + "Turns dirt into grass");
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 54 */     tooltip.add(EnumChatFormatting.YELLOW + "Right Click: " + EnumChatFormatting.WHITE + "Turns dirt into grass");
 /*    */   }
 /*    */ }
 

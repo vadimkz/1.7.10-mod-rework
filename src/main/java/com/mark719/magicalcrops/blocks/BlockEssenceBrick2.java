@@ -24,7 +24,7 @@
 /* 24 */   public static String textureName = "magicalcrops:";
 /*    */   protected IIcon[] icon;
 /*    */   
-/* 27 */   public BlockEssenceBrick2(Material par3Material) { super(par3Material);
+/* 27 */   public BlockEssenceBrick2(Material material) { super(material);
 /*    */ 
 /*    */ 
 /*    */ 
@@ -35,21 +35,21 @@
 /*    */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     setHardness(2.0F);
 /*    */     setResistance(10.0F);
-/* 38 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) { this.icon[0] = par1IconRegister.registerIcon(textureName + "EssBrick_coal");
-/* 39 */     this.icon[1] = par1IconRegister.registerIcon(textureName + "EssBrick_earth");
-/* 40 */     this.icon[2] = par1IconRegister.registerIcon(textureName + "EssBrick_emerald");
-/* 41 */     this.icon[3] = par1IconRegister.registerIcon(textureName + "EssBrick_blaze");
-/* 42 */     this.icon[4] = par1IconRegister.registerIcon(textureName + "EssBrick_glowstone");
-/* 43 */     this.icon[5] = par1IconRegister.registerIcon(textureName + "EssBrick_lapis");
-/* 44 */     this.icon[6] = par1IconRegister.registerIcon(textureName + "EssBrick_obsidian");
-/* 45 */     this.icon[7] = par1IconRegister.registerIcon(textureName + "EssBrick_redstone"); }
+/* 38 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister iconRegister) { this.icon[0] = iconRegister.registerIcon(textureName + "EssBrick_coal");
+/* 39 */     this.icon[1] = iconRegister.registerIcon(textureName + "EssBrick_earth");
+/* 40 */     this.icon[2] = iconRegister.registerIcon(textureName + "EssBrick_emerald");
+/* 41 */     this.icon[3] = iconRegister.registerIcon(textureName + "EssBrick_blaze");
+/* 42 */     this.icon[4] = iconRegister.registerIcon(textureName + "EssBrick_glowstone");
+/* 43 */     this.icon[5] = iconRegister.registerIcon(textureName + "EssBrick_lapis");
+/* 44 */     this.icon[6] = iconRegister.registerIcon(textureName + "EssBrick_obsidian");
+/* 45 */     this.icon[7] = iconRegister.registerIcon(textureName + "EssBrick_redstone"); }
 /*    */ 
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
+/*    */   public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
 /* 51 */     for (int var4 = 0; var4 < 8; var4++) {
-/* 52 */       par3List.add(new ItemStack(MBlocks.EssenceBrick2, 1, var4));
+/* 52 */       list.add(new ItemStack(MBlocks.EssenceBrick2, 1, var4));
 /*    */     }
 /*    */   }
 /*    */ 

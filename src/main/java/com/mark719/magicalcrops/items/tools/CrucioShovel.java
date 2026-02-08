@@ -18,8 +18,8 @@
 /*    */ public class CrucioShovel
 /*    */   extends ItemSpade
 /*    */ {
-/*    */   public CrucioShovel(int par1, Item.ToolMaterial par2EnumToolMaterial) {
-/* 22 */     super(par2EnumToolMaterial);
+/*    */   public CrucioShovel(int itemId, Item.ToolMaterial toolMaterial) {
+/* 22 */     super(toolMaterial);
 /* 23 */     this.maxStackSize = 1;
 /* 24 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
@@ -30,8 +30,8 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 34 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 34 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(stack)) + "/" + getMaxDurability());
 /*    */   }
 /*    */ }
 

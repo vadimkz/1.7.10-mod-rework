@@ -9,8 +9,8 @@
 /*    */ public class SeedSlot
 /*    */   extends Slot
 /*    */ {
-/*    */   public SeedSlot(IInventory par1IInventory, int par2, int par3, int par4) {
-/* 13 */     super(par1IInventory, par2, par3, par4);
+/*    */   public SeedSlot(IInventory inventory, int slotIndex, int x, int y) {
+/* 13 */     super(inventory, slotIndex, x, y);
 /*    */   }
 /*    */ 
 /*    */   

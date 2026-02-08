@@ -36,16 +36,16 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-/*  40 */     if (this.hasGui && par3EntityPlayer.isSneaking()) {
-/*  41 */       par3EntityPlayer.openGui(MagicalCrops.instance, 0, par2World, 0, 0, 0);
+/*     */   public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+/*  40 */     if (this.hasGui && player.isSneaking()) {
+/*  41 */       player.openGui(MagicalCrops.instance, 0, world, 0, 0, 0);
 /*     */     }
 /*     */     
-/*  44 */     return par1ItemStack;
+/*  44 */     return stack;
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public boolean onItemUse(ItemStack itemStackUsed, EntityPlayer player, World world, int x, int y, int z, int intDirection, float par8, float par9, float par10) {
+/*     */   public boolean onItemUse(ItemStack itemStackUsed, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 /*  49 */     if (this.hasGui && player.isSneaking()) {
 /*  50 */       return false;
 /*     */     }
@@ -55,7 +55,7 @@
 /*  55 */       return false;
 /*     */     }
 /*     */     
-/*  58 */     if (canPlant(inventory, world, x, y, z, ForgeDirection.getOrientation(intDirection))) {
+/*  58 */     if (canPlant(inventory, world, x, y, z, ForgeDirection.getOrientation(side))) {
 /*  59 */       plant(player, inventory, world, x, y, z, this.range, player.rotationYaw);
 /*     */     }
 /*     */     

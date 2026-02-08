@@ -36,21 +36,21 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5) {
-/* 40 */     float f = par2Random.nextFloat() * 3.1415927F;
-/* 41 */     double d0 = ((par3 + 8) + MathHelper.sin(f) * this.numberOfBlocks / 8.0F);
-/* 42 */     double d1 = ((par3 + 8) - MathHelper.sin(f) * this.numberOfBlocks / 8.0F);
-/* 43 */     double d2 = ((par5 + 8) + MathHelper.cos(f) * this.numberOfBlocks / 8.0F);
-/* 44 */     double d3 = ((par5 + 8) - MathHelper.cos(f) * this.numberOfBlocks / 8.0F);
-/* 45 */     double d4 = (par4 + par2Random.nextInt(3) - 2);
-/* 46 */     double d5 = (par4 + par2Random.nextInt(3) - 2);
+/*    */   public boolean generate(World world, Random random, int x, int y, int z) {
+/* 40 */     float f = random.nextFloat() * 3.1415927F;
+/* 41 */     double d0 = ((x + 8) + MathHelper.sin(f) * this.numberOfBlocks / 8.0F);
+/* 42 */     double d1 = ((x + 8) - MathHelper.sin(f) * this.numberOfBlocks / 8.0F);
+/* 43 */     double d2 = ((z + 8) + MathHelper.cos(f) * this.numberOfBlocks / 8.0F);
+/* 44 */     double d3 = ((z + 8) - MathHelper.cos(f) * this.numberOfBlocks / 8.0F);
+/* 45 */     double d4 = (y + random.nextInt(3) - 2);
+/* 46 */     double d5 = (y + random.nextInt(3) - 2);
 /*    */     
 /* 48 */     for (int l = 0; l <= this.numberOfBlocks; l++) {
 /*    */       
 /* 50 */       double d6 = d0 + (d1 - d0) * l / this.numberOfBlocks;
 /* 51 */       double d7 = d4 + (d5 - d4) * l / this.numberOfBlocks;
 /* 52 */       double d8 = d2 + (d3 - d2) * l / this.numberOfBlocks;
-/* 53 */       double d9 = par2Random.nextDouble() * this.numberOfBlocks / 16.0D;
+/* 53 */       double d9 = random.nextDouble() * this.numberOfBlocks / 16.0D;
 /* 54 */       double d10 = (MathHelper.sin(l * 3.1415927F / this.numberOfBlocks) + 1.0F) * d9 + 1.0D;
 /* 55 */       double d11 = (MathHelper.sin(l * 3.1415927F / this.numberOfBlocks) + 1.0F) * d9 + 1.0D;
 /* 56 */       int i1 = MathHelper.floor_double(d6 - d10 / 2.0D);
@@ -76,9 +76,9 @@
 /*    */                 
 /* 77 */                 double d14 = (i3 + 0.5D - d8) / d10 / 2.0D;
 /*    */                 
-/* 79 */                 if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D && par1World.getBlock(k2, l2, i3).isReplaceableOreGen(par1World, k2, l2, i3, this.field_150518_c))
+/* 79 */                 if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D && world.getBlock(k2, l2, i3).isReplaceableOreGen(world, k2, l2, i3, this.field_150518_c))
 /*    */                 {
-/* 81 */                   par1World.setBlock(k2, l2, i3, this.field_150519_a, this.mineableBlockMeta, 2);
+/* 81 */                   world.setBlock(k2, l2, i3, this.field_150519_a, this.mineableBlockMeta, 2);
 /*    */                 }
 /*    */               } 
 /*    */             }

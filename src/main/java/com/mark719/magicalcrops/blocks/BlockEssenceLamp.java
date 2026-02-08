@@ -27,7 +27,7 @@
 /* 27 */   public static String textureName = "magicalcrops:";
 /*    */   protected IIcon[] icon;
 /*    */   
-/* 30 */   public BlockEssenceLamp(Material par3Material) { super(par3Material);
+/* 30 */   public BlockEssenceLamp(Material material) { super(material);
 /*    */ 
 /*    */ 
 /*    */ 
@@ -38,21 +38,21 @@
 /*    */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     setHardness(2.0F);
 /*    */     setResistance(10.0F);
-/* 41 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) { this.icon[0] = par1IconRegister.registerIcon(textureName + "EssLamp_coal");
-/* 42 */     this.icon[1] = par1IconRegister.registerIcon(textureName + "EssLamp_brown");
-/* 43 */     this.icon[2] = par1IconRegister.registerIcon(textureName + "EssLamp_emerald");
-/* 44 */     this.icon[3] = par1IconRegister.registerIcon(textureName + "EssLamp_blaze");
-/* 45 */     this.icon[4] = par1IconRegister.registerIcon(textureName + "EssLamp_glowstone");
-/* 46 */     this.icon[5] = par1IconRegister.registerIcon(textureName + "EssLamp_lapis");
-/* 47 */     this.icon[6] = par1IconRegister.registerIcon(textureName + "EssLamp_obsidian");
-/* 48 */     this.icon[7] = par1IconRegister.registerIcon(textureName + "EssLamp_redstone"); }
+/* 41 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister iconRegister) { this.icon[0] = iconRegister.registerIcon(textureName + "EssLamp_coal");
+/* 42 */     this.icon[1] = iconRegister.registerIcon(textureName + "EssLamp_brown");
+/* 43 */     this.icon[2] = iconRegister.registerIcon(textureName + "EssLamp_emerald");
+/* 44 */     this.icon[3] = iconRegister.registerIcon(textureName + "EssLamp_blaze");
+/* 45 */     this.icon[4] = iconRegister.registerIcon(textureName + "EssLamp_glowstone");
+/* 46 */     this.icon[5] = iconRegister.registerIcon(textureName + "EssLamp_lapis");
+/* 47 */     this.icon[6] = iconRegister.registerIcon(textureName + "EssLamp_obsidian");
+/* 48 */     this.icon[7] = iconRegister.registerIcon(textureName + "EssLamp_redstone"); }
 /*    */ 
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
+/*    */   public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
 /* 54 */     for (int var4 = 0; var4 < 8; var4++) {
-/* 55 */       par3List.add(new ItemStack(MBlocks.EssenceLamp, 1, var4));
+/* 55 */       list.add(new ItemStack(MBlocks.EssenceLamp, 1, var4));
 /*    */     }
 /*    */   }
 /*    */ 

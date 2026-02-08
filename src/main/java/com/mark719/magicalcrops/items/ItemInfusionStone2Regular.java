@@ -49,15 +49,15 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public EnumRarity getRarity(ItemStack par2) {
+/*    */   public EnumRarity getRarity(ItemStack stack) {
 /* 53 */     return EnumRarity.uncommon;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 58 */     par3List.add("Accio -> Crucio");
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 58 */     tooltip.add("Accio -> Crucio");
 /* 59 */     if (ConfigMain.INFUSION_DURABILITY)
-/* 60 */       par3List.add("Durability: " + (par1ItemStack.getMaxDurability() - par1ItemStack.getMetadata()) + "/" + par1ItemStack.getMaxDurability()); 
+/* 60 */       tooltip.add("Durability: " + (stack.getMaxDurability() - stack.getMetadata()) + "/" + stack.getMaxDurability()); 
 /*    */   }
 /*    */ }
 

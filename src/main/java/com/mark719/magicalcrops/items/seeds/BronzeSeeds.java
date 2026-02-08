@@ -21,7 +21,7 @@
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public int getColorFromItemStack(ItemStack par1ItemStack, int par2) {
+/*    */   public int getColorFromItemStack(ItemStack stack, int tintIndex) {
 /* 25 */     return 7161128;
 /*    */   }
 /*    */ }

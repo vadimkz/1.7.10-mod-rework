@@ -34,7 +34,7 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public int quantityDropped(Random par1Random) {
+/*    */   public int quantityDropped(Random random) {
 /* 38 */     return 4;
 /*    */   }
 /*    */ 

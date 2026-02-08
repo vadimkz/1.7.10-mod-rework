@@ -51,29 +51,29 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public IIcon getIconFromDamage(int par1) {
-/*  55 */     int j = MathHelper.clamp_int(par1, 0, 3);
+/*     */   public IIcon getIconFromDamage(int damage) {
+/*  55 */     int j = MathHelper.clamp_int(damage, 0, 3);
 /*  56 */     return this.dyeIconArray[j];
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public String getUnlocalizedName(ItemStack par1ItemStack) {
-/*  61 */     int i = MathHelper.clamp_int(par1ItemStack.getMetadata(), 0, 3);
+/*     */   public String getUnlocalizedName(ItemStack stack) {
+/*  61 */     int i = MathHelper.clamp_int(stack.getMetadata(), 0, 3);
 /*  62 */     return getUnlocalizedName() + "." + dyeColorNames[i];
 /*     */   }
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List<ItemStack> p_150895_3_) {
+/*     */   public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
 /*  68 */     for (int i = 0; i < 4; i++)
 /*     */     {
-/*  70 */       p_150895_3_.add(new ItemStack(p_150895_1_, 1, i));
+/*  70 */       list.add(new ItemStack(item, 1, i));
 /*     */     }
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public EnumRarity getRarity(ItemStack par2) {
-/*  76 */     switch (par2.getMetadata()) {
+/*     */   public EnumRarity getRarity(ItemStack stack) {
+/*  76 */     switch (stack.getMetadata()) {
 /*     */       case 0:
 /*  78 */         return EnumRarity.common;
 /*  79 */       case 1: return EnumRarity.uncommon;
@@ -85,20 +85,20 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
-/*  89 */     switch (p_77648_1_.getMetadata()) {
+/*     */   public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+/*  89 */     switch (stack.getMetadata()) {
 /*     */       
 /*     */       case 0:
-/*  92 */         if (p_77648_7_ != 1)
+/*  92 */         if (side != 1)
 /*     */         {
 /*  94 */           return false;
 /*     */         }
-/*  96 */         if (p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.farmland) {
+/*  96 */         if (player.canPlayerEdit(x, y, z, side, stack) && world.getBlock(x, y, z) == Blocks.farmland) {
 /*     */ 
 /*     */           
-/*  99 */           if (!p_77648_3_.isRemote) {
-/* 100 */             p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, MBlocks.FarmlandAccio, 0, 1);
-/* 101 */             p_77648_1_.stackSize--;
+/*  99 */           if (!world.isRemote) {
+/* 100 */             world.setBlock(x, y, z, MBlocks.FarmlandAccio, 0, 1);
+/* 101 */             stack.stackSize--;
 /* 102 */             return true;
 /*     */           } 
 /*     */         } else {
@@ -106,16 +106,16 @@
 /*     */         } 
 /*     */       
 /*     */       case 1:
-/* 109 */         if (p_77648_7_ != 1)
+/* 109 */         if (side != 1)
 /*     */         {
 /* 111 */           return false;
 /*     */         }
-/* 113 */         if (p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.farmland) {
+/* 113 */         if (player.canPlayerEdit(x, y, z, side, stack) && world.getBlock(x, y, z) == Blocks.farmland) {
 /*     */ 
 /*     */           
-/* 116 */           if (!p_77648_3_.isRemote) {
-/* 117 */             p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, MBlocks.FarmlandCrucio, 0, 1);
-/* 118 */             p_77648_1_.stackSize--;
+/* 116 */           if (!world.isRemote) {
+/* 117 */             world.setBlock(x, y, z, MBlocks.FarmlandCrucio, 0, 1);
+/* 118 */             stack.stackSize--;
 /* 119 */             return true;
 /*     */           } 
 /*     */         } else {
@@ -123,16 +123,16 @@
 /*     */         } 
 /*     */       
 /*     */       case 2:
-/* 126 */         if (p_77648_7_ != 1)
+/* 126 */         if (side != 1)
 /*     */         {
 /* 128 */           return false;
 /*     */         }
-/* 130 */         if (p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.farmland) {
+/* 130 */         if (player.canPlayerEdit(x, y, z, side, stack) && world.getBlock(x, y, z) == Blocks.farmland) {
 /*     */ 
 /*     */           
-/* 133 */           if (!p_77648_3_.isRemote) {
-/* 134 */             p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, MBlocks.FarmlandImperio, 0, 1);
-/* 135 */             p_77648_1_.stackSize--;
+/* 133 */           if (!world.isRemote) {
+/* 134 */             world.setBlock(x, y, z, MBlocks.FarmlandImperio, 0, 1);
+/* 135 */             stack.stackSize--;
 /* 136 */             return true;
 /*     */           } 
 /*     */         } else {
@@ -140,16 +140,16 @@
 /*     */         } 
 /*     */       
 /*     */       case 3:
-/* 143 */         if (p_77648_7_ != 1)
+/* 143 */         if (side != 1)
 /*     */         {
 /* 145 */           return false;
 /*     */         }
-/* 147 */         if (p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.farmland) {
+/* 147 */         if (player.canPlayerEdit(x, y, z, side, stack) && world.getBlock(x, y, z) == Blocks.farmland) {
 /*     */ 
 /*     */           
-/* 150 */           if (!p_77648_3_.isRemote) {
-/* 151 */             p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, MBlocks.FarmlandZivicio, 0, 1);
-/* 152 */             p_77648_1_.stackSize--;
+/* 150 */           if (!world.isRemote) {
+/* 151 */             world.setBlock(x, y, z, MBlocks.FarmlandZivicio, 0, 1);
+/* 152 */             stack.stackSize--;
 /* 153 */             return true;
 /*     */           }  break;
 /*     */         } 
@@ -162,12 +162,12 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void registerIcons(IIconRegister par1IconRegister) {
+/*     */   public void registerIcons(IIconRegister iconRegister) {
 /* 166 */     this.dyeIconArray = new IIcon[dyeIcons.length];
 /*     */     
 /* 168 */     for (int i = 0; i < dyeIcons.length; i++)
 /*     */     {
-/* 170 */       this.dyeIconArray[i] = par1IconRegister.registerIcon("magicalcrops:" + dyeIcons[i]);
+/* 170 */       this.dyeIconArray[i] = iconRegister.registerIcon("magicalcrops:" + dyeIcons[i]);
 /*     */     }
 /*     */   }
 /*     */ }

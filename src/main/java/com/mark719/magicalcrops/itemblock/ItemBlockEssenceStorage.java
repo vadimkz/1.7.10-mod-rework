@@ -23,8 +23,8 @@
 /* 23 */     return meta;
 /*    */   }
 /*    */   
-/*    */   public String getUnlocalizedName(ItemStack par1ItemStack) {
-/* 27 */     int i = MathHelper.clamp_int(par1ItemStack.getMetadata(), 0, 5);
+/*    */   public String getUnlocalizedName(ItemStack stack) {
+/* 27 */     int i = MathHelper.clamp_int(stack.getMetadata(), 0, 5);
 /* 28 */     return getUnlocalizedName() + "." + SUBNAMES[i];
 /*    */   }
 /*    */ 
