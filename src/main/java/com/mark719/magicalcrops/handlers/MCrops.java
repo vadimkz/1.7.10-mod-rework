@@ -31,87 +31,68 @@ import com.mark719.magicalcrops.blocks.crops.SlimeCrop;
 import com.mark719.magicalcrops.blocks.crops.SpiderCrop;
 import com.mark719.magicalcrops.blocks.crops.WaterCrop;
 import com.mark719.magicalcrops.blocks.crops.WitherCrop;
-import com.mark719.magicalcrops.config.ConfigDisable;
 import net.minecraft.block.Block;
 
 public class MCrops {
-
-    public static Block AirCrop;
-    public static Block CoalCrop;
-    public static Block DyeCrop;
-    public static Block EarthCrop;
-    public static Block FireCrop;
-    public static Block MinicioCrop;
-    public static Block NatureCrop;
-    public static Block WaterCrop;
-    public static Block RedstoneCrop;
-    public static Block GlowstoneCrop;
-    public static Block ObsidianCrop;
-    public static Block NetherCrop;
-    public static Block IronCrop;
-    public static Block GoldCrop;
-    public static Block LapisCrop;
-    public static Block ExperienceCrop;
-    public static Block QuartzCrop;
-    public static Block DiamondCrop;
-    public static Block EmeraldCrop;
-
-    public static Block BlazeCrop;
-    public static Block CreeperCrop;
-    public static Block EndermanCrop;
-    public static Block GhastCrop;
-    public static Block SkeletonCrop;
-    public static Block SlimeCrop;
-    public static Block SpiderCrop;
-    public static Block WitherCrop;
-
-    public static Block ChickenCrop;
-    public static Block CowCrop;
-    public static Block PigCrop;
-    public static Block SheepCrop;
-
-    /**
-     * IMPORTANT:
-     * ConfigDisable.* flags are treated as "disabled = true".
-     * So we create crops when the flag is FALSE.
-     *
-     * This matches the original behavior (all crops exist by default)
-     * while still respecting the config toggles.
-     */
-    public static void init() {
-
-        if (!ConfigDisable.AIR) AirCrop = (new AirCrop()).setUnlocalizedName("AirCrop");
-        if (!ConfigDisable.COAL) CoalCrop = (new CoalCrop()).setUnlocalizedName("CoalCrop");
-        if (!ConfigDisable.DYE) DyeCrop = (new DyeCrop()).setUnlocalizedName("DyeCrop");
-        if (!ConfigDisable.EARTH) EarthCrop = (new EarthCrop()).setUnlocalizedName("EarthCrop");
-        if (!ConfigDisable.FIRE) FireCrop = (new FireCrop()).setUnlocalizedName("FireCrop");
-        if (!ConfigDisable.MINICIO) MinicioCrop = (new MinicioCrop()).setUnlocalizedName("MinicioCrop");
-        if (!ConfigDisable.NATURE) NatureCrop = (new NatureCrop()).setUnlocalizedName("NatureCrop");
-        if (!ConfigDisable.WATER) WaterCrop = (new WaterCrop()).setUnlocalizedName("WaterCrop");
-        if (!ConfigDisable.REDSTONE) RedstoneCrop = (new RedstoneCrop()).setUnlocalizedName("RedstoneCrop");
-        if (!ConfigDisable.GLOWSTONE) GlowstoneCrop = (new GlowstoneCrop()).setUnlocalizedName("GlowstoneCrop");
-        if (!ConfigDisable.OBSIDIAN) ObsidianCrop = (new ObsidianCrop()).setUnlocalizedName("ObsidianCrop");
-        if (!ConfigDisable.NETHER) NetherCrop = (new NetherCrop()).setUnlocalizedName("NetherCrop");
-        if (!ConfigDisable.IRON) IronCrop = (new IronCrop()).setUnlocalizedName("IronCrop");
-        if (!ConfigDisable.GOLD) GoldCrop = (new GoldCrop()).setUnlocalizedName("GoldCrop");
-        if (!ConfigDisable.LAPIS) LapisCrop = (new LapisCrop()).setUnlocalizedName("LapisCrop");
-        if (!ConfigDisable.EXPERIENCE) ExperienceCrop = (new ExperienceCrop()).setUnlocalizedName("ExperienceCrop");
-        if (!ConfigDisable.QUARTZ) QuartzCrop = (new QuartzCrop()).setUnlocalizedName("QuartzCrop");
-        if (!ConfigDisable.DIAMOND) DiamondCrop = (new DiamondCrop()).setUnlocalizedName("DiamondCrop");
-        if (!ConfigDisable.EMERALD) EmeraldCrop = (new EmeraldCrop()).setUnlocalizedName("EmeraldCrop");
-
-        if (!ConfigDisable.BLAZE) BlazeCrop = (new BlazeCrop()).setUnlocalizedName("BlazeCrop");
-        if (!ConfigDisable.CREEPER) CreeperCrop = (new CreeperCrop()).setUnlocalizedName("CreeperCrop");
-        if (!ConfigDisable.ENDERMAN) EndermanCrop = (new EndermanCrop()).setUnlocalizedName("EndermanCrop");
-        if (!ConfigDisable.GHAST) GhastCrop = (new GhastCrop()).setUnlocalizedName("GhastCrop");
-        if (!ConfigDisable.SKELETON) SkeletonCrop = (new SkeletonCrop()).setUnlocalizedName("SkeletonCrop");
-        if (!ConfigDisable.SLIME) SlimeCrop = (new SlimeCrop()).setUnlocalizedName("SlimeCrop");
-        if (!ConfigDisable.SPIDER) SpiderCrop = (new SpiderCrop()).setUnlocalizedName("SpiderCrop");
-        if (!ConfigDisable.WITHER) WitherCrop = (new WitherCrop()).setUnlocalizedName("WitherCrop");
-
-        if (!ConfigDisable.CHICKEN) ChickenCrop = (new ChickenCrop()).setUnlocalizedName("ChickenCrop");
-        if (!ConfigDisable.COW) CowCrop = (new CowCrop()).setUnlocalizedName("CowCrop");
-        if (!ConfigDisable.PIG) PigCrop = (new PigCrop()).setUnlocalizedName("PigCrop");
-        if (!ConfigDisable.SHEEP) SheepCrop = (new SheepCrop()).setUnlocalizedName("SheepCrop");
-    }
+  public static Block AirCrop = (new AirCrop()).func_149663_c("AirCrop");
+  
+  public static Block CoalCrop = (new CoalCrop()).func_149663_c("CoalCrop");
+  
+  public static Block DyeCrop = (new DyeCrop()).func_149663_c("DyeCrop");
+  
+  public static Block EarthCrop = (new EarthCrop()).func_149663_c("EarthCrop");
+  
+  public static Block FireCrop = (new FireCrop()).func_149663_c("FireCrop");
+  
+  public static Block NatureCrop = (new NatureCrop()).func_149663_c("NatureCrop");
+  
+  public static Block MinicioCrop = (new MinicioCrop()).func_149663_c("MinicioCrop");
+  
+  public static Block WaterCrop = (new WaterCrop()).func_149663_c("WaterCrop");
+  
+  public static Block RedstoneCrop = (new RedstoneCrop()).func_149663_c("RedstoneCrop");
+  
+  public static Block GlowstoneCrop = (new GlowstoneCrop()).func_149663_c("GlowstoneCrop");
+  
+  public static Block ObsidianCrop = (new ObsidianCrop()).func_149663_c("ObsidianCrop");
+  
+  public static Block NetherCrop = (new NetherCrop()).func_149663_c("NetherCrop");
+  
+  public static Block IronCrop = (new IronCrop()).func_149663_c("IronCrop");
+  
+  public static Block GoldCrop = (new GoldCrop()).func_149663_c("GoldCrop");
+  
+  public static Block LapisCrop = (new LapisCrop()).func_149663_c("LapisCrop");
+  
+  public static Block ExperienceCrop = (new ExperienceCrop()).func_149663_c("ExperienceCrop");
+  
+  public static Block QuartzCrop = (new QuartzCrop()).func_149663_c("QuartzCrop");
+  
+  public static Block DiamondCrop = (new DiamondCrop()).func_149663_c("DiamondCrop");
+  
+  public static Block EmeraldCrop = (new EmeraldCrop()).func_149663_c("EmeraldCrop");
+  
+  public static Block BlazeCrop = (new BlazeCrop()).func_149663_c("BlazeCrop");
+  
+  public static Block CreeperCrop = (new CreeperCrop()).func_149663_c("CreeperCrop");
+  
+  public static Block EndermanCrop = (new EndermanCrop()).func_149663_c("EndermanCrop");
+  
+  public static Block GhastCrop = (new GhastCrop()).func_149663_c("GhastCrop");
+  
+  public static Block SkeletonCrop = (new SkeletonCrop()).func_149663_c("SkeletonCrop");
+  
+  public static Block SlimeCrop = (new SlimeCrop()).func_149663_c("SlimeCrop");
+  
+  public static Block SpiderCrop = (new SpiderCrop()).func_149663_c("SpiderCrop");
+  
+  public static Block WitherCrop = (new WitherCrop()).func_149663_c("WitherCrop");
+  
+  public static Block ChickenCrop = (new ChickenCrop()).func_149663_c("ChickenCrop");
+  
+  public static Block CowCrop = (new CowCrop()).func_149663_c("CowCrop");
+  
+  public static Block PigCrop = (new PigCrop()).func_149663_c("PigCrop");
+  
+  public static Block SheepCrop = (new SheepCrop()).func_149663_c("SheepCrop");
 }

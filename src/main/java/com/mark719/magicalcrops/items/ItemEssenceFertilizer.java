@@ -1,118 +1,179 @@
-package com.mark719.magicalcrops.items;
+/*     */ package com.mark719.magicalcrops.items;
+/*     */ 
+/*     */ import com.mark719.magicalcrops.MagicalCrops;
+/*     */ import com.mark719.magicalcrops.handlers.MBlocks;
+/*     */ import cpw.mods.fml.relauncher.Side;
+/*     */ import cpw.mods.fml.relauncher.SideOnly;
+/*     */ import java.util.List;
+/*     */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*     */ import net.minecraft.creativetab.CreativeTabs;
+/*     */ import net.minecraft.entity.player.EntityPlayer;
+/*     */ import net.minecraft.init.Blocks;
+/*     */ import net.minecraft.item.EnumRarity;
+/*     */ import net.minecraft.item.Item;
+/*     */ import net.minecraft.item.ItemStack;
+/*     */ import net.minecraft.util.EnumChatFormatting;
+/*     */ import net.minecraft.util.IIcon;
+/*     */ import net.minecraft.util.MathHelper;
+/*     */ import net.minecraft.world.World;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ItemEssenceFertilizer
+/*     */   extends Item
+/*     */ {
+/*  25 */   public static final String[] field_150923_a = new String[] { "accio", "crucio", "imperio", "zivicio" };
+/*     */   
+/*  27 */   public static final String[] field_150921_b = new String[] { "fertilizer_accio", "fertilizer_crucio", "fertilizer_imperio", "fertilizer_zivicio" };
+/*     */   
+/*     */   @SideOnly(Side.CLIENT)
+/*     */   private IIcon[] field_150920_d;
+/*     */   
+/*     */   private static final String __OBFID = "CL_00000022";
+/*     */   
+/*     */   public ItemEssenceFertilizer() {
+/*  35 */     func_77627_a(true);
+/*  36 */     func_77656_e(0);
+/*  37 */     func_77637_a(MagicalCrops.tabMagical);
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public String func_77653_i(ItemStack stack) {
+/*  42 */     switch (stack.func_77960_j()) {
+/*     */       case 0:
+/*  44 */         return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/*  45 */       case 1: return EnumChatFormatting.YELLOW + super.func_77653_i(stack);
+/*  46 */       case 2: return EnumChatFormatting.AQUA + super.func_77653_i(stack);
+/*  47 */       case 3: return EnumChatFormatting.LIGHT_PURPLE + super.func_77653_i(stack);
+/*     */     } 
+/*  49 */     return EnumChatFormatting.GRAY + super.func_77653_i(stack);
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   @SideOnly(Side.CLIENT)
+/*     */   public IIcon func_77617_a(int par1) {
+/*  55 */     int j = MathHelper.func_76125_a(par1, 0, 3);
+/*  56 */     return this.field_150920_d[j];
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public String func_77667_c(ItemStack par1ItemStack) {
+/*  61 */     int i = MathHelper.func_76125_a(par1ItemStack.func_77960_j(), 0, 3);
+/*  62 */     return func_77658_a() + "." + field_150923_a[i];
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   @SideOnly(Side.CLIENT)
+/*     */   public void func_150895_a(Item p_150895_1_, CreativeTabs p_150895_2_, List<ItemStack> p_150895_3_) {
+/*  68 */     for (int i = 0; i < 4; i++)
+/*     */     {
+/*  70 */       p_150895_3_.add(new ItemStack(p_150895_1_, 1, i));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   @SideOnly(Side.CLIENT)
+/*     */   public EnumRarity func_77613_e(ItemStack par2) {
+/*  76 */     switch (par2.func_77960_j()) {
+/*     */       case 0:
+/*  78 */         return EnumRarity.common;
+/*  79 */       case 1: return EnumRarity.uncommon;
+/*  80 */       case 2: return EnumRarity.rare;
+/*  81 */       case 3: return EnumRarity.epic;
+/*     */     } 
+/*  83 */     return EnumRarity.rare;
+/*     */   }
+/*     */ 
+/*     */ 
+/*     */   
+/*     */   public boolean func_77648_a(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
+/*  89 */     switch (p_77648_1_.func_77960_j()) {
+/*     */       
+/*     */       case 0:
+/*  92 */         if (p_77648_7_ != 1)
+/*     */         {
+/*  94 */           return false;
+/*     */         }
+/*  96 */         if (p_77648_2_.func_82247_a(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.func_147439_a(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.field_150458_ak) {
+/*     */ 
+/*     */           
+/*  99 */           if (!p_77648_3_.field_72995_K) {
+/* 100 */             p_77648_3_.func_147465_d(p_77648_4_, p_77648_5_, p_77648_6_, MBlocks.FarmlandAccio, 0, 1);
+/* 101 */             p_77648_1_.field_77994_a--;
+/* 102 */             return true;
+/*     */           } 
+/*     */         } else {
+/* 105 */           return false;
+/*     */         } 
+/*     */       
+/*     */       case 1:
+/* 109 */         if (p_77648_7_ != 1)
+/*     */         {
+/* 111 */           return false;
+/*     */         }
+/* 113 */         if (p_77648_2_.func_82247_a(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.func_147439_a(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.field_150458_ak) {
+/*     */ 
+/*     */           
+/* 116 */           if (!p_77648_3_.field_72995_K) {
+/* 117 */             p_77648_3_.func_147465_d(p_77648_4_, p_77648_5_, p_77648_6_, MBlocks.FarmlandCrucio, 0, 1);
+/* 118 */             p_77648_1_.field_77994_a--;
+/* 119 */             return true;
+/*     */           } 
+/*     */         } else {
+/* 122 */           return false;
+/*     */         } 
+/*     */       
+/*     */       case 2:
+/* 126 */         if (p_77648_7_ != 1)
+/*     */         {
+/* 128 */           return false;
+/*     */         }
+/* 130 */         if (p_77648_2_.func_82247_a(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.func_147439_a(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.field_150458_ak) {
+/*     */ 
+/*     */           
+/* 133 */           if (!p_77648_3_.field_72995_K) {
+/* 134 */             p_77648_3_.func_147465_d(p_77648_4_, p_77648_5_, p_77648_6_, MBlocks.FarmlandImperio, 0, 1);
+/* 135 */             p_77648_1_.field_77994_a--;
+/* 136 */             return true;
+/*     */           } 
+/*     */         } else {
+/* 139 */           return false;
+/*     */         } 
+/*     */       
+/*     */       case 3:
+/* 143 */         if (p_77648_7_ != 1)
+/*     */         {
+/* 145 */           return false;
+/*     */         }
+/* 147 */         if (p_77648_2_.func_82247_a(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_3_.func_147439_a(p_77648_4_, p_77648_5_, p_77648_6_) == Blocks.field_150458_ak) {
+/*     */ 
+/*     */           
+/* 150 */           if (!p_77648_3_.field_72995_K) {
+/* 151 */             p_77648_3_.func_147465_d(p_77648_4_, p_77648_5_, p_77648_6_, MBlocks.FarmlandZivicio, 0, 1);
+/* 152 */             p_77648_1_.field_77994_a--;
+/* 153 */             return true;
+/*     */           }  break;
+/*     */         } 
+/* 156 */         return false;
+/*     */     } 
+/*     */ 
+/*     */     
+/* 160 */     return false;
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   @SideOnly(Side.CLIENT)
+/*     */   public void func_94581_a(IIconRegister par1IconRegister) {
+/* 166 */     this.field_150920_d = new IIcon[field_150921_b.length];
+/*     */     
+/* 168 */     for (int i = 0; i < field_150921_b.length; i++)
+/*     */     {
+/* 170 */       this.field_150920_d[i] = par1IconRegister.func_94245_a("magicalcrops:" + field_150921_b[i]);
+/*     */     }
+/*     */   }
+/*     */ }
 
-import com.mark719.magicalcrops.MagicalCrops;
-import com.mark719.magicalcrops.handlers.MBlocks;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import java.util.List;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 
-public class ItemEssenceFertilizer extends Item {
-
-    public static final String[] names = new String[] { "accio", "crucio", "imperio", "zivicio" };
-    public static final String[] iconNames = new String[] { "fertilizer_accio", "fertilizer_crucio", "fertilizer_imperio", "fertilizer_zivicio" };
-
-    @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
-
-    public ItemEssenceFertilizer() {
-        this.setHasSubtypes(true);
-        // Если setMaxDamage не работает, используем это для предотвращения поломки
-        this.setMaxStackSize(64);
-        this.setCreativeTab(MagicalCrops.tabMagical);
-    }
-
-    @Override
-    public String getItemStackDisplayName(ItemStack stack) {
-        // Цвет названия зависит от метаданных предмета.
-        int meta = stack.getMetadata();
-        if (meta == 0) {
-            return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
-        } else if (meta == 1) {
-            return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
-        } else if (meta == 2) {
-            return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
-        } else if (meta == 3) {
-            return EnumChatFormatting.LIGHT_PURPLE + super.getItemStackDisplayName(stack);
-        }
-        return EnumChatFormatting.GRAY + super.getItemStackDisplayName(stack);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int damage) {
-        int j = MathHelper.clamp_int(damage, 0, 3);
-        return this.icons[j];
-    }
-
-    @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        int i = MathHelper.clamp_int(stack.getMetadata(), 0, 3);
-        return super.getUnlocalizedName() + "." + names[i];
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs tab, List list) {
-        for (int i = 0; i < 4; i++) {
-            list.add(new ItemStack(item, 1, i));
-        }
-    }
-
-    @Override
-    public EnumRarity getRarity(ItemStack stack) {
-        int meta = stack.getMetadata();
-        if (meta == 0) {
-            return EnumRarity.common;
-        } else if (meta == 1) {
-            return EnumRarity.uncommon;
-        } else if (meta == 2) {
-            return EnumRarity.rare;
-        } else if (meta == 3) {
-            return EnumRarity.epic;
-        }
-        return EnumRarity.rare;
-    }
-
-    @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-        if (side != 1) return false;
-
-        // Проверяем возможность редактирования блока игроком
-        if (!player.canPlayerEdit(x, y, z, side, stack)) return false;
-
-        // Проверяем, является ли блок ванильной грядкой
-        if (world.getBlock(x, y, z) == Blocks.farmland) {
-            if (!world.isRemote) {
-                int damage = stack.getMetadata();
-                if (damage == 0) world.setBlock(x, y, z, MBlocks.FarmlandAccio);
-                else if (damage == 1) world.setBlock(x, y, z, MBlocks.FarmlandCrucio);
-                else if (damage == 2) world.setBlock(x, y, z, MBlocks.FarmlandImperio);
-                else if (damage == 3) world.setBlock(x, y, z, MBlocks.FarmlandZivicio);
-
-                --stack.stackSize;
-            }
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister) {
-        this.icons = new IIcon[iconNames.length];
-        for (int i = 0; i < iconNames.length; i++) {
-            this.icons[i] = iconRegister.registerIcon("magicalcrops:" + iconNames[i]);
-        }
-    }
-}
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\items\ItemEssenceFertilizer.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */

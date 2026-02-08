@@ -1,24 +1,13 @@
 /*    */ package com.mark719.magicalcrops.help;
 /*    */ 
-/*    */ import cpw.mods.fml.common.FMLLog;
 /*    */ import cpw.mods.fml.common.registry.GameRegistry;
 /*    */ import net.minecraft.item.Item;
 /*    */ 
 /*    */ 
 /*    */ public class ItemRegisterHelper
 /*    */ {
-/*    */   public static void registerItem(Item item, String fieldName) {
-/* 10 */     if (item == null) {
-/* 11 */       FMLLog.severe("[MagicalCrops] Skipping null item registration for field: %s", fieldName);
-/* 12 */       return;
-/*    */     }
-/* 14 */     String unlocalizedName = item.getUnlocalizedName();
-/* 15 */     if (unlocalizedName == null) {
-/* 16 */       FMLLog.severe("[MagicalCrops] Skipping item registration, unlocalized name is null for field: %s", fieldName);
-/* 17 */       return;
-/*    */     }
-/* 19 */     String cleanName = unlocalizedName.startsWith("item.") ? unlocalizedName.substring(5) : unlocalizedName;
-/* 20 */     GameRegistry.registerItem(item, "magicalcrops_" + cleanName);
+/*    */   public static void registerItem(Item item) {
+/* 10 */     GameRegistry.registerItem(item, "magicalcrops_" + item.func_77658_a().substring(5));
 /*    */   }
 /*    */ }
 

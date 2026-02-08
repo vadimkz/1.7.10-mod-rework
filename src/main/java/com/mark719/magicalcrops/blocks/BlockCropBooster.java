@@ -1,94 +1,81 @@
-package com.mark719.magicalcrops.blocks;
+/*    */ package com.mark719.magicalcrops.blocks;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.MagicalCrops;
+/*    */ import com.mark719.magicalcrops.help.CropRandom;
+/*    */ import com.mark719.magicalcrops.help.StemRandom;
+/*    */ import java.util.Random;
+/*    */ import net.minecraft.block.Block;
+/*    */ import net.minecraft.block.material.Material;
+/*    */ import net.minecraft.world.World;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class BlockCropBooster
+/*    */   extends Block
+/*    */ {
+/*    */   private CropRandom prng;
+/*    */   private StemRandom s_prng;
+/*    */   
+/*    */   public BlockCropBooster() {
+/* 26 */     super(Material.field_151578_c);
+/*    */     
+/* 28 */     this.prng = new CropRandom();
+/* 29 */     this.s_prng = new StemRandom();
+/*    */     
+/* 31 */     func_149675_a(true);
+/* 32 */     func_149711_c(1.0F);
+/* 33 */     func_149672_a(Block.field_149769_e);
+/* 34 */     func_149647_a(MagicalCrops.tabMagical);
+/* 35 */     func_149658_d("magicalcrops:booster_block");
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   public void func_149674_a(World world, int x, int y, int z, Random prng) {
+/* 40 */     Block block_above = world.func_147439_a(x, y + 1, z);
+/*    */     
+/* 42 */     if (!world.func_72899_e(x, y + 1, z)) {
+/*    */       return;
+/*    */     }
+/* 45 */     if (block_above instanceof BlockCropBooster) {
+/* 46 */       block_above.func_149674_a(world, x, y + 1, z, prng);
+/*    */       
+/*    */       return;
+/*    */     } 
+/* 50 */     if (!world.func_72899_e(x, y + 2, z)) {
+/*    */       return;
+/*    */     }
+/* 53 */     Block plant_block = world.func_147439_a(x, y + 2, z);
+/*    */     
+/* 55 */     if (plant_block instanceof net.minecraft.block.BlockStem) {
+/*    */       
+/* 57 */       if (world.func_72805_g(x, y + 2, z) >= 7) {
+/* 58 */         plant_block.func_149674_a(world, x, y + 2, z, (Random)this.s_prng);
+/*    */       } else {
+/* 60 */         plant_block.func_149674_a(world, x, y + 2, z, (Random)this.prng);
+/*    */       } 
+/* 62 */     } else if (plant_block instanceof net.minecraft.block.BlockReed || plant_block instanceof net.minecraft.block.BlockCactus) {
+/*    */       
+/* 64 */       for (int l = 1; world.func_72899_e(x, y + 1 + l, z) && l < 3; l++)
+/*    */       {
+/* 66 */         world.func_147439_a(x, y + 1 + l, z).func_149674_a(world, x, y + 1 + l, z, (Random)this.prng);
+/*    */       
+/*    */       }
+/*    */     }
+/* 70 */     else if (plant_block instanceof net.minecraftforge.common.IPlantable || plant_block instanceof BlockMagicalCrops) {
+/*    */       
+/* 72 */       plant_block.func_149674_a(world, x, y + 2, z, (Random)this.prng);
+/*    */     } 
+/*    */   }
+/*    */ }
 
-import com.mark719.magicalcrops.MagicalCrops;
-import com.mark719.magicalcrops.help.CropRandom;
-import com.mark719.magicalcrops.help.StemRandom;
-import java.util.Random;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockCactus;
-import net.minecraft.block.BlockReed;
-import net.minecraft.block.BlockStem;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-import net.minecraftforge.common.IPlantable;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-/**
- * Блок-ускоритель роста (Crop Booster).
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\BlockCropBooster.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
  */
-public class BlockCropBooster extends Block {
-
-    private CropRandom prng;
-    private StemRandom s_prng;
-
-    @SideOnly(Side.CLIENT)
-    private IIcon blockIconInstance;
-
-    public BlockCropBooster() {
-        super(Material.ground);
-
-        this.prng = new CropRandom();
-        this.s_prng = new StemRandom();
-
-        this.setTickRandomly(true);
-        this.setHardness(1.0F);
-        this.setStepSound(Block.soundTypeGrass);
-        this.setCreativeTab(MagicalCrops.tabMagical);
-        // Убрали проблемный setBlockTextureName
-    }
-
-    // Попробуем убрать @Override, если компилятор жалуется,
-    // но в 1.7.10 этот метод ДОЛЖЕН быть в классе Block.
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister reg) {
-        this.blockIcon = reg.registerIcon("magicalcrops:booster_block");
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        return this.blockIconInstance;
-    }
-
-    @Override
-    public void updateTick(World world, int x, int y, int z, Random random) {
-        if (!world.blockExists(x, y + 1, z)) {
-            return;
-        }
-
-        Block blockAbove = world.getBlock(x, y + 1, z);
-
-        if (blockAbove instanceof BlockCropBooster) {
-            blockAbove.updateTick(world, x, y + 1, z, random);
-            return;
-        }
-
-        if (!world.blockExists(x, y + 2, z)) {
-            return;
-        }
-
-        Block plantBlock = world.getBlock(x, y + 2, z);
-
-        if (plantBlock instanceof BlockStem) {
-            if (world.getBlockMetadata(x, y + 2, z) >= 7) {
-                plantBlock.updateTick(world, x, y + 2, z, (Random)this.s_prng);
-            } else {
-                plantBlock.updateTick(world, x, y + 2, z, (Random)this.prng);
-            }
-        }
-        else if (plantBlock instanceof BlockReed || plantBlock instanceof BlockCactus) {
-            for (int l = 1; l < 3; l++) {
-                if (world.blockExists(x, y + 1 + l, z)) {
-                    Block targetBlock = world.getBlock(x, y + 1 + l, z);
-                    targetBlock.updateTick(world, x, y + 1 + l, z, (Random)this.prng);
-                }
-            }
-        }
-        else if (plantBlock instanceof IPlantable || plantBlock.getClass().getSimpleName().contains("MagicalCrops")) {
-            plantBlock.updateTick(world, x, y + 2, z, (Random)this.prng);
-        }
-    }
-}

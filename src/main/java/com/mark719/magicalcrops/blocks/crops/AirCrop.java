@@ -10,48 +10,31 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
 public class AirCrop extends BlockMagicalCrops {
-
-    public AirCrop() {
-        super();
-        this.setUnlocalizedName("AirCrop");
-    }
-
-    @Override
-    public Item getSeed() {
-        return MSeeds.AirSeeds;
-    }
-
-    @Override
-    public Item getCrop() {
-        return Essence.AirEssence;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister reg) {
-        // ВАЖНО: используем поле icons из BlockMagicalCrops,
-        // иначе базовый getIcon/логика может уйти в fallback на пшеницу.
-        this.icons = new IIcon[4];
-        for (int i = 0; i < 4; i++) {
-            String textureName = (i == 0) ? "CropAir_0" : "cropair_" + i;
-            this.icons[i] = reg.registerIcon("magicalcrops:" + textureName);
-        }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-        // Если по какой-то причине иконки ещё не прошиты — используем fallback из базового класса
-        if (this.icons == null) {
-            return super.getIcon(side, meta);
-        }
-
-        if (meta < 0) meta = 0;
-        if (meta > 7) meta = 7;
-
-        int stage = meta >> 1; // 0..3
-        if (stage < 0) stage = 0;
-        if (stage >= this.icons.length) stage = this.icons.length - 1;
-
-        return this.icons[stage];
-    }
+  @SideOnly(Side.CLIENT)
+  private IIcon[] iconArray;
+  
+  public Item func_149866_i() {
+    return MSeeds.AirSeeds;
+  }
+  
+  public Item func_149865_P() {
+    return Essence.AirEssence;
+  }
+  
+  @SideOnly(Side.CLIENT)
+  public void func_149651_a(IIconRegister p_149651_1_) {
+    this.iconArray = new IIcon[4];
+    for (int i = 0; i < this.iconArray.length; i++)
+      this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropAir_" + i); 
+  }
+  
+  @SideOnly(Side.CLIENT)
+  public IIcon func_149691_a(int par1, int par2) {
+    if (par2 < 7) {
+      if (par2 == 6)
+        par2 = 5; 
+      return this.iconArray[par2 >> 1];
+    } 
+    return this.iconArray[3];
+  }
 }

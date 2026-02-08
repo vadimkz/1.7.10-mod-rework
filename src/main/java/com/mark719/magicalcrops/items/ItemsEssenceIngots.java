@@ -1,94 +1,101 @@
-package com.mark719.magicalcrops.items;
+/*    */ package com.mark719.magicalcrops.items;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.MagicalCrops;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.creativetab.CreativeTabs;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.item.ItemStack;
+/*    */ import net.minecraft.util.EnumChatFormatting;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ import net.minecraft.util.MathHelper;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ItemsEssenceIngots
+/*    */   extends Item
+/*    */ {
+/* 36 */   public static final String[] field_150923_a = new String[] { "accio", "crucio", "imperio", "zivicio" };
+/*    */   
+/* 38 */   public static final String[] field_150921_b = new String[] { "ingot_accio", "ingot_crucio", "ingot_imperio", "ingot_zivicio" };
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] field_150920_d;
+/*    */   
+/*    */   private static final String __OBFID = "CL_00000022";
+/*    */   
+/*    */   public ItemsEssenceIngots() {
+/* 46 */     func_77627_a(true);
+/* 47 */     func_77656_e(0);
+/* 48 */     func_77637_a(MagicalCrops.tabMagical);
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   public String func_77653_i(ItemStack stack) {
+/* 53 */     switch (stack.func_77960_j()) {
+/*    */       case 0:
+/* 55 */         return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/* 56 */       case 1: return EnumChatFormatting.YELLOW + super.func_77653_i(stack);
+/* 57 */       case 2: return EnumChatFormatting.AQUA + super.func_77653_i(stack);
+/* 58 */       case 3: return EnumChatFormatting.LIGHT_PURPLE + super.func_77653_i(stack);
+/*    */     } 
+/* 60 */     return EnumChatFormatting.GRAY + super.func_77653_i(stack);
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon func_77617_a(int par1) {
+/* 66 */     int j = MathHelper.func_76125_a(par1, 0, 3);
+/* 67 */     return this.field_150920_d[j];
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   public String func_77667_c(ItemStack par1ItemStack) {
+/* 72 */     int i = MathHelper.func_76125_a(par1ItemStack.func_77960_j(), 0, 3);
+/* 73 */     return func_77658_a() + "." + field_150923_a[i];
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void func_150895_a(Item p_150895_1_, CreativeTabs p_150895_2_, List<ItemStack> p_150895_3_) {
+/* 79 */     for (int i = 0; i < 4; i++)
+/*    */     {
+/* 81 */       p_150895_3_.add(new ItemStack(p_150895_1_, 1, i));
+/*    */     }
+/*    */   }
+/*    */ 
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void func_94581_a(IIconRegister par1IconRegister) {
+/* 88 */     this.field_150920_d = new IIcon[field_150921_b.length];
+/*    */     
+/* 90 */     for (int i = 0; i < field_150921_b.length; i++)
+/*    */     {
+/* 92 */       this.field_150920_d[i] = par1IconRegister.func_94245_a("magicalcrops:" + field_150921_b[i]);
+/*    */     }
+/*    */   }
+/*    */ }
 
-import com.mark719.magicalcrops.MagicalCrops;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import java.util.List;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 
-/**
- * Класс для слитков эссенции (Accio, Crucio, Imperio, Zivicio).
- * Использует метадату (damage) для разделения типов слитков.
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\items\ItemsEssenceIngots.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
  */
-public class ItemsEssenceIngots extends Item {
-
-    // Внутренние имена для регистрации и локализации
-    public static final String[] names = new String[] { "accio", "crucio", "imperio", "zivicio" };
-
-    // Пути к текстурам
-    public static final String[] textureNames = new String[] { "ingot_accio", "ingot_crucio", "ingot_imperio", "ingot_zivicio" };
-
-    @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
-
-    public ItemsEssenceIngots() {
-        super();
-        this.setHasSubtypes(true); // Разрешаем метадату (подтипы)
-        this.setMaxDurability(0);  // Слитки не ломаются
-        this.setCreativeTab(MagicalCrops.tabMagical);
-    }
-
-    /**
-     * Изменяет цвет названия предмета в зависимости от тира (уровня).
-     */
-    @Override
-    public String getItemStackDisplayName(ItemStack stack) {
-        String name = super.getItemStackDisplayName(stack);
-        int meta = stack.getMetadata();
-        if (meta == 0) {
-            return EnumChatFormatting.GOLD + name;          // Accio
-        } else if (meta == 1) {
-            return EnumChatFormatting.YELLOW + name;        // Crucio
-        } else if (meta == 2) {
-            return EnumChatFormatting.AQUA + name;          // Imperio
-        } else if (meta == 3) {
-            return EnumChatFormatting.LIGHT_PURPLE + name;  // Zivicio
-        }
-        return EnumChatFormatting.GRAY + name;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int meta) {
-        int index = MathHelper.clamp_int(meta, 0, names.length - 1);
-        return this.icons[index];
-    }
-
-    /**
-     * Генерирует уникальное имя для перевода (например, item.magicalcrops.ingot.accio)
-     */
-    @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        int meta = MathHelper.clamp_int(stack.getMetadata(), 0, names.length - 1);
-        return super.getUnlocalizedName() + "." + names[meta];
-    }
-
-    /**
-     * Добавляет все 4 слитка в творческую вкладку.
-     */
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs tab, List list) {
-        for (int i = 0; i < names.length; i++) {
-            list.add(new ItemStack(item, 1, i));
-        }
-    }
-
-    /**
-     * Регистрация текстур для всех типов слитков.
-     */
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister) {
-        this.icons = new IIcon[textureNames.length];
-        for (int i = 0; i < textureNames.length; i++) {
-            this.icons[i] = iconRegister.registerIcon("magicalcrops:" + textureNames[i]);
-        }
-    }
-}
