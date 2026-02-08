@@ -23,71 +23,71 @@
 /*    */ {
 /*    */   public ItemEmeraldApple(int i, float f, boolean b) {
 /* 25 */     super(i, f, b);
-/* 26 */     func_77637_a(MagicalCrops.tabMagical);
-/* 27 */     func_77848_i();
-/* 28 */     func_77656_e(0);
+/* 26 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 27 */     setAlwaysEdible();
+/* 28 */     setMaxDurability(0);
 /*    */   }
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   protected void func_77849_c(ItemStack stack, World world, EntityPlayer player) {
-/* 34 */     if (!world.field_72995_K) {
+/*    */   protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
+/* 34 */     if (!world.isRemote) {
 /*    */       
 /* 36 */       int duration = 0;
 /*    */ 
 /*    */       
-/* 39 */       PotionEffect potion = player.func_70660_b(Potion.field_76428_l);
+/* 39 */       PotionEffect potion = player.getActivePotionEffect(Potion.regeneration);
 /* 40 */       if (potion != null)
-/* 41 */         duration = potion.func_76459_b(); 
-/* 42 */       player.func_70690_d(new PotionEffect(Potion.field_76428_l.field_76415_H, duration + 1200, 0));
+/* 41 */         duration = potion.getDuration(); 
+/* 42 */       player.addPotionEffect(new PotionEffect(Potion.regeneration.id, duration + 1200, 0));
 /*    */       
-/* 44 */       potion = player.func_70660_b(Potion.field_76426_n);
+/* 44 */       potion = player.getActivePotionEffect(Potion.fireResistance);
 /* 45 */       if (potion != null)
-/* 46 */         duration = potion.func_76459_b(); 
-/* 47 */       player.func_70690_d(new PotionEffect(Potion.field_76426_n.field_76415_H, duration + 1200, 0));
+/* 46 */         duration = potion.getDuration(); 
+/* 47 */       player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, duration + 1200, 0));
 /*    */       
-/* 49 */       potion = player.func_70660_b(Potion.field_76444_x);
+/* 49 */       potion = player.getActivePotionEffect(Potion.absorption);
 /* 50 */       if (potion != null)
-/* 51 */         duration = potion.func_76459_b(); 
-/* 52 */       player.func_70690_d(new PotionEffect(Potion.field_76444_x.field_76415_H, duration + 1200, 4));
+/* 51 */         duration = potion.getDuration(); 
+/* 52 */       player.addPotionEffect(new PotionEffect(Potion.absorption.id, duration + 1200, 4));
 /*    */       
-/* 54 */       potion = player.func_70660_b(Potion.field_76429_m);
+/* 54 */       potion = player.getActivePotionEffect(Potion.resistance);
 /* 55 */       if (potion != null)
-/* 56 */         duration = potion.func_76459_b(); 
-/* 57 */       player.func_70690_d(new PotionEffect(Potion.field_76429_m.field_76415_H, duration + 1200, 1));
+/* 56 */         duration = potion.getDuration(); 
+/* 57 */       player.addPotionEffect(new PotionEffect(Potion.resistance.id, duration + 1200, 1));
 /*    */       
-/* 59 */       potion = player.func_70660_b(Potion.field_76422_e);
+/* 59 */       potion = player.getActivePotionEffect(Potion.digSpeed);
 /* 60 */       if (potion != null)
-/* 61 */         duration = potion.func_76459_b(); 
-/* 62 */       player.func_70690_d(new PotionEffect(Potion.field_76422_e.field_76415_H, duration + 1200, 0));
+/* 61 */         duration = potion.getDuration(); 
+/* 62 */       player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, duration + 1200, 0));
 /*    */       
-/* 64 */       potion = player.func_70660_b(Potion.field_76420_g);
+/* 64 */       potion = player.getActivePotionEffect(Potion.damageBoost);
 /* 65 */       if (potion != null)
-/* 66 */         duration = potion.func_76459_b(); 
-/* 67 */       player.func_70690_d(new PotionEffect(Potion.field_76420_g.field_76415_H, duration + 1200, 0));
+/* 66 */         duration = potion.getDuration(); 
+/* 67 */       player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, duration + 1200, 0));
 /*    */     } 
 /*    */   }
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public int func_77626_a(ItemStack par1ItemStack) {
+/*    */   public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 /* 74 */     return 32;
 /*    */   }
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public EnumAction func_77661_b(ItemStack par1ItemStack) {
+/*    */   public EnumAction getItemUseAction(ItemStack par1ItemStack) {
 /* 80 */     return EnumAction.eat;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 85 */     return EnumChatFormatting.GREEN + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 85 */     return EnumChatFormatting.GREEN + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 91 */     par3List.add(EnumChatFormatting.YELLOW + "Hold shift for info");
 /* 92 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
 /* 93 */       par3List.add("Regeneration - +1:00");

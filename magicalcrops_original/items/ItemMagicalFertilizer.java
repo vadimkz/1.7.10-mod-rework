@@ -21,17 +21,17 @@
 /*    */   extends Item
 /*    */ {
 /*    */   public ItemMagicalFertilizer() {
-/* 24 */     func_77625_d(64);
-/* 25 */     func_77637_a(MagicalCrops.tabMagical);
-/* 26 */     func_111206_d("magicalcrops:MagicalFertilizer");
+/* 24 */     setMaxStackSize(64);
+/* 25 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 26 */     setTextureName("magicalcrops:MagicalFertilizer");
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_77648_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10) {
-/* 31 */     int I1 = par3World.func_72805_g(par4, par5, par6);
+/*    */   public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10) {
+/* 31 */     int I1 = par3World.getBlockMetadata(par4, par5, par6);
 /*    */     
 /* 33 */     if (I1 < 7) {
-/* 34 */       if (!par2EntityPlayer.func_82247_a(par4, par5, par6, par7, par1ItemStack))
+/* 34 */       if (!par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack))
 /*    */       {
 /* 36 */         return false;
 /*    */       }
@@ -39,9 +39,9 @@
 /*    */       
 /* 40 */       if (applyBonemeal(par1ItemStack, par3World, par4, par5, par6, par2EntityPlayer)) {
 /*    */         
-/* 42 */         if (!par3World.field_72995_K)
+/* 42 */         if (!par3World.isRemote)
 /*    */         {
-/* 44 */           par3World.func_72926_e(2005, par4, par5, par6, 0);
+/* 44 */           par3World.playAuxSFX(2005, par4, par5, par6, 0);
 /*    */         }
 /*    */         
 /* 47 */         return true;
@@ -57,7 +57,7 @@
 /*    */   }
 /*    */   
 /*    */   public static boolean applyBonemeal(ItemStack par0ItemStack, World par1World, int par2, int par3, int par4, EntityPlayer player) {
-/* 60 */     Block block = par1World.func_147439_a(par2, par3, par4);
+/* 60 */     Block block = par1World.getBlock(par2, par3, par4);
 /*    */     
 /* 62 */     BonemealEvent event = new BonemealEvent(player, par1World, block, par2, par3, par4);
 /* 63 */     if (MinecraftForge.EVENT_BUS.post((Event)event))
@@ -67,26 +67,26 @@
 /*    */     
 /* 68 */     if (event.getResult() == Event.Result.ALLOW) {
 /*    */       
-/* 70 */       if (!par1World.field_72995_K)
+/* 70 */       if (!par1World.isRemote)
 /*    */       {
-/* 72 */         par0ItemStack.field_77994_a--;
+/* 72 */         par0ItemStack.stackSize--;
 /*    */       }
 /* 74 */       return true;
 /*    */     } 
 /*    */     
 /* 77 */     if (block instanceof com.mark719.magicalcrops.blocks.BlockMagicalCrops) {
 /*    */       
-/* 79 */       if (!par1World.field_72995_K) {
+/* 79 */       if (!par1World.isRemote) {
 /*    */         
-/* 81 */         int I = par1World.func_72805_g(par2, par3, par4) + MathHelper.func_76136_a(par1World.field_73012_v, 7, 7);
+/* 81 */         int I = par1World.getBlockMetadata(par2, par3, par4) + MathHelper.getRandomIntegerInRange(par1World.rand, 7, 7);
 /*    */         
 /* 83 */         if (I > 7)
 /*    */         {
 /* 85 */           I = 7;
 /*    */         }
 /*    */         
-/* 88 */         par1World.func_72921_c(par2, par3, par4, I, 2);
-/* 89 */         par0ItemStack.field_77994_a--;
+/* 88 */         par1World.setBlockMetadataWithNotify(par2, par3, par4, I, 2);
+/* 89 */         par0ItemStack.stackSize--;
 /*    */       } 
 /*    */ 
 /*    */       

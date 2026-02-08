@@ -24,29 +24,29 @@
 /*    */ {
 /*    */   public ItemAccioArmour(ItemArmor.ArmorMaterial material, int armorType, String name) {
 /* 26 */     super(material, 0, armorType);
-/* 27 */     func_77655_b(name);
-/* 28 */     func_77637_a(MagicalCrops.tabMagical);
+/* 27 */     setUnlocalizedName(name);
+/* 28 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     
 /* 30 */     if (armorType == 0) {
-/* 31 */       func_111206_d("magicalcrops:armour_accio_helmet");
+/* 31 */       setTextureName("magicalcrops:armour_accio_helmet");
 /*    */     }
 /* 33 */     else if (armorType == 1) {
-/* 34 */       func_111206_d("magicalcrops:armour_accio_chestplate");
+/* 34 */       setTextureName("magicalcrops:armour_accio_chestplate");
 /*    */     }
 /* 36 */     else if (armorType == 2) {
-/* 37 */       func_111206_d("magicalcrops:armour_accio_leggings");
+/* 37 */       setTextureName("magicalcrops:armour_accio_leggings");
 /*    */     }
 /* 39 */     else if (armorType == 3) {
-/* 40 */       func_111206_d("magicalcrops:armour_accio_boots");
+/* 40 */       setTextureName("magicalcrops:armour_accio_boots");
 /*    */     } 
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-/* 46 */     if (stack.func_77973_b() == Armour.AccioArmourHelmet || stack.func_77973_b() == Armour.AccioArmourChestplate || stack.func_77973_b() == Armour.AccioArmourBoots) {
+/* 46 */     if (stack.getItem() == Armour.AccioArmourHelmet || stack.getItem() == Armour.AccioArmourChestplate || stack.getItem() == Armour.AccioArmourBoots) {
 /* 47 */       return "magicalcrops:textures/armour/accio_armour_1.png";
 /*    */     }
-/* 49 */     if (stack.func_77973_b() == Armour.AccioArmourLeggings) {
+/* 49 */     if (stack.getItem() == Armour.AccioArmourLeggings) {
 /* 50 */       return "magicalcrops:textures/armour/accio_armour_2.png";
 /*    */     }
 /*    */     
@@ -55,22 +55,22 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public boolean func_82789_a(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-/* 59 */     return (par2ItemStack.func_77969_a(new ItemStack(Essence.AccioEssence)) || super.func_82789_a(par1ItemStack, par2ItemStack));
+/*    */   public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
+/* 59 */     return (par2ItemStack.isItemEqual(new ItemStack(Essence.AccioEssence)) || super.getIsRepairable(par1ItemStack, par2ItemStack));
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 64 */     return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 64 */     return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 69 */     par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for info:");
 /* 70 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
 /* 71 */       par3List.add(EnumChatFormatting.ITALIC + "- 84% Damage Reduction");
 /*    */     }
-/* 73 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (func_77612_l() - getDamage(par1ItemStack)) + "/" + func_77612_l());
+/* 73 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
 /*    */   }
 /*    */ }
 

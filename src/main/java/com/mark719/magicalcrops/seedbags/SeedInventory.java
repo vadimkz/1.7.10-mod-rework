@@ -19,9 +19,9 @@
 /*  19 */     this.currentItem = current;
 /*     */     
 /*  21 */     assert this.currentItem != null;
-/*  22 */     assert this.currentItem.func_77973_b() instanceof Planter;
+/*  22 */     assert this.currentItem.getItem() instanceof Planter;
 /*     */     
-/*  24 */     int itemNumSlots = ((Planter)this.currentItem.func_77973_b()).getInvSlots();
+/*  24 */     int itemNumSlots = ((Planter)this.currentItem.getItem()).getInvSlots();
 /*  25 */     if (itemNumSlots > 0) {
 /*  26 */       this.inventoryItems = new ItemStack[itemNumSlots];
 /*  27 */       this.size = itemNumSlots;
@@ -31,55 +31,55 @@
 /*  31 */       this.size = 0;
 /*     */     } 
 /*     */     
-/*  34 */     if (!this.currentItem.func_77942_o()) {
-/*  35 */       this.currentItem.func_77982_d(new NBTTagCompound());
+/*  34 */     if (!this.currentItem.hasTagCompound()) {
+/*  35 */       this.currentItem.setTagCompound(new NBTTagCompound());
 /*     */     }
 /*     */     
-/*  38 */     loadFromNBT(this.currentItem.func_77978_p());
+/*  38 */     loadFromNBT(this.currentItem.getTagCompound());
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public int func_70302_i_() {
+/*     */   public int getSizeInventory() {
 /*  43 */     return this.size;
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public ItemStack func_70301_a(int i) {
-/*  48 */     if (i >= func_70302_i_()) {
+/*     */   public ItemStack getStackInSlot(int i) {
+/*  48 */     if (i >= getSizeInventory()) {
 /*  49 */       throw new IndexOutOfBoundsException();
 /*     */     }
 /*     */     
 /*  52 */     return this.inventoryItems[i];
 /*     */   }
 /*     */   
-/*     */   public ItemStack func_70298_a(int index, int amount) {
+/*     */   public ItemStack decrStackSize(int index, int amount) {
 /*     */     ItemStack output;
 /*  57 */     if (this.inventoryItems[index] == null) {
 /*  58 */       return null;
 /*     */     }
 /*     */ 
 /*     */     
-/*  62 */     if ((this.inventoryItems[index]).field_77994_a <= amount) {
+/*  62 */     if ((this.inventoryItems[index]).stackSize <= amount) {
 /*  63 */       output = this.inventoryItems[index];
 /*  64 */       this.inventoryItems[index] = null;
 /*     */     } else {
 /*     */       
-/*  67 */       output = this.inventoryItems[index].func_77979_a(amount);
+/*  67 */       output = this.inventoryItems[index].splitStack(amount);
 /*     */       
-/*  69 */       if ((this.inventoryItems[index]).field_77994_a == 0) {
+/*  69 */       if ((this.inventoryItems[index]).stackSize == 0) {
 /*  70 */         this.inventoryItems[index] = null;
 /*     */       }
 /*     */     } 
-/*  73 */     func_70296_d();
+/*  73 */     markDirty();
 /*     */     
 /*  75 */     return output;
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public ItemStack func_70304_b(int slotNum) {
+/*     */   public ItemStack getStackInSlotOnClosing(int slotNum) {
 /*  80 */     if (this.inventoryItems[slotNum] != null) {
 /*  81 */       ItemStack stack = this.inventoryItems[slotNum];
-/*  82 */       func_70299_a(slotNum, null);
+/*  82 */       setInventorySlotContents(slotNum, null);
 /*  83 */       return stack;
 /*     */     } 
 /*     */     
@@ -88,71 +88,71 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void func_70299_a(int num, ItemStack itemStack) {
+/*     */   public void setInventorySlotContents(int num, ItemStack itemStack) {
 /*  92 */     this.inventoryItems[num] = itemStack;
 /*     */     
-/*  94 */     if (itemStack != null && itemStack.field_77994_a > func_70297_j_()) {
-/*  95 */       itemStack.field_77994_a = func_70297_j_();
+/*  94 */     if (itemStack != null && itemStack.stackSize > getInventoryStackLimit()) {
+/*  95 */       itemStack.stackSize = getInventoryStackLimit();
 /*     */     }
 /*     */     
-/*  98 */     func_70296_d();
+/*  98 */     markDirty();
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public String func_145825_b() {
+/*     */   public String getInventoryName() {
 /* 103 */     return "Seed Bag";
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public boolean func_145818_k_() {
+/*     */   public boolean isCustomInventoryName() {
 /* 108 */     return false;
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public int func_70297_j_() {
+/*     */   public int getInventoryStackLimit() {
 /* 113 */     return 64;
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void func_70296_d() {
-/* 119 */     for (int i = 0; i < func_70302_i_(); i++) {
-/* 120 */       if (func_70301_a(i) != null && (func_70301_a(i)).field_77994_a == 0) {
-/* 121 */         func_70299_a(i, null);
+/*     */   public void markDirty() {
+/* 119 */     for (int i = 0; i < getSizeInventory(); i++) {
+/* 120 */       if (getStackInSlot(i) != null && (getStackInSlot(i)).stackSize == 0) {
+/* 121 */         setInventorySlotContents(i, null);
 /*     */       }
 /*     */     } 
 /*     */     
-/* 125 */     saveToNBT(this.currentItem.func_77978_p());
+/* 125 */     saveToNBT(this.currentItem.getTagCompound());
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public boolean func_70300_a(EntityPlayer entityPlayer) {
+/*     */   public boolean isUseableByPlayer(EntityPlayer entityPlayer) {
 /* 130 */     return true;
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void func_70295_k_() {}
+/*     */   public void openChest() {}
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void func_70305_f() {}
+/*     */   public void closeChest() {}
 /*     */ 
 /*     */   
-/*     */   public boolean func_94041_b(int i, ItemStack itemStack) {
-/* 143 */     return (itemStack != null && itemStack.func_77973_b() != null && itemStack.func_77973_b() instanceof net.minecraftforge.common.IPlantable);
+/*     */   public boolean isItemValidForSlot(int i, ItemStack itemStack) {
+/* 143 */     return (itemStack != null && itemStack.getItem() != null && itemStack.getItem() instanceof net.minecraftforge.common.IPlantable);
 /*     */   }
 /*     */   
 /*     */   public void loadFromNBT(NBTTagCompound tagCompound) {
 /* 147 */     int NBT_TAGLIST = 10;
-/* 148 */     NBTTagList tagList = tagCompound.func_150295_c("ItemsPlanterHelper", 10);
+/* 148 */     NBTTagList tagList = tagCompound.getTagList("ItemsPlanterHelper", 10);
 /*     */     
-/* 150 */     for (int i = 0; i < tagList.func_74745_c(); i++) {
-/* 151 */       NBTTagCompound itemTag = tagList.func_150305_b(i);
-/* 152 */       int slot = itemTag.func_74762_e("SlotPlanterHelper");
+/* 150 */     for (int i = 0; i < tagList.tagCount(); i++) {
+/* 151 */       NBTTagCompound itemTag = tagList.getCompoundTagAt(i);
+/* 152 */       int slot = itemTag.getInteger("SlotPlanterHelper");
 /*     */       
-/* 154 */       if (slot >= 0 && slot < func_70302_i_()) {
-/* 155 */         func_70299_a(slot, ItemStack.func_77949_a(itemTag));
+/* 154 */       if (slot >= 0 && slot < getSizeInventory()) {
+/* 155 */         setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(itemTag));
 /*     */       }
 /*     */     } 
 /*     */   }
@@ -160,17 +160,17 @@
 /*     */   public void saveToNBT(NBTTagCompound newCompound) {
 /* 161 */     NBTTagList list = new NBTTagList();
 /*     */     
-/* 163 */     for (int i = 0; i < func_70302_i_(); i++) {
+/* 163 */     for (int i = 0; i < getSizeInventory(); i++) {
 /* 164 */       ItemStack stack = this.inventoryItems[i];
 /* 165 */       if (stack != null) {
 /* 166 */         NBTTagCompound itemTag = new NBTTagCompound();
-/* 167 */         itemTag.func_74768_a("SlotPlanterHelper", i);
-/* 168 */         stack.func_77955_b(itemTag);
-/* 169 */         list.func_74742_a((NBTBase)itemTag);
+/* 167 */         itemTag.setInteger("SlotPlanterHelper", i);
+/* 168 */         stack.writeToNBT(itemTag);
+/* 169 */         list.appendTag((NBTBase)itemTag);
 /*     */       } 
 /*     */     } 
 /*     */     
-/* 173 */     newCompound.func_74782_a("ItemsPlanterHelper", (NBTBase)list);
+/* 173 */     newCompound.setTag("ItemsPlanterHelper", (NBTBase)list);
 /*     */   }
 /*     */ }
 

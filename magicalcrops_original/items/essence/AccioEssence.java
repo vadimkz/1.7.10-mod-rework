@@ -11,14 +11,14 @@
 /*    */   extends Item
 /*    */ {
 /*    */   public AccioEssence() {
-/* 14 */     func_77625_d(64);
-/* 15 */     func_77637_a(MagicalCrops.tabMagical);
-/* 16 */     func_111206_d("magicalcrops:MagicEssence_Accio");
+/* 14 */     setMaxStackSize(64);
+/* 15 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 16 */     setTextureName("magicalcrops:MagicEssence_Accio");
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 21 */     return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 21 */     return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */ }
 

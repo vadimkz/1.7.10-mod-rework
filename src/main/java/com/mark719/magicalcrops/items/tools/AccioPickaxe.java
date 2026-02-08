@@ -20,24 +20,24 @@
 /*    */ {
 /*    */   public AccioPickaxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 22 */     super(par2EnumToolMaterial);
-/* 23 */     this.field_77777_bU = 1;
-/* 24 */     func_77637_a(MagicalCrops.tabMagical);
+/* 23 */     this.maxStackSize = 1;
+/* 24 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 29 */     return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 29 */     return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 34 */     if (ConfigMain.EXTRA_PICKAXE) {
 /* 35 */       par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
 /* 36 */       if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
 /* 37 */         par3List.add(EnumChatFormatting.ITALIC + "- 2 Extra essence from Minicio Ores");
 /*    */       }
 /*    */     } 
-/* 40 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (func_77612_l() - getDamage(par1ItemStack)) + "/" + func_77612_l());
+/* 40 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
 /*    */   }
 /*    */ }
 

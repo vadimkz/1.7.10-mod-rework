@@ -10,12 +10,12 @@
 /* 10 */     super(par1IInventory, par2, par3, par4);
 /*    */   }
 /*    */   
-/*    */   public boolean func_75214_a(ItemStack itemStack) {
+/*    */   public boolean isItemValid(ItemStack itemStack) {
 /* 14 */     return false;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_82869_a(EntityPlayer player) {
+/*    */   public boolean canTakeStack(EntityPlayer player) {
 /* 19 */     return false;
 /*    */   }
 /*    */ }

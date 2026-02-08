@@ -34,7 +34,7 @@
 /*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
 /* 35 */     this.iconArray = new IIcon[4];
 /* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
-/* 37 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:SoulCropGhast_" + i);
+/* 37 */       this.iconArray[i] = p_149651_1_.registerIcon("magicalcrops:SoulCropGhast_" + i);
 /*    */     }
 /*    */   }
 /*    */   

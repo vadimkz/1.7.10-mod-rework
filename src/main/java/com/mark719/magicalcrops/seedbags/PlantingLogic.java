@@ -16,17 +16,17 @@
 /* 16 */       return -1;
 /*    */     }
 /*    */     
-/* 19 */     ItemStack initialTarget = inv.func_70301_a(initialSlot);
+/* 19 */     ItemStack initialTarget = inv.getStackInSlot(initialSlot);
 /*    */     
-/* 21 */     if (initialTarget != null && initialTarget.field_77994_a > 0) {
+/* 21 */     if (initialTarget != null && initialTarget.stackSize > 0) {
 /* 22 */       return initialSlot;
 /*    */     }
 /*    */     
 /* 25 */     int slot = 0;
 /*    */     
-/* 27 */     while (inv.func_70301_a(slot) == null || inv.func_70301_a(slot).func_77973_b() == null || !(inv.func_70301_a(slot).func_77973_b() instanceof IPlantable) || ((inv.func_70301_a(slot)).field_77994_a <= 0 && slot < inv.func_70302_i_())) {
+/* 27 */     while (inv.getStackInSlot(slot) == null || inv.getStackInSlot(slot).getItem() == null || !(inv.getStackInSlot(slot).getItem() instanceof IPlantable) || ((inv.getStackInSlot(slot)).stackSize <= 0 && slot < inv.getSizeInventory())) {
 /* 28 */       slot++;
-/* 29 */       if (slot >= inv.func_70302_i_()) {
+/* 29 */       if (slot >= inv.getSizeInventory()) {
 /* 30 */         return -1;
 /*    */       }
 /*    */     } 
@@ -36,32 +36,32 @@
 /*    */ 
 /*    */   
 /*    */   public static boolean placeSeed(IInventory inv, World world, int x, int y, int z, int invPos, ForgeDirection direction) {
-/* 39 */     ItemStack currentItem = inv.func_70301_a(invPos);
-/* 40 */     if (currentItem == null || !(currentItem.func_77973_b() instanceof IPlantable)) {
+/* 39 */     ItemStack currentItem = inv.getStackInSlot(invPos);
+/* 40 */     if (currentItem == null || !(currentItem.getItem() instanceof IPlantable)) {
 /* 41 */       return false;
 /*    */     }
 /*    */     
-/* 44 */     IPlantable plantable = (IPlantable)currentItem.func_77973_b();
+/* 44 */     IPlantable plantable = (IPlantable)currentItem.getItem();
 /*    */     
-/* 46 */     Block targetBlock = world.func_147439_a(x, y, z);
+/* 46 */     Block targetBlock = world.getBlock(x, y, z);
 /* 47 */     if (targetBlock == null || !targetBlock.canSustainPlant((IBlockAccess)world, x, y, z, direction, plantable)) {
 /* 48 */       return false;
 /*    */     }
 /*    */     
-/* 51 */     if (!world.func_147437_c(x, y + 1, z)) {
+/* 51 */     if (!world.isAirBlock(x, y + 1, z)) {
 /* 52 */       return false;
 /*    */     }
 /*    */     
 /* 55 */     Block plantablePlant = plantable.getPlant((IBlockAccess)world, x, y + 1, z);
 /* 56 */     int plantMeta = plantable.getPlantMetadata((IBlockAccess)world, x, y + 1, z);
 /*    */     
-/* 58 */     world.func_147465_d(x, y + 1, z, plantablePlant, plantMeta, 3);
+/* 58 */     world.setBlock(x, y + 1, z, plantablePlant, plantMeta, 3);
 /*    */     
 /* 60 */     return true;
 /*    */   }
 /*    */   
 /*    */   public static boolean targetedSuitableFarmland(World world, int x, int y, int z, ForgeDirection direction, IPlantable plantable) {
-/* 64 */     Block block = world.func_147439_a(x, y, z);
+/* 64 */     Block block = world.getBlock(x, y, z);
 /*    */     
 /* 66 */     return (block != null && block.canSustainPlant((IBlockAccess)world, x, y, z, direction, plantable));
 /*    */   }

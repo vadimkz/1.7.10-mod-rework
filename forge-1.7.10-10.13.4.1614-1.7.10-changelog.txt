@@ -3076,7 +3076,7 @@ Build 1.7.2-10.12.0.1015:
 	LexManos: New PlayerUseItemEvents, Start, Stop, Tick and Finish. See PlayerUseItemEvent.java for more details. Closes #924
 
 Build 1.7.2-10.12.0.1014:
-	LexManos: Make ItemBlock.field_150939_a public, closes #945
+	LexManos: Make ItemBlock.blockInstance public, closes #945
 	LexManos: Missing EntityAITasks.tasks and MapgGenStructreIO register ATs, Closes #949
 	LexManos: Implement PlayerPickupXpEvent, fired when a player aquires XP from a EntityXPOrb. Closes #942
 	LexManos: Exclude cobblestone slab recipe from ore dictification, closes #940
@@ -6876,7 +6876,7 @@ Build 5.0.0.320:
 	LexManos: Patches removing forge spawn protection, now a vanilla feature.
 	LexManos: BlockCrops is now the parent class of multiple types of crops, Wheat, Potatoes, and Carrots, updated getBlockDropped patch to reflect.
 	LexManos: Removed Forge's TileEntity.getRenderDistance, now a vanilla feature:  TileEntity.func_82115_m
-	LexManos: Teleporting has a new function (func_82448_a), made it so that you can supply your own teleporter to that function, and so it works with dimension movement factors.
+	LexManos: Teleporting has a new function (transferEntityToWorld), made it so that you can supply your own teleporter to that function, and so it works with dimension movement factors.
 	LexManos: Updated World patch, there are a lot of new things happening int he constructor, xcomp should probably vet this.
 	LexManos: Updated Forge version to 5.0.0, for 1.4
 	LexManos: Update release script for mcp changes, releases now build.

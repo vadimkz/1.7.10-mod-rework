@@ -34,65 +34,65 @@ import com.mark719.magicalcrops.blocks.crops.WitherCrop;
 import net.minecraft.block.Block;
 
 public class MCrops {
-  public static Block AirCrop = (new AirCrop()).func_149663_c("AirCrop");
+  public static Block AirCrop = (new AirCrop()).setUnlocalizedName("AirCrop");
   
-  public static Block CoalCrop = (new CoalCrop()).func_149663_c("CoalCrop");
+  public static Block CoalCrop = (new CoalCrop()).setUnlocalizedName("CoalCrop");
   
-  public static Block DyeCrop = (new DyeCrop()).func_149663_c("DyeCrop");
+  public static Block DyeCrop = (new DyeCrop()).setUnlocalizedName("DyeCrop");
   
-  public static Block EarthCrop = (new EarthCrop()).func_149663_c("EarthCrop");
+  public static Block EarthCrop = (new EarthCrop()).setUnlocalizedName("EarthCrop");
   
-  public static Block FireCrop = (new FireCrop()).func_149663_c("FireCrop");
+  public static Block FireCrop = (new FireCrop()).setUnlocalizedName("FireCrop");
   
-  public static Block NatureCrop = (new NatureCrop()).func_149663_c("NatureCrop");
+  public static Block NatureCrop = (new NatureCrop()).setUnlocalizedName("NatureCrop");
   
-  public static Block MinicioCrop = (new MinicioCrop()).func_149663_c("MinicioCrop");
+  public static Block MinicioCrop = (new MinicioCrop()).setUnlocalizedName("MinicioCrop");
   
-  public static Block WaterCrop = (new WaterCrop()).func_149663_c("WaterCrop");
+  public static Block WaterCrop = (new WaterCrop()).setUnlocalizedName("WaterCrop");
   
-  public static Block RedstoneCrop = (new RedstoneCrop()).func_149663_c("RedstoneCrop");
+  public static Block RedstoneCrop = (new RedstoneCrop()).setUnlocalizedName("RedstoneCrop");
   
-  public static Block GlowstoneCrop = (new GlowstoneCrop()).func_149663_c("GlowstoneCrop");
+  public static Block GlowstoneCrop = (new GlowstoneCrop()).setUnlocalizedName("GlowstoneCrop");
   
-  public static Block ObsidianCrop = (new ObsidianCrop()).func_149663_c("ObsidianCrop");
+  public static Block ObsidianCrop = (new ObsidianCrop()).setUnlocalizedName("ObsidianCrop");
   
-  public static Block NetherCrop = (new NetherCrop()).func_149663_c("NetherCrop");
+  public static Block NetherCrop = (new NetherCrop()).setUnlocalizedName("NetherCrop");
   
-  public static Block IronCrop = (new IronCrop()).func_149663_c("IronCrop");
+  public static Block IronCrop = (new IronCrop()).setUnlocalizedName("IronCrop");
   
-  public static Block GoldCrop = (new GoldCrop()).func_149663_c("GoldCrop");
+  public static Block GoldCrop = (new GoldCrop()).setUnlocalizedName("GoldCrop");
   
-  public static Block LapisCrop = (new LapisCrop()).func_149663_c("LapisCrop");
+  public static Block LapisCrop = (new LapisCrop()).setUnlocalizedName("LapisCrop");
   
-  public static Block ExperienceCrop = (new ExperienceCrop()).func_149663_c("ExperienceCrop");
+  public static Block ExperienceCrop = (new ExperienceCrop()).setUnlocalizedName("ExperienceCrop");
   
-  public static Block QuartzCrop = (new QuartzCrop()).func_149663_c("QuartzCrop");
+  public static Block QuartzCrop = (new QuartzCrop()).setUnlocalizedName("QuartzCrop");
   
-  public static Block DiamondCrop = (new DiamondCrop()).func_149663_c("DiamondCrop");
+  public static Block DiamondCrop = (new DiamondCrop()).setUnlocalizedName("DiamondCrop");
   
-  public static Block EmeraldCrop = (new EmeraldCrop()).func_149663_c("EmeraldCrop");
+  public static Block EmeraldCrop = (new EmeraldCrop()).setUnlocalizedName("EmeraldCrop");
   
-  public static Block BlazeCrop = (new BlazeCrop()).func_149663_c("BlazeCrop");
+  public static Block BlazeCrop = (new BlazeCrop()).setUnlocalizedName("BlazeCrop");
   
-  public static Block CreeperCrop = (new CreeperCrop()).func_149663_c("CreeperCrop");
+  public static Block CreeperCrop = (new CreeperCrop()).setUnlocalizedName("CreeperCrop");
   
-  public static Block EndermanCrop = (new EndermanCrop()).func_149663_c("EndermanCrop");
+  public static Block EndermanCrop = (new EndermanCrop()).setUnlocalizedName("EndermanCrop");
   
-  public static Block GhastCrop = (new GhastCrop()).func_149663_c("GhastCrop");
+  public static Block GhastCrop = (new GhastCrop()).setUnlocalizedName("GhastCrop");
   
-  public static Block SkeletonCrop = (new SkeletonCrop()).func_149663_c("SkeletonCrop");
+  public static Block SkeletonCrop = (new SkeletonCrop()).setUnlocalizedName("SkeletonCrop");
   
-  public static Block SlimeCrop = (new SlimeCrop()).func_149663_c("SlimeCrop");
+  public static Block SlimeCrop = (new SlimeCrop()).setUnlocalizedName("SlimeCrop");
   
-  public static Block SpiderCrop = (new SpiderCrop()).func_149663_c("SpiderCrop");
+  public static Block SpiderCrop = (new SpiderCrop()).setUnlocalizedName("SpiderCrop");
   
-  public static Block WitherCrop = (new WitherCrop()).func_149663_c("WitherCrop");
+  public static Block WitherCrop = (new WitherCrop()).setUnlocalizedName("WitherCrop");
   
-  public static Block ChickenCrop = (new ChickenCrop()).func_149663_c("ChickenCrop");
+  public static Block ChickenCrop = (new ChickenCrop()).setUnlocalizedName("ChickenCrop");
   
-  public static Block CowCrop = (new CowCrop()).func_149663_c("CowCrop");
+  public static Block CowCrop = (new CowCrop()).setUnlocalizedName("CowCrop");
   
-  public static Block PigCrop = (new PigCrop()).func_149663_c("PigCrop");
+  public static Block PigCrop = (new PigCrop()).setUnlocalizedName("PigCrop");
   
-  public static Block SheepCrop = (new SheepCrop()).func_149663_c("SheepCrop");
+  public static Block SheepCrop = (new SheepCrop()).setUnlocalizedName("SheepCrop");
 }

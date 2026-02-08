@@ -7,7 +7,7 @@
 /*    */ public class ItemRegisterHelper
 /*    */ {
 /*    */   public static void registerItem(Item item) {
-/* 10 */     GameRegistry.registerItem(item, "magicalcrops_" + item.func_77658_a().substring(5));
+/* 10 */     GameRegistry.registerItem(item, "magicalcrops_" + item.getUnlocalizedName().substring(5));
 /*    */   }
 /*    */ }
 

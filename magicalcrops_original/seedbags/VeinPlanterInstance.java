@@ -72,8 +72,8 @@
 /*     */ 
 /*     */ 
 /*     */               
-/*  75 */               if (this.player.func_71024_bL().func_75116_a() < 2) {
-/*  76 */                 this.player.func_146105_b((IChatComponent)new ChatComponentTranslation("PlanterHelper:TooHungry", new Object[0]));
+/*  75 */               if (this.player.getFoodStats().getFoodLevel() < 2) {
+/*  76 */                 this.player.addChatComponentMessage((IChatComponent)new ChatComponentTranslation("PlanterHelper:TooHungry", new Object[0]));
 /*  77 */                 this.finished = true;
 /*     */                 
 /*     */                 return;
@@ -81,7 +81,7 @@
 /*  81 */               if (this.usedPlanter.canPlant(this.inventory, this.world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), this.direction)) {
 /*  82 */                 boolean success = this.usedPlanter.plantSeedInPlace(this.inventory, this.world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), this.direction);
 /*  83 */                 if (success) {
-/*  84 */                   this.player.func_71020_j(0.02F);
+/*  84 */                   this.player.addExhaustion(0.02F);
 /*  85 */                   this.plantQueue.add(blockPos);
 /*     */                 } 
 /*     */                 
@@ -98,8 +98,8 @@
 /*  98 */     int speed = 20;
 /*  99 */     for (int i = 0; i < speed; i++) {
 /* 100 */       if (!this.plantQueue.isEmpty() && !this.finished) {
-/* 101 */         if (this.player.func_71024_bL().func_75116_a() < 2) {
-/* 102 */           this.player.func_146105_b((IChatComponent)new ChatComponentTranslation("PlanterHelper:TooHungry", new Object[0]));
+/* 101 */         if (this.player.getFoodStats().getFoodLevel() < 2) {
+/* 102 */           this.player.addChatComponentMessage((IChatComponent)new ChatComponentTranslation("PlanterHelper:TooHungry", new Object[0]));
 /* 103 */           this.finished = true;
 /*     */           
 /*     */           return;

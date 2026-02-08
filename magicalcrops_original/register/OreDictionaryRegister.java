@@ -55,27 +55,27 @@
 /* 55 */     if (ConfigDisable.WITHER) OreDictionary.registerOre("zivicioMaterial", new ItemStack(Essence.WitherEssence));
 /*    */ 
 /*    */     
-/* 58 */     OreDictionary.registerOre("MainInfusionMaterial", new ItemStack(Items.field_151045_i));
-/* 59 */     OreDictionary.registerOre("MainInfusionMaterial", new ItemStack(Items.field_151166_bC));
-/* 60 */     OreDictionary.registerOre("MainInfusionMaterial", new ItemStack(Blocks.field_150340_R));
+/* 58 */     OreDictionary.registerOre("MainInfusionMaterial", new ItemStack(Items.diamond));
+/* 59 */     OreDictionary.registerOre("MainInfusionMaterial", new ItemStack(Items.emerald));
+/* 60 */     OreDictionary.registerOre("MainInfusionMaterial", new ItemStack(Blocks.gold_block));
 /*    */ 
 /*    */     
-/* 63 */     OreDictionary.registerOre("netherMaterial", new ItemStack(Blocks.field_150385_bj));
-/* 64 */     OreDictionary.registerOre("netherMaterial", new ItemStack(Blocks.field_150424_aL));
-/* 65 */     OreDictionary.registerOre("netherMaterial", new ItemStack(Blocks.field_150425_aM));
+/* 63 */     OreDictionary.registerOre("netherMaterial", new ItemStack(Blocks.nether_brick));
+/* 64 */     OreDictionary.registerOre("netherMaterial", new ItemStack(Blocks.netherrack));
+/* 65 */     OreDictionary.registerOre("netherMaterial", new ItemStack(Blocks.soul_sand));
 /*    */ 
 /*    */     
-/* 68 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Blocks.field_150395_bd));
-/* 69 */     OreDictionary.registerOre("natureMaterial", new ItemStack((Block)Blocks.field_150328_O));
-/* 70 */     OreDictionary.registerOre("natureMaterial", new ItemStack((Block)Blocks.field_150327_N));
-/* 71 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Blocks.field_150434_aF));
-/* 72 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Blocks.field_150423_aK));
-/* 73 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Blocks.field_150392_bi));
-/* 74 */     OreDictionary.registerOre("natureMaterial", new ItemStack((Block)Blocks.field_150330_I));
-/* 75 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Items.field_151120_aE));
-/* 76 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Items.field_151172_bF));
-/* 77 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Items.field_151174_bG));
-/* 78 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Items.field_151015_O));
+/* 68 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Blocks.vine));
+/* 69 */     OreDictionary.registerOre("natureMaterial", new ItemStack((Block)Blocks.red_flower));
+/* 70 */     OreDictionary.registerOre("natureMaterial", new ItemStack((Block)Blocks.yellow_flower));
+/* 71 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Blocks.cactus));
+/* 72 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Blocks.pumpkin));
+/* 73 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Blocks.waterlily));
+/* 74 */     OreDictionary.registerOre("natureMaterial", new ItemStack((Block)Blocks.deadbush));
+/* 75 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Items.reeds));
+/* 76 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Items.carrot));
+/* 77 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Items.potato));
+/* 78 */     OreDictionary.registerOre("natureMaterial", new ItemStack(Items.wheat));
 /*    */   }
 /*    */ }
 

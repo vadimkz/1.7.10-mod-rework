@@ -19,26 +19,26 @@
 /*    */ 
 /*    */   
 /*    */   public ItemInfusionStone4Extreme() {
-/* 22 */     this.field_77777_bU = 1;
-/* 23 */     func_77656_e(this.durability);
-/* 24 */     func_77637_a(MagicalCrops.tabMagical);
-/* 25 */     func_111206_d("magicalcrops:InfusionStone_T4");
-/* 26 */     func_77655_b("InfusionStoneExtreme");
+/* 22 */     this.maxStackSize = 1;
+/* 23 */     setMaxDurability(this.durability);
+/* 24 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 25 */     setTextureName("magicalcrops:InfusionStone_T4");
+/* 26 */     setUnlocalizedName("InfusionStoneExtreme");
 /* 27 */     this.canRepair = false;
-/* 28 */     this.field_77787_bX = true;
+/* 28 */     this.hasSubtypes = true;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_77630_h(ItemStack itemstack) {
+/*    */   public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemstack) {
 /* 33 */     return false;
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   public ItemStack getContainerItem(ItemStack itemStack) {
-/* 38 */     ItemStack cStack = itemStack.func_77946_l();
+/* 38 */     ItemStack cStack = itemStack.copy();
 /* 39 */     if (ConfigMain.INFUSION_DURABILITY) {
-/* 40 */       cStack.func_77964_b(cStack.func_77960_j() + 1);
-/* 41 */       cStack.field_77994_a = 1;
+/* 40 */       cStack.setMetadata(cStack.getMetadata() + 1);
+/* 41 */       cStack.stackSize = 1;
 /*    */     } 
 /* 43 */     return cStack;
 /*    */   }
@@ -49,15 +49,15 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public EnumRarity func_77613_e(ItemStack par2) {
+/*    */   public EnumRarity getRarity(ItemStack par2) {
 /* 53 */     return EnumRarity.epic;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 58 */     par3List.add("Imperio -> Zivicio");
 /* 59 */     if (ConfigMain.INFUSION_DURABILITY)
-/* 60 */       par3List.add("Durability: " + (par1ItemStack.func_77958_k() - par1ItemStack.func_77960_j()) + "/" + par1ItemStack.func_77958_k()); 
+/* 60 */       par3List.add("Durability: " + (par1ItemStack.getMaxDurability() - par1ItemStack.getMetadata()) + "/" + par1ItemStack.getMaxDurability()); 
 /*    */   }
 /*    */ }
 
