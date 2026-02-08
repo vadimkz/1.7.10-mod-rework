@@ -83,7 +83,7 @@
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /* 87 */     tooltip.add(EnumChatFormatting.YELLOW + "Hold shift for info");
 /* 88 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
 /* 89 */       tooltip.add("Absorption V - +10:00");
