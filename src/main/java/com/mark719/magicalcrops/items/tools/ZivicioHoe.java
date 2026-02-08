@@ -47,7 +47,7 @@
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /*  51 */     if (ConfigMain.EXTRA_HOE) {
 /*  52 */       tooltip.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
 /*  53 */       if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {

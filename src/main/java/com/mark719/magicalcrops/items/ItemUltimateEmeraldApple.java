@@ -93,7 +93,7 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /*  97 */     tooltip.add(EnumChatFormatting.YELLOW + "Hold shift for info");
 /*  98 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
 /*  99 */       tooltip.add("Regeneration I - +10:00");

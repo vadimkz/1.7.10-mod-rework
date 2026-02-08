@@ -54,7 +54,7 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /* 58 */     tooltip.add("Infuses All");
 /* 59 */     if (ConfigMain.INFUSION_DURABILITY)
 /* 60 */       tooltip.add("Durability: Infinate"); 

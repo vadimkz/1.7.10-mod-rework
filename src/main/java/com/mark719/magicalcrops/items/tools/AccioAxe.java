@@ -31,7 +31,7 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /* 35 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(stack)) + "/" + getMaxDurability());
 /*    */   }
 /*    */ }

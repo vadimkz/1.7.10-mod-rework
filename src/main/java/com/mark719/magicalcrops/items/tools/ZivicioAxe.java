@@ -42,7 +42,7 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /* 46 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "Unbreakable");
 /* 47 */     tooltip.add(EnumChatFormatting.GREEN + "Gem Socket:");
 /* 48 */     tooltip.add(EnumChatFormatting.ITALIC + "- Empty");

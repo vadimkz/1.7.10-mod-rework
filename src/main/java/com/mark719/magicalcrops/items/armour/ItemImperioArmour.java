@@ -72,7 +72,7 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /* 76 */     tooltip.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for info:");
 /* 77 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
 /* 78 */       tooltip.add(EnumChatFormatting.ITALIC + "- 92% Damage Reduction");

@@ -85,7 +85,7 @@
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /*  89 */     switch (stack.getMetadata()) {
 /*     */       case 0:
 /*  91 */         tooltip.add("Level 1"); break;

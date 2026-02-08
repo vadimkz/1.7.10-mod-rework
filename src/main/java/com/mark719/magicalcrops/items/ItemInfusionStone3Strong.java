@@ -55,7 +55,7 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 /* 59 */     tooltip.add("Crucio -> Imperio");
 /* 60 */     if (ConfigMain.INFUSION_DURABILITY)
 /* 61 */       tooltip.add("Durability: " + (stack.getMaxDurability() - stack.getMetadata()) + "/" + stack.getMaxDurability()); 
