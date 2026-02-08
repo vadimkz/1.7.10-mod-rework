@@ -129,66 +129,68 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
 
-        if (this.icons == null) {
-            return net.minecraft.init.Blocks.wheat.getIcon(0, 0);
-        }
+        if (this.icons == null)
+            return Blocks.wheat.getIcon(0, meta);
 
-        if (meta < 7) {
-            if (meta == 6) meta = 5;
-            return this.icons[meta >> 1];
-        }
+        if (meta < 0) meta = 0;
+        if (meta > 7) meta = 7;
 
-        return this.icons[3];
+        int stage = meta >> 1;
+
+        if (stage < 0) stage = 0;
+        if (stage >= this.icons.length) stage = this.icons.length - 1;
+
+        return this.icons[stage];
     }
 
 
     @Override
-    public int getRenderType() {
-        return 1; // Cross texture (как трава/пшеница)
-    }
-    /**
-     * Harvest-on-right-click: if crop is mature (meta >= 7), drop crop + seed and reset to stage 0.
-     */
-    @Override
-    public boolean onBlockActivated(World world, int x, int y, int z,
-                                    EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+public int getRenderType() {
+    return 1; // Cross texture (как трава/пшеница)
+}
+/**
+ * Harvest-on-right-click: if crop is mature (meta >= 7), drop crop + seed and reset to stage 0.
+ */
+@Override
+public boolean onBlockActivated(World world, int x, int y, int z,
+                                EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 
-        int meta = world.getBlockMetadata(x, y, z);
+    int meta = world.getBlockMetadata(x, y, z);
 
-        // Fully grown -> harvest
-        if (meta >= 7) {
-            if (!world.isRemote) {
+    // Fully grown -> harvest
+    if (meta >= 7) {
+        if (!world.isRemote) {
 
-                Item crop = getCrop();
-                Item seed = getSeed();
+            Item crop = getCrop();
+            Item seed = getSeed();
 
-                if (crop != null) {
-                    dropItem(world, x, y, z, new ItemStack(crop, 1));
-                }
-
-                if (seed != null) {
-                    dropItem(world, x, y, z, new ItemStack(seed, 1));
-                }
-
-                // Replant: reset growth stage
-                world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+            if (crop != null) {
+                dropItem(world, x, y, z, new ItemStack(crop, 1));
             }
-            return true;
+
+            if (seed != null) {
+                dropItem(world, x, y, z, new ItemStack(seed, 1));
+            }
+
+            // Replant: reset growth stage
+            world.setBlockMetadataWithNotify(x, y, z, 0, 2);
         }
-
-        return false;
+        return true;
     }
 
-    private void dropItem(World world, int x, int y, int z, ItemStack stack) {
-        float f = 0.7F;
+    return false;
+}
 
-        double dx = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
-        double dy = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
-        double dz = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+private void dropItem(World world, int x, int y, int z, ItemStack stack) {
+    float f = 0.7F;
 
-        EntityItem entity = new EntityItem(world, x + dx, y + dy, z + dz, stack);
-        entity.delayBeforeCanPickup = 10;
-        world.spawnEntityInWorld(entity);
-    }
+    double dx = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+    double dy = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+    double dz = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+
+    EntityItem entity = new EntityItem(world, x + dx, y + dy, z + dz, stack);
+    entity.delayBeforeCanPickup = 10;
+    world.spawnEntityInWorld(entity);
+}
 
 }
