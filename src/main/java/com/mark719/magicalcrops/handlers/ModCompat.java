@@ -91,7 +91,7 @@ public class ModCompat {
     static Item zivicioEssence = Essence.ZivicioEssence;
 
     // Семена Миничио нужны для крафта всех остальных семян (метадата 32767 - любой дамаг)
-    static ItemStack minicioSeeds = new ItemStack(MSeeds.MinicioSeeds, 1, 32767);
+    static ItemStack minicioSeeds;
 
     public static Block farmland = Blocks.farmland;
 
@@ -104,9 +104,14 @@ public class ModCompat {
      * Главный метод инициализации. Проверяет наличие модов и регистрирует контент.
      */
     public static void loadCompat() {
+        if (MSeeds.MinicioSeeds != null) {
+            minicioSeeds = new ItemStack(MSeeds.MinicioSeeds, 1, 32767);
+        } else {
+            minicioSeeds = null;
+        }
 
         // ALUMINIUM (Crucio Tier)
-        if (ConfigDisable.ALUMINIUM && OreCheck.getModOre("oreAluminium") != null) {
+        if (!ConfigDisable.ALUMINIUM && OreCheck.getModOre("oreAluminium") != null) {
             AluminiumEssence = (new AluminiumEssence()).setUnlocalizedName("AluminiumEssence");
             AluminiumCrop = (new AluminiumCrop()).setUnlocalizedName("AluminiumCrop");
             AluminiumSeeds = (new AluminiumSeeds(AluminiumCrop, net.minecraft.init.Blocks.farmland))
@@ -119,7 +124,7 @@ public class ModCompat {
         }
 
         // ARDITE (Imperio Tier - Tinker's Construct)
-        if (ConfigDisable.ARDITE && OreCheck.getModOre("oreArdite") != null) {
+        if (!ConfigDisable.ARDITE && OreCheck.getModOre("oreArdite") != null) {
             ArditeEssence = (new ArditeEssence()).setUnlocalizedName("ArditeEssence");
             ArditeCrop = (new ArditeCrop()).setUnlocalizedName("ArditeCrop");
             ArditeSeeds = (new ArditeSeeds(ArditeCrop, net.minecraft.init.Blocks.farmland))
@@ -132,7 +137,7 @@ public class ModCompat {
         }
 
         // COBALT (Zivicio Tier - Tinker's Construct)
-        if (ConfigDisable.COBALT && OreCheck.getModOre("oreCobalt") != null) {
+        if (!ConfigDisable.COBALT && OreCheck.getModOre("oreCobalt") != null) {
             CobaltEssence = (new CobaltEssence()).setUnlocalizedName("CobaltEssence");
             CobaltCrop = (new CobaltCrop()).setUnlocalizedName("CobaltCrop");
             CobaltSeeds = (new CobaltSeeds(CobaltCrop, net.minecraft.init.Blocks.farmland))
@@ -145,7 +150,7 @@ public class ModCompat {
         }
 
         // COPPER (Crucio Tier - Thermal/IC2)
-        if (ConfigDisable.COPPER && OreCheck.getModOre("oreCopper") != null) {
+        if (!ConfigDisable.COPPER && OreCheck.getModOre("oreCopper") != null) {
             CopperEssence = (new CopperEssence()).setUnlocalizedName("CopperEssence");
             CopperCrop = (new CopperCrop()).setUnlocalizedName("CopperCrop");
             CopperSeeds = (new CopperSeeds(CopperCrop, net.minecraft.init.Blocks.farmland))
@@ -158,7 +163,7 @@ public class ModCompat {
         }
 
         // CERTUS QUARTZ (Crucio Tier - AE2)
-        if (ConfigDisable.CERTUSQUARTZ && OreCheck.getModOre("oreCertusQuartz") != null) {
+        if (!ConfigDisable.CERTUSQUARTZ && OreCheck.getModOre("oreCertusQuartz") != null) {
             CertusQuartzEssence = (new CertusQuartzEssence()).setUnlocalizedName("CertusQuartzEssence");
             CertusQuartzCrop = (new CertusQuartzCrop()).setUnlocalizedName("CertusQuartzCrop");
             CertusQuartzSeeds = (new CertusQuartzSeeds(CertusQuartzCrop, net.minecraft.init.Blocks.farmland))
@@ -171,7 +176,7 @@ public class ModCompat {
         }
 
         // LEAD (Crucio Tier - Thermal/IC2)
-        if (ConfigDisable.LEAD && OreCheck.getModOre("oreLead") != null) {
+        if (!ConfigDisable.LEAD && OreCheck.getModOre("oreLead") != null) {
             LeadEssence = (new LeadEssence()).setUnlocalizedName("LeadEssence");
             LeadCrop = (new LeadCrop()).setUnlocalizedName("LeadCrop");
             LeadSeeds = (new LeadSeeds(LeadCrop, net.minecraft.init.Blocks.farmland))
@@ -185,7 +190,7 @@ public class ModCompat {
         }
 
         // NICKEL (Imperio Tier - Thermal)
-        if (ConfigDisable.NICKEL && OreCheck.getModOre("oreNickel") != null) {
+        if (!ConfigDisable.NICKEL && OreCheck.getModOre("oreNickel") != null) {
             // Исправлено: заменено ModCompatEssence/Seeds на NickelEssence/Seeds для поддержки метаданных и иконок
             NickelEssence = (new NickelEssence()).setUnlocalizedName("NickelEssence");
             NickelCrop = (new NickelCrop()).setUnlocalizedName("NickelCrop");
@@ -200,7 +205,7 @@ public class ModCompat {
         }
 
         // OSMIUM (Imperio Tier - Mekanism)
-        if (ConfigDisable.OSMIUM && OreCheck.getModOre("oreOsmium") != null) {
+        if (!ConfigDisable.OSMIUM && OreCheck.getModOre("oreOsmium") != null) {
             OsmiumEssence = (new OsmiumEssence()).setUnlocalizedName("OsmiumEssence");
             OsmiumCrop = (new OsmiumCrop()).setUnlocalizedName("OsmiumCrop");
             OsmiumSeeds = (new OsmiumSeeds(OsmiumCrop, net.minecraft.init.Blocks.farmland))
@@ -214,7 +219,7 @@ public class ModCompat {
         }
 
         // PERIDOT (Imperio Tier - BOP/ProjectRed)
-        if (ConfigDisable.PERIDOT && OreCheck.getModOre("gemPeridot") != null) {
+        if (!ConfigDisable.PERIDOT && OreCheck.getModOre("gemPeridot") != null) {
             PeridotEssence = (new PeridotEssence()).setUnlocalizedName("PeridotEssence");
             PeridotCrop = (new PeridotCrop()).setUnlocalizedName("PeridotCrop");
             PeridotSeeds = (new PeridotSeeds(PeridotCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("PeridotSeeds");
@@ -226,7 +231,7 @@ public class ModCompat {
         }
 
         // RUBY (Imperio Tier)
-        if (ConfigDisable.RUBY && OreCheck.getModOre("gemRuby") != null) {
+        if (!ConfigDisable.RUBY && OreCheck.getModOre("gemRuby") != null) {
             RubyEssence = (new RubyEssence()).setUnlocalizedName("RubyEssence");
             RubyCrop = (new RubyCrop()).setUnlocalizedName("RubyCrop");
             RubySeeds = (new RubySeeds(RubyCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("RubySeeds");
@@ -238,7 +243,7 @@ public class ModCompat {
         }
 
         // SAPPHIRE (Imperio Tier)
-        if (ConfigDisable.SAPPHIRE && OreCheck.getModOre("gemSapphire") != null) {
+        if (!ConfigDisable.SAPPHIRE && OreCheck.getModOre("gemSapphire") != null) {
             SapphireEssence = (new SapphireEssence()).setUnlocalizedName("SapphireEssence");
             SapphireCrop = (new SapphireCrop()).setUnlocalizedName("SapphireCrop");
             SapphireSeeds = (new SapphireSeeds(SapphireCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SapphireSeeds");
@@ -250,7 +255,7 @@ public class ModCompat {
         }
 
         // PLATINUM (Zivicio Tier - Thermal)
-        if (ConfigDisable.PLATINUM && OreCheck.getModOre("ingotPlatinum") != null) {
+        if (!ConfigDisable.PLATINUM && OreCheck.getModOre("ingotPlatinum") != null) {
             PlatinumEssence = (new PlatinumEssence()).setUnlocalizedName("PlatinumEssence");
             PlatinumCrop = (new PlatinumCrop()).setUnlocalizedName("PlatinumCrop");
             PlatinumSeeds = (new PlatinumSeeds(PlatinumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("PlatinumSeeds");
@@ -262,7 +267,7 @@ public class ModCompat {
         }
 
         // RUBBER (Accio Tier - IC2/MFR)
-        if (ConfigDisable.RUBBER && OreCheck.getModOre("itemRubber") != null) {
+        if (!ConfigDisable.RUBBER && OreCheck.getModOre("itemRubber") != null) {
             RubberEssence = (new RubberEssence()).setUnlocalizedName("RubberEssence");
             RubberCrop = (new RubberCrop()).setUnlocalizedName("RubberCrop");
             RubberSeeds = (new RubberSeeds(RubberCrop, farmland))
@@ -275,7 +280,7 @@ public class ModCompat {
         }
 
         // SILVER (Imperio Tier - Thermal)
-        if (ConfigDisable.SILVER && OreCheck.getModOre("ingotSilver") != null) {
+        if (!ConfigDisable.SILVER && OreCheck.getModOre("ingotSilver") != null) {
             SilverEssence = (new SilverEssence()).setUnlocalizedName("SilverEssence");
             SilverCrop = (new SilverCrop()).setUnlocalizedName("SilverCrop");
             SilverSeeds = (new SilverSeeds(SilverCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SilverSeeds");
@@ -287,7 +292,7 @@ public class ModCompat {
         }
 
         // TIN (Crucio Tier - Thermal/IC2)
-        if (ConfigDisable.TIN && OreCheck.getModOre("ingotTin") != null) {
+        if (!ConfigDisable.TIN && OreCheck.getModOre("ingotTin") != null) {
             TinEssence = (new TinEssence()).setUnlocalizedName("TinEssence");
             TinCrop = (new TinCrop()).setUnlocalizedName("TinCrop");
             TinSeeds = (new TinSeeds(TinCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("TinSeeds");
@@ -299,7 +304,7 @@ public class ModCompat {
         }
 
         // SULFUR (Crucio Tier - Thermal/Railcraft)
-        if (ConfigDisable.SULFUR && OreCheck.getModOre("dustSulfur") != null) {
+        if (!ConfigDisable.SULFUR && OreCheck.getModOre("dustSulfur") != null) {
             SulfurEssence = (new SulfurEssence()).setUnlocalizedName("SulfurEssence");
             SulfurCrop = (new SulfurCrop()).setUnlocalizedName("SulfurCrop");
             SulfurSeeds = (new SulfurSeeds(SulfurCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SulfurSeeds");
@@ -312,7 +317,7 @@ public class ModCompat {
         }
 
         // YELLORITE (Imperio Tier - Big Reactors)
-        if (ConfigDisable.YELLORITE && OreCheck.getModOre("ingotYellorium") != null) {
+        if (!ConfigDisable.YELLORITE && OreCheck.getModOre("ingotYellorium") != null) {
             YelloriteEssence = (new YelloriteEssence()).setUnlocalizedName("YelloriteEssence");
             YelloriteCrop = (new YelloriteCrop()).setUnlocalizedName("YelloriteCrop");
             YelloriteSeeds = (new YelloriteSeeds(YelloriteCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("YelloriteSeeds");
@@ -324,7 +329,7 @@ public class ModCompat {
         }
 
         // ALUMITE (Imperio Tier - Tinker's)
-        if (ConfigDisable.ALUMITE && OreCheck.getModOre("ingotAlumite") != null) {
+        if (!ConfigDisable.ALUMITE && OreCheck.getModOre("ingotAlumite") != null) {
             AlumiteEssence = (new AlumiteEssence()).setUnlocalizedName("AlumiteEssence");
             AlumiteCrop = (new AlumiteCrop()).setUnlocalizedName("AlumiteCrop");
             AlumiteSeeds = (new AlumiteSeeds(AlumiteCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("AlumiteSeeds");
@@ -336,7 +341,7 @@ public class ModCompat {
         }
 
         // BLIZZ (Imperio Tier - Thermal)
-        if (ConfigDisable.BLIZZ && OreCheck.getModOre("rodBlizz") != null) {
+        if (!ConfigDisable.BLIZZ && OreCheck.getModOre("rodBlizz") != null) {
             BlizzEssence = (new BlizzEssence()).setUnlocalizedName("BlizzEssence");
             BlizzCrop = (new BlizzCrop()).setUnlocalizedName("BlizzCrop");
             BlizzSeeds = (new BlizzSeeds(BlizzCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("BlizzSeeds");
@@ -348,7 +353,7 @@ public class ModCompat {
         }
 
         // BRONZE (Crucio Tier - Thermal/IC2)
-        if (ConfigDisable.BRONZE && OreCheck.getModOre("ingotBronze") != null) {
+        if (!ConfigDisable.BRONZE && OreCheck.getModOre("ingotBronze") != null) {
             BronzeEssence = (new BronzeEssence()).setUnlocalizedName("BronzeEssence");
             BronzeCrop = (new BronzeCrop()).setUnlocalizedName("BronzeCrop");
             BronzeSeeds = (new BronzeSeeds(BronzeCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("BronzeSeeds");
@@ -360,7 +365,7 @@ public class ModCompat {
         }
 
         // ELECTRUM (Imperio Tier - Thermal)
-        if (ConfigDisable.ELECTRUM && OreCheck.getModOre("ingotElectrum") != null) {
+        if (!ConfigDisable.ELECTRUM && OreCheck.getModOre("ingotElectrum") != null) {
             ElectrumEssence = (new ElectrumEssence()).setUnlocalizedName("ElectrumEssence");
             ElectrumCrop = (new ElectrumCrop()).setUnlocalizedName("ElectrumCrop");
             ElectrumSeeds = (new ElectrumSeeds(ElectrumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("ElectrumSeeds");
@@ -372,7 +377,7 @@ public class ModCompat {
         }
 
         // ENDERIUM (Zivicio Tier - Thermal)
-        if (ConfigDisable.ENDERIUM && OreCheck.getModOre("ingotEnderium") != null) {
+        if (!ConfigDisable.ENDERIUM && OreCheck.getModOre("ingotEnderium") != null) {
             EnderiumEssence = (new EnderiumEssence()).setUnlocalizedName("EnderiumEssence");
             EnderiumCrop = (new EnderiumCrop()).setUnlocalizedName("EnderiumCrop");
             EnderiumSeeds = (new EnderiumSeeds(EnderiumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("EnderiumSeeds");
@@ -384,7 +389,7 @@ public class ModCompat {
         }
 
         // FLUIX (Imperio Tier - AE2)
-        if (ConfigDisable.FLUIX && OreCheck.getModOre("crystalFluix") != null) {
+        if (!ConfigDisable.FLUIX && OreCheck.getModOre("crystalFluix") != null) {
             FluixEssence = (new FluixEssence()).setUnlocalizedName("FluixEssence");
             FluixCrop = (new FluixCrop()).setUnlocalizedName("FluixCrop");
             FluixSeeds = (new FluixSeeds(FluixCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("FluixSeeds");
@@ -396,7 +401,7 @@ public class ModCompat {
         }
 
         // INVAR (Imperio Tier - Thermal)
-        if (ConfigDisable.INVAR && OreCheck.getModOre("ingotInvar") != null) {
+        if (!ConfigDisable.INVAR && OreCheck.getModOre("ingotInvar") != null) {
             InvarEssence = (new InvarEssence()).setUnlocalizedName("InvarEssence");
             InvarCrop = (new InvarCrop()).setUnlocalizedName("InvarCrop");
             InvarSeeds = (new InvarSeeds(InvarCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("InvarSeeds");
@@ -408,7 +413,7 @@ public class ModCompat {
         }
 
         // LUMIUM (Imperio Tier - Thermal)
-        if (ConfigDisable.LUMIUM && OreCheck.getModOre("ingotLumium") != null) {
+        if (!ConfigDisable.LUMIUM && OreCheck.getModOre("ingotLumium") != null) {
             LumiumEssence = (new LumiumEssence()).setUnlocalizedName("LumiumEssence");
             LumiumCrop = (new LumiumCrop()).setUnlocalizedName("LumiumCrop");
             LumiumSeeds = (new LumiumSeeds(LumiumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("LumiumSeeds");
@@ -420,7 +425,7 @@ public class ModCompat {
         }
 
         // MANASTEEL (Crucio Tier - Botania)
-        if (ConfigDisable.MANASTEEL && OreCheck.getModOre("ingotManasteel") != null) {
+        if (!ConfigDisable.MANASTEEL && OreCheck.getModOre("ingotManasteel") != null) {
             ManasteelEssence = (new ManasteelEssence()).setUnlocalizedName("ManasteelEssence");
             ManasteelCrop = (new ManasteelCrop()).setUnlocalizedName("ManasteelCrop");
             ManasteelSeeds = (new ManasteelSeeds(ManasteelCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("ManasteelSeeds");
@@ -432,7 +437,7 @@ public class ModCompat {
         }
 
         // MANYULLYN (Zivicio Tier - Tinker's)
-        if (ConfigDisable.MANYULLYN && OreCheck.getModOre("ingotManyullyn") != null) {
+        if (!ConfigDisable.MANYULLYN && OreCheck.getModOre("ingotManyullyn") != null) {
             ManyullynEssence = (new ManyullynEssence()).setUnlocalizedName("ManyullynEssence");
             ManyullynCrop = (new ManyullynCrop()).setUnlocalizedName("ManyullynCrop");
             ManyullynSeeds = (new ManyullynSeeds(ManyullynCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("ManyullynSeeds");
@@ -444,7 +449,7 @@ public class ModCompat {
         }
 
         // SALTPETER (Crucio Tier - Railcraft)
-        if (ConfigDisable.SALTPETER && OreCheck.getModOre("dustSaltpeter") != null) {
+        if (!ConfigDisable.SALTPETER && OreCheck.getModOre("dustSaltpeter") != null) {
             SaltpeterEssence = (new SaltpeterEssence()).setUnlocalizedName("SaltpeterEssence");
             SaltpeterCrop = (new SaltpeterCrop()).setUnlocalizedName("SaltpeterCrop");
             SaltpeterSeeds = (new SaltpeterSeeds(SaltpeterCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SaltpeterSeeds");
@@ -456,7 +461,7 @@ public class ModCompat {
         }
 
         // SIGNALUM (Imperio Tier - Thermal)
-        if (ConfigDisable.SIGNALUM && OreCheck.getModOre("ingotSignalum") != null) {
+        if (!ConfigDisable.SIGNALUM && OreCheck.getModOre("ingotSignalum") != null) {
             SignalumEssence = (new SignalumEssence()).setUnlocalizedName("SignalumEssence");
             SignalumCrop = (new SignalumCrop()).setUnlocalizedName("SignalumCrop");
             SignalumSeeds = (new SignalumSeeds(SignalumCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SignalumSeeds");
@@ -468,7 +473,7 @@ public class ModCompat {
         }
 
         // STEEL (Imperio Tier - Mekanism/IC2)
-        if (ConfigDisable.STEEL && OreCheck.getModOre("ingotSteel") != null) {
+        if (!ConfigDisable.STEEL && OreCheck.getModOre("ingotSteel") != null) {
             SteelEssence = (new SteelEssence()).setUnlocalizedName("SteelEssence");
             SteelCrop = (new SteelCrop()).setUnlocalizedName("SteelCrop");
             SteelSeeds = (new SteelSeeds(SteelCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("SteelSeeds");
@@ -480,7 +485,7 @@ public class ModCompat {
         }
 
         // TERRASTEEL (Zivicio Tier - Botania)
-        if (ConfigDisable.TERRASTEEL && OreCheck.getModOre("ingotTerrasteel") != null) {
+        if (!ConfigDisable.TERRASTEEL && OreCheck.getModOre("ingotTerrasteel") != null) {
             TerrasteelEssence = (new TerrasteelEssence()).setUnlocalizedName("TerrasteelEssence");
             TerrasteelCrop = (new TerrasteelCrop()).setUnlocalizedName("TerrasteelCrop");
             TerrasteelSeeds = (new TerrasteelSeeds(TerrasteelCrop, farmland)).setTextureName("magicalcrops:seeds_blank").setUnlocalizedName("TerrasteelSeeds");
@@ -501,6 +506,9 @@ public class ModCompat {
 
     // Вспомогательный метод для добавления рецепта семян
     private static void addRecipe(Item seeds, Item essenceTier, String oreDictName) {
+        if (minicioSeeds == null) {
+            return;
+        }
         // Явное приведение к (IRecipe) исправляет ошибку Ambiguous method call
         GameRegistry.addRecipe((IRecipe) new ShapedOreRecipe(new ItemStack(seeds, seedOutPut),
                 "YXY", "XZX", "YXY",
