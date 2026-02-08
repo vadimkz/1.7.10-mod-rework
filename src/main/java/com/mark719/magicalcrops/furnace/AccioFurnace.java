@@ -63,24 +63,24 @@
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
+/*     */   public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 /*  67 */     player.openGui(MagicalCrops.instance, 1, world, x, y, z);
 /*  68 */     return true;
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public Item getItemDropped(int par1, Random random, int par3) {
+/*     */   public Item getItemDropped(int metadata, Random random, int fortune) {
 /*  73 */     return Item.getItemFromBlock(MBlocks.AccioFurnace);
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public Item getItem(World world, int par2, int par3, int par4) {
+/*     */   public Item getItem(World world, int x, int y, int z) {
 /*  78 */     return Item.getItemFromBlock(MBlocks.AccioFurnace);
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public TileEntity createNewTileEntity(World world, int par2) {
+/*     */   public TileEntity createNewTileEntity(World world, int meta) {
 /*  84 */     return new TileEntityAccioFurnace();
 /*     */   }
 /*     */ 
@@ -88,17 +88,17 @@
 /*     */   
 /*     */   public void onBlockAdded(World worldIn, int x, int y, int z) {
 /*  90 */     super.onBlockAdded(worldIn, x, y, z);
-/*  91 */     func_149930_e(worldIn, x, y, z);
+/*  91 */     setDefaultDirection(worldIn, x, y, z);
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   private void func_149930_e(World p_149930_1_, int p_149930_2_, int p_149930_3_, int p_149930_4_) {
-/*  96 */     if (!p_149930_1_.isRemote) {
+/*     */   private void setDefaultDirection(World world, int x, int y, int z) {
+/*  96 */     if (!world.isRemote) {
 /*     */       
-/*  98 */       Block block = p_149930_1_.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ - 1);
-/*  99 */       Block block1 = p_149930_1_.getBlock(p_149930_2_, p_149930_3_, p_149930_4_ + 1);
-/* 100 */       Block block2 = p_149930_1_.getBlock(p_149930_2_ - 1, p_149930_3_, p_149930_4_);
-/* 101 */       Block block3 = p_149930_1_.getBlock(p_149930_2_ + 1, p_149930_3_, p_149930_4_);
+/*  98 */       Block block = world.getBlock(x, y, z - 1);
+/*  99 */       Block block1 = world.getBlock(x, y, z + 1);
+/* 100 */       Block block2 = world.getBlock(x - 1, y, z);
+/* 101 */       Block block3 = world.getBlock(x + 1, y, z);
 /* 102 */       byte b0 = 3;
 /*     */       
 /* 104 */       if (block.isFullBlock() && !block1.isFullBlock())
@@ -121,63 +121,63 @@
 /* 121 */         b0 = 4;
 /*     */       }
 /*     */       
-/* 124 */       p_149930_1_.setBlockMetadataWithNotify(p_149930_2_, p_149930_3_, p_149930_4_, b0, 2);
+/* 124 */       world.setBlockMetadataWithNotify(x, y, z, b0, 2);
 /*     */     } 
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
-/* 131 */     int l = MathHelper.floor_double((p_149689_5_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 0x3;
+/*     */   public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack) {
+/* 131 */     int l = MathHelper.floor_double((entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 0x3;
 /*     */     
 /* 133 */     if (l == 0)
 /*     */     {
-/* 135 */       p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 2, 2);
+/* 135 */       world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 /*     */     }
 /*     */     
 /* 138 */     if (l == 1)
 /*     */     {
-/* 140 */       p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 5, 2);
+/* 140 */       world.setBlockMetadataWithNotify(x, y, z, 5, 2);
 /*     */     }
 /*     */     
 /* 143 */     if (l == 2)
 /*     */     {
-/* 145 */       p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
+/* 145 */       world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 /*     */     }
 /*     */     
 /* 148 */     if (l == 3)
 /*     */     {
-/* 150 */       p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 4, 2);
+/* 150 */       world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 /*     */     }
 /*     */     
-/* 153 */     if (p_149689_6_.hasDisplayName())
+/* 153 */     if (itemStack.hasDisplayName())
 /*     */     {
-/* 155 */       ((TileEntityFurnace)p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).setCustomInventoryName(p_149689_6_.getDisplayName());
+/* 155 */       ((TileEntityFurnace)world.getTileEntity(x, y, z)).setCustomInventoryName(itemStack.getDisplayName());
 /*     */     }
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public static void updateBlockState(boolean p_149931_0_, World p_149931_1_, int p_149931_2_, int p_149931_3_, int p_149931_4_) {
-/* 161 */     int l = p_149931_1_.getBlockMetadata(p_149931_2_, p_149931_3_, p_149931_4_);
-/* 162 */     TileEntity tileentity = p_149931_1_.getTileEntity(p_149931_2_, p_149931_3_, p_149931_4_);
+/*     */   public static void updateBlockState(boolean isActive, World world, int x, int y, int z) {
+/* 161 */     int l = world.getBlockMetadata(x, y, z);
+/* 162 */     TileEntity tileentity = world.getTileEntity(x, y, z);
 /* 163 */     isBurning = true;
 /*     */     
-/* 165 */     if (p_149931_0_) {
+/* 165 */     if (isActive) {
 /*     */       
-/* 167 */       p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, MBlocks.AccioFurnaceActive);
+/* 167 */       world.setBlock(x, y, z, MBlocks.AccioFurnaceActive);
 /*     */     }
 /*     */     else {
 /*     */       
-/* 171 */       p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, MBlocks.AccioFurnace);
+/* 171 */       world.setBlock(x, y, z, MBlocks.AccioFurnace);
 /*     */     } 
 /*     */     
 /* 174 */     isBurning = false;
-/* 175 */     p_149931_1_.setBlockMetadataWithNotify(p_149931_2_, p_149931_3_, p_149931_4_, l, 2);
+/* 175 */     world.setBlockMetadataWithNotify(x, y, z, l, 2);
 /*     */     
 /* 177 */     if (tileentity != null) {
 /*     */       
 /* 179 */       tileentity.validate();
-/* 180 */       p_149931_1_.setTileEntity(p_149931_2_, p_149931_3_, p_149931_4_, tileentity);
+/* 180 */       world.setTileEntity(x, y, z, tileentity);
 /*     */     } 
 /*     */   }
 /*     */   
@@ -224,35 +224,35 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_) {
+/*     */   public void randomDisplayTick(World world, int x, int y, int z, Random random) {
 /* 228 */     if (this.isBurning2) {
 /*     */       
-/* 230 */       int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
-/* 231 */       float f = p_149734_2_ + 0.5F;
-/* 232 */       float f1 = p_149734_3_ + 0.0F + p_149734_5_.nextFloat() * 6.0F / 16.0F;
-/* 233 */       float f2 = p_149734_4_ + 0.5F;
+/* 230 */       int l = world.getBlockMetadata(x, y, z);
+/* 231 */       float f = x + 0.5F;
+/* 232 */       float f1 = y + 0.0F + random.nextFloat() * 6.0F / 16.0F;
+/* 233 */       float f2 = z + 0.5F;
 /* 234 */       float f3 = 0.52F;
-/* 235 */       float f4 = p_149734_5_.nextFloat() * 0.6F - 0.3F;
+/* 235 */       float f4 = random.nextFloat() * 0.6F - 0.3F;
 /*     */       
 /* 237 */       if (l == 4) {
 /*     */         
-/* 239 */         p_149734_1_.spawnParticle("smoke", (f - f3), f1, (f2 + f4), 0.0D, 0.0D, 0.0D);
-/* 240 */         p_149734_1_.spawnParticle("flame", (f - f3), f1, (f2 + f4), 0.0D, 0.0D, 0.0D);
+/* 239 */         world.spawnParticle("smoke", (f - f3), f1, (f2 + f4), 0.0D, 0.0D, 0.0D);
+/* 240 */         world.spawnParticle("flame", (f - f3), f1, (f2 + f4), 0.0D, 0.0D, 0.0D);
 /*     */       }
 /* 242 */       else if (l == 5) {
 /*     */         
-/* 244 */         p_149734_1_.spawnParticle("smoke", (f + f3), f1, (f2 + f4), 0.0D, 0.0D, 0.0D);
-/* 245 */         p_149734_1_.spawnParticle("flame", (f + f3), f1, (f2 + f4), 0.0D, 0.0D, 0.0D);
+/* 244 */         world.spawnParticle("smoke", (f + f3), f1, (f2 + f4), 0.0D, 0.0D, 0.0D);
+/* 245 */         world.spawnParticle("flame", (f + f3), f1, (f2 + f4), 0.0D, 0.0D, 0.0D);
 /*     */       }
 /* 247 */       else if (l == 2) {
 /*     */         
-/* 249 */         p_149734_1_.spawnParticle("smoke", (f + f4), f1, (f2 - f3), 0.0D, 0.0D, 0.0D);
-/* 250 */         p_149734_1_.spawnParticle("flame", (f + f4), f1, (f2 - f3), 0.0D, 0.0D, 0.0D);
+/* 249 */         world.spawnParticle("smoke", (f + f4), f1, (f2 - f3), 0.0D, 0.0D, 0.0D);
+/* 250 */         world.spawnParticle("flame", (f + f4), f1, (f2 - f3), 0.0D, 0.0D, 0.0D);
 /*     */       }
 /* 252 */       else if (l == 3) {
 /*     */         
-/* 254 */         p_149734_1_.spawnParticle("smoke", (f + f4), f1, (f2 + f3), 0.0D, 0.0D, 0.0D);
-/* 255 */         p_149734_1_.spawnParticle("flame", (f + f4), f1, (f2 + f3), 0.0D, 0.0D, 0.0D);
+/* 254 */         world.spawnParticle("smoke", (f + f4), f1, (f2 + f3), 0.0D, 0.0D, 0.0D);
+/* 255 */         world.spawnParticle("flame", (f + f4), f1, (f2 + f3), 0.0D, 0.0D, 0.0D);
 /*     */       } 
 /*     */     } 
 /*     */   }

@@ -68,17 +68,17 @@
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void updateProgressBar(int par1, int par2) {
-/*  72 */     if (par1 == 0) {
-/*  73 */       this.tileZivicioFurnace.furnaceCookTime = par2;
+/*     */   public void updateProgressBar(int id, int data) {
+/*  72 */     if (id == 0) {
+/*  73 */       this.tileZivicioFurnace.furnaceCookTime = data;
 /*     */     }
 /*     */     
-/*  76 */     if (par1 == 1) {
-/*  77 */       this.tileZivicioFurnace.furnaceBurnTime = par2;
+/*  76 */     if (id == 1) {
+/*  77 */       this.tileZivicioFurnace.furnaceBurnTime = data;
 /*     */     }
 /*     */     
-/*  80 */     if (par1 == 2) {
-/*  81 */       this.tileZivicioFurnace.currentBurnTime = par2;
+/*  80 */     if (id == 2) {
+/*  81 */       this.tileZivicioFurnace.currentBurnTime = data;
 /*     */     }
 /*     */   }
 /*     */ 

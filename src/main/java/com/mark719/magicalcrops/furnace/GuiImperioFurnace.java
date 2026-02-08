@@ -24,14 +24,14 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   protected void drawGuiContainerForegroundLayer(int par1, int par2) {
+/*    */   protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 /* 28 */     String string = this.tileFurnace.isCustomInventoryName() ? this.tileFurnace.getInventoryName() : I18n.format(this.tileFurnace.getInventoryName(), new Object[0]);
 /* 29 */     this.fontRendererObj.drawString(string, 140 - this.fontRendererObj.getStringWidth(string), 6, 4210752);
 /* 30 */     this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 94, 4210752);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
+/*    */   protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 /* 35 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 /* 36 */     (Minecraft.getMinecraft()).renderEngine.bindTexture(texture);
 /* 37 */     int k = (this.width - this.xSize) / 2;
