@@ -25,8 +25,8 @@
 /*     */ public class ZivicioHoe
 /*     */   extends ItemHoe
 /*     */ {
-/*     */   public ZivicioHoe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
-/*  29 */     super(par2EnumToolMaterial);
+/*     */   public ZivicioHoe(int itemId, Item.ToolMaterial toolMaterial) {
+/*  29 */     super(toolMaterial);
 /*  30 */     this.maxStackSize = 1;
 /*  31 */     setCreativeTab(MagicalCrops.tabMagical);
 /*     */   }
@@ -37,40 +37,40 @@
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase) {
+/*     */   public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 /*  41 */     return true;
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_, int p_150894_6_, EntityLivingBase p_150894_7_) {
+/*     */   public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase entity) {
 /*  46 */     return true;
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 /*  51 */     if (ConfigMain.EXTRA_HOE) {
-/*  52 */       par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
+/*  52 */       tooltip.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
 /*  53 */       if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
-/*  54 */         par3List.add(EnumChatFormatting.ITALIC + "- 8 Extra essence from Minicio Crops");
+/*  54 */         tooltip.add(EnumChatFormatting.ITALIC + "- 8 Extra essence from Minicio Crops");
 /*     */       }
 /*     */     } 
-/*  57 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "Unbreakable");
-/*  58 */     par3List.add(EnumChatFormatting.GREEN + "Gem Socket:");
-/*  59 */     par3List.add(EnumChatFormatting.ITALIC + "- Empty");
-/*  60 */     par3List.add("");
-/*  61 */     par3List.add(EnumChatFormatting.BLUE + "+1 Attack Damage");
+/*  57 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "Unbreakable");
+/*  58 */     tooltip.add(EnumChatFormatting.GREEN + "Gem Socket:");
+/*  59 */     tooltip.add(EnumChatFormatting.ITALIC + "- Empty");
+/*  60 */     tooltip.add("");
+/*  61 */     tooltip.add(EnumChatFormatting.BLUE + "+1 Attack Damage");
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
-/*  67 */     if (!p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_))
+/*     */   public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+/*  67 */     if (!player.canPlayerEdit(x, y, z, side, stack))
 /*     */     {
 /*  69 */       return false;
 /*     */     }
 /*     */ 
 /*     */     
-/*  73 */     UseHoeEvent event = new UseHoeEvent(p_77648_2_, p_77648_1_, p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_);
+/*  73 */     UseHoeEvent event = new UseHoeEvent(player, stack, world, x, y, z);
 /*  74 */     if (MinecraftForge.EVENT_BUS.post((Event)event))
 /*     */     {
 /*  76 */       return false;
@@ -78,25 +78,25 @@
 /*     */     
 /*  79 */     if (event.getResult() == Event.Result.ALLOW) {
 /*     */       
-/*  81 */       p_77648_1_.damageItem(0, (EntityLivingBase)p_77648_2_);
+/*  81 */       stack.damageItem(0, (EntityLivingBase)player);
 /*  82 */       return true;
 /*     */     } 
 /*     */     
-/*  85 */     Block block = p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_);
+/*  85 */     Block block = world.getBlock(x, y, z);
 /*     */     
-/*  87 */     if (p_77648_7_ != 0 && p_77648_3_.getBlock(p_77648_4_, p_77648_5_ + 1, p_77648_6_).isAir((IBlockAccess)p_77648_3_, p_77648_4_, p_77648_5_ + 1, p_77648_6_) && (block == Blocks.grass || block == Blocks.dirt)) {
+/*  87 */     if (side != 0 && world.getBlock(x, y + 1, z).isAir((IBlockAccess)world, x, y + 1, z) && (block == Blocks.grass || block == Blocks.dirt)) {
 /*     */       
 /*  89 */       Block block1 = Blocks.farmland;
-/*  90 */       p_77648_3_.playSoundEffect((p_77648_4_ + 0.5F), (p_77648_5_ + 0.5F), (p_77648_6_ + 0.5F), block1.stepSound.getStepSound(), (block1.stepSound.getVolume() + 1.0F) / 2.0F, block1.stepSound.getFrequency() * 0.8F);
+/*  90 */       world.playSoundEffect((x + 0.5F), (y + 0.5F), (z + 0.5F), block1.stepSound.getStepSound(), (block1.stepSound.getVolume() + 1.0F) / 2.0F, block1.stepSound.getFrequency() * 0.8F);
 /*     */       
-/*  92 */       if (p_77648_3_.isRemote)
+/*  92 */       if (world.isRemote)
 /*     */       {
 /*  94 */         return true;
 /*     */       }
 /*     */ 
 /*     */       
-/*  98 */       p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, block1);
-/*  99 */       p_77648_1_.damageItem(0, (EntityLivingBase)p_77648_2_);
+/*  98 */       world.setBlock(x, y, z, block1);
+/*  99 */       stack.damageItem(0, (EntityLivingBase)player);
 /* 100 */       return true;
 /*     */     } 
 /*     */ 

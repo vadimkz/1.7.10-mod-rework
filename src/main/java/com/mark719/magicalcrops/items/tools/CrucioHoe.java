@@ -22,8 +22,8 @@
 /*    */ public class CrucioHoe
 /*    */   extends ItemHoe
 /*    */ {
-/*    */   public CrucioHoe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
-/* 26 */     super(par2EnumToolMaterial);
+/*    */   public CrucioHoe(int itemId, Item.ToolMaterial toolMaterial) {
+/* 26 */     super(toolMaterial);
 /* 27 */     this.maxStackSize = 1;
 /* 28 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
@@ -34,16 +34,16 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 /* 38 */     if (ConfigMain.EXTRA_HOE) {
-/* 39 */       par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
+/* 39 */       tooltip.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
 /* 40 */       if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
-/* 41 */         par3List.add(EnumChatFormatting.ITALIC + "- 2 Extra essence from Minicio Crops");
+/* 41 */         tooltip.add(EnumChatFormatting.ITALIC + "- 2 Extra essence from Minicio Crops");
 /*    */       }
 /*    */     } 
-/* 44 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
-/* 45 */     par3List.add("");
-/* 46 */     par3List.add(EnumChatFormatting.BLUE + "+1 Attack Damage");
+/* 44 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(stack)) + "/" + getMaxDurability());
+/* 45 */     tooltip.add("");
+/* 46 */     tooltip.add(EnumChatFormatting.BLUE + "+1 Attack Damage");
 /*    */   }
 /*    */ }
 

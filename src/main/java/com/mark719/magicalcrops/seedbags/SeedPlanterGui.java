@@ -32,7 +32,7 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   protected void drawGuiContainerForegroundLayer(int par1, int par2) {
+/*    */   protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 /* 36 */     this.fontRendererObj.drawString(this.seedInventory.isCustomInventoryName() ? this.seedInventory.getInventoryName() : I18n.format(this.seedInventory.getInventoryName(), new Object[0]), 8, 6, 4210752);
 /* 37 */     this.fontRendererObj.drawString(this.playerInventory.isCustomInventoryName() ? this.playerInventory.getInventoryName() : I18n.format(this.playerInventory.getInventoryName(), new Object[0]), 8, this.ySize - 94, 4210752);
 /*    */   }
@@ -40,7 +40,7 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
+/*    */   protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 /* 44 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 /*    */     
 /* 46 */     this.mc.getTextureManager().bindTexture(background);

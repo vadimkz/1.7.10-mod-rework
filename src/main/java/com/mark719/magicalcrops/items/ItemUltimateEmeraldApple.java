@@ -70,13 +70,13 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+/*     */   public int getMaxItemUseDuration(ItemStack stack) {
 /*  74 */     return 32;
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+/*     */   public EnumAction getItemUseAction(ItemStack stack) {
 /*  80 */     return EnumAction.eat;
 /*     */   }
 /*     */ 
@@ -93,15 +93,15 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/*  97 */     par3List.add(EnumChatFormatting.YELLOW + "Hold shift for info");
+/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*  97 */     tooltip.add(EnumChatFormatting.YELLOW + "Hold shift for info");
 /*  98 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
-/*  99 */       par3List.add("Regeneration I - +10:00");
-/* 100 */       par3List.add("Fire Resistance - +10:00");
-/* 101 */       par3List.add("Absorption V - +10:00");
-/* 102 */       par3List.add("Damage Resistance II - +10:00");
-/* 103 */       par3List.add("Haste - +10:00");
-/* 104 */       par3List.add("Strength - +10:00");
+/*  99 */       tooltip.add("Regeneration I - +10:00");
+/* 100 */       tooltip.add("Fire Resistance - +10:00");
+/* 101 */       tooltip.add("Absorption V - +10:00");
+/* 102 */       tooltip.add("Damage Resistance II - +10:00");
+/* 103 */       tooltip.add("Haste - +10:00");
+/* 104 */       tooltip.add("Strength - +10:00");
 /*     */     } 
 /*     */   }
 /*     */ }

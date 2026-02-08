@@ -6,8 +6,8 @@
 /*    */ import net.minecraft.item.ItemStack;
 /*    */ 
 /*    */ public class DisabledSlot extends Slot {
-/*    */   public DisabledSlot(IInventory par1IInventory, int par2, int par3, int par4) {
-/* 10 */     super(par1IInventory, par2, par3, par4);
+/*    */   public DisabledSlot(IInventory inventory, int slotIndex, int x, int y) {
+/* 10 */     super(inventory, slotIndex, x, y);
 /*    */   }
 /*    */   
 /*    */   public boolean isItemValid(ItemStack itemStack) {

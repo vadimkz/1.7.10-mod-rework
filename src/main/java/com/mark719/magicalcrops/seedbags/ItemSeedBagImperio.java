@@ -21,14 +21,14 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public EnumRarity getRarity(ItemStack par2) {
+/*    */   public EnumRarity getRarity(ItemStack stack) {
 /* 25 */     return EnumRarity.rare;
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 31 */     par3List.add("Plants seeds 6x6");
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 31 */     tooltip.add("Plants seeds 6x6");
 /*    */   }
 /*    */ }
 

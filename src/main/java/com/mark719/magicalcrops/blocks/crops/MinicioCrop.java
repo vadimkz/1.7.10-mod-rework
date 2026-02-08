@@ -47,12 +47,12 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public IIcon getIcon(int par1, int par2) {
-/* 51 */     if (par2 < 7) {
-/* 52 */       if (par2 == 6) {
-/* 53 */         par2 = 5;
+/*    */   public IIcon getIcon(int side, int metadata) {
+/* 51 */     if (metadata < 7) {
+/* 52 */       if (metadata == 6) {
+/* 53 */         metadata = 5;
 /*    */       }
-/* 55 */       return this.iconArray[par2 >> 1];
+/* 55 */       return this.iconArray[metadata >> 1];
 /*    */     } 
 /*    */     
 /* 58 */     return this.iconArray[3];

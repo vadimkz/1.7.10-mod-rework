@@ -64,51 +64,51 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public IIcon getIconFromDamage(int par1) {
-/*  68 */     int j = MathHelper.clamp_int(par1, 0, 4);
+/*     */   public IIcon getIconFromDamage(int damage) {
+/*  68 */     int j = MathHelper.clamp_int(damage, 0, 4);
 /*  69 */     return this.dyeIconArray[j];
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public String getUnlocalizedName(ItemStack par1ItemStack) {
-/*  74 */     int i = MathHelper.clamp_int(par1ItemStack.getMetadata(), 0, 4);
+/*     */   public String getUnlocalizedName(ItemStack stack) {
+/*  74 */     int i = MathHelper.clamp_int(stack.getMetadata(), 0, 4);
 /*  75 */     return getUnlocalizedName() + "." + dyeColorNames[i];
 /*     */   }
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List<ItemStack> p_150895_3_) {
+/*     */   public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
 /*  81 */     for (int i = 0; i < 5; i++)
 /*     */     {
-/*  83 */       p_150895_3_.add(new ItemStack(p_150895_1_, 1, i));
+/*  83 */       list.add(new ItemStack(item, 1, i));
 /*     */     }
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/*  89 */     switch (par1ItemStack.getMetadata()) {
+/*     */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/*  89 */     switch (stack.getMetadata()) {
 /*     */       case 0:
-/*  91 */         par3List.add("Level 1"); break;
+/*  91 */         tooltip.add("Level 1"); break;
 /*     */       case 1:
-/*  93 */         par3List.add("Level 2"); break;
+/*  93 */         tooltip.add("Level 2"); break;
 /*     */       case 2:
-/*  95 */         par3List.add("Level 3"); break;
+/*  95 */         tooltip.add("Level 3"); break;
 /*     */       case 3:
-/*  97 */         par3List.add("Level 4"); break;
+/*  97 */         tooltip.add("Level 4"); break;
 /*     */       case 4:
-/*  99 */         par3List.add("Level 5");
+/*  99 */         tooltip.add("Level 5");
 /*     */         break;
 /*     */     } 
 /*     */   }
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void registerIcons(IIconRegister par1IconRegister) {
+/*     */   public void registerIcons(IIconRegister iconRegister) {
 /* 107 */     this.dyeIconArray = new IIcon[dyeIcons.length];
 /*     */     
 /* 109 */     for (int i = 0; i < dyeIcons.length; i++)
 /*     */     {
-/* 111 */       this.dyeIconArray[i] = par1IconRegister.registerIcon("magicalcrops:" + dyeIcons[i]);
+/* 111 */       this.dyeIconArray[i] = iconRegister.registerIcon("magicalcrops:" + dyeIcons[i]);
 /*     */     }
 /*     */   }
 /*     */ }

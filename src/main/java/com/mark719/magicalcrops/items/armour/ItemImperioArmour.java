@@ -44,13 +44,13 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-/* 48 */     if (stack.getItem() == Armour.ImperioArmourHelmet || stack.getItem() == Armour.ImperioArmourChestplate || stack.getItem() == Armour.ImperioArmourBoots)
+/*    */   public String getArmorTexture(ItemStack itemToRepair, Entity entity, int slot, String type) {
+/* 48 */     if (itemToRepair.getItem() == Armour.ImperioArmourHelmet || itemToRepair.getItem() == Armour.ImperioArmourChestplate || itemToRepair.getItem() == Armour.ImperioArmourBoots)
 /*    */     {
 /* 50 */       return "magicalcrops:textures/armour/imperio_armour_1.png";
 /*    */     }
 /*    */     
-/* 53 */     if (stack.getItem() == Armour.ImperioArmourLeggings)
+/* 53 */     if (itemToRepair.getItem() == Armour.ImperioArmourLeggings)
 /*    */     {
 /* 55 */       return "magicalcrops:textures/armour/imperio_armour_2.png";
 /*    */     }
@@ -62,8 +62,8 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-/* 66 */     return (par2ItemStack.isItemEqual(new ItemStack(Essence.ImperioEssence)) || super.getIsRepairable(par1ItemStack, par2ItemStack));
+/*    */   public boolean getIsRepairable(ItemStack itemToRepair, ItemStack repairItem) {
+/* 66 */     return (repairItem.isItemEqual(new ItemStack(Essence.ImperioEssence)) || super.getIsRepairable(itemToRepair, repairItem));
 /*    */   }
 /*    */ 
 /*    */   
@@ -72,12 +72,12 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 76 */     par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for info:");
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 76 */     tooltip.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for info:");
 /* 77 */     if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
-/* 78 */       par3List.add(EnumChatFormatting.ITALIC + "- 92% Damage Reduction");
+/* 78 */       tooltip.add(EnumChatFormatting.ITALIC + "- 92% Damage Reduction");
 /*    */     }
-/* 80 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
+/* 80 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(stack)) + "/" + getMaxDurability());
 /*    */   }
 /*    */ }
 

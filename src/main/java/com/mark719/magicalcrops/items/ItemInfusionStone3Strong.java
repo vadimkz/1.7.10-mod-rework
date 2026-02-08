@@ -55,10 +55,10 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 59 */     par3List.add("Crucio -> Imperio");
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 59 */     tooltip.add("Crucio -> Imperio");
 /* 60 */     if (ConfigMain.INFUSION_DURABILITY)
-/* 61 */       par3List.add("Durability: " + (par1ItemStack.getMaxDurability() - par1ItemStack.getMetadata()) + "/" + par1ItemStack.getMaxDurability()); 
+/* 61 */       tooltip.add("Durability: " + (stack.getMaxDurability() - stack.getMetadata()) + "/" + stack.getMaxDurability()); 
 /*    */   }
 /*    */ }
 

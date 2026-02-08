@@ -21,8 +21,8 @@
 /*    */ public class ZivicioShovel
 /*    */   extends ItemSpade
 /*    */ {
-/*    */   public ZivicioShovel(int par1, Item.ToolMaterial par2EnumToolMaterial) {
-/* 25 */     super(par2EnumToolMaterial);
+/*    */   public ZivicioShovel(int itemId, Item.ToolMaterial toolMaterial) {
+/* 25 */     super(toolMaterial);
 /* 26 */     this.maxStackSize = 1;
 /* 27 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
@@ -33,20 +33,20 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase) {
+/*    */   public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 /* 37 */     return true;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_, int p_150894_6_, EntityLivingBase p_150894_7_) {
+/*    */   public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase entity) {
 /* 42 */     return true;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 47 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "Unbreakable");
-/* 48 */     par3List.add(EnumChatFormatting.GREEN + "Gem Socket:");
-/* 49 */     par3List.add(EnumChatFormatting.ITALIC + "- Empty");
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 47 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "Unbreakable");
+/* 48 */     tooltip.add(EnumChatFormatting.GREEN + "Gem Socket:");
+/* 49 */     tooltip.add(EnumChatFormatting.ITALIC + "- Empty");
 /*    */   }
 /*    */ }
 

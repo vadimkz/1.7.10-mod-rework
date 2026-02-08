@@ -62,34 +62,34 @@
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public IIcon getIconFromDamage(int par1) {
-/* 66 */     int j = MathHelper.clamp_int(par1, 0, 3);
+/*    */   public IIcon getIconFromDamage(int damage) {
+/* 66 */     int j = MathHelper.clamp_int(damage, 0, 3);
 /* 67 */     return this.dyeIconArray[j];
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String getUnlocalizedName(ItemStack par1ItemStack) {
-/* 72 */     int i = MathHelper.clamp_int(par1ItemStack.getMetadata(), 0, 3);
+/*    */   public String getUnlocalizedName(ItemStack stack) {
+/* 72 */     int i = MathHelper.clamp_int(stack.getMetadata(), 0, 3);
 /* 73 */     return getUnlocalizedName() + "." + dyeColorNames[i];
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List<ItemStack> p_150895_3_) {
+/*    */   public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
 /* 79 */     for (int i = 0; i < 4; i++)
 /*    */     {
-/* 81 */       p_150895_3_.add(new ItemStack(p_150895_1_, 1, i));
+/* 81 */       list.add(new ItemStack(item, 1, i));
 /*    */     }
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void registerIcons(IIconRegister par1IconRegister) {
+/*    */   public void registerIcons(IIconRegister iconRegister) {
 /* 88 */     this.dyeIconArray = new IIcon[dyeIcons.length];
 /*    */     
 /* 90 */     for (int i = 0; i < dyeIcons.length; i++)
 /*    */     {
-/* 92 */       this.dyeIconArray[i] = par1IconRegister.registerIcon("magicalcrops:" + dyeIcons[i]);
+/* 92 */       this.dyeIconArray[i] = iconRegister.registerIcon("magicalcrops:" + dyeIcons[i]);
 /*    */     }
 /*    */   }
 /*    */ }

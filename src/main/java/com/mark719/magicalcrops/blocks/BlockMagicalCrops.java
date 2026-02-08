@@ -58,8 +58,8 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     return world.getBlock(x, y - 1, z).canSustainPlant((IBlockAccess)world, x, y - 1, z, ForgeDirection.UP, (IPlantable)this);
   }
   
-  public boolean canPlaceBlockOn(Block p_149854_1_) {
-    return (p_149854_1_ == Blocks.farmland);
+  public boolean canPlaceBlockOn(Block block) {
+    return (block == Blocks.farmland);
   }
   
   public void updateTick(World world, int x, int y, int z, Random random) {
@@ -146,7 +146,7 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     return 1;
   }
   
-  public boolean canFertilize(World world, int x, int y, int z, boolean p_149851_5_) {
+  public boolean canFertilize(World world, int x, int y, int z, boolean isRemote) {
     return (world.getBlockMetadata(x, y, z) != 7);
   }
   
@@ -156,7 +156,7 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
   
   public void fertilize(World world, Random random, int x, int y, int z) {}
   
-  public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+  public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
     int meta = world.getBlockMetadata(x, y, z);
     if (meta >= 7) {
       if (!world.isRemote) {

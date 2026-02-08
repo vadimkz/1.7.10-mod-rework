@@ -22,8 +22,8 @@
 /*    */ public class ZivicioPickaxe
 /*    */   extends ItemPickaxe
 /*    */ {
-/*    */   public ZivicioPickaxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
-/* 26 */     super(par2EnumToolMaterial);
+/*    */   public ZivicioPickaxe(int itemId, Item.ToolMaterial toolMaterial) {
+/* 26 */     super(toolMaterial);
 /* 27 */     this.maxStackSize = 1;
 /* 28 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
@@ -34,26 +34,26 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase) {
+/*    */   public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 /* 38 */     return true;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_, int p_150894_6_, EntityLivingBase p_150894_7_) {
+/*    */   public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase entity) {
 /* 43 */     return true;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 /* 48 */     if (ConfigMain.EXTRA_PICKAXE) {
-/* 49 */       par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
+/* 49 */       tooltip.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
 /* 50 */       if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
-/* 51 */         par3List.add(EnumChatFormatting.ITALIC + "- 16 Extra essence from Minicio Ores");
+/* 51 */         tooltip.add(EnumChatFormatting.ITALIC + "- 16 Extra essence from Minicio Ores");
 /*    */       }
 /*    */     } 
-/* 54 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "Unbreakable");
-/* 55 */     par3List.add(EnumChatFormatting.GREEN + "Gem Socket:");
-/* 56 */     par3List.add(EnumChatFormatting.ITALIC + "- Empty");
+/* 54 */     tooltip.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "Unbreakable");
+/* 55 */     tooltip.add(EnumChatFormatting.GREEN + "Gem Socket:");
+/* 56 */     tooltip.add(EnumChatFormatting.ITALIC + "- Empty");
 /*    */   }
 /*    */ }
 

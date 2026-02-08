@@ -49,13 +49,13 @@ public class BlockFarmlandImperio extends Block {
         return (side == 1) ? ((meta > 0) ? this.iconDry : this.iconWet) : Blocks.dirt.getBlockTextureFromSide(side);
     }
 
-    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
-        if (!getIsCritical(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_) && !p_149674_1_.isRainingAt(p_149674_2_, p_149674_3_ + 1, p_149674_4_)) {
-            int l = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
+    public void updateTick(World world, int x, int y, int z, Random random) {
+        if (!getIsCritical(world, x, y, z) && !world.isRainingAt(x, y + 1, z)) {
+            int l = world.getBlockMetadata(x, y, z);
             if (l > 0)
-                p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, l - 1, 2);
+                world.setBlockMetadataWithNotify(x, y, z, l - 1, 2);
         } else {
-            p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 7, 2);
+            world.setBlockMetadataWithNotify(x, y, z, 7, 2);
         }
     }
 
@@ -73,11 +73,11 @@ public class BlockFarmlandImperio extends Block {
         return false;
     }
 
-    private boolean getIsCritical(World p_149821_1_, int p_149821_2_, int p_149821_3_, int p_149821_4_) {
-        for (int l = p_149821_2_ - 4; l <= p_149821_2_ + 4; l++) {
-            for (int i1 = p_149821_3_; i1 <= p_149821_3_ + 1; i1++) {
-                for (int j1 = p_149821_4_ - 4; j1 <= p_149821_4_ + 4; j1++) {
-                    if (p_149821_1_.getBlock(l, i1, j1).getMaterial() == Material.water)
+    private boolean getIsCritical(World world, int x, int y, int z) {
+        for (int l = x - 4; l <= x + 4; l++) {
+            for (int i1 = y; i1 <= y + 1; i1++) {
+                for (int j1 = z - 4; j1 <= z + 4; j1++) {
+                    if (world.getBlock(l, i1, j1).getMaterial() == Material.water)
                         return true;
                 }
             }
@@ -89,14 +89,14 @@ public class BlockFarmlandImperio extends Block {
         return true;
     }
 
-    public void onNeighborBlockChange(World worldIn, int p_149695_2_, int x, int y, Block z) {}
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {}
 
     public Item getItemDropped(int meta, Random random, int fortune) {
         return Blocks.dirt.getItemDropped(0, random, fortune);
     }
 
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int x, int y, int z) {
+    public Item getItem(World world, int x, int y, int z) {
         return Item.getItemFromBlock(Blocks.dirt);
     }
 

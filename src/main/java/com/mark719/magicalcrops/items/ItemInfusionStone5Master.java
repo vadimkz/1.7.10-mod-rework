@@ -49,15 +49,15 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public EnumRarity getRarity(ItemStack par2) {
+/*    */   public EnumRarity getRarity(ItemStack stack) {
 /* 53 */     return EnumRarity.epic;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 58 */     par3List.add("Infuses All");
+/*    */   public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+/* 58 */     tooltip.add("Infuses All");
 /* 59 */     if (ConfigMain.INFUSION_DURABILITY)
-/* 60 */       par3List.add("Durability: Infinate"); 
+/* 60 */       tooltip.add("Durability: Infinate"); 
 /*    */   }
 /*    */ }
 

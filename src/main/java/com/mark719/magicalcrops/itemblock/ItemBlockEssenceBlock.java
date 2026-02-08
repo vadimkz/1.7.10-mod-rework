@@ -18,8 +18,8 @@
 /* 18 */     setHasSubtypes(true);
 /*    */   }
 /*    */   
-/*    */   public String getUnlocalizedName(ItemStack par1ItemStack) {
-/* 22 */     int i = MathHelper.clamp_int(par1ItemStack.getMetadata(), 0, 7);
+/*    */   public String getUnlocalizedName(ItemStack stack) {
+/* 22 */     int i = MathHelper.clamp_int(stack.getMetadata(), 0, 7);
 /* 23 */     return getUnlocalizedName() + "." + SUBNAMES[i];
 /*    */   }
 /*    */ 

@@ -26,7 +26,7 @@
 /* 26 */   public static String textureName = "magicalcrops:";
 /*    */   protected IIcon[] icon;
 /*    */   
-/* 29 */   public BlockEssenceStorage(Material par3Material) { super(par3Material);
+/* 29 */   public BlockEssenceStorage(Material material) { super(material);
 /*    */ 
 /*    */ 
 /*    */ 
@@ -35,20 +35,20 @@
 /* 35 */     this.icon = new IIcon[6];
 /*    */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     setHardness(2.0F);
-/*    */     setResistance(10.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) {
-/* 39 */     this.icon[0] = par1IconRegister.registerIcon(textureName + "dust_block_minicio");
-/* 40 */     this.icon[1] = par1IconRegister.registerIcon(textureName + "dust_block_accio");
-/* 41 */     this.icon[2] = par1IconRegister.registerIcon(textureName + "dust_block_crucio");
-/* 42 */     this.icon[3] = par1IconRegister.registerIcon(textureName + "dust_block_imperio");
-/* 43 */     this.icon[4] = par1IconRegister.registerIcon(textureName + "dust_block_zivicio");
-/* 44 */     this.icon[5] = par1IconRegister.registerIcon(textureName + "dust_block_zivicio_extra");
+/*    */     setResistance(10.0F); } public void registerBlockIcons(IIconRegister iconRegister) {
+/* 39 */     this.icon[0] = iconRegister.registerIcon(textureName + "dust_block_minicio");
+/* 40 */     this.icon[1] = iconRegister.registerIcon(textureName + "dust_block_accio");
+/* 41 */     this.icon[2] = iconRegister.registerIcon(textureName + "dust_block_crucio");
+/* 42 */     this.icon[3] = iconRegister.registerIcon(textureName + "dust_block_imperio");
+/* 43 */     this.icon[4] = iconRegister.registerIcon(textureName + "dust_block_zivicio");
+/* 44 */     this.icon[5] = iconRegister.registerIcon(textureName + "dust_block_zivicio_extra");
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
+/*    */   public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
 /* 50 */     for (int var4 = 0; var4 < 6; var4++) {
-/* 51 */       par3List.add(new ItemStack(MBlocks.EssenceStorage, 1, var4));
+/* 51 */       list.add(new ItemStack(MBlocks.EssenceStorage, 1, var4));
 /*    */     }
 /*    */   }
 /*    */ 

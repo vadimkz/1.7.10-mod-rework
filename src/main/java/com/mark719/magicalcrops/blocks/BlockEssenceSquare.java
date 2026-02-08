@@ -24,7 +24,7 @@
 /* 24 */   public static String textureName = "magicalcrops:";
 /*    */   protected IIcon[] icon;
 /*    */   
-/* 27 */   public BlockEssenceSquare(Material par3Material) { super(par3Material);
+/* 27 */   public BlockEssenceSquare(Material material) { super(material);
 /*    */ 
 /*    */ 
 /*    */ 
@@ -35,21 +35,21 @@
 /*    */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     setHardness(2.0F);
 /*    */     setResistance(10.0F);
-/* 38 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) { this.icon[0] = par1IconRegister.registerIcon(textureName + "block_essence_qbrick_coal");
-/* 39 */     this.icon[1] = par1IconRegister.registerIcon(textureName + "block_essence_qbrick_earth");
-/* 40 */     this.icon[2] = par1IconRegister.registerIcon(textureName + "block_essence_qbrick_emerald");
-/* 41 */     this.icon[3] = par1IconRegister.registerIcon(textureName + "block_essence_qbrick_fire");
-/* 42 */     this.icon[4] = par1IconRegister.registerIcon(textureName + "block_essence_qbrick_gold");
-/* 43 */     this.icon[5] = par1IconRegister.registerIcon(textureName + "block_essence_qbrick_lapis");
-/* 44 */     this.icon[6] = par1IconRegister.registerIcon(textureName + "block_essence_qbrick_obsidian");
-/* 45 */     this.icon[7] = par1IconRegister.registerIcon(textureName + "block_essence_qbrick_redstone"); }
+/* 38 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister iconRegister) { this.icon[0] = iconRegister.registerIcon(textureName + "block_essence_qbrick_coal");
+/* 39 */     this.icon[1] = iconRegister.registerIcon(textureName + "block_essence_qbrick_earth");
+/* 40 */     this.icon[2] = iconRegister.registerIcon(textureName + "block_essence_qbrick_emerald");
+/* 41 */     this.icon[3] = iconRegister.registerIcon(textureName + "block_essence_qbrick_fire");
+/* 42 */     this.icon[4] = iconRegister.registerIcon(textureName + "block_essence_qbrick_gold");
+/* 43 */     this.icon[5] = iconRegister.registerIcon(textureName + "block_essence_qbrick_lapis");
+/* 44 */     this.icon[6] = iconRegister.registerIcon(textureName + "block_essence_qbrick_obsidian");
+/* 45 */     this.icon[7] = iconRegister.registerIcon(textureName + "block_essence_qbrick_redstone"); }
 /*    */ 
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
+/*    */   public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
 /* 51 */     for (int var4 = 0; var4 < 8; var4++) {
-/* 52 */       par3List.add(new ItemStack(MBlocks.EssenceSquare, 1, var4));
+/* 52 */       list.add(new ItemStack(MBlocks.EssenceSquare, 1, var4));
 /*    */     }
 /*    */   }
 /*    */ 

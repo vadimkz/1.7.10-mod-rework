@@ -93,11 +93,11 @@ public class BlockFarmlandAccio extends Block {
         return false;
     }
 
-    private boolean getIsCritical(World p_149821_1_, int p_149821_2_, int p_149821_3_, int p_149821_4_) {
-        for (int l = p_149821_2_ - 4; l <= p_149821_2_ + 4; l++) {
-            for (int i1 = p_149821_3_; i1 <= p_149821_3_ + 1; i1++) {
-                for (int j1 = p_149821_4_ - 4; j1 <= p_149821_4_ + 4; j1++) {
-                    if (p_149821_1_.getBlock(l, i1, j1).getMaterial() == Material.water)
+    private boolean getIsCritical(World world, int x, int y, int z) {
+        for (int l = x - 4; l <= x + 4; l++) {
+            for (int i1 = y; i1 <= y + 1; i1++) {
+                for (int j1 = z - 4; j1 <= z + 4; j1++) {
+                    if (world.getBlock(l, i1, j1).getMaterial() == Material.water)
                         return true;
                 }
             }
@@ -109,14 +109,14 @@ public class BlockFarmlandAccio extends Block {
         return true;
     }
 
-    public void onNeighborBlockChange(World worldIn, int p_149695_2_, int x, int y, Block z) {}
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {}
 
     public Item getItemDropped(int meta, Random random, int fortune) {
         return Blocks.dirt.getItemDropped(0, random, fortune);
     }
 
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int x, int y, int z) {
+    public Item getItem(World world, int x, int y, int z) {
         return Item.getItemFromBlock(Blocks.dirt);
     }
 
