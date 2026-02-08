@@ -24,27 +24,27 @@
 /*    */ {
 /*    */   public ZivicioPickaxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 26 */     super(par2EnumToolMaterial);
-/* 27 */     this.field_77777_bU = 1;
-/* 28 */     func_77637_a(MagicalCrops.tabMagical);
+/* 27 */     this.maxStackSize = 1;
+/* 28 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 33 */     return EnumChatFormatting.LIGHT_PURPLE + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 33 */     return EnumChatFormatting.LIGHT_PURPLE + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_77644_a(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase) {
+/*    */   public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase) {
 /* 38 */     return true;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_150894_a(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_, int p_150894_6_, EntityLivingBase p_150894_7_) {
+/*    */   public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_, int p_150894_6_, EntityLivingBase p_150894_7_) {
 /* 43 */     return true;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 48 */     if (ConfigMain.EXTRA_PICKAXE) {
 /* 49 */       par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
 /* 50 */       if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {

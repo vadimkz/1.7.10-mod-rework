@@ -32,22 +32,22 @@
 /*    */ 
 /*    */     
 /* 34 */     this.icon = new IIcon[8];
-/*    */     func_149647_a(MagicalCrops.tabMagical);
-/*    */     func_149711_c(2.0F);
-/*    */     func_149752_b(10.0F);
-/* 38 */     func_149715_a(1.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) { this.icon[0] = par1IconRegister.func_94245_a(textureName + "block_essence_block_coal");
-/* 39 */     this.icon[1] = par1IconRegister.func_94245_a(textureName + "block_essence_block_earth");
-/* 40 */     this.icon[2] = par1IconRegister.func_94245_a(textureName + "block_essence_block_emerald");
-/* 41 */     this.icon[3] = par1IconRegister.func_94245_a(textureName + "block_essence_block_fire");
-/* 42 */     this.icon[4] = par1IconRegister.func_94245_a(textureName + "block_essence_block_gold");
-/* 43 */     this.icon[5] = par1IconRegister.func_94245_a(textureName + "block_essence_block_lapis");
-/* 44 */     this.icon[6] = par1IconRegister.func_94245_a(textureName + "block_essence_block_obsidian");
-/* 45 */     this.icon[7] = par1IconRegister.func_94245_a(textureName + "block_essence_block_redstone"); }
+/*    */     setCreativeTab(MagicalCrops.tabMagical);
+/*    */     setHardness(2.0F);
+/*    */     setResistance(10.0F);
+/* 38 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) { this.icon[0] = par1IconRegister.registerIcon(textureName + "block_essence_block_coal");
+/* 39 */     this.icon[1] = par1IconRegister.registerIcon(textureName + "block_essence_block_earth");
+/* 40 */     this.icon[2] = par1IconRegister.registerIcon(textureName + "block_essence_block_emerald");
+/* 41 */     this.icon[3] = par1IconRegister.registerIcon(textureName + "block_essence_block_fire");
+/* 42 */     this.icon[4] = par1IconRegister.registerIcon(textureName + "block_essence_block_gold");
+/* 43 */     this.icon[5] = par1IconRegister.registerIcon(textureName + "block_essence_block_lapis");
+/* 44 */     this.icon[6] = par1IconRegister.registerIcon(textureName + "block_essence_block_obsidian");
+/* 45 */     this.icon[7] = par1IconRegister.registerIcon(textureName + "block_essence_block_redstone"); }
 /*    */ 
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_149666_a(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
+/*    */   public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
 /* 51 */     for (int var4 = 0; var4 < 8; var4++) {
 /* 52 */       par3List.add(new ItemStack(MBlocks.EssenceBlock, 1, var4));
 /*    */     }
@@ -60,7 +60,7 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public int func_149692_a(int meta) {
+/*    */   public int damageDropped(int meta) {
 /* 64 */     return meta;
 /*    */   }
 /*    */ }

@@ -18,28 +18,28 @@
 /*    */   extends Item
 /*    */ {
 /*    */   public ItemInfusionStone5Master() {
-/* 21 */     this.field_77777_bU = 1;
-/* 22 */     func_77656_e(0);
-/* 23 */     func_77637_a(MagicalCrops.tabMagical);
-/* 24 */     func_111206_d("magicalcrops:InfusionStone_T5");
-/* 25 */     func_77655_b("InfusionStoneMaster");
+/* 21 */     this.maxStackSize = 1;
+/* 22 */     setMaxDurability(0);
+/* 23 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 24 */     setTextureName("magicalcrops:InfusionStone_T5");
+/* 25 */     setUnlocalizedName("InfusionStoneMaster");
 /* 26 */     this.canRepair = false;
-/* 27 */     this.field_77787_bX = true;
+/* 27 */     this.hasSubtypes = true;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 32 */     return EnumChatFormatting.DARK_RED + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 32 */     return EnumChatFormatting.DARK_RED + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_77630_h(ItemStack itemstack) {
+/*    */   public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemstack) {
 /* 37 */     return false;
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   public ItemStack getContainerItem(ItemStack itemStack) {
-/* 42 */     ItemStack cStack = itemStack.func_77946_l();
+/* 42 */     ItemStack cStack = itemStack.copy();
 /* 43 */     return cStack;
 /*    */   }
 /*    */ 
@@ -49,12 +49,12 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public EnumRarity func_77613_e(ItemStack par2) {
+/*    */   public EnumRarity getRarity(ItemStack par2) {
 /* 53 */     return EnumRarity.epic;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 58 */     par3List.add("Infuses All");
 /* 59 */     if (ConfigMain.INFUSION_DURABILITY)
 /* 60 */       par3List.add("Durability: Infinate"); 

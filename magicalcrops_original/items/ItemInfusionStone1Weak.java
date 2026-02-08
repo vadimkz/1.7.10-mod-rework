@@ -20,31 +20,31 @@
 /*    */ 
 /*    */   
 /*    */   public ItemInfusionStone1Weak() {
-/* 23 */     this.field_77777_bU = 1;
-/* 24 */     func_77656_e(this.durability);
-/* 25 */     func_77637_a(MagicalCrops.tabMagical);
-/* 26 */     func_111206_d("magicalcrops:InfusionStone_T1");
-/* 27 */     func_77655_b("InfusionStoneWeak");
+/* 23 */     this.maxStackSize = 1;
+/* 24 */     setMaxDurability(this.durability);
+/* 25 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 26 */     setTextureName("magicalcrops:InfusionStone_T1");
+/* 27 */     setUnlocalizedName("InfusionStoneWeak");
 /* 28 */     this.canRepair = false;
-/* 29 */     this.field_77787_bX = true;
+/* 29 */     this.hasSubtypes = true;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 34 */     return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 34 */     return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_77630_h(ItemStack itemstack) {
+/*    */   public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemstack) {
 /* 39 */     return false;
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   public ItemStack getContainerItem(ItemStack itemStack) {
-/* 44 */     ItemStack cStack = itemStack.func_77946_l();
+/* 44 */     ItemStack cStack = itemStack.copy();
 /* 45 */     if (ConfigMain.INFUSION_DURABILITY) {
-/* 46 */       cStack.func_77964_b(cStack.func_77960_j() + 1);
-/* 47 */       cStack.field_77994_a = 1;
+/* 46 */       cStack.setMetadata(cStack.getMetadata() + 1);
+/* 47 */       cStack.stackSize = 1;
 /*    */     } 
 /* 49 */     return cStack;
 /*    */   }
@@ -55,15 +55,15 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public EnumRarity func_77613_e(ItemStack par2) {
+/*    */   public EnumRarity getRarity(ItemStack par2) {
 /* 59 */     return EnumRarity.common;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 64 */     par3List.add("Minicio -> Accio");
 /* 65 */     if (ConfigMain.INFUSION_DURABILITY)
-/* 66 */       par3List.add("Durability: " + (par1ItemStack.func_77958_k() - par1ItemStack.func_77960_j()) + "/" + par1ItemStack.func_77958_k()); 
+/* 66 */       par3List.add("Durability: " + (par1ItemStack.getMaxDurability() - par1ItemStack.getMetadata()) + "/" + par1ItemStack.getMaxDurability()); 
 /*    */   }
 /*    */ }
 

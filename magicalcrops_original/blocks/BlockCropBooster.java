@@ -23,53 +23,53 @@
 /*    */   private StemRandom s_prng;
 /*    */   
 /*    */   public BlockCropBooster() {
-/* 26 */     super(Material.field_151578_c);
+/* 26 */     super(Material.ground);
 /*    */     
 /* 28 */     this.prng = new CropRandom();
 /* 29 */     this.s_prng = new StemRandom();
 /*    */     
-/* 31 */     func_149675_a(true);
-/* 32 */     func_149711_c(1.0F);
-/* 33 */     func_149672_a(Block.field_149769_e);
-/* 34 */     func_149647_a(MagicalCrops.tabMagical);
-/* 35 */     func_149658_d("magicalcrops:booster_block");
+/* 31 */     setTickRandomly(true);
+/* 32 */     setHardness(1.0F);
+/* 33 */     setStepSound(Block.soundTypeStone);
+/* 34 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 35 */     setTextureName("magicalcrops:booster_block");
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public void func_149674_a(World world, int x, int y, int z, Random prng) {
-/* 40 */     Block block_above = world.func_147439_a(x, y + 1, z);
+/*    */   public void updateTick(World world, int x, int y, int z, Random prng) {
+/* 40 */     Block block_above = world.getBlock(x, y + 1, z);
 /*    */     
-/* 42 */     if (!world.func_72899_e(x, y + 1, z)) {
+/* 42 */     if (!world.blockExists(x, y + 1, z)) {
 /*    */       return;
 /*    */     }
 /* 45 */     if (block_above instanceof BlockCropBooster) {
-/* 46 */       block_above.func_149674_a(world, x, y + 1, z, prng);
+/* 46 */       block_above.updateTick(world, x, y + 1, z, prng);
 /*    */       
 /*    */       return;
 /*    */     } 
-/* 50 */     if (!world.func_72899_e(x, y + 2, z)) {
+/* 50 */     if (!world.blockExists(x, y + 2, z)) {
 /*    */       return;
 /*    */     }
-/* 53 */     Block plant_block = world.func_147439_a(x, y + 2, z);
+/* 53 */     Block plant_block = world.getBlock(x, y + 2, z);
 /*    */     
 /* 55 */     if (plant_block instanceof net.minecraft.block.BlockStem) {
 /*    */       
-/* 57 */       if (world.func_72805_g(x, y + 2, z) >= 7) {
-/* 58 */         plant_block.func_149674_a(world, x, y + 2, z, (Random)this.s_prng);
+/* 57 */       if (world.getBlockMetadata(x, y + 2, z) >= 7) {
+/* 58 */         plant_block.updateTick(world, x, y + 2, z, (Random)this.s_prng);
 /*    */       } else {
-/* 60 */         plant_block.func_149674_a(world, x, y + 2, z, (Random)this.prng);
+/* 60 */         plant_block.updateTick(world, x, y + 2, z, (Random)this.prng);
 /*    */       } 
 /* 62 */     } else if (plant_block instanceof net.minecraft.block.BlockReed || plant_block instanceof net.minecraft.block.BlockCactus) {
 /*    */       
-/* 64 */       for (int l = 1; world.func_72899_e(x, y + 1 + l, z) && l < 3; l++)
+/* 64 */       for (int l = 1; world.blockExists(x, y + 1 + l, z) && l < 3; l++)
 /*    */       {
-/* 66 */         world.func_147439_a(x, y + 1 + l, z).func_149674_a(world, x, y + 1 + l, z, (Random)this.prng);
+/* 66 */         world.getBlock(x, y + 1 + l, z).updateTick(world, x, y + 1 + l, z, (Random)this.prng);
 /*    */       
 /*    */       }
 /*    */     }
 /* 70 */     else if (plant_block instanceof net.minecraftforge.common.IPlantable || plant_block instanceof BlockMagicalCrops) {
 /*    */       
-/* 72 */       plant_block.func_149674_a(world, x, y + 2, z, (Random)this.prng);
+/* 72 */       plant_block.updateTick(world, x, y + 2, z, (Random)this.prng);
 /*    */     } 
 /*    */   }
 /*    */ }

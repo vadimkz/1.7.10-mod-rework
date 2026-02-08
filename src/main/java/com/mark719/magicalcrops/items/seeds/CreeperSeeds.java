@@ -10,8 +10,8 @@
 /*    */ {
 /*    */   public CreeperSeeds(Block crop, Block farmland) {
 /* 12 */     super(crop, farmland);
-/* 13 */     this.field_77777_bU = 64;
-/* 14 */     func_77637_a(MagicalCrops.tabMagical);
+/* 13 */     this.maxStackSize = 64;
+/* 14 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ }
 

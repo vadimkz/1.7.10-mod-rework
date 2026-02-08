@@ -26,29 +26,29 @@
 /*    */     
 /* 27 */     int i = 222;
 /* 28 */     int j = i - 108;
-/* 29 */     this.rows = itemInv.func_70302_i_() / 9;
+/* 29 */     this.rows = itemInv.getSizeInventory() / 9;
 /*    */     
-/* 31 */     this.field_147000_g = j + this.rows * 18;
+/* 31 */     this.ySize = j + this.rows * 18;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   protected void func_146979_b(int par1, int par2) {
-/* 36 */     this.field_146289_q.func_78276_b(this.seedInventory.func_145818_k_() ? this.seedInventory.func_145825_b() : I18n.func_135052_a(this.seedInventory.func_145825_b(), new Object[0]), 8, 6, 4210752);
-/* 37 */     this.field_146289_q.func_78276_b(this.playerInventory.func_145818_k_() ? this.playerInventory.func_145825_b() : I18n.func_135052_a(this.playerInventory.func_145825_b(), new Object[0]), 8, this.field_147000_g - 94, 4210752);
+/*    */   protected void drawGuiContainerForegroundLayer(int par1, int par2) {
+/* 36 */     this.fontRendererObj.drawString(this.seedInventory.isCustomInventoryName() ? this.seedInventory.getInventoryName() : I18n.format(this.seedInventory.getInventoryName(), new Object[0]), 8, 6, 4210752);
+/* 37 */     this.fontRendererObj.drawString(this.playerInventory.isCustomInventoryName() ? this.playerInventory.getInventoryName() : I18n.format(this.playerInventory.getInventoryName(), new Object[0]), 8, this.ySize - 94, 4210752);
 /*    */   }
 /*    */ 
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   protected void func_146976_a(float par1, int par2, int par3) {
+/*    */   protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
 /* 44 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 /*    */     
-/* 46 */     this.field_146297_k.func_110434_K().func_110577_a(background);
+/* 46 */     this.mc.getTextureManager().bindTexture(background);
 /*    */     
-/* 48 */     int i = (this.field_146294_l - this.field_146999_f) / 2;
-/* 49 */     int j = (this.field_146295_m - this.field_147000_g) / 2;
-/* 50 */     func_73729_b(i, j, 0, 0, this.field_146999_f, this.rows * 18 + 17);
-/* 51 */     func_73729_b(i, j + this.rows * 18 + 17, 0, 126, this.field_146999_f, 96);
+/* 48 */     int i = (this.width - this.xSize) / 2;
+/* 49 */     int j = (this.height - this.ySize) / 2;
+/* 50 */     drawTexturedModalRect(i, j, 0, 0, this.xSize, this.rows * 18 + 17);
+/* 51 */     drawTexturedModalRect(i, j + this.rows * 18 + 17, 0, 126, this.xSize, 96);
 /*    */   }
 /*    */ }
 

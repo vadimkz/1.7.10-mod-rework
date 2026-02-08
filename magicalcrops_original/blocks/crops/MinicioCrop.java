@@ -42,7 +42,7 @@
 /*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
 /* 43 */     this.iconArray = new IIcon[4];
 /* 44 */     for (int i = 0; i < this.iconArray.length; i++) {
-/* 45 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropMinicio_" + i);
+/* 45 */       this.iconArray[i] = p_149651_1_.registerIcon("magicalcrops:CropMinicio_" + i);
 /*    */     }
 /*    */   }
 /*    */   

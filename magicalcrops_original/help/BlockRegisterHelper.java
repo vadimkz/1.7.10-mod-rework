@@ -8,7 +8,7 @@
 /*    */ public class BlockRegisterHelper
 /*    */ {
 /*    */   public static void registerBlock(Block block) {
-/* 11 */     GameRegistry.registerBlock(block, "magicalcrops_" + block.func_149739_a().substring(5));
+/* 11 */     GameRegistry.registerBlock(block, "magicalcrops_" + block.getUnlocalizedName().substring(5));
 /*    */   }
 /*    */ }
 

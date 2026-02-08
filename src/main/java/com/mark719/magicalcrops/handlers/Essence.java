@@ -44,54 +44,54 @@
 /*    */ 
 /*    */ public class Essence
 /*    */ {
-/* 47 */   public static Item MinicioEssence = (new MinicioEssence()).func_77655_b("1MinicioEssence");
-/* 48 */   public static Item AccioEssence = (new AccioEssence()).func_77655_b("2AccioEssence");
-/* 49 */   public static Item CrucioEssence = (new CrucioEssence()).func_77655_b("3CrucioEssence");
-/* 50 */   public static Item ImperioEssence = (new ImperioEssence()).func_77655_b("4ImperioEssence");
-/* 51 */   public static Item ZivicioEssence = (new ZivicioEssence()).func_77655_b("5ZivicioEssence");
-/* 52 */   public static Item TaintedEssence = (new TaintedEssence()).func_77655_b("TaintedEssence");
+/* 47 */   public static Item MinicioEssence = (new MinicioEssence()).setUnlocalizedName("1MinicioEssence");
+/* 48 */   public static Item AccioEssence = (new AccioEssence()).setUnlocalizedName("2AccioEssence");
+/* 49 */   public static Item CrucioEssence = (new CrucioEssence()).setUnlocalizedName("3CrucioEssence");
+/* 50 */   public static Item ImperioEssence = (new ImperioEssence()).setUnlocalizedName("4ImperioEssence");
+/* 51 */   public static Item ZivicioEssence = (new ZivicioEssence()).setUnlocalizedName("5ZivicioEssence");
+/* 52 */   public static Item TaintedEssence = (new TaintedEssence()).setUnlocalizedName("TaintedEssence");
 /*    */ 
 /*    */   
-/* 55 */   public static Item AirEssence = (new AirEssence()).func_77655_b("AirEssence");
-/* 56 */   public static Item CoalEssence = (new CoalEssence()).func_77655_b("CoalEssence");
-/* 57 */   public static Item DyeEssence = (new DyeEssence()).func_77655_b("DyeEssence");
-/* 58 */   public static Item EarthEssence = (new EarthEssence()).func_77655_b("EarthEssence");
-/* 59 */   public static Item FireEssence = (new FireEssence()).func_77655_b("FireEssence");
-/* 60 */   public static Item NatureEssence = (new NatureEssence()).func_77655_b("NatureEssence");
-/* 61 */   public static Item WaterEssence = (new WaterEssence()).func_77655_b("WaterEssence");
+/* 55 */   public static Item AirEssence = (new AirEssence()).setUnlocalizedName("AirEssence");
+/* 56 */   public static Item CoalEssence = (new CoalEssence()).setUnlocalizedName("CoalEssence");
+/* 57 */   public static Item DyeEssence = (new DyeEssence()).setUnlocalizedName("DyeEssence");
+/* 58 */   public static Item EarthEssence = (new EarthEssence()).setUnlocalizedName("EarthEssence");
+/* 59 */   public static Item FireEssence = (new FireEssence()).setUnlocalizedName("FireEssence");
+/* 60 */   public static Item NatureEssence = (new NatureEssence()).setUnlocalizedName("NatureEssence");
+/* 61 */   public static Item WaterEssence = (new WaterEssence()).setUnlocalizedName("WaterEssence");
 /*    */ 
 /*    */   
-/* 64 */   public static Item RedstoneEssence = (new RedstoneEssence()).func_77655_b("RedstoneEssence");
-/* 65 */   public static Item GlowstoneEssence = (new GlowstoneEssence()).func_77655_b("GlowstoneEssence");
-/* 66 */   public static Item ObsidianEssence = (new ObsidianEssence()).func_77655_b("ObsidianEssence");
-/* 67 */   public static Item NetherEssence = (new NetherEssence()).func_77655_b("NetherEssence");
+/* 64 */   public static Item RedstoneEssence = (new RedstoneEssence()).setUnlocalizedName("RedstoneEssence");
+/* 65 */   public static Item GlowstoneEssence = (new GlowstoneEssence()).setUnlocalizedName("GlowstoneEssence");
+/* 66 */   public static Item ObsidianEssence = (new ObsidianEssence()).setUnlocalizedName("ObsidianEssence");
+/* 67 */   public static Item NetherEssence = (new NetherEssence()).setUnlocalizedName("NetherEssence");
 /*    */ 
 /*    */   
-/* 70 */   public static Item IronEssence = (new IronEssence()).func_77655_b("IronEssence");
-/* 71 */   public static Item GoldEssence = (new GoldEssence()).func_77655_b("GoldEssence");
-/* 72 */   public static Item LapisEssence = (new LapisEssence()).func_77655_b("LapisEssence");
-/* 73 */   public static Item ExperienceEssence = (new ExperienceEssence()).func_77655_b("ExperienceEssence");
-/* 74 */   public static Item QuartzEssence = (new QuartzEssence()).func_77655_b("QuartzEssence");
+/* 70 */   public static Item IronEssence = (new IronEssence()).setUnlocalizedName("IronEssence");
+/* 71 */   public static Item GoldEssence = (new GoldEssence()).setUnlocalizedName("GoldEssence");
+/* 72 */   public static Item LapisEssence = (new LapisEssence()).setUnlocalizedName("LapisEssence");
+/* 73 */   public static Item ExperienceEssence = (new ExperienceEssence()).setUnlocalizedName("ExperienceEssence");
+/* 74 */   public static Item QuartzEssence = (new QuartzEssence()).setUnlocalizedName("QuartzEssence");
 /*    */ 
 /*    */   
-/* 77 */   public static Item DiamondEssence = (new DiamondEssence()).func_77655_b("DiamondEssence");
-/* 78 */   public static Item EmeraldEssence = (new EmeraldEssence()).func_77655_b("EmeraldEssence");
+/* 77 */   public static Item DiamondEssence = (new DiamondEssence()).setUnlocalizedName("DiamondEssence");
+/* 78 */   public static Item EmeraldEssence = (new EmeraldEssence()).setUnlocalizedName("EmeraldEssence");
 /*    */ 
 /*    */   
-/* 81 */   public static Item BlazeEssence = (new BlazeEssence()).func_77655_b("BlazeEssence");
-/* 82 */   public static Item CreeperEssence = (new CreeperEssence()).func_77655_b("CreeperEssence");
-/* 83 */   public static Item EndermanEssence = (new EndermanEssence()).func_77655_b("EndermanEssence");
-/* 84 */   public static Item GhastEssence = (new GhastEssence()).func_77655_b("GhastEssence");
-/* 85 */   public static Item SkeletonEssence = (new SkeletonEssence()).func_77655_b("SkeletonEssence");
-/* 86 */   public static Item SlimeEssence = (new SlimeEssence()).func_77655_b("SlimeEssence");
-/* 87 */   public static Item SpiderEssence = (new SpiderEssence()).func_77655_b("SpiderEssence");
-/* 88 */   public static Item WitherEssence = (new WitherEssence()).func_77655_b("WitherEssence");
+/* 81 */   public static Item BlazeEssence = (new BlazeEssence()).setUnlocalizedName("BlazeEssence");
+/* 82 */   public static Item CreeperEssence = (new CreeperEssence()).setUnlocalizedName("CreeperEssence");
+/* 83 */   public static Item EndermanEssence = (new EndermanEssence()).setUnlocalizedName("EndermanEssence");
+/* 84 */   public static Item GhastEssence = (new GhastEssence()).setUnlocalizedName("GhastEssence");
+/* 85 */   public static Item SkeletonEssence = (new SkeletonEssence()).setUnlocalizedName("SkeletonEssence");
+/* 86 */   public static Item SlimeEssence = (new SlimeEssence()).setUnlocalizedName("SlimeEssence");
+/* 87 */   public static Item SpiderEssence = (new SpiderEssence()).setUnlocalizedName("SpiderEssence");
+/* 88 */   public static Item WitherEssence = (new WitherEssence()).setUnlocalizedName("WitherEssence");
 /*    */ 
 /*    */   
-/* 91 */   public static Item ChickenEssence = (new ChickenEssence()).func_77655_b("ChickenEssence");
-/* 92 */   public static Item CowEssence = (new CowEssence()).func_77655_b("CowEssence");
-/* 93 */   public static Item PigEssence = (new PigEssence()).func_77655_b("PigEssence");
-/* 94 */   public static Item SheepEssence = (new SheepEssence()).func_77655_b("SheepEssence");
+/* 91 */   public static Item ChickenEssence = (new ChickenEssence()).setUnlocalizedName("ChickenEssence");
+/* 92 */   public static Item CowEssence = (new CowEssence()).setUnlocalizedName("CowEssence");
+/* 93 */   public static Item PigEssence = (new PigEssence()).setUnlocalizedName("PigEssence");
+/* 94 */   public static Item SheepEssence = (new SheepEssence()).setUnlocalizedName("SheepEssence");
 /*    */ }
 
 

@@ -18,28 +18,28 @@
 /*    */   extends Block
 /*    */ {
 /*    */   public BlockMinicioOreEnd() {
-/* 21 */     super(Material.field_151576_e);
-/* 22 */     func_149658_d("magicalcrops:EssenceOreEnd");
-/* 23 */     func_149647_a(MagicalCrops.tabMagical);
-/* 24 */     func_149672_a(field_149780_i);
-/* 25 */     func_149711_c(3.0F);
-/* 26 */     func_149752_b(5.0F);
+/* 21 */     super(Material.rock);
+/* 22 */     setTextureName("magicalcrops:EssenceOreEnd");
+/* 23 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 24 */     setStepSound(soundTypePiston);
+/* 25 */     setHardness(3.0F);
+/* 26 */     setResistance(5.0F);
 /* 27 */     setHarvestLevel("pickaxe", 2);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public Item func_149650_a(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+/*    */   public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
 /* 32 */     return Essence.MinicioEssence;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public int func_149745_a(Random par1Random) {
+/*    */   public int quantityDropped(Random par1Random) {
 /* 37 */     return 8;
 /*    */   }
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   protected boolean func_149700_E() {
+/*    */   protected boolean canSilkHarvest() {
 /* 43 */     return false;
 /*    */   }
 /*    */ }

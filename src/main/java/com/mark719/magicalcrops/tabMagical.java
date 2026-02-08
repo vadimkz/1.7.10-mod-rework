@@ -16,8 +16,8 @@
 /*    */ {
 /*    */   public tabMagical(int ID, String name) {
 /* 18 */     super(ID, name);
-/* 19 */     func_78025_a("magicalcrops.png");
-/* 20 */     func_78014_h();
+/* 19 */     setBackgroundImageName("magicalcrops.png");
+/* 20 */     setNoTitle();
 /*    */   }
 /*    */ 
 /*    */   
@@ -26,12 +26,12 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public String func_78024_c() {
+/*    */   public String getTranslatedTabLabel() {
 /* 30 */     return "Magical Crops";
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public Item func_78016_d() {
+/*    */   public Item getTabIconItem() {
 /* 35 */     return MItems.InfusionStoneMaster;
 /*    */   }
 /*    */ }

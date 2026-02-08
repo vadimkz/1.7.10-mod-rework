@@ -19,12 +19,12 @@
 /*    */   extends Block
 /*    */ {
 /*    */   public BlockEssenceStone() {
-/* 22 */     super(Material.field_151576_e);
-/* 23 */     func_149658_d("magicalcrops:essence_stone");
-/* 24 */     func_149647_a(MagicalCrops.tabMagical);
-/* 25 */     func_149672_a(field_149780_i);
-/* 26 */     func_149711_c(3.0F);
-/* 27 */     func_149752_b(5.0F);
+/* 22 */     super(Material.rock);
+/* 23 */     setTextureName("magicalcrops:essence_stone");
+/* 24 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 25 */     setStepSound(soundTypePiston);
+/* 26 */     setHardness(3.0F);
+/* 27 */     setResistance(5.0F);
 /*    */   }
 /*    */ }
 

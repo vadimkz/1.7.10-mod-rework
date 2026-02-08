@@ -23,7 +23,7 @@ public class BlockFarmlandImperio extends Block {
     private IIcon iconDry;
 
     public BlockFarmlandImperio() {
-        super(Material.ground); // Исправлено (вместо field_151578_c)
+        super(Material.ground); // Исправлено (вместо ground)
         this.setTickRandomly(true);
         this.setBlockTextureName("magicalcrops:farmland_");
         this.setBlockName("ImperioFarmland");

@@ -22,23 +22,23 @@
 /*    */ 
 /*    */ public class MItems
 /*    */ {
-/* 25 */   public static Item InfusionStoneWeak = (new ItemInfusionStone1Weak()).func_77655_b("InfusionStoneWeak");
-/* 26 */   public static Item InfusionStoneRegular = (new ItemInfusionStone2Regular()).func_77655_b("InfusionStoneRegular");
-/* 27 */   public static Item InfusionStoneStrong = (new ItemInfusionStone3Strong()).func_77655_b("InfusionStoneStrong");
-/* 28 */   public static Item InfusionStoneExtreme = (new ItemInfusionStone4Extreme()).func_77655_b("InfusionStoneExtreme");
-/* 29 */   public static Item InfusionStoneMaster = (new ItemInfusionStone5Master()).func_77655_b("InfusionStoneMaster");
+/* 25 */   public static Item InfusionStoneWeak = (new ItemInfusionStone1Weak()).setUnlocalizedName("InfusionStoneWeak");
+/* 26 */   public static Item InfusionStoneRegular = (new ItemInfusionStone2Regular()).setUnlocalizedName("InfusionStoneRegular");
+/* 27 */   public static Item InfusionStoneStrong = (new ItemInfusionStone3Strong()).setUnlocalizedName("InfusionStoneStrong");
+/* 28 */   public static Item InfusionStoneExtreme = (new ItemInfusionStone4Extreme()).setUnlocalizedName("InfusionStoneExtreme");
+/* 29 */   public static Item InfusionStoneMaster = (new ItemInfusionStone5Master()).setUnlocalizedName("InfusionStoneMaster");
 /*    */ 
 /*    */   
-/* 32 */   public static Item MagicalFertilizer = (new ItemMagicalFertilizer()).func_77655_b("MagicalFertilizer");
+/* 32 */   public static Item MagicalFertilizer = (new ItemMagicalFertilizer()).setUnlocalizedName("MagicalFertilizer");
 /*    */ 
 /*    */   
-/* 35 */   public static Item EssenceFertilizer = (new ItemEssenceFertilizer()).func_77655_b("EssenceFertilizer");
+/* 35 */   public static Item EssenceFertilizer = (new ItemEssenceFertilizer()).setUnlocalizedName("EssenceFertilizer");
 /*    */ 
 /*    */   
-/* 38 */   public static Item ExperienceBook = (new ItemExperienceBook()).func_77655_b("ExperienceBook");
+/* 38 */   public static Item ExperienceBook = (new ItemExperienceBook()).setUnlocalizedName("ExperienceBook");
 /*    */ 
 /*    */   
-/* 41 */   public static Item EssenceIngots = (new ItemsEssenceIngots()).func_77655_b("EssenceIngots");
+/* 41 */   public static Item EssenceIngots = (new ItemsEssenceIngots()).setUnlocalizedName("EssenceIngots");
 /*    */ 
 /*    */   
 /* 44 */   public static Item SeedBagAccio = (Item)new ItemSeedBagAccio();
@@ -47,9 +47,9 @@
 /* 47 */   public static Item SeedBagZivicio = (Item)new ItemSeedBagZivicio();
 /*    */ 
 /*    */   
-/* 50 */   public static Item UltimateDiamondApple = (new ItemUltimateDiamondApple(4, 2.0F, false)).func_77655_b("UltimateDiamondApple").func_111206_d("magicalcrops:apple_diamond");
-/* 51 */   public static Item EmeraldApple = (new ItemEmeraldApple(4, 2.0F, false)).func_77655_b("EmeraldApple").func_111206_d("magicalcrops:apple_emerald");
-/* 52 */   public static Item UltimateEmeraldApple = (new ItemUltimateEmeraldApple(4, 2.0F, false)).func_77655_b("UltimateEmeraldApple").func_111206_d("magicalcrops:apple_emerald");
+/* 50 */   public static Item UltimateDiamondApple = (new ItemUltimateDiamondApple(4, 2.0F, false)).setUnlocalizedName("UltimateDiamondApple").setTextureName("magicalcrops:apple_diamond");
+/* 51 */   public static Item EmeraldApple = (new ItemEmeraldApple(4, 2.0F, false)).setUnlocalizedName("EmeraldApple").setTextureName("magicalcrops:apple_emerald");
+/* 52 */   public static Item UltimateEmeraldApple = (new ItemUltimateEmeraldApple(4, 2.0F, false)).setUnlocalizedName("UltimateEmeraldApple").setTextureName("magicalcrops:apple_emerald");
 /*    */ }
 
 

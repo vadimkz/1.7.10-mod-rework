@@ -19,8 +19,8 @@
 /*     */   protected int range;
 /*     */   
 /*     */   public Planter(int guiSlots, int range) {
-/*  22 */     func_77625_d(1);
-/*  23 */     func_77637_a(CreativeTabs.field_78040_i);
+/*  22 */     setMaxStackSize(1);
+/*  23 */     setCreativeTab(CreativeTabs.tabTools);
 /*     */     
 /*  25 */     if (guiSlots > 0) {
 /*  26 */       this.hasGui = true;
@@ -36,8 +36,8 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public ItemStack func_77659_a(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-/*  40 */     if (this.hasGui && par3EntityPlayer.func_70093_af()) {
+/*     */   public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+/*  40 */     if (this.hasGui && par3EntityPlayer.isSneaking()) {
 /*  41 */       par3EntityPlayer.openGui(MagicalCrops.instance, 0, par2World, 0, 0, 0);
 /*     */     }
 /*     */     
@@ -45,8 +45,8 @@
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public boolean func_77648_a(ItemStack itemStackUsed, EntityPlayer player, World world, int x, int y, int z, int intDirection, float par8, float par9, float par10) {
-/*  49 */     if (this.hasGui && player.func_70093_af()) {
+/*     */   public boolean onItemUse(ItemStack itemStackUsed, EntityPlayer player, World world, int x, int y, int z, int intDirection, float par8, float par9, float par10) {
+/*  49 */     if (this.hasGui && player.isSneaking()) {
 /*  50 */       return false;
 /*     */     }
 /*     */     
@@ -56,14 +56,14 @@
 /*     */     }
 /*     */     
 /*  58 */     if (canPlant(inventory, world, x, y, z, ForgeDirection.getOrientation(intDirection))) {
-/*  59 */       plant(player, inventory, world, x, y, z, this.range, player.field_70177_z);
+/*  59 */       plant(player, inventory, world, x, y, z, this.range, player.rotationYaw);
 /*     */     }
 /*     */     
 /*  62 */     return true;
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public int func_77626_a(ItemStack itemstack) {
+/*     */   public int getMaxItemUseDuration(ItemStack itemstack) {
 /*  67 */     return 1;
 /*     */   }
 /*     */ 
@@ -71,8 +71,8 @@
 /*     */ 
 /*     */   
 /*     */   public IInventory getInventory(EntityPlayer player) {
-/*  74 */     if (player.func_70694_bm().func_77973_b() == this) {
-/*  75 */       return new SeedInventory(player.func_70694_bm());
+/*  74 */     if (player.getHeldItem().getItem() == this) {
+/*  75 */       return new SeedInventory(player.getHeldItem());
 /*     */     }
 /*  77 */     return null;
 /*     */   }
@@ -87,10 +87,10 @@
 /*     */   public boolean canPlant(IInventory inv, World world, int x, int y, int z, ForgeDirection direction) {
 /*  88 */     int nextSlot = PlantingLogic.getSeedsSlot(inv, getFirstSlot(inv));
 /*  89 */     if (nextSlot >= 0) {
-/*  90 */       ItemStack targetItem = inv.func_70301_a(nextSlot);
+/*  90 */       ItemStack targetItem = inv.getStackInSlot(nextSlot);
 /*  91 */       assert targetItem != null;
-/*  92 */       assert targetItem.func_77973_b() instanceof IPlantable;
-/*  93 */       IPlantable targetPlantable = (IPlantable)targetItem.func_77973_b();
+/*  92 */       assert targetItem.getItem() instanceof IPlantable;
+/*  93 */       IPlantable targetPlantable = (IPlantable)targetItem.getItem();
 /*     */       
 /*  95 */       return PlantingLogic.targetedSuitableFarmland(world, x, y, z, direction, targetPlantable);
 /*     */     } 
@@ -105,7 +105,7 @@
 /*     */ 
 /*     */   
 /*     */   public void plant(EntityPlayer player, IInventory inv, World world, int startX, int startY, int startZ, int width, float playerRotation) {
-/* 108 */     int startCornerX, startCornerZ, j, i, rowZ, rowX, intFacing = MathHelper.func_76128_c((playerRotation * 4.0F / 360.0F) + 0.5D) & 0x3;
+/* 108 */     int startCornerX, startCornerZ, j, i, rowZ, rowX, intFacing = MathHelper.floor_double((playerRotation * 4.0F / 360.0F) + 0.5D) & 0x3;
 /* 109 */     ForgeDirection[] directions = { ForgeDirection.SOUTH, ForgeDirection.WEST, ForgeDirection.NORTH, ForgeDirection.EAST };
 /* 110 */     ForgeDirection direction = directions[intFacing];
 /*     */     
@@ -159,7 +159,7 @@
 /*     */     }
 /* 160 */     boolean success = PlantingLogic.placeSeed(inv, world, x, y, z, slot, direction);
 /* 161 */     if (success) {
-/* 162 */       inv.func_70298_a(slot, 1);
+/* 162 */       inv.decrStackSize(slot, 1);
 /*     */     }
 /*     */     
 /* 165 */     return success;

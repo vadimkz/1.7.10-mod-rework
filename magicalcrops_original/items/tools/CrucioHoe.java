@@ -24,24 +24,24 @@
 /*    */ {
 /*    */   public CrucioHoe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 26 */     super(par2EnumToolMaterial);
-/* 27 */     this.field_77777_bU = 1;
-/* 28 */     func_77637_a(MagicalCrops.tabMagical);
+/* 27 */     this.maxStackSize = 1;
+/* 28 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 33 */     return EnumChatFormatting.YELLOW + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 33 */     return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
 /* 38 */     if (ConfigMain.EXTRA_HOE) {
 /* 39 */       par3List.add(EnumChatFormatting.WHITE + "Hold " + EnumChatFormatting.YELLOW + "SHIFT" + EnumChatFormatting.WHITE + " for tool bonus:");
 /* 40 */       if (Keyboard.isKeyDown(42) || Keyboard.isKeyDown(54)) {
 /* 41 */         par3List.add(EnumChatFormatting.ITALIC + "- 2 Extra essence from Minicio Crops");
 /*    */       }
 /*    */     } 
-/* 44 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (func_77612_l() - getDamage(par1ItemStack)) + "/" + func_77612_l());
+/* 44 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
 /* 45 */     par3List.add("");
 /* 46 */     par3List.add(EnumChatFormatting.BLUE + "+1 Attack Damage");
 /*    */   }
