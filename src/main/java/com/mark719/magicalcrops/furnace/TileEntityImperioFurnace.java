@@ -5,9 +5,11 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 
 public class TileEntityImperioFurnace extends TileEntity implements ISidedInventory {
 
@@ -85,7 +87,13 @@ public class TileEntityImperioFurnace extends TileEntity implements ISidedInvent
 
     @Override
     public void setInventorySlotContents(int slot, ItemStack stack) {
+        ItemStack current = this.furnaceItemStacks[slot];
         this.furnaceItemStacks[slot] = stack;
+
+        if (slot == 0 && (stack == null || !stack.isItemEqual(current))) {
+            this.furnaceCookTime = 0;
+            markDirty();
+        }
 
         if (stack != null && stack.stackSize > getInventoryStackLimit()) {
             stack.stackSize = getInventoryStackLimit();
@@ -203,10 +211,83 @@ public class TileEntityImperioFurnace extends TileEntity implements ISidedInvent
         return this.furnaceBurnTime > 0;
     }
 
+    @Override
+    public void updateEntity() {
+        boolean wasBurning = isBurning();
+        boolean dirty = false;
+
+        if (this.furnaceBurnTime > 0) {
+            this.furnaceBurnTime--;
+        }
+
+        if (!this.worldObj.isRemote) {
+            if (this.furnaceBurnTime == 0 && canSmelt()) {
+                this.currentBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
+
+                if (this.furnaceBurnTime > 0) {
+                    dirty = true;
+                    if (this.furnaceItemStacks[1] != null) {
+                        this.furnaceItemStacks[1].stackSize--;
+                        if (this.furnaceItemStacks[1].stackSize == 0) {
+                            Item container = this.furnaceItemStacks[1].getItem().getContainerItem();
+                            this.furnaceItemStacks[1] = container != null ? new ItemStack(container) : null;
+                        }
+                    }
+                }
+            }
+
+            if (isBurning() && canSmelt()) {
+                this.furnaceCookTime++;
+                if (this.furnaceCookTime == 25) {
+                    this.furnaceCookTime = 0;
+                    smeltItem();
+                    dirty = true;
+                }
+            } else {
+                this.furnaceCookTime = 0;
+            }
+
+            if (wasBurning != isBurning()) {
+                dirty = true;
+                ImperioFurnace.updateBlockState(isBurning(), this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+            }
+        }
+
+        if (dirty) {
+            markDirty();
+        }
+    }
+
+    private boolean canSmelt() {
+        if (this.furnaceItemStacks[0] == null) return false;
+        ItemStack result = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
+        if (result == null) return false;
+
+        if (this.furnaceItemStacks[2] == null) return true;
+        if (!this.furnaceItemStacks[2].isItemEqual(result)) return false;
+
+        int combined = this.furnaceItemStacks[2].stackSize + result.stackSize;
+        return combined <= getInventoryStackLimit() && combined <= result.getMaxStackSize();
+    }
+
+    private void smeltItem() {
+        if (!canSmelt()) return;
+
+        ItemStack result = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
+
+        if (this.furnaceItemStacks[2] == null) {
+            this.furnaceItemStacks[2] = result.copy();
+        } else if (this.furnaceItemStacks[2].getItem() == result.getItem()) {
+            this.furnaceItemStacks[2].stackSize += result.stackSize;
+        }
+
+        this.furnaceItemStacks[0].stackSize--;
+        if (this.furnaceItemStacks[0].stackSize <= 0) {
+            this.furnaceItemStacks[0] = null;
+        }
+    }
+
     private static int getItemBurnTime(ItemStack stack) {
-        if (stack == null) return 0;
-        Item item = stack.getItem();
-        if (item == Items.coal) return 1600;
-        return 0;
+        return TileEntityFurnace.getItemBurnTime(stack);
     }
 }
