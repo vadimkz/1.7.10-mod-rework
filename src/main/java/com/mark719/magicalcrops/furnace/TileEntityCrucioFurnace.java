@@ -55,24 +55,24 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public ItemStack decrStackSize(int p_70298_1_, int p_70298_2_) {
-/*  59 */     if (this.furnaceItemStacks[p_70298_1_] != null) {
+/*     */   public ItemStack decrStackSize(int slot, int amount) {
+/*  59 */     if (this.furnaceItemStacks[slot] != null) {
 /*     */ 
 /*     */ 
 /*     */       
-/*  63 */       if ((this.furnaceItemStacks[p_70298_1_]).stackSize <= p_70298_2_) {
+/*  63 */       if ((this.furnaceItemStacks[slot]).stackSize <= amount) {
 /*     */         
-/*  65 */         ItemStack itemStack = this.furnaceItemStacks[p_70298_1_];
-/*  66 */         this.furnaceItemStacks[p_70298_1_] = null;
+/*  65 */         ItemStack itemStack = this.furnaceItemStacks[slot];
+/*  66 */         this.furnaceItemStacks[slot] = null;
 /*  67 */         return itemStack;
 /*     */       } 
 /*     */ 
 /*     */       
-/*  71 */       ItemStack itemstack = this.furnaceItemStacks[p_70298_1_].splitStack(p_70298_2_);
+/*  71 */       ItemStack itemstack = this.furnaceItemStacks[slot].splitStack(amount);
 /*     */       
-/*  73 */       if ((this.furnaceItemStacks[p_70298_1_]).stackSize == 0)
+/*  73 */       if ((this.furnaceItemStacks[slot]).stackSize == 0)
 /*     */       {
-/*  75 */         this.furnaceItemStacks[p_70298_1_] = null;
+/*  75 */         this.furnaceItemStacks[slot] = null;
 /*     */       }
 /*     */       
 /*  78 */       return itemstack;
@@ -86,11 +86,11 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-/*  90 */     if (this.furnaceItemStacks[p_70304_1_] != null) {
+/*     */   public ItemStack getStackInSlotOnClosing(int slot) {
+/*  90 */     if (this.furnaceItemStacks[slot] != null) {
 /*     */       
-/*  92 */       ItemStack itemstack = this.furnaceItemStacks[p_70304_1_];
-/*  93 */       this.furnaceItemStacks[p_70304_1_] = null;
+/*  92 */       ItemStack itemstack = this.furnaceItemStacks[slot];
+/*  93 */       this.furnaceItemStacks[slot] = null;
 /*  94 */       return itemstack;
 /*     */     } 
 /*     */ 
@@ -101,12 +101,12 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
-/* 105 */     this.furnaceItemStacks[p_70299_1_] = p_70299_2_;
+/*     */   public void setInventorySlotContents(int slot, ItemStack itemStack) {
+/* 105 */     this.furnaceItemStacks[slot] = itemStack;
 /*     */     
-/* 107 */     if (p_70299_2_ != null && p_70299_2_.stackSize > getInventoryStackLimit())
+/* 107 */     if (itemStack != null && itemStack.stackSize > getInventoryStackLimit())
 /*     */     {
-/* 109 */       p_70299_2_.stackSize = getInventoryStackLimit();
+/* 109 */       itemStack.stackSize = getInventoryStackLimit();
 /*     */     }
 /*     */   }
 /*     */ 
@@ -122,9 +122,9 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void readFromNBT(NBTTagCompound p_145839_1_) {
-/* 126 */     super.readFromNBT(p_145839_1_);
-/* 127 */     NBTTagList nbttaglist = p_145839_1_.getTagList("Items", 10);
+/*     */   public void readFromNBT(NBTTagCompound nbt) {
+/* 126 */     super.readFromNBT(nbt);
+/* 127 */     NBTTagList nbttaglist = nbt.getTagList("Items", 10);
 /* 128 */     this.furnaceItemStacks = new ItemStack[getSizeInventory()];
 /*     */     
 /* 130 */     for (int i = 0; i < nbttaglist.tagCount(); i++) {
@@ -138,22 +138,22 @@
 /*     */       }
 /*     */     } 
 /*     */     
-/* 141 */     this.furnaceBurnTime = p_145839_1_.getShort("BurnTime");
-/* 142 */     this.furnaceCookTime = p_145839_1_.getShort("CookTime");
+/* 141 */     this.furnaceBurnTime = nbt.getShort("BurnTime");
+/* 142 */     this.furnaceCookTime = nbt.getShort("CookTime");
 /* 143 */     this.currentBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
 /*     */     
-/* 145 */     if (p_145839_1_.hasKey("CustomName", 8))
+/* 145 */     if (nbt.hasKey("CustomName", 8))
 /*     */     {
-/* 147 */       this.furnaceName = p_145839_1_.getString("CustomName");
+/* 147 */       this.furnaceName = nbt.getString("CustomName");
 /*     */     }
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void writeToNBT(NBTTagCompound p_145841_1_) {
-/* 154 */     super.writeToNBT(p_145841_1_);
-/* 155 */     p_145841_1_.setShort("BurnTime", (short)this.furnaceBurnTime);
-/* 156 */     p_145841_1_.setShort("CookTime", (short)this.furnaceCookTime);
+/*     */   public void writeToNBT(NBTTagCompound nbt) {
+/* 154 */     super.writeToNBT(nbt);
+/* 155 */     nbt.setShort("BurnTime", (short)this.furnaceBurnTime);
+/* 156 */     nbt.setShort("CookTime", (short)this.furnaceCookTime);
 /* 157 */     NBTTagList nbttaglist = new NBTTagList();
 /*     */     
 /* 159 */     for (int i = 0; i < this.furnaceItemStacks.length; i++) {
@@ -167,11 +167,11 @@
 /*     */       } 
 /*     */     } 
 /*     */     
-/* 170 */     p_145841_1_.setTag("Items", (NBTBase)nbttaglist);
+/* 170 */     nbt.setTag("Items", (NBTBase)nbttaglist);
 /*     */     
 /* 172 */     if (isCustomInventoryName())
 /*     */     {
-/* 174 */       p_145841_1_.setString("CustomName", this.furnaceName);
+/* 174 */       nbt.setString("CustomName", this.furnaceName);
 /*     */     }
 /*     */   }
 /*     */ 
@@ -182,19 +182,19 @@
 /*     */   }
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public int getCookProgressScaled(int par1) {
-/* 186 */     return this.furnaceCookTime * par1 / 50;
+/*     */   public int getCookProgressScaled(int scale) {
+/* 186 */     return this.furnaceCookTime * scale / 50;
 /*     */   }
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public int getBurnTimeRemainingScaled(int p_145955_1_) {
+/*     */   public int getBurnTimeRemainingScaled(int scale) {
 /* 192 */     if (this.currentBurnTime == 0)
 /*     */     {
 /* 194 */       this.currentBurnTime = 100;
 /*     */     }
 /*     */     
-/* 197 */     return this.furnaceBurnTime * p_145955_1_ / this.currentBurnTime;
+/* 197 */     return this.furnaceBurnTime * scale / this.currentBurnTime;
 /*     */   }
 /*     */   
 /*     */   public boolean isBurning() {
@@ -308,14 +308,14 @@
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public static int getItemBurnTime(ItemStack p_145952_0_) {
-/* 312 */     if (p_145952_0_ == null)
+/*     */   public static int getItemBurnTime(ItemStack itemStack) {
+/* 312 */     if (itemStack == null)
 /*     */     {
 /* 314 */       return 0;
 /*     */     }
 /*     */ 
 /*     */     
-/* 318 */     Item item = p_145952_0_.getItem();
+/* 318 */     Item item = itemStack.getItem();
 /*     */     
 /* 320 */     if (item instanceof net.minecraft.item.ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
 /*     */       
@@ -345,13 +345,13 @@
 /* 345 */     if (item == Items.lava_bucket) return 20000; 
 /* 346 */     if (item == Item.getItemFromBlock(Blocks.sapling)) return 100; 
 /* 347 */     if (item == Items.blaze_rod) return 2400; 
-/* 348 */     return GameRegistry.getFuelValue(p_145952_0_);
+/* 348 */     return GameRegistry.getFuelValue(itemStack);
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public static boolean isItemFuel(ItemStack p_145954_0_) {
-/* 354 */     return (getItemBurnTime(p_145954_0_) > 0);
+/*     */   public static boolean isItemFuel(ItemStack itemStack) {
+/* 354 */     return (getItemBurnTime(itemStack) > 0);
 /*     */   }
 /*     */ 
 /*     */   
@@ -371,26 +371,26 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-/* 375 */     return (p_94041_1_ == 2) ? false : ((p_94041_1_ == 1) ? isItemFuel(p_94041_2_) : true);
+/*     */   public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
+/* 375 */     return (slot == 2) ? false : ((slot == 1) ? isItemFuel(itemStack) : true);
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public int[] getSlotsForFace(int p_94128_1_) {
-/* 381 */     return (p_94128_1_ == 0) ? slotsBottom : ((p_94128_1_ == 1) ? slotsTop : slotsSides);
+/*     */   public int[] getSlotsForFace(int side) {
+/* 381 */     return (side == 0) ? slotsBottom : ((side == 1) ? slotsTop : slotsSides);
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
-/* 387 */     return isItemValidForSlot(p_102007_1_, p_102007_2_);
+/*     */   public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
+/* 387 */     return isItemValidForSlot(slot, itemStack);
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-/* 393 */     return (p_102008_3_ != 0 || p_102008_1_ != 1 || p_102008_2_.getItem() == Items.bucket);
+/*     */   public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+/* 393 */     return (side != 0 || slot != 1 || itemStack.getItem() == Items.bucket);
 /*     */   }
 /*     */ }
 
