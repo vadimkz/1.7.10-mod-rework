@@ -47,7 +47,7 @@
 /*     */   public void detectAndSendChanges() {
 /*  48 */     super.detectAndSendChanges();
 /*  49 */     for (int i = 0; i < this.crafters.size(); i++) {
-/*  50 */       ICrafting craft = this.crafters.get(i);
+/*  50 */       ICrafting craft = (ICrafting)this.crafters.get(i);
 /*     */       
 /*  52 */       if (this.lastCookTime != this.tileUltimateFurnace.furnaceCookTime) {
 /*  53 */         craft.sendProgressBarUpdate(this, 0, this.tileUltimateFurnace.furnaceCookTime);
@@ -91,7 +91,7 @@
 /*     */   
 /*     */   public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 /*  93 */     ItemStack itemstack = null;
-/*  94 */     Slot slot = this.inventorySlots.get(index);
+/*  94 */     Slot slot = (Slot)this.inventorySlots.get(index);
 /*     */     
 /*  96 */     if (slot != null && slot.getHasStack()) {
 /*     */       
