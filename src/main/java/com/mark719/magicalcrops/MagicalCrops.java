@@ -95,11 +95,10 @@ public class MagicalCrops {
 
         // 1) Создаём содержимое (в нашем проекте это вынесено в init())
         MCrops.init();
-        BlockRegister.registerBlock();
-
         MSeeds.init();
 
-        // 2) Регистрируем предметы/блоки (как в оригинале, но после создания объектов)
+        // 2) Регистрируем блоки/предметы (как в оригинале, но после создания объектов)
+        BlockRegister.registerBlock();
         ItemRegister.registerItem();
 
 

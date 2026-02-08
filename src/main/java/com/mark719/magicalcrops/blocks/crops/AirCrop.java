@@ -1,9 +1,12 @@
 package com.mark719.magicalcrops.blocks.crops;
 
 import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+import com.mark719.magicalcrops.handlers.Essence;
+import com.mark719.magicalcrops.handlers.MSeeds;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
 public class AirCrop extends BlockMagicalCrops {
@@ -11,6 +14,16 @@ public class AirCrop extends BlockMagicalCrops {
     public AirCrop() {
         super();
         this.setUnlocalizedName("AirCrop");
+    }
+
+    @Override
+    public Item getSeed() {
+        return MSeeds.AirSeeds;
+    }
+
+    @Override
+    public Item getCrop() {
+        return Essence.AirEssence;
     }
 
     @SideOnly(Side.CLIENT)

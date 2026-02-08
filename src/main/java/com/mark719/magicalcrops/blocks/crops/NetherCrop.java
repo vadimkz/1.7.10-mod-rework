@@ -1,13 +1,15 @@
 package com.mark719.magicalcrops.blocks.crops;
 
+import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+import com.mark719.magicalcrops.handlers.Essence;
+import com.mark719.magicalcrops.handlers.MSeeds;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
-public class NetherCrop extends BlockCrops {
+public class NetherCrop extends BlockMagicalCrops {
 
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
@@ -19,13 +21,13 @@ public class NetherCrop extends BlockCrops {
 
 
     @Override
-    protected Item getSeed() { // семя
-        return com.mark719.magicalcrops.handlers.MSeeds.NetherSeeds;
+    public Item getSeed() { // семя
+        return MSeeds.NetherSeeds;
     }
 
     @Override
-    protected Item getCrop() { // дроп (эссенция)
-        return com.mark719.magicalcrops.handlers.Essence.NetherEssence;
+    public Item getCrop() { // дроп (эссенция)
+        return Essence.NetherEssence;
     }
 
     @SideOnly(Side.CLIENT)

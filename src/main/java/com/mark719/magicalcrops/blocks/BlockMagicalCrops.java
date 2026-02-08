@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
@@ -118,11 +117,11 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     }
 
     protected Item getSeed() {
-        return Items.wheat_seeds;
+        return null;
     }
 
     protected Item getCrop() {
-        return Items.wheat;
+        return null;
     }
 
     @Override
@@ -130,7 +129,7 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     public IIcon getIcon(int side, int meta) {
 
         if (this.icons == null)
-            return Blocks.wheat.getIcon(0, meta);
+            return super.getIcon(side, meta);
 
         if (meta < 0) meta = 0;
         if (meta > 7) meta = 7;
