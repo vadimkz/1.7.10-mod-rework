@@ -22,10 +22,10 @@ public class AirCrop extends BlockMagicalCrops {
   }
   
   @SideOnly(Side.CLIENT)
-  public void registerIcons(IIconRegister p_149651_1_) {
+  public void registerIcons(IIconRegister reg) {
     this.iconArray = new IIcon[4];
     for (int i = 0; i < this.iconArray.length; i++)
-      this.iconArray[i] = p_149651_1_.registerIcon("magicalcrops:CropAir_" + i); 
+      this.iconArray[i] = reg.registerIcon("magicalcrops:CropAir_" + i); 
   }
   
   @SideOnly(Side.CLIENT)

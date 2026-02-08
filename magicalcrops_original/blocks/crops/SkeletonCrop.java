@@ -31,10 +31,10 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/*    */   public void registerBlockIcons(IIconRegister reg) {
 /* 35 */     this.iconArray = new IIcon[4];
 /* 36 */     for (int i = 0; i < this.iconArray.length; i++) {
-/* 37 */       this.iconArray[i] = p_149651_1_.registerIcon("magicalcrops:SoulCropSkeleton_" + i);
+/* 37 */       this.iconArray[i] = reg.registerIcon("magicalcrops:SoulCropSkeleton_" + i);
 /*    */     }
 /*    */   }
 /*    */   

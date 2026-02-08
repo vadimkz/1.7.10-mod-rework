@@ -122,7 +122,7 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     return Items.wheat;
   }
   
-  public Item getItemDropped(int meta, Random random, int p_149650_3_) {
+  public Item getItemDropped(int meta, Random random, int fortune) {
     return (meta == 7) ? getCrop() : getSeed();
   }
   
@@ -136,7 +136,7 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
   }
   
   @SideOnly(Side.CLIENT)
-  public IIcon getIcon(int p_149691_1_, int meta) {
+  public IIcon getIcon(int side, int meta) {
     if (meta < 0 || meta > 7)
       meta = 7; 
     return this.icons[meta];

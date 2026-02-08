@@ -18,67 +18,94 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockFarmlandZivicio extends Block {
     @SideOnly(Side.CLIENT)
-    private IIcon iconWet;
-    @SideOnly(Side.CLIENT)
     private IIcon iconDry;
 
+    @SideOnly(Side.CLIENT)
+    private IIcon iconWet;
+
+    private static final String __OBFID = "CL_00000241";
+
     public BlockFarmlandZivicio() {
-        // Если Material.ground не красный — оставляй его
         super(Material.ground);
-        this.setTickRandomly(true);
-        // Если setTextureName красный, попробуй заменить на setBlockTextureName
-        this.setTextureName("magicalcrops:farmland_");
-        this.setBlockName("ZivicioFarmland");
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
-        this.setLightOpacity(255);
-        this.setHardness(0.6F);
+        setTickRandomly(true);
+        setTextureName("magicalcrops:farmland_");
+        setUnlocalizedName("ZivicioFarmland");
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
+        setLightOpacity(255);
+        setHardness(0.6F);
     }
 
-    @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        return AxisAlignedBB.getBoundingBox((double)x, (double)y, (double)z, (double)(x + 1), (double)(y + 1), (double)(z + 1));
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World worldIn, int x, int y, int z) {
+        return AxisAlignedBB.getBoundingBox((x + 0), (y + 0), (z + 0), (x + 1), (y + 1), (z + 1));
     }
 
-    @Override
-    public boolean isOpaqueCube() { return false; }
+    public boolean isOpaqueCube() {
+        return false;
+    }
 
-    @Override
-    public boolean renderAsNormalBlock() { return false; }
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
 
     @SideOnly(Side.CLIENT)
-    @Override
     public IIcon getIcon(int side, int meta) {
-        return (side == 1) ? this.iconWet : Blocks.dirt.getIcon(side, 0);
+        return (side == 1) ? ((meta > 0) ? this.iconDry : this.iconWet) : Blocks.dirt.getBlockTextureFromSide(side);
     }
 
-    @Override
-    public void updateTick(World world, int x, int y, int z, Random random) {
-        // Вечная влажность
-        if (world.getBlockMetadata(x, y, z) < 7) {
-            world.setBlockMetadataWithNotify(x, y, z, 7, 2);
+    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
+        if (!getIsCritical(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_) && !p_149674_1_.isRainingAt(p_149674_2_, p_149674_3_ + 1, p_149674_4_)) {
+            int l = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
+            if (l > 0)
+                p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, l - 1, 2);
+        } else {
+            p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 7, 2);
         }
     }
 
-    @Override
-    public void onFallenUpon(World world, int x, int y, int z, Entity entity, float fall) {
-        // Защита от прыжков
+    public void onFallenUpon(World worldIn, int x, int y, int z, Entity entityIn, float fallDistance) {}
+
+    private boolean hasWater(World world, int x, int y, int z) {
+        byte b0 = 0;
+        for (int l = x - b0; l <= x + b0; l++) {
+            for (int i1 = z - b0; i1 <= z + b0; i1++) {
+                Block block = world.getBlock(l, y + 1, i1);
+                if (block instanceof IPlantable && canSustainPlant((IBlockAccess)world, x, y, z, ForgeDirection.UP, (IPlantable)block))
+                    return true;
+            }
+        }
+        return false;
     }
 
-    @Override
+    private boolean getIsCritical(World p_149821_1_, int p_149821_2_, int p_149821_3_, int p_149821_4_) {
+        for (int l = p_149821_2_ - 4; l <= p_149821_2_ + 4; l++) {
+            for (int i1 = p_149821_3_; i1 <= p_149821_3_ + 1; i1++) {
+                for (int j1 = p_149821_4_ - 4; j1 <= p_149821_4_ + 4; j1++) {
+                    if (p_149821_1_.getBlock(l, i1, j1).getMaterial() == Material.water)
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable) {
         return true;
     }
 
-    @Override
+    public void onNeighborBlockChange(World worldIn, int p_149695_2_, int x, int y, Block z) {}
+
     public Item getItemDropped(int meta, Random random, int fortune) {
+        return Blocks.dirt.getItemDropped(0, random, fortune);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public Item getItem(World p_149694_1_, int x, int y, int z) {
         return Item.getItemFromBlock(Blocks.dirt);
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
-    public void registerBlockIcons(IIconRegister reg) {
-        // Тот самый рабочий вариант
-        this.iconWet = reg.registerIcon(this.getTextureName() + "wet_zivicio");
-        this.iconDry = reg.registerIcon(this.getTextureName() + "dry_zivicio");
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        this.iconDry = iconRegister.registerIcon(getTextureName() + "wet_zivicio");
+        this.iconWet = iconRegister.registerIcon(getTextureName() + "dry_zivicio");
     }
 }

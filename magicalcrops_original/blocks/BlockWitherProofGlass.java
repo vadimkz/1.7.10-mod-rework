@@ -36,11 +36,11 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public boolean canDropFromExplosion(Explosion p_149659_1_) {
+/*    */   public boolean canDropFromExplosion(Explosion explosionIn) {
 /* 40 */     return false;
 /*    */   }
 /*    */   
-/*    */   public int quantityDropped(Random p_149745_1_) {
+/*    */   public int quantityDropped(Random random) {
 /* 44 */     return 1;
 /*    */   }
 /*    */   
@@ -60,8 +60,8 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
-/* 64 */     this.blockIcon = p_149651_1_.registerIcon("magicalcrops:wither_glass");
+/*    */   public void registerBlockIcons(IIconRegister reg) {
+/* 64 */     this.blockIcon = reg.registerIcon("magicalcrops:wither_glass");
 /*    */   }
 /*    */ }
 

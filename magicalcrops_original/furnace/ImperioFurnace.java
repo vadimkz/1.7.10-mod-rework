@@ -55,10 +55,10 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void registerBlockIcons(IIconRegister p_149651_1_) {
-/*  59 */     this.blockIcon = p_149651_1_.registerIcon("magicalcrops:furnaceimperio_side");
-/*  60 */     this.iconFront = p_149651_1_.registerIcon(this.isBurning2 ? "magicalcrops:furnaceimperio_front_on" : "magicalcrops:furnaceimperio_front_off");
-/*  61 */     this.iconTop = p_149651_1_.registerIcon("magicalcrops:furnaceimperio_top");
+/*     */   public void registerBlockIcons(IIconRegister reg) {
+/*  59 */     this.blockIcon = reg.registerIcon("magicalcrops:furnaceimperio_side");
+/*  60 */     this.iconFront = reg.registerIcon(this.isBurning2 ? "magicalcrops:furnaceimperio_front_on" : "magicalcrops:furnaceimperio_front_off");
+/*  61 */     this.iconTop = reg.registerIcon("magicalcrops:furnaceimperio_top");
 /*     */   }
 /*     */ 
 /*     */   

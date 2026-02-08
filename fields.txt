@@ -1237,8 +1237,8 @@ field_149788_p,soundTypeAnvil,2,
 field_149789_z,needsRandomTick,2,Flags whether or not this block is of a type that needs random ticking. Ref-counted by ExtendedBlockStorage in order to broadly cull a chunk from the random chunk update list for efficiency's sake.		
 field_149790_y,enableStats,2,		
 field_149791_x,blockConstructorCalled,2,		
-field_149823_b,iconWet,0,The texture to use for the top of wet (watered) farmland.		
-field_149824_a,iconDry,0,The texture to use for the top of dry farmland.		
+iconWet,iconWet,0,The texture to use for the top of wet (watered) farmland.
+iconDry,iconDry,0,The texture to use for the top of dry farmland.
 field_149832_M,fallInstantly,2,		
 field_149833_b,anvilRenderSide,0,		
 field_149834_a,anvilDamageNames,2,		
@@ -1344,7 +1344,7 @@ field_150342_X,bookshelf,2,
 field_150343_Z,obsidian,2,		
 field_150344_f,planks,2,		
 field_150345_g,sapling,2,		
-field_150346_d,dirt,2,		
+dirt,dirt,2,
 field_150347_e,cobblestone,2,		
 field_150348_b,stone,2,		
 field_150349_c,grass,2,		
@@ -1874,7 +1874,7 @@ field_151574_g,anvil,2,
 field_151575_d,wood,2,		
 field_151576_e,rock,2,		
 field_151577_b,grass,2,		
-field_151578_c,ground,2,		
+ground,ground,2,
 field_151579_a,air,2,		
 field_151580_n,cloth,2,		
 field_151581_o,fire,2,		

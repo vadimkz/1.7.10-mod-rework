@@ -89,16 +89,16 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_) {
+/*     */   public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 /*  93 */     ItemStack itemstack = null;
-/*  94 */     Slot slot = this.inventorySlots.get(p_82846_2_);
+/*  94 */     Slot slot = this.inventorySlots.get(index);
 /*     */     
 /*  96 */     if (slot != null && slot.getHasStack()) {
 /*     */       
 /*  98 */       ItemStack itemstack1 = slot.getStack();
 /*  99 */       itemstack = itemstack1.copy();
 /*     */       
-/* 101 */       if (p_82846_2_ == 2) {
+/* 101 */       if (index == 2) {
 /*     */         
 /* 103 */         if (!mergeItemStack(itemstack1, 3, 39, true))
 /*     */         {
@@ -107,7 +107,7 @@
 /*     */         
 /* 108 */         slot.onSlotChange(itemstack1, itemstack);
 /*     */       }
-/* 110 */       else if (p_82846_2_ != 1 && p_82846_2_ != 0) {
+/* 110 */       else if (index != 1 && index != 0) {
 /*     */         
 /* 112 */         if (FurnaceRecipes.instance().getSmeltingResult(itemstack1) != null)
 /*     */         {
@@ -123,14 +123,14 @@
 /* 123 */             return null;
 /*     */           }
 /*     */         }
-/* 126 */         else if (p_82846_2_ >= 3 && p_82846_2_ < 30)
+/* 126 */         else if (index >= 3 && index < 30)
 /*     */         {
 /* 128 */           if (!mergeItemStack(itemstack1, 30, 39, false))
 /*     */           {
 /* 130 */             return null;
 /*     */           }
 /*     */         }
-/* 133 */         else if (p_82846_2_ >= 30 && p_82846_2_ < 39 && !mergeItemStack(itemstack1, 3, 30, false))
+/* 133 */         else if (index >= 30 && index < 39 && !mergeItemStack(itemstack1, 3, 30, false))
 /*     */         {
 /* 135 */           return null;
 /*     */         }
@@ -154,7 +154,7 @@
 /* 154 */         return null;
 /*     */       }
 /*     */       
-/* 157 */       slot.onPickupFromSlot(p_82846_1_, itemstack1);
+/* 157 */       slot.onPickupFromSlot(player, itemstack1);
 /*     */     } 
 /*     */     
 /* 160 */     return itemstack;

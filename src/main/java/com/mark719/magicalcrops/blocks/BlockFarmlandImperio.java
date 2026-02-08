@@ -18,66 +18,91 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockFarmlandImperio extends Block {
     @SideOnly(Side.CLIENT)
-    private IIcon iconWet;
-    @SideOnly(Side.CLIENT)
     private IIcon iconDry;
 
+    @SideOnly(Side.CLIENT)
+    private IIcon iconWet;
+
+    private static final String __OBFID = "CL_00000241";
+
     public BlockFarmlandImperio() {
-        super(Material.ground); // Исправлено (вместо ground)
-        this.setTickRandomly(true);
-        this.setBlockTextureName("magicalcrops:farmland_");
-        this.setBlockName("ImperioFarmland");
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
-        this.setLightOpacity(255);
-        this.setHardness(0.6F);
+        super(Material.ground);
+        setTickRandomly(true);
+        setTextureName("magicalcrops:farmland_");
+        setUnlocalizedName("ImperioFarmland");
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
+        setLightOpacity(255);
+        setHardness(0.6F);
     }
 
-    @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World worldIn, int x, int y, int z) {
+        return AxisAlignedBB.getBoundingBox((x + 0), (y + 0), (z + 0), (x + 1), (y + 1), (z + 1));
     }
 
-    @Override
-    public boolean isOpaqueCube() { return false; }
 
-    @Override
-    public boolean renderAsNormalBlock() { return false; }
+    public boolean isOpaqueCube() {
+        return false;
+    }
 
     @SideOnly(Side.CLIENT)
-    @Override
     public IIcon getIcon(int side, int meta) {
-        // side 1 — это верх блока. Всегда показываем "влажную" текстуру.
-        return (side == 1) ? this.iconWet : Blocks.dirt.getIcon(side, 0);
+        return (side == 1) ? ((meta > 0) ? this.iconDry : this.iconWet) : Blocks.dirt.getBlockTextureFromSide(side);
     }
 
-    @Override
-    public void updateTick(World world, int x, int y, int z, Random random) {
-        // Принудительно держим влажность 7 (максимум)
-        if (world.getBlockMetadata(x, y, z) < 7) {
-            world.setBlockMetadataWithNotify(x, y, z, 7, 2);
+    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
+        if (!getIsCritical(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_) && !p_149674_1_.isRainingAt(p_149674_2_, p_149674_3_ + 1, p_149674_4_)) {
+            int l = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
+            if (l > 0)
+                p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, l - 1, 2);
+        } else {
+            p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 7, 2);
         }
     }
 
-    @Override
-    public void onFallenUpon(World world, int x, int y, int z, Entity entity, float fall) {
-        // Пусто — защита от затаптывания грядок
+    public void onFallenUpon(World worldIn, int x, int y, int z, Entity entityIn, float fallDistance) {}
+
+    private boolean hasWater(World world, int x, int y, int z) {
+        byte b0 = 0;
+        for (int l = x - b0; l <= x + b0; l++) {
+            for (int i1 = z - b0; i1 <= z + b0; i1++) {
+                Block block = world.getBlock(l, y + 1, i1);
+                if (block instanceof IPlantable && canSustainPlant((IBlockAccess)world, x, y, z, ForgeDirection.UP, (IPlantable)block))
+                    return true;
+            }
+        }
+        return false;
     }
 
-    @Override
+    private boolean getIsCritical(World p_149821_1_, int p_149821_2_, int p_149821_3_, int p_149821_4_) {
+        for (int l = p_149821_2_ - 4; l <= p_149821_2_ + 4; l++) {
+            for (int i1 = p_149821_3_; i1 <= p_149821_3_ + 1; i1++) {
+                for (int j1 = p_149821_4_ - 4; j1 <= p_149821_4_ + 4; j1++) {
+                    if (p_149821_1_.getBlock(l, i1, j1).getMaterial() == Material.water)
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable) {
         return true;
     }
 
-    @Override
+    public void onNeighborBlockChange(World worldIn, int p_149695_2_, int x, int y, Block z) {}
+
     public Item getItemDropped(int meta, Random random, int fortune) {
-        // При поломке выпадает обычная земля
+        return Blocks.dirt.getItemDropped(0, random, fortune);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public Item getItem(World p_149694_1_, int x, int y, int z) {
         return Item.getItemFromBlock(Blocks.dirt);
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
-    public void registerBlockIcons(IIconRegister reg) {
-        this.iconWet = reg.registerIcon(this.getTextureName() + "wet_imperio");
-        this.iconDry = reg.registerIcon(this.getTextureName() + "dry_imperio");
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        this.iconDry = iconRegister.registerIcon(getTextureName() + "wet_imperio");
+        this.iconWet = iconRegister.registerIcon(getTextureName() + "dry_imperio");
     }
 }

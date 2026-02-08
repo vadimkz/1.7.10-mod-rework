@@ -1,5 +1,6 @@
 package com.mark719.magicalcrops.blocks;
 
+import com.mark719.magicalcrops.handlers.MCrops;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
@@ -18,65 +19,110 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockFarmlandAccio extends Block {
     @SideOnly(Side.CLIENT)
-    private IIcon iconWet;
-    @SideOnly(Side.CLIENT)
     private IIcon iconDry;
 
+    @SideOnly(Side.CLIENT)
+    private IIcon iconWet;
+
+    private static final String __OBFID = "CL_00000241";
+
     public BlockFarmlandAccio() {
-        super(Material.ground); // Вместо ground
-        this.setTickRandomly(true);
-        this.setBlockTextureName("magicalcrops:farmland_");
-        this.setBlockName("AccioFarmland");
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
-        this.setLightOpacity(255);
-        this.setHardness(0.6F);
+        super(Material.ground);
+        setTickRandomly(true);
+        setTextureName("magicalcrops:farmland_");
+        setUnlocalizedName("AccioFarmland");
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
+        setLightOpacity(255);
+        setHardness(0.6F);
     }
 
-    @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World worldIn, int x, int y, int z) {
+        return AxisAlignedBB.getBoundingBox((x + 0), (y + 0), (z + 0), (x + 1), (y + 1), (z + 1));
     }
 
-    @Override
-    public boolean isOpaqueCube() { return false; }
+    public boolean isOpaqueCube() {
+        return false;
+    }
 
-    @Override
-    public boolean renderAsNormalBlock() { return false; }
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
 
     @SideOnly(Side.CLIENT)
-    @Override
     public IIcon getIcon(int side, int meta) {
-        // 1 - это верхняя сторона блока
-        return (side == 1) ? this.iconWet : Blocks.dirt.getIcon(side, 0);
+        return (side == 1) ? ((meta > 0) ? this.iconDry : this.iconWet) : Blocks.dirt.getBlockTextureFromSide(side);
     }
 
-    @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
-        // Принудительно держим влажность на максимуме (7)
-        if (world.getBlockMetadata(x, y, z) < 7) {
+        if (!getIsCritical(world, x, y, z) && !world.isRainingAt(x, y + 1, z)) {
+            int l = world.getBlockMetadata(x, y, z);
+            if (l > 0)
+                world.setBlockMetadataWithNotify(x, y, z, l - 1, 2);
+        } else {
             world.setBlockMetadataWithNotify(x, y, z, 7, 2);
         }
+        boolean cropCheck1 = (world.getBlock(x + 1, y + 1, z) == MCrops.MinicioCrop && world.getBlock(x - 1, y + 1, z) == MCrops.MinicioCrop);
+        boolean cropCheck2 = (world.getBlock(x, y + 1, z + 1) == MCrops.MinicioCrop && world.getBlock(x, y + 1, z - 1) == MCrops.MinicioCrop);
+        boolean cropCheckFinal = (cropCheck1 && cropCheck2);
+        int rand = random.nextInt(99);
+        if (cropCheckFinal)
+            if (rand <= 4 && rand >= 0) {
+                if (world.getBlock(x, y + 1, z) == Blocks.coal_block)
+                    world.setBlock(x, y + 1, z, MCrops.CoalCrop, 0, 2);
+                if (world.getBlock(x, y + 1, z) instanceof net.minecraft.block.BlockFlower)
+                    world.setBlock(x, y + 1, z, MCrops.DyeCrop, 0, 2);
+                world.setBlock(x, y, z, Blocks.farmland, 0, 2);
+                world.setBlock(x + 1, y + 1, z, Blocks.air, 0, 2);
+                world.setBlock(x - 1, y + 1, z, Blocks.air, 0, 2);
+                world.setBlock(x, y + 1, z + 1, Blocks.air, 0, 2);
+                world.setBlock(x, y + 1, z - 1, Blocks.air, 0, 2);
+            }
     }
 
-    @Override
-    public void onFallenUpon(World world, int x, int y, int z, Entity entity, float fall) {
-        // Защита от затаптывания (пустой метод)
+    public void onFallenUpon(World worldIn, int x, int y, int z, Entity entityIn, float fallDistance) {}
+
+    private boolean hasWater(World world, int x, int y, int z) {
+        byte b0 = 0;
+        for (int l = x - b0; l <= x + b0; l++) {
+            for (int i1 = z - b0; i1 <= z + b0; i1++) {
+                Block block = world.getBlock(l, y + 1, i1);
+                if (block instanceof IPlantable && canSustainPlant((IBlockAccess)world, x, y, z, ForgeDirection.UP, (IPlantable)block))
+                    return true;
+            }
+        }
+        return false;
     }
 
-    @Override
+    private boolean getIsCritical(World p_149821_1_, int p_149821_2_, int p_149821_3_, int p_149821_4_) {
+        for (int l = p_149821_2_ - 4; l <= p_149821_2_ + 4; l++) {
+            for (int i1 = p_149821_3_; i1 <= p_149821_3_ + 1; i1++) {
+                for (int j1 = p_149821_4_ - 4; j1 <= p_149821_4_ + 4; j1++) {
+                    if (p_149821_1_.getBlock(l, i1, j1).getMaterial() == Material.water)
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable) {
         return true;
     }
 
-    @Override
+    public void onNeighborBlockChange(World worldIn, int p_149695_2_, int x, int y, Block z) {}
+
     public Item getItemDropped(int meta, Random random, int fortune) {
+        return Blocks.dirt.getItemDropped(0, random, fortune);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public Item getItem(World p_149694_1_, int x, int y, int z) {
         return Item.getItemFromBlock(Blocks.dirt);
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
-    public void registerBlockIcons(IIconRegister reg) {
-        this.iconWet = reg.registerIcon(this.getTextureName() + "wet_accio");
-        this.iconDry = reg.registerIcon(this.getTextureName() + "dry_accio");
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        this.iconDry = iconRegister.registerIcon(getTextureName() + "wet_accio");
+        this.iconWet = iconRegister.registerIcon(getTextureName() + "dry_accio");
     }
 }

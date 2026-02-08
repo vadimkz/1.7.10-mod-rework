@@ -45,21 +45,21 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
-/*  49 */     if (p_149691_2_ == 0 && p_149691_1_ == 3)
+/*     */   public IIcon getIcon(int side, int meta) {
+/*  49 */     if (meta == 0 && side == 3)
 /*     */     {
 /*  51 */       return this.iconFront;
 /*     */     }
-/*  53 */     return (p_149691_1_ == 1) ? this.iconTop : ((p_149691_1_ == 0) ? this.iconTop : ((p_149691_1_ != p_149691_2_) ? this.blockIcon : this.iconFront));
+/*  53 */     return (side == 1) ? this.iconTop : ((side == 0) ? this.iconTop : ((side != meta) ? this.blockIcon : this.iconFront));
 /*     */   }
 /*     */ 
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void registerBlockIcons(IIconRegister p_149651_1_) {
-/*  60 */     this.blockIcon = p_149651_1_.registerIcon("magicalcrops:furnaceaccio_side");
-/*  61 */     this.iconFront = p_149651_1_.registerIcon(this.isBurning2 ? "magicalcrops:furnaceaccio_front_on" : "magicalcrops:furnaceaccio_front_off");
-/*  62 */     this.iconTop = p_149651_1_.registerIcon("magicalcrops:furnaceaccio_top");
+/*     */   public void registerBlockIcons(IIconRegister reg) {
+/*  60 */     this.blockIcon = reg.registerIcon("magicalcrops:furnaceaccio_side");
+/*  61 */     this.iconFront = reg.registerIcon(this.isBurning2 ? "magicalcrops:furnaceaccio_front_on" : "magicalcrops:furnaceaccio_front_off");
+/*  62 */     this.iconTop = reg.registerIcon("magicalcrops:furnaceaccio_top");
 /*     */   }
 /*     */ 
 /*     */   
@@ -86,9 +86,9 @@
 /*     */ 
 /*     */ 
 /*     */   
-/*     */   public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_) {
-/*  90 */     super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
-/*  91 */     func_149930_e(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
+/*     */   public void onBlockAdded(World worldIn, int x, int y, int z) {
+/*  90 */     super.onBlockAdded(worldIn, x, y, z);
+/*  91 */     func_149930_e(worldIn, x, y, z);
 /*     */   }
 /*     */ 
 /*     */   

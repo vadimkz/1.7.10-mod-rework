@@ -32,7 +32,7 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public boolean canDropFromExplosion(Explosion p_149659_1_) {
+/*    */   public boolean canDropFromExplosion(Explosion explosionIn) {
 /* 36 */     return false;
 /*    */   }
 /*    */ }

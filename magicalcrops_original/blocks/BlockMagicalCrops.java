@@ -121,7 +121,7 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     return Items.wheat;
   }
   
-  public Item getItemDropped(int meta, Random random, int p_149650_3_) {
+  public Item getItemDropped(int meta, Random random, int fortune) {
     return (meta == 7) ? getCrop() : getSeed();
   }
   
