@@ -34,7 +34,7 @@ public class DiamondCrop extends BlockMagicalCrops {
     public void registerBlockIcons(IIconRegister reg) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; i++) {
-            this.iconArray[i] = reg.registerIcon("magicalcrops:CropDiamon_" + i);
+            this.iconArray[i] = reg.registerIcon("magicalcrops:CropDiamond_" + i);
         }
     }
 

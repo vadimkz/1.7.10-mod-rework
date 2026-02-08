@@ -32,7 +32,8 @@ public class AirCrop extends BlockMagicalCrops {
         // иначе базовый getIcon/логика может уйти в fallback на пшеницу.
         this.icons = new IIcon[4];
         for (int i = 0; i < 4; i++) {
-            this.icons[i] = reg.registerIcon("magicalcrops:CropAir_" + i);
+            String textureName = (i == 0) ? "CropAir_0" : "cropair_" + i;
+            this.icons[i] = reg.registerIcon("magicalcrops:" + textureName);
         }
     }
 
