@@ -43,11 +43,11 @@
 /*     */ 
 /*     */   
 /*     */   public static void loadRecipes() {
-/*  46 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneWeak, new Object[] { Boolean.valueOf(true), { "XXX", "XYX", "XXX", Character.valueOf('X'), minicioEssence, Character.valueOf('Y'), "MainInfusionMaterial" } }));
-/*  47 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneRegular, new Object[] { Boolean.valueOf(true), { "XXX", "XYX", "XXX", Character.valueOf('Y'), infusionWeak, Character.valueOf('X'), "accioMaterial" } }));
-/*  48 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneStrong, new Object[] { Boolean.valueOf(true), { "XXX", "XYX", "XXX", Character.valueOf('Y'), infusionRegular, Character.valueOf('X'), "crucioMaterial" } }));
-/*  49 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneExtreme, new Object[] { Boolean.valueOf(true), { "XXX", "XYX", "XXX", Character.valueOf('Y'), infusionStrong, Character.valueOf('X'), "imperioMaterial" } }));
-/*  50 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneMaster, new Object[] { Boolean.valueOf(true), { "XXX", "XYX", "XXX", Character.valueOf('Y'), infusionExtreme, Character.valueOf('X'), "zivicioMaterial" } }));
+/*  46 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneWeak, new Object[] { Boolean.valueOf(true), "XXX", "XYX", "XXX", Character.valueOf('X'), minicioEssence, Character.valueOf('Y'), "MainInfusionMaterial" }));
+/*  47 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneRegular, new Object[] { Boolean.valueOf(true), "XXX", "XYX", "XXX", Character.valueOf('Y'), infusionWeak, Character.valueOf('X'), "accioMaterial" }));
+/*  48 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneStrong, new Object[] { Boolean.valueOf(true), "XXX", "XYX", "XXX", Character.valueOf('Y'), infusionRegular, Character.valueOf('X'), "crucioMaterial" }));
+/*  49 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneExtreme, new Object[] { Boolean.valueOf(true), "XXX", "XYX", "XXX", Character.valueOf('Y'), infusionStrong, Character.valueOf('X'), "imperioMaterial" }));
+/*  50 */     GameRegistry.addRecipe((IRecipe)new ShapedOreRecipe(MItems.InfusionStoneMaster, new Object[] { Boolean.valueOf(true), "XXX", "XYX", "XXX", Character.valueOf('Y'), infusionExtreme, Character.valueOf('X'), "zivicioMaterial" }));
 /*     */ 
 /*     */     
 /*  53 */     GameRegistry.addRecipe(new ItemStack(Essence.AccioEssence, 1), new Object[] { " X ", "XZX", " X ", Character.valueOf('X'), minicioEssence, Character.valueOf('Z'), infusionWeak });

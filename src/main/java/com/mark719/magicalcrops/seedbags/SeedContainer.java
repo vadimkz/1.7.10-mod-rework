@@ -76,7 +76,7 @@
 /*     */   
 /*     */   public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
 /*  78 */     ItemStack stack = null;
-/*  79 */     Slot slotObject = this.inventorySlots.get(slot);
+/*  79 */     Slot slotObject = (Slot)this.inventorySlots.get(slot);
 /*     */ 
 /*     */     
 /*  82 */     if (slotObject != null && slotObject.getHasStack() && slotObject.getStack().getItem() instanceof net.minecraftforge.common.IPlantable) {

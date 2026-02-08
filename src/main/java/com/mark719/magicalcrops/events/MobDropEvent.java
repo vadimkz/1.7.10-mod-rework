@@ -36,20 +36,20 @@
 /* 36 */     random = new Random();
 /* 37 */     dropped = random.nextInt(100);
 /*    */     
-/* 39 */     if ((event.entityLiving instanceof net.minecraft.entity.boss.EntityDragon & ConfigMain.DRAGON_ESS_DROP) != 0) {
+/* 39 */     if (event.entityLiving instanceof net.minecraft.entity.boss.EntityDragon && ConfigMain.DRAGON_ESS_DROP) {
 /* 40 */       event.drops.add(new EntityItem(event.entityLiving.worldObj, posX, posY, posZ, dragonZivicioEssence));
 /*    */     }
-/* 42 */     if ((event.entityLiving instanceof net.minecraft.entity.passive.EntityAnimal & ConfigMain.PASSIVE_ESS_DROP) != 0 && 
+/* 42 */     if (event.entityLiving instanceof net.minecraft.entity.passive.EntityAnimal && ConfigMain.PASSIVE_ESS_DROP && 
 /* 43 */       dropped < ConfigMain.PASSIVE_DROP_CHANCE) {
 /* 44 */       event.drops.add(new EntityItem(event.entityLiving.worldObj, posX, posY, posZ, minicioEssence));
 /*    */     }
 /*    */     
-/* 47 */     if ((event.entityLiving instanceof net.minecraft.entity.monster.EntityMob & ConfigMain.HOSTILE_ESS_DROP) != 0 && 
+/* 47 */     if (event.entityLiving instanceof net.minecraft.entity.monster.EntityMob && ConfigMain.HOSTILE_ESS_DROP && 
 /* 48 */       dropped < ConfigMain.HOSTILE_DROP_CHANCE) {
 /* 49 */       event.drops.add(new EntityItem(event.entityLiving.worldObj, posX, posY, posZ, minicioEssence));
 /*    */     }
 /*    */     
-/* 52 */     if ((event.entityLiving instanceof net.minecraft.entity.boss.EntityWither & ConfigMain.WITHER_ESS_DROP) != 0)
+/* 52 */     if (event.entityLiving instanceof net.minecraft.entity.boss.EntityWither && ConfigMain.WITHER_ESS_DROP)
 /* 53 */       event.drops.add(new EntityItem(event.entityLiving.worldObj, posX, posY, posZ, witherZivicioEssence)); 
 /*    */   }
 /*    */ }
