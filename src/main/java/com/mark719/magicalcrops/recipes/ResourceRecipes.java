@@ -58,121 +58,121 @@
 /*     */ 
 /*     */   
 /*     */   public static void loadRecipes() {
-/*  61 */     GameRegistry.addRecipe(new ItemStack(Items.field_151044_h, ConfigCrafting.outPutCoal), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), coalEssence });
+/*  61 */     GameRegistry.addRecipe(new ItemStack(Items.coal, ConfigCrafting.outPutCoal), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), coalEssence });
 /*     */     
-/*  63 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 0), new Object[] { "XXX", "   ", "   ", Character.valueOf('X'), dyeEssence });
-/*  64 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 1), new Object[] { "   ", "XXX", "   ", Character.valueOf('X'), dyeEssence });
-/*  65 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 2), new Object[] { "   ", "   ", "XXX", Character.valueOf('X'), dyeEssence });
-/*  66 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 5), new Object[] { " X ", " X ", " X ", Character.valueOf('X'), dyeEssence });
-/*  67 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 6), new Object[] { "X  ", "X  ", "X  ", Character.valueOf('X'), dyeEssence });
-/*  68 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 7), new Object[] { "X  ", " X ", "  X", Character.valueOf('X'), dyeEssence });
-/*  69 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 8), new Object[] { " X ", " X ", "X  ", Character.valueOf('X'), dyeEssence });
-/*  70 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 9), new Object[] { "XX ", "X  ", "   ", Character.valueOf('X'), dyeEssence });
-/*  71 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 10), new Object[] { " XX", "X  ", "   ", Character.valueOf('X'), dyeEssence });
-/*  72 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 11), new Object[] { "   ", " X ", "X X", Character.valueOf('X'), dyeEssence });
-/*  73 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 12), new Object[] { "XX ", " X ", "   ", Character.valueOf('X'), dyeEssence });
-/*  74 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 13), new Object[] { " X ", "X  ", " X ", Character.valueOf('X'), dyeEssence });
-/*  75 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutDye, 14), new Object[] { "  X", " X ", " X ", Character.valueOf('X'), dyeEssence });
+/*  63 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 0), new Object[] { "XXX", "   ", "   ", Character.valueOf('X'), dyeEssence });
+/*  64 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 1), new Object[] { "   ", "XXX", "   ", Character.valueOf('X'), dyeEssence });
+/*  65 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 2), new Object[] { "   ", "   ", "XXX", Character.valueOf('X'), dyeEssence });
+/*  66 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 5), new Object[] { " X ", " X ", " X ", Character.valueOf('X'), dyeEssence });
+/*  67 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 6), new Object[] { "X  ", "X  ", "X  ", Character.valueOf('X'), dyeEssence });
+/*  68 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 7), new Object[] { "X  ", " X ", "  X", Character.valueOf('X'), dyeEssence });
+/*  69 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 8), new Object[] { " X ", " X ", "X  ", Character.valueOf('X'), dyeEssence });
+/*  70 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 9), new Object[] { "XX ", "X  ", "   ", Character.valueOf('X'), dyeEssence });
+/*  71 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 10), new Object[] { " XX", "X  ", "   ", Character.valueOf('X'), dyeEssence });
+/*  72 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 11), new Object[] { "   ", " X ", "X X", Character.valueOf('X'), dyeEssence });
+/*  73 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 12), new Object[] { "XX ", " X ", "   ", Character.valueOf('X'), dyeEssence });
+/*  74 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 13), new Object[] { " X ", "X  ", " X ", Character.valueOf('X'), dyeEssence });
+/*  75 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutDye, 14), new Object[] { "  X", " X ", " X ", Character.valueOf('X'), dyeEssence });
 /*     */     
-/*  77 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150341_Y, ConfigCrafting.outPutMossyCobble), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('X'), Blocks.field_150347_e, Character.valueOf('Y'), natureEssence });
-/*  78 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150417_aV, ConfigCrafting.outPutMossyBrick, 1), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), natureEssence, Character.valueOf('X'), Blocks.field_150417_aV });
-/*  79 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150395_bd, ConfigCrafting.outPutVines), new Object[] { "X X", "XXX", "X X", Character.valueOf('X'), natureEssence });
-/*  80 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150392_bi, ConfigCrafting.outPutLily), new Object[] { " X ", "XXX", "X X", Character.valueOf('X'), natureEssence });
-/*  81 */     GameRegistry.addRecipe(new ItemStack((Block)Blocks.field_150391_bh, ConfigCrafting.outPutMycelium), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), Blocks.field_150346_d, Character.valueOf('Z'), Blocks.field_150338_P });
-/*  82 */     GameRegistry.addRecipe(new ItemStack((Block)Blocks.field_150391_bh, ConfigCrafting.outPutMycelium), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), Blocks.field_150346_d, Character.valueOf('Z'), Blocks.field_150337_Q });
-/*  83 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150434_aF, ConfigCrafting.outPutCactus), new Object[] { "XX ", "XX ", "XX ", Character.valueOf('X'), natureEssence });
+/*  77 */     GameRegistry.addRecipe(new ItemStack(Blocks.mossy_cobblestone, ConfigCrafting.outPutMossyCobble), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('X'), Blocks.cobblestone, Character.valueOf('Y'), natureEssence });
+/*  78 */     GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, ConfigCrafting.outPutMossyBrick, 1), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), natureEssence, Character.valueOf('X'), Blocks.stonebrick });
+/*  79 */     GameRegistry.addRecipe(new ItemStack(Blocks.vine, ConfigCrafting.outPutVines), new Object[] { "X X", "XXX", "X X", Character.valueOf('X'), natureEssence });
+/*  80 */     GameRegistry.addRecipe(new ItemStack(Blocks.waterlily, ConfigCrafting.outPutLily), new Object[] { " X ", "XXX", "X X", Character.valueOf('X'), natureEssence });
+/*  81 */     GameRegistry.addRecipe(new ItemStack((Block)Blocks.mycelium, ConfigCrafting.outPutMycelium), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), Blocks.dirt, Character.valueOf('Z'), Blocks.brown_mushroom });
+/*  82 */     GameRegistry.addRecipe(new ItemStack((Block)Blocks.mycelium, ConfigCrafting.outPutMycelium), new Object[] { "YXY", "XZX", "YXY", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), Blocks.dirt, Character.valueOf('Z'), Blocks.red_mushroom });
+/*  83 */     GameRegistry.addRecipe(new ItemStack(Blocks.cactus, ConfigCrafting.outPutCactus), new Object[] { "XX ", "XX ", "XX ", Character.valueOf('X'), natureEssence });
 /*     */     
-/*  85 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150364_r, ConfigCrafting.outPutWood, 0), new Object[] { "YX ", "XX ", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), waterEssence });
-/*  86 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150364_r, ConfigCrafting.outPutWood, 1), new Object[] { "XY ", "XX ", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), waterEssence });
-/*  87 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150364_r, ConfigCrafting.outPutWood, 2), new Object[] { "XX ", "YX ", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), waterEssence });
-/*  88 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150364_r, ConfigCrafting.outPutWood, 3), new Object[] { "XX ", "XY ", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), waterEssence });
+/*  85 */     GameRegistry.addRecipe(new ItemStack(Blocks.log, ConfigCrafting.outPutWood, 0), new Object[] { "YX ", "XX ", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), waterEssence });
+/*  86 */     GameRegistry.addRecipe(new ItemStack(Blocks.log, ConfigCrafting.outPutWood, 1), new Object[] { "XY ", "XX ", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), waterEssence });
+/*  87 */     GameRegistry.addRecipe(new ItemStack(Blocks.log, ConfigCrafting.outPutWood, 2), new Object[] { "XX ", "YX ", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), waterEssence });
+/*  88 */     GameRegistry.addRecipe(new ItemStack(Blocks.log, ConfigCrafting.outPutWood, 3), new Object[] { "XX ", "XY ", Character.valueOf('X'), natureEssence, Character.valueOf('Y'), waterEssence });
 /*     */     
-/*  90 */     GameRegistry.addRecipe(new ItemStack(Items.field_151126_ay, ConfigCrafting.outPutSnowBalls), new Object[] { "XY ", "YX ", Character.valueOf('X'), waterEssence, Character.valueOf('Y'), airEssence });
-/*  91 */     GameRegistry.addRecipe(new ItemStack(Items.field_151129_at, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), fireEssence, Character.valueOf('Y'), new ItemStack(Items.field_151133_ar, 1) });
-/*  92 */     GameRegistry.addRecipe(new ItemStack(Items.field_151131_as, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), waterEssence, Character.valueOf('Y'), new ItemStack(Items.field_151133_ar, 1) });
-/*  93 */     GameRegistry.addRecipe(new ItemStack(Items.field_151119_aD, ConfigCrafting.outPutClayBall), new Object[] { "XY ", "YX ", Character.valueOf('X'), waterEssence, Character.valueOf('Y'), earthEssence });
-/*  94 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150347_e, ConfigCrafting.outPutCobblestone), new Object[] { "XY ", "YX ", Character.valueOf('X'), fireEssence, Character.valueOf('Y'), earthEssence });
-/*  95 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150346_d, ConfigCrafting.outPutDirt), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), earthEssence });
-/*  96 */     GameRegistry.addRecipe(new ItemStack((Block)Blocks.field_150354_m, ConfigCrafting.outPutSand), new Object[] { "YX ", "XY ", Character.valueOf('X'), fireEssence, Character.valueOf('Y'), earthEssence });
-/*  97 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150351_n, ConfigCrafting.outPutGravel), new Object[] { "YY ", "XX ", Character.valueOf('X'), fireEssence, Character.valueOf('Y'), earthEssence });
+/*  90 */     GameRegistry.addRecipe(new ItemStack(Items.snowball, ConfigCrafting.outPutSnowBalls), new Object[] { "XY ", "YX ", Character.valueOf('X'), waterEssence, Character.valueOf('Y'), airEssence });
+/*  91 */     GameRegistry.addRecipe(new ItemStack(Items.lava_bucket, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), fireEssence, Character.valueOf('Y'), new ItemStack(Items.bucket, 1) });
+/*  92 */     GameRegistry.addRecipe(new ItemStack(Items.water_bucket, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), waterEssence, Character.valueOf('Y'), new ItemStack(Items.bucket, 1) });
+/*  93 */     GameRegistry.addRecipe(new ItemStack(Items.clay_ball, ConfigCrafting.outPutClayBall), new Object[] { "XY ", "YX ", Character.valueOf('X'), waterEssence, Character.valueOf('Y'), earthEssence });
+/*  94 */     GameRegistry.addRecipe(new ItemStack(Blocks.cobblestone, ConfigCrafting.outPutCobblestone), new Object[] { "XY ", "YX ", Character.valueOf('X'), fireEssence, Character.valueOf('Y'), earthEssence });
+/*  95 */     GameRegistry.addRecipe(new ItemStack(Blocks.dirt, ConfigCrafting.outPutDirt), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), earthEssence });
+/*  96 */     GameRegistry.addRecipe(new ItemStack((Block)Blocks.sand, ConfigCrafting.outPutSand), new Object[] { "YX ", "XY ", Character.valueOf('X'), fireEssence, Character.valueOf('Y'), earthEssence });
+/*  97 */     GameRegistry.addRecipe(new ItemStack(Blocks.gravel, ConfigCrafting.outPutGravel), new Object[] { "YY ", "XX ", Character.valueOf('X'), fireEssence, Character.valueOf('Y'), earthEssence });
 /*     */     
-/*  99 */     GameRegistry.addRecipe(new ItemStack(Items.field_151137_ax, ConfigCrafting.outPutRedstone), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), redstoneEssence });
-/* 100 */     GameRegistry.addRecipe(new ItemStack(Items.field_151114_aO, ConfigCrafting.outPutGlowstone), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), glowstoneEssence });
-/* 101 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150343_Z, ConfigCrafting.outPutObsidian), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), obsidianEssence });
+/*  99 */     GameRegistry.addRecipe(new ItemStack(Items.redstone, ConfigCrafting.outPutRedstone), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), redstoneEssence });
+/* 100 */     GameRegistry.addRecipe(new ItemStack(Items.glowstone_dust, ConfigCrafting.outPutGlowstone), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), glowstoneEssence });
+/* 101 */     GameRegistry.addRecipe(new ItemStack(Blocks.obsidian, ConfigCrafting.outPutObsidian), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), obsidianEssence });
 /*     */     
-/* 103 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150425_aM, ConfigCrafting.outPutSoul), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), netherEssence });
-/* 104 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150424_aL, ConfigCrafting.outPutNether), new Object[] { "XX", "XX", Character.valueOf('X'), netherEssence });
-/* 105 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150385_bj, ConfigCrafting.outPutNetherbrick), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), netherEssence });
+/* 103 */     GameRegistry.addRecipe(new ItemStack(Blocks.soul_sand, ConfigCrafting.outPutSoul), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), netherEssence });
+/* 104 */     GameRegistry.addRecipe(new ItemStack(Blocks.netherrack, ConfigCrafting.outPutNether), new Object[] { "XX", "XX", Character.valueOf('X'), netherEssence });
+/* 105 */     GameRegistry.addRecipe(new ItemStack(Blocks.nether_brick, ConfigCrafting.outPutNetherbrick), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), netherEssence });
 /*     */     
-/* 107 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150366_p, ConfigCrafting.outPutIron), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), ironEssence });
-/* 108 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150352_o, ConfigCrafting.outPutGold), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), goldEssence });
-/* 109 */     GameRegistry.addRecipe(new ItemStack(Items.field_151100_aR, ConfigCrafting.outPutLapis, 4), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), lapisEssence });
-/* 110 */     GameRegistry.addRecipe(new ItemStack(Items.field_151128_bU, ConfigCrafting.outPutQuartz), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), quartzEssence });
-/* 111 */     GameRegistry.addRecipe(new ItemStack(Items.field_151062_by, ConfigCrafting.outPutXP), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), xpEssence });
+/* 107 */     GameRegistry.addRecipe(new ItemStack(Blocks.iron_ore, ConfigCrafting.outPutIron), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), ironEssence });
+/* 108 */     GameRegistry.addRecipe(new ItemStack(Blocks.gold_ore, ConfigCrafting.outPutGold), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), goldEssence });
+/* 109 */     GameRegistry.addRecipe(new ItemStack(Items.dye, ConfigCrafting.outPutLapis, 4), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), lapisEssence });
+/* 110 */     GameRegistry.addRecipe(new ItemStack(Items.quartz, ConfigCrafting.outPutQuartz), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), quartzEssence });
+/* 111 */     GameRegistry.addRecipe(new ItemStack(Items.experience_bottle, ConfigCrafting.outPutXP), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), xpEssence });
 /*     */     
-/* 113 */     GameRegistry.addRecipe(new ItemStack(Items.field_151166_bC, ConfigCrafting.outPutEmerald), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), emeraldEssence });
-/* 114 */     GameRegistry.addRecipe(new ItemStack(Items.field_151045_i, ConfigCrafting.outPutDiamond), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), diamondEssence });
+/* 113 */     GameRegistry.addRecipe(new ItemStack(Items.emerald, ConfigCrafting.outPutEmerald), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), emeraldEssence });
+/* 114 */     GameRegistry.addRecipe(new ItemStack(Items.diamond, ConfigCrafting.outPutDiamond), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), diamondEssence });
 /*     */ 
 /*     */     
-/* 117 */     GameRegistry.addRecipe(new ItemStack(Items.field_151116_aA, ConfigCrafting.outPutCowLeather), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), cowEssence });
-/* 118 */     GameRegistry.addRecipe(new ItemStack(Items.field_151082_bd, ConfigCrafting.outPutCowBeef), new Object[] { "XX", "XX", Character.valueOf('X'), cowEssence });
-/* 119 */     GameRegistry.addRecipe(new ItemStack(Items.field_151117_aB, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), cowEssence, Character.valueOf('Y'), Items.field_151133_ar });
+/* 117 */     GameRegistry.addRecipe(new ItemStack(Items.leather, ConfigCrafting.outPutCowLeather), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), cowEssence });
+/* 118 */     GameRegistry.addRecipe(new ItemStack(Items.beef, ConfigCrafting.outPutCowBeef), new Object[] { "XX", "XX", Character.valueOf('X'), cowEssence });
+/* 119 */     GameRegistry.addRecipe(new ItemStack(Items.milk_bucket, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), cowEssence, Character.valueOf('Y'), Items.bucket });
 /*     */ 
 /*     */     
-/* 122 */     GameRegistry.addRecipe(new ItemStack(Items.field_151147_al, ConfigCrafting.outPutPigPork), new Object[] { "XX", "XX", Character.valueOf('X'), pigEssence });
+/* 122 */     GameRegistry.addRecipe(new ItemStack(Items.porkchop, ConfigCrafting.outPutPigPork), new Object[] { "XX", "XX", Character.valueOf('X'), pigEssence });
 /*     */ 
 /*     */     
-/* 125 */     GameRegistry.addRecipe(new ItemStack(Items.field_151076_bf, ConfigCrafting.outPutChicken), new Object[] { "XX", "XX", Character.valueOf('X'), chickenEssence });
-/* 126 */     GameRegistry.addRecipe(new ItemStack(Items.field_151008_G, ConfigCrafting.outPutFeather), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), chickenEssence });
-/* 127 */     GameRegistry.addRecipe(new ItemStack(Items.field_151110_aK, ConfigCrafting.outPutEggs), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), chickenEssence });
+/* 125 */     GameRegistry.addRecipe(new ItemStack(Items.chicken, ConfigCrafting.outPutChicken), new Object[] { "XX", "XX", Character.valueOf('X'), chickenEssence });
+/* 126 */     GameRegistry.addRecipe(new ItemStack(Items.feather, ConfigCrafting.outPutFeather), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), chickenEssence });
+/* 127 */     GameRegistry.addRecipe(new ItemStack(Items.egg, ConfigCrafting.outPutEggs), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), chickenEssence });
 /*     */ 
 /*     */     
-/* 130 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150325_L, ConfigCrafting.outPutSheepWool), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), sheepEssence });
+/* 130 */     GameRegistry.addRecipe(new ItemStack(Blocks.wool, ConfigCrafting.outPutSheepWool), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), sheepEssence });
 /*     */ 
 /*     */     
-/* 133 */     GameRegistry.addRecipe(new ItemStack(Items.field_151144_bL, ConfigCrafting.outPutCreeperHead, 4), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), creeperEssence });
-/* 134 */     GameRegistry.addRecipe(new ItemStack(Items.field_151016_H, ConfigCrafting.outPutCreeperGun), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), creeperEssence });
+/* 133 */     GameRegistry.addRecipe(new ItemStack(Items.skull, ConfigCrafting.outPutCreeperHead, 4), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), creeperEssence });
+/* 134 */     GameRegistry.addRecipe(new ItemStack(Items.gunpowder, ConfigCrafting.outPutCreeperGun), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), creeperEssence });
 /*     */ 
 /*     */     
-/* 137 */     GameRegistry.addRecipe(new ItemStack(Items.field_151072_bj, ConfigCrafting.outPutBlazerod), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), blazeEssence });
+/* 137 */     GameRegistry.addRecipe(new ItemStack(Items.blaze_rod, ConfigCrafting.outPutBlazerod), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), blazeEssence });
 /*     */ 
 /*     */     
-/* 140 */     GameRegistry.addRecipe(new ItemStack(Items.field_151079_bi, ConfigCrafting.outPutEnderPearl), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), endermanEssence });
-/* 141 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150377_bs, 8), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), endermanEssence, Character.valueOf('X'), Blocks.field_150348_b });
+/* 140 */     GameRegistry.addRecipe(new ItemStack(Items.ender_pearl, ConfigCrafting.outPutEnderPearl), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), endermanEssence });
+/* 141 */     GameRegistry.addRecipe(new ItemStack(Blocks.end_stone, 8), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('Y'), endermanEssence, Character.valueOf('X'), Blocks.stone });
 /*     */ 
 /*     */     
-/* 144 */     GameRegistry.addRecipe(new ItemStack(Items.field_151144_bL, ConfigCrafting.outPutSkeleSkull, 0), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), skeletonEssence });
-/* 145 */     GameRegistry.addRecipe(new ItemStack(Items.field_151103_aS, ConfigCrafting.outPutBones), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), skeletonEssence });
+/* 144 */     GameRegistry.addRecipe(new ItemStack(Items.skull, ConfigCrafting.outPutSkeleSkull, 0), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), skeletonEssence });
+/* 145 */     GameRegistry.addRecipe(new ItemStack(Items.bone, ConfigCrafting.outPutBones), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), skeletonEssence });
 /*     */ 
 /*     */     
-/* 148 */     GameRegistry.addRecipe(new ItemStack(Items.field_151144_bL, ConfigCrafting.outPutWitherSkull, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), witherEssence });
+/* 148 */     GameRegistry.addRecipe(new ItemStack(Items.skull, ConfigCrafting.outPutWitherSkull, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), witherEssence });
 /*     */ 
 /*     */     
-/* 151 */     GameRegistry.addRecipe(new ItemStack(Items.field_151123_aH, ConfigCrafting.outPutSlimeBall), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), slimeEssence });
+/* 151 */     GameRegistry.addRecipe(new ItemStack(Items.slime_ball, ConfigCrafting.outPutSlimeBall), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), slimeEssence });
 /*     */ 
 /*     */     
-/* 154 */     GameRegistry.addRecipe(new ItemStack(Items.field_151007_F, ConfigCrafting.outPutSpiderString), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), spiderEssence });
-/* 155 */     GameRegistry.addRecipe(new ItemStack(Items.field_151070_bp, ConfigCrafting.outPutSpiderEye), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), spiderEssence });
+/* 154 */     GameRegistry.addRecipe(new ItemStack(Items.string, ConfigCrafting.outPutSpiderString), new Object[] { "XXX", "X X", "XXX", Character.valueOf('X'), spiderEssence });
+/* 155 */     GameRegistry.addRecipe(new ItemStack(Items.spider_eye, ConfigCrafting.outPutSpiderEye), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), spiderEssence });
 /*     */ 
 /*     */     
-/* 158 */     GameRegistry.addRecipe(new ItemStack(Items.field_151073_bk, ConfigCrafting.outPutGhastTear), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), ghastEssence });
+/* 158 */     GameRegistry.addRecipe(new ItemStack(Items.ghast_tear, ConfigCrafting.outPutGhastTear), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), ghastEssence });
 /*     */ 
 /*     */     
-/* 161 */     GameRegistry.addRecipe(new ItemStack(Items.field_151096_cd, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 11) });
-/* 162 */     GameRegistry.addRecipe(new ItemStack(Items.field_151093_ce, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 2) });
-/* 163 */     GameRegistry.addRecipe(new ItemStack(Items.field_151094_cf, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 14) });
-/* 164 */     GameRegistry.addRecipe(new ItemStack(Items.field_151091_cg, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 1) });
-/* 165 */     GameRegistry.addRecipe(new ItemStack(Items.field_151088_cl, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 15) });
-/* 166 */     GameRegistry.addRecipe(new ItemStack(Items.field_151085_cm, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 6) });
-/* 167 */     GameRegistry.addRecipe(new ItemStack(Items.field_151092_ch, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 10) });
-/* 168 */     GameRegistry.addRecipe(new ItemStack(Items.field_151089_ci, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 5) });
-/* 169 */     GameRegistry.addRecipe(new ItemStack(Items.field_151090_cj, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 9) });
-/* 170 */     GameRegistry.addRecipe(new ItemStack(Items.field_151087_ck, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 0) });
-/* 171 */     GameRegistry.addRecipe(new ItemStack(Items.field_151086_cn, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 8) });
-/* 172 */     GameRegistry.addRecipe(new ItemStack(Items.field_151084_co, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.field_151100_aR, 1, 4) });
+/* 161 */     GameRegistry.addRecipe(new ItemStack(Items.record_13, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 11) });
+/* 162 */     GameRegistry.addRecipe(new ItemStack(Items.record_cat, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 2) });
+/* 163 */     GameRegistry.addRecipe(new ItemStack(Items.record_blocks, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 14) });
+/* 164 */     GameRegistry.addRecipe(new ItemStack(Items.record_chirp, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 1) });
+/* 165 */     GameRegistry.addRecipe(new ItemStack(Items.record_strad, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 15) });
+/* 166 */     GameRegistry.addRecipe(new ItemStack(Items.record_ward, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 6) });
+/* 167 */     GameRegistry.addRecipe(new ItemStack(Items.record_far, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 10) });
+/* 168 */     GameRegistry.addRecipe(new ItemStack(Items.record_mall, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 5) });
+/* 169 */     GameRegistry.addRecipe(new ItemStack(Items.record_mellohi, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 9) });
+/* 170 */     GameRegistry.addRecipe(new ItemStack(Items.record_stal, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 0) });
+/* 171 */     GameRegistry.addRecipe(new ItemStack(Items.record_11, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 8) });
+/* 172 */     GameRegistry.addRecipe(new ItemStack(Items.record_wait, 1), new Object[] { "XYX", "YZY", "XYX", Character.valueOf('X'), skeletonEssence, Character.valueOf('Y'), creeperEssence, Character.valueOf('Z'), new ItemStack(Items.dye, 1, 4) });
 /*     */ 
 /*     */     
-/* 175 */     GameRegistry.addRecipe(new ItemStack(Blocks.field_150474_ac, 1, 61), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('X'), blazeEssence, Character.valueOf('Y'), MBlocks.WitherProof });
+/* 175 */     GameRegistry.addRecipe(new ItemStack(Blocks.mob_spawner, 1, 61), new Object[] { "XXX", "XYX", "XXX", Character.valueOf('X'), blazeEssence, Character.valueOf('Y'), MBlocks.WitherProof });
 /*     */   }
 /*     */ }
 

@@ -19,10 +19,10 @@
 /*    */   extends BlockGlass
 /*    */ {
 /*    */   public BlockWitherProofGlass() {
-/* 22 */     super(Material.field_151592_s, false);
-/* 23 */     func_149647_a(MagicalCrops.tabMagical);
-/* 24 */     func_149711_c(2.0F);
-/* 25 */     func_149752_b(2000.0F);
+/* 22 */     super(Material.glass, false);
+/* 23 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 24 */     setHardness(2.0F);
+/* 25 */     setResistance(2000.0F);
 /*    */   }
 /*    */ 
 /*    */   
@@ -36,32 +36,32 @@
 /*    */ 
 /*    */ 
 /*    */   
-/*    */   public boolean func_149659_a(Explosion p_149659_1_) {
+/*    */   public boolean canDropFromExplosion(Explosion p_149659_1_) {
 /* 40 */     return false;
 /*    */   }
 /*    */   
-/*    */   public int func_149745_a(Random p_149745_1_) {
+/*    */   public int quantityDropped(Random p_149745_1_) {
 /* 44 */     return 1;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public int func_149701_w() {
+/*    */   public int getRenderBlockPass() {
 /* 49 */     return 1;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_149662_c() {
+/*    */   public boolean isOpaqueCube() {
 /* 54 */     return false;
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public boolean func_149686_d() {
+/*    */   public boolean renderAsNormalBlock() {
 /* 59 */     return false;
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
 /*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
-/* 64 */     this.field_149761_L = p_149651_1_.func_94245_a("magicalcrops:wither_glass");
+/* 64 */     this.blockIcon = p_149651_1_.registerIcon("magicalcrops:wither_glass");
 /*    */   }
 /*    */ }
 

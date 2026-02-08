@@ -11,14 +11,14 @@
 /*    */   extends Item
 /*    */ {
 /*    */   public ImperioEssence() {
-/* 14 */     func_77625_d(64);
-/* 15 */     func_77637_a(MagicalCrops.tabMagical);
-/* 16 */     func_111206_d("magicalcrops:MagicEssence_Imperio");
+/* 14 */     setMaxStackSize(64);
+/* 15 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 16 */     setTextureName("magicalcrops:MagicEssence_Imperio");
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 21 */     return EnumChatFormatting.AQUA + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 21 */     return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */ }
 

@@ -21,18 +21,18 @@
 /*    */ {
 /*    */   public AccioAxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 23 */     super(par2EnumToolMaterial);
-/* 24 */     this.field_77777_bU = 1;
-/* 25 */     func_77637_a(MagicalCrops.tabMagical);
+/* 24 */     this.maxStackSize = 1;
+/* 25 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String func_77653_i(ItemStack stack) {
-/* 30 */     return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/*    */   public String getItemStackDisplayName(ItemStack stack) {
+/* 30 */     return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_77624_a(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
-/* 35 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (func_77612_l() - getDamage(par1ItemStack)) + "/" + func_77612_l());
+/*    */   public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List<String> par3List, boolean par4) {
+/* 35 */     par3List.add(EnumChatFormatting.WHITE + "Durability: " + EnumChatFormatting.GRAY + EnumChatFormatting.ITALIC + "" + (getMaxDurability() - getDamage(par1ItemStack)) + "/" + getMaxDurability());
 /*    */   }
 /*    */ }
 

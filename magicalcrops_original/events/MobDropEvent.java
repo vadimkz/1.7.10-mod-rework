@@ -25,9 +25,9 @@
 /*    */   
 /*    */   @SubscribeEvent
 /*    */   public void essenceMobDrops(LivingDropsEvent event) {
-/* 28 */     double posX = event.entityLiving.field_70165_t;
-/* 29 */     double posY = event.entityLiving.field_70163_u;
-/* 30 */     double posZ = event.entityLiving.field_70161_v;
+/* 28 */     double posX = event.entityLiving.posX;
+/* 29 */     double posY = event.entityLiving.posY;
+/* 30 */     double posZ = event.entityLiving.posZ;
 /*    */     
 /* 32 */     ItemStack minicioEssence = new ItemStack(Essence.MinicioEssence, 1);
 /* 33 */     ItemStack dragonZivicioEssence = new ItemStack(Essence.ZivicioEssence, ConfigMain.DRGAON_ESS_DROP_AMOUNT);
@@ -37,20 +37,20 @@
 /* 37 */     dropped = random.nextInt(100);
 /*    */     
 /* 39 */     if ((event.entityLiving instanceof net.minecraft.entity.boss.EntityDragon & ConfigMain.DRAGON_ESS_DROP) != 0) {
-/* 40 */       event.drops.add(new EntityItem(event.entityLiving.field_70170_p, posX, posY, posZ, dragonZivicioEssence));
+/* 40 */       event.drops.add(new EntityItem(event.entityLiving.worldObj, posX, posY, posZ, dragonZivicioEssence));
 /*    */     }
 /* 42 */     if ((event.entityLiving instanceof net.minecraft.entity.passive.EntityAnimal & ConfigMain.PASSIVE_ESS_DROP) != 0 && 
 /* 43 */       dropped < ConfigMain.PASSIVE_DROP_CHANCE) {
-/* 44 */       event.drops.add(new EntityItem(event.entityLiving.field_70170_p, posX, posY, posZ, minicioEssence));
+/* 44 */       event.drops.add(new EntityItem(event.entityLiving.worldObj, posX, posY, posZ, minicioEssence));
 /*    */     }
 /*    */     
 /* 47 */     if ((event.entityLiving instanceof net.minecraft.entity.monster.EntityMob & ConfigMain.HOSTILE_ESS_DROP) != 0 && 
 /* 48 */       dropped < ConfigMain.HOSTILE_DROP_CHANCE) {
-/* 49 */       event.drops.add(new EntityItem(event.entityLiving.field_70170_p, posX, posY, posZ, minicioEssence));
+/* 49 */       event.drops.add(new EntityItem(event.entityLiving.worldObj, posX, posY, posZ, minicioEssence));
 /*    */     }
 /*    */     
 /* 52 */     if ((event.entityLiving instanceof net.minecraft.entity.boss.EntityWither & ConfigMain.WITHER_ESS_DROP) != 0)
-/* 53 */       event.drops.add(new EntityItem(event.entityLiving.field_70170_p, posX, posY, posZ, witherZivicioEssence)); 
+/* 53 */       event.drops.add(new EntityItem(event.entityLiving.worldObj, posX, posY, posZ, witherZivicioEssence)); 
 /*    */   }
 /*    */ }
 

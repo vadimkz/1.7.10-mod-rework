@@ -33,20 +33,20 @@
 /*    */ 
 /*    */     
 /* 35 */     this.icon = new IIcon[6];
-/*    */     func_149647_a(MagicalCrops.tabMagical);
-/*    */     func_149711_c(2.0F);
-/*    */     func_149752_b(10.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) {
-/* 39 */     this.icon[0] = par1IconRegister.func_94245_a(textureName + "dust_block_minicio");
-/* 40 */     this.icon[1] = par1IconRegister.func_94245_a(textureName + "dust_block_accio");
-/* 41 */     this.icon[2] = par1IconRegister.func_94245_a(textureName + "dust_block_crucio");
-/* 42 */     this.icon[3] = par1IconRegister.func_94245_a(textureName + "dust_block_imperio");
-/* 43 */     this.icon[4] = par1IconRegister.func_94245_a(textureName + "dust_block_zivicio");
-/* 44 */     this.icon[5] = par1IconRegister.func_94245_a(textureName + "dust_block_zivicio_extra");
+/*    */     setCreativeTab(MagicalCrops.tabMagical);
+/*    */     setHardness(2.0F);
+/*    */     setResistance(10.0F); } public void registerBlockIcons(IIconRegister par1IconRegister) {
+/* 39 */     this.icon[0] = par1IconRegister.registerIcon(textureName + "dust_block_minicio");
+/* 40 */     this.icon[1] = par1IconRegister.registerIcon(textureName + "dust_block_accio");
+/* 41 */     this.icon[2] = par1IconRegister.registerIcon(textureName + "dust_block_crucio");
+/* 42 */     this.icon[3] = par1IconRegister.registerIcon(textureName + "dust_block_imperio");
+/* 43 */     this.icon[4] = par1IconRegister.registerIcon(textureName + "dust_block_zivicio");
+/* 44 */     this.icon[5] = par1IconRegister.registerIcon(textureName + "dust_block_zivicio_extra");
 /*    */   }
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void func_149666_a(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
+/*    */   public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
 /* 50 */     for (int var4 = 0; var4 < 6; var4++) {
 /* 51 */       par3List.add(new ItemStack(MBlocks.EssenceStorage, 1, var4));
 /*    */     }
@@ -59,7 +59,7 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public int func_149692_a(int meta) {
+/*    */   public int damageDropped(int meta) {
 /* 63 */     return meta;
 /*    */   }
 /*    */ }

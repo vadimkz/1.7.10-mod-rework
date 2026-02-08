@@ -16,7 +16,7 @@
 /*    */     {
 /* 17 */       if (event.block instanceof com.mark719.magicalcrops.blocks.BlockMagicalCrops && event.blockMetadata == 7)
 /*    */       {
-/* 19 */         event.world.func_147465_d(event.x, event.y, event.z, event.block, 1, 2);
+/* 19 */         event.world.setBlock(event.x, event.y, event.z, event.block, 1, 2);
 /*    */       }
 /*    */     }
 /*    */   }

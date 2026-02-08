@@ -18,20 +18,20 @@
 /*    */       
 /* 19 */       EntityPlayer player = (EntityPlayer)event.entity;
 /*    */       
-/* 21 */       ItemStack getBoots = player.func_82169_q(0);
-/* 22 */       ItemStack getLegs = player.func_82169_q(1);
-/* 23 */       ItemStack getChest = player.func_82169_q(2);
-/* 24 */       ItemStack getHelm = player.func_82169_q(3);
+/* 21 */       ItemStack getBoots = player.getCurrentArmor(0);
+/* 22 */       ItemStack getLegs = player.getCurrentArmor(1);
+/* 23 */       ItemStack getChest = player.getCurrentArmor(2);
+/* 24 */       ItemStack getHelm = player.getCurrentArmor(3);
 /*    */       
-/* 26 */       if (event.source.equals(DamageSource.field_76371_c) || event.source.equals(DamageSource.field_76372_a) || event.source.equals(DamageSource.field_76370_b))
+/* 26 */       if (event.source.equals(DamageSource.lava) || event.source.equals(DamageSource.inFire) || event.source.equals(DamageSource.onFire))
 /*    */       {
 /* 28 */         if (getBoots != null && getLegs != null && getChest != null && getHelm != null)
 /*    */         {
-/* 30 */           if (getBoots.func_77973_b() instanceof com.mark719.magicalcrops.items.armour.ItemZivicioArmour && getLegs.func_77973_b() instanceof com.mark719.magicalcrops.items.armour.ItemZivicioArmour && getChest.func_77973_b() == Armour.ZivicioArmourChestplateFire && getHelm.func_77973_b() instanceof com.mark719.magicalcrops.items.armour.ItemZivicioArmour) {
+/* 30 */           if (getBoots.getItem() instanceof com.mark719.magicalcrops.items.armour.ItemZivicioArmour && getLegs.getItem() instanceof com.mark719.magicalcrops.items.armour.ItemZivicioArmour && getChest.getItem() == Armour.ZivicioArmourChestplateFire && getHelm.getItem() instanceof com.mark719.magicalcrops.items.armour.ItemZivicioArmour) {
 /*    */ 
 /*    */             
 /* 33 */             event.setCanceled(true);
-/* 34 */             player.func_70066_B();
+/* 34 */             player.extinguish();
 /*    */           } else {
 /*    */             
 /* 37 */             event.setCanceled(false);
