@@ -52,14 +52,14 @@
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public static boolean func_96604_a(ItemStack stack, WorldServer world, int x, int y, int x) {
-/* 56 */     return applyBonemeal(stack, (World)world, x, y, x, (EntityPlayer)FakePlayerFactory.getMinecraft(world));
+/*    */   public static boolean func_96604_a(ItemStack stack, WorldServer world, int x, int y, int z) {
+/* 56 */     return applyBonemeal(stack, (World)world, x, y, z, (EntityPlayer)FakePlayerFactory.getMinecraft(world));
 /*    */   }
 /*    */   
-/*    */   public static boolean applyBonemeal(ItemStack stack, World world, int x, int y, int x, EntityPlayer player) {
-/* 60 */     Block block = world.getBlock(x, y, x);
+/*    */   public static boolean applyBonemeal(ItemStack stack, World world, int x, int y, int z, EntityPlayer player) {
+/* 60 */     Block block = world.getBlock(x, y, z);
 /*    */     
-/* 62 */     BonemealEvent event = new BonemealEvent(player, world, block, x, y, x);
+/* 62 */     BonemealEvent event = new BonemealEvent(player, world, block, x, y, z);
 /* 63 */     if (MinecraftForge.EVENT_BUS.post((Event)event))
 /*    */     {
 /* 65 */       return false;
@@ -78,14 +78,14 @@
 /*    */       
 /* 79 */       if (!world.isRemote) {
 /*    */         
-/* 81 */         int I = world.getBlockMetadata(x, y, x) + MathHelper.getRandomIntegerInRange(world.rand, 7, 7);
+/* 81 */         int I = world.getBlockMetadata(x, y, z) + MathHelper.getRandomIntegerInRange(world.rand, 7, 7);
 /*    */         
 /* 83 */         if (I > 7)
 /*    */         {
 /* 85 */           I = 7;
 /*    */         }
 /*    */         
-/* 88 */         world.setBlockMetadataWithNotify(x, y, x, I, 2);
+/* 88 */         world.setBlockMetadataWithNotify(x, y, z, I, 2);
 /* 89 */         stack.stackSize--;
 /*    */       } 
 /*    */ 

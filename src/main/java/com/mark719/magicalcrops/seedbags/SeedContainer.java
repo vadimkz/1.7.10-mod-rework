@@ -61,16 +61,16 @@
 /*     */   }
 /*     */ 
 /*     */   
-/*     */   public ItemStack slotClick(int paramInt1, int paramInt2, int paramInt3, EntityPlayer paramEntityPlayer) {
-/*  65 */     if (paramInt3 == 4) {
+/*     */   public ItemStack slotClick(int x, int y, int z, EntityPlayer player) {
+/*  65 */     if (z == 4) {
 /*  66 */       if (!Keyboard.isKeyDown(42) && !Keyboard.isKeyDown(54)) {
-/*  67 */         return super.slotClick(paramInt1, paramInt2, 0, paramEntityPlayer);
+/*  67 */         return super.slotClick(x, y, 0, player);
 /*     */       }
 /*     */       
-/*  70 */       return transferStackInSlot(paramEntityPlayer, paramInt1);
+/*  70 */       return transferStackInSlot(player, x);
 /*     */     } 
 /*     */     
-/*  73 */     return super.slotClick(paramInt1, paramInt2, paramInt3, paramEntityPlayer);
+/*  73 */     return super.slotClick(x, y, z, player);
 /*     */   }
 /*     */ 
 /*     */   
