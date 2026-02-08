@@ -14,14 +14,14 @@
 /*    */ {
 /*    */   public AlumiteSeeds(Block crop, Block farmland) {
 /* 16 */     super(crop, farmland);
-/* 17 */     this.maxStackSize = 64;
-/* 18 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 17 */     this.field_77777_bU = 64;
+/* 18 */     func_77637_a(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 
 /*    */ 
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public int getColorFromItemStack(ItemStack par1ItemStack, int par2) {
+/*    */   public int func_82790_a(ItemStack par1ItemStack, int par2) {
 /* 25 */     return 16043244;
 /*    */   }
 /*    */ }

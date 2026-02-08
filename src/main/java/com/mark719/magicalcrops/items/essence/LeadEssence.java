@@ -9,9 +9,9 @@
 /*    */   extends Item
 /*    */ {
 /*    */   public LeadEssence() {
-/* 12 */     setMaxStackSize(64);
-/* 13 */     setCreativeTab(MagicalCrops.tabMagical);
-/* 14 */     setTextureName("magicalcrops:cropessence_lead");
+/* 12 */     func_77625_d(64);
+/* 13 */     func_77637_a(MagicalCrops.tabMagical);
+/* 14 */     func_111206_d("magicalcrops:cropessence_lead");
 /*    */   }
 /*    */ }
 

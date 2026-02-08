@@ -1,57 +1,57 @@
-package com.mark719.magicalcrops.blocks.crops;
+/*    */ package com.mark719.magicalcrops.blocks.crops;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
+/*    */ import com.mark719.magicalcrops.handlers.Essence;
+/*    */ import com.mark719.magicalcrops.handlers.MSeeds;
+/*    */ import cpw.mods.fml.relauncher.Side;
+/*    */ import cpw.mods.fml.relauncher.SideOnly;
+/*    */ import net.minecraft.client.renderer.texture.IIconRegister;
+/*    */ import net.minecraft.item.Item;
+/*    */ import net.minecraft.util.IIcon;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class NatureCrop
+/*    */   extends BlockMagicalCrops
+/*    */ {
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   private IIcon[] iconArray;
+/*    */   
+/*    */   public Item getSeed() {
+/* 25 */     return MSeeds.NatureSeeds;
+/*    */   }
+/*    */   
+/*    */   public Item getCrop() {
+/* 29 */     return Essence.NatureEssence;
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public void registerBlockIcons(IIconRegister p_149651_1_) {
+/* 34 */     this.iconArray = new IIcon[4];
+/* 35 */     for (int i = 0; i < this.iconArray.length; i++) {
+/* 36 */       this.iconArray[i] = p_149651_1_.func_94245_a("magicalcrops:CropNature_" + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   @SideOnly(Side.CLIENT)
+/*    */   public IIcon getIcon(int par1, int par2) {
+/* 42 */     if (par2 < 7) {
+/* 43 */       if (par2 == 6) {
+/* 44 */         par2 = 5;
+/*    */       }
+/* 46 */       return this.iconArray[par2 >> 1];
+/*    */     } 
+/*    */     
+/* 49 */     return this.iconArray[3];
+/*    */   }
+/*    */ }
 
-import com.mark719.magicalcrops.blocks.BlockMagicalCrops;
-import com.mark719.magicalcrops.handlers.Essence;
-import com.mark719.magicalcrops.handlers.MSeeds;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
 
-/**
- * Класс блока культуры Природы (Nature).
- * Используется для выращивания эссенции природы, из которой крафтятся органические материалы.
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\NatureCrop.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
  */
-public class NatureCrop extends BlockMagicalCrops {
-
-    @SideOnly(Side.CLIENT)
-    private IIcon[] iconArray;
-
-    public NatureCrop() {
-        super();
-        this.setUnlocalizedName("NatureCrop");
-    }
-
-
-    @Override
-    public Item getSeed() {
-        // Возвращает предмет семян природы
-        return MSeeds.NatureSeeds;
-    }
-
-    @Override
-    public Item getCrop() {
-        // Возвращает предмет эссенции природы
-        return Essence.NatureEssence;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister reg) {
-        this.iconArray = new IIcon[4];
-        for (int i = 0; i < this.iconArray.length; i++) {
-            this.iconArray[i] = reg.registerIcon("magicalcrops:CropNature_" + i);
-        }
-    }
-
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-        if (meta < 7) {
-            if (meta == 6) meta = 5;
-            return this.iconArray[meta >> 1];
-        }
-        return this.iconArray[3];
-    }
-}

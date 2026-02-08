@@ -1,37 +1,22 @@
-package com.mark719.magicalcrops.items.seeds;
+/*    */ package com.mark719.magicalcrops.items.seeds;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.MagicalCrops;
+/*    */ import net.minecraft.block.Block;
+/*    */ import net.minecraft.item.ItemSeeds;
+/*    */ 
+/*    */ 
+/*    */ public class NetherSeeds
+/*    */   extends ItemSeeds
+/*    */ {
+/*    */   public NetherSeeds(Block crop, Block farmland) {
+/* 12 */     super(crop, farmland);
+/* 13 */     this.field_77777_bU = 64;
+/* 14 */     func_77637_a(MagicalCrops.tabMagical);
+/*    */   }
+/*    */ }
 
-import com.mark719.magicalcrops.MagicalCrops;
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemSeeds;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
-public class NetherSeeds extends ItemSeeds {
-
-    private final Block cropBlock;
-
-    public NetherSeeds(Block crop, Block farmlandIgnored) {
-        super(crop, Blocks.farmland); // всегда используем ванильную пашню
-        this.cropBlock = crop;
-        this.maxStackSize = 64;
-        setCreativeTab(MagicalCrops.tabMagical);
-    }
-
-    @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world,
-                             int x, int y, int z, int side,
-                             float hitX, float hitY, float hitZ) {
-
-        if (side != 1) return false;
-
-        if (!world.getBlock(x, y, z).equals(Blocks.farmland)) return false;
-
-        if (!world.isAirBlock(x, y + 1, z)) return false;
-
-        world.setBlock(x, y + 1, z, cropBlock);
-        stack.stackSize--;
-        return true;
-    }
-}
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\items\seeds\NetherSeeds.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */

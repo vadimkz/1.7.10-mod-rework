@@ -23,46 +23,36 @@ public class BlockFarmlandImperio extends Block {
     private IIcon iconDry;
 
     public BlockFarmlandImperio() {
-        super(Material.ground);
+        super(Material.ground); // Исправлено (вместо field_151578_c)
         this.setTickRandomly(true);
-        // Рекомендуется использовать один стиль именования.
-        // Если в Crucio был "magicalcrops.CrucioFarmland", здесь лучше так же:
-        this.setUnlocalizedName("magicalcrops.ImperioFarmland");
+        this.setBlockTextureName("magicalcrops:farmland_");
+        this.setBlockName("ImperioFarmland");
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
         this.setLightOpacity(255);
         this.setHardness(0.6F);
-        this.setStepSound(soundTypeGravel);
     }
 
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        // Лишние приведения (double) удалены
         return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
     }
 
     @Override
-    public boolean isOpaqueCube() {
-        return false;
-    }
+    public boolean isOpaqueCube() { return false; }
 
     @Override
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
+    public boolean renderAsNormalBlock() { return false; }
 
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIcon(int side, int meta) {
-        if (side == 1) {
-            // Даже если мы форсим метадату 7, лучше оставить проверку для гибкости
-            return meta == 7 ? this.iconWet : this.iconDry;
-        }
-        return Blocks.dirt.getIcon(side, 0);
+        // side 1 — это верх блока. Всегда показываем "влажную" текстуру.
+        return (side == 1) ? this.iconWet : Blocks.dirt.getIcon(side, 0);
     }
 
     @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
-        // Грядка Imperio всегда увлажнена
+        // Принудительно держим влажность 7 (максимум)
         if (world.getBlockMetadata(x, y, z) < 7) {
             world.setBlockMetadataWithNotify(x, y, z, 7, 2);
         }
@@ -70,7 +60,7 @@ public class BlockFarmlandImperio extends Block {
 
     @Override
     public void onFallenUpon(World world, int x, int y, int z, Entity entity, float fall) {
-        // Защита от затаптывания
+        // Пусто — защита от затаптывания грядок
     }
 
     @Override
@@ -80,13 +70,14 @@ public class BlockFarmlandImperio extends Block {
 
     @Override
     public Item getItemDropped(int meta, Random random, int fortune) {
+        // При поломке выпадает обычная земля
         return Item.getItemFromBlock(Blocks.dirt);
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     public void registerBlockIcons(IIconRegister reg) {
-        // Прямое указание пути надежнее, чем использование getTextureName()
-        this.iconWet = reg.registerIcon("magicalcrops:farmland_wet_imperio");
-        this.iconDry = reg.registerIcon("magicalcrops:farmland_dry_imperio");
+        this.iconWet = reg.registerIcon(this.getTextureName() + "wet_imperio");
+        this.iconDry = reg.registerIcon(this.getTextureName() + "dry_imperio");
     }
 }

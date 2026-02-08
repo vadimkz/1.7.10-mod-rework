@@ -19,8 +19,8 @@
 /*    */ {
 /*    */   public MinicioSeeds(Block crop, Block farmland) {
 /* 21 */     super(crop, farmland);
-/* 22 */     this.maxStackSize = 64;
-/* 23 */     setCreativeTab(MagicalCrops.tabMagical);
+/* 22 */     this.field_77777_bU = 64;
+/* 23 */     func_77637_a(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ }
 

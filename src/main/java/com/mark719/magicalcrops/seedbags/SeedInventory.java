@@ -1,150 +1,181 @@
-package com.mark719.magicalcrops.seedbags;
+/*     */ package com.mark719.magicalcrops.seedbags;
+/*     */ 
+/*     */ import net.minecraft.entity.player.EntityPlayer;
+/*     */ import net.minecraft.inventory.IInventory;
+/*     */ import net.minecraft.item.ItemStack;
+/*     */ import net.minecraft.nbt.NBTBase;
+/*     */ import net.minecraft.nbt.NBTTagCompound;
+/*     */ import net.minecraft.nbt.NBTTagList;
+/*     */ 
+/*     */ 
+/*     */ public class SeedInventory
+/*     */   implements IInventory
+/*     */ {
+/*     */   private ItemStack[] inventoryItems;
+/*     */   private ItemStack currentItem;
+/*     */   private int size;
+/*     */   
+/*     */   public SeedInventory(ItemStack current) {
+/*  19 */     this.currentItem = current;
+/*     */     
+/*  21 */     assert this.currentItem != null;
+/*  22 */     assert this.currentItem.func_77973_b() instanceof Planter;
+/*     */     
+/*  24 */     int itemNumSlots = ((Planter)this.currentItem.func_77973_b()).getInvSlots();
+/*  25 */     if (itemNumSlots > 0) {
+/*  26 */       this.inventoryItems = new ItemStack[itemNumSlots];
+/*  27 */       this.size = itemNumSlots;
+/*     */     } else {
+/*     */       
+/*  30 */       this.inventoryItems = new ItemStack[0];
+/*  31 */       this.size = 0;
+/*     */     } 
+/*     */     
+/*  34 */     if (!this.currentItem.func_77942_o()) {
+/*  35 */       this.currentItem.func_77982_d(new NBTTagCompound());
+/*     */     }
+/*     */     
+/*  38 */     loadFromNBT(this.currentItem.func_77978_p());
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public int func_70302_i_() {
+/*  43 */     return this.size;
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public ItemStack func_70301_a(int i) {
+/*  48 */     if (i >= func_70302_i_()) {
+/*  49 */       throw new IndexOutOfBoundsException();
+/*     */     }
+/*     */     
+/*  52 */     return this.inventoryItems[i];
+/*     */   }
+/*     */   
+/*     */   public ItemStack func_70298_a(int index, int amount) {
+/*     */     ItemStack output;
+/*  57 */     if (this.inventoryItems[index] == null) {
+/*  58 */       return null;
+/*     */     }
+/*     */ 
+/*     */     
+/*  62 */     if ((this.inventoryItems[index]).field_77994_a <= amount) {
+/*  63 */       output = this.inventoryItems[index];
+/*  64 */       this.inventoryItems[index] = null;
+/*     */     } else {
+/*     */       
+/*  67 */       output = this.inventoryItems[index].func_77979_a(amount);
+/*     */       
+/*  69 */       if ((this.inventoryItems[index]).field_77994_a == 0) {
+/*  70 */         this.inventoryItems[index] = null;
+/*     */       }
+/*     */     } 
+/*  73 */     func_70296_d();
+/*     */     
+/*  75 */     return output;
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public ItemStack func_70304_b(int slotNum) {
+/*  80 */     if (this.inventoryItems[slotNum] != null) {
+/*  81 */       ItemStack stack = this.inventoryItems[slotNum];
+/*  82 */       func_70299_a(slotNum, null);
+/*  83 */       return stack;
+/*     */     } 
+/*     */     
+/*  86 */     return null;
+/*     */   }
+/*     */ 
+/*     */ 
+/*     */   
+/*     */   public void func_70299_a(int num, ItemStack itemStack) {
+/*  92 */     this.inventoryItems[num] = itemStack;
+/*     */     
+/*  94 */     if (itemStack != null && itemStack.field_77994_a > func_70297_j_()) {
+/*  95 */       itemStack.field_77994_a = func_70297_j_();
+/*     */     }
+/*     */     
+/*  98 */     func_70296_d();
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public String func_145825_b() {
+/* 103 */     return "Seed Bag";
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public boolean func_145818_k_() {
+/* 108 */     return false;
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public int func_70297_j_() {
+/* 113 */     return 64;
+/*     */   }
+/*     */ 
+/*     */ 
+/*     */   
+/*     */   public void func_70296_d() {
+/* 119 */     for (int i = 0; i < func_70302_i_(); i++) {
+/* 120 */       if (func_70301_a(i) != null && (func_70301_a(i)).field_77994_a == 0) {
+/* 121 */         func_70299_a(i, null);
+/*     */       }
+/*     */     } 
+/*     */     
+/* 125 */     saveToNBT(this.currentItem.func_77978_p());
+/*     */   }
+/*     */ 
+/*     */   
+/*     */   public boolean func_70300_a(EntityPlayer entityPlayer) {
+/* 130 */     return true;
+/*     */   }
+/*     */ 
+/*     */ 
+/*     */   
+/*     */   public void func_70295_k_() {}
+/*     */ 
+/*     */ 
+/*     */   
+/*     */   public void func_70305_f() {}
+/*     */ 
+/*     */   
+/*     */   public boolean func_94041_b(int i, ItemStack itemStack) {
+/* 143 */     return (itemStack != null && itemStack.func_77973_b() != null && itemStack.func_77973_b() instanceof net.minecraftforge.common.IPlantable);
+/*     */   }
+/*     */   
+/*     */   public void loadFromNBT(NBTTagCompound tagCompound) {
+/* 147 */     int NBT_TAGLIST = 10;
+/* 148 */     NBTTagList tagList = tagCompound.func_150295_c("ItemsPlanterHelper", 10);
+/*     */     
+/* 150 */     for (int i = 0; i < tagList.func_74745_c(); i++) {
+/* 151 */       NBTTagCompound itemTag = tagList.func_150305_b(i);
+/* 152 */       int slot = itemTag.func_74762_e("SlotPlanterHelper");
+/*     */       
+/* 154 */       if (slot >= 0 && slot < func_70302_i_()) {
+/* 155 */         func_70299_a(slot, ItemStack.func_77949_a(itemTag));
+/*     */       }
+/*     */     } 
+/*     */   }
+/*     */   
+/*     */   public void saveToNBT(NBTTagCompound newCompound) {
+/* 161 */     NBTTagList list = new NBTTagList();
+/*     */     
+/* 163 */     for (int i = 0; i < func_70302_i_(); i++) {
+/* 164 */       ItemStack stack = this.inventoryItems[i];
+/* 165 */       if (stack != null) {
+/* 166 */         NBTTagCompound itemTag = new NBTTagCompound();
+/* 167 */         itemTag.func_74768_a("SlotPlanterHelper", i);
+/* 168 */         stack.func_77955_b(itemTag);
+/* 169 */         list.func_74742_a((NBTBase)itemTag);
+/*     */       } 
+/*     */     } 
+/*     */     
+/* 173 */     newCompound.func_74782_a("ItemsPlanterHelper", (NBTBase)list);
+/*     */   }
+/*     */ }
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 
-public class SeedInventory implements IInventory {
-    private ItemStack[] inventoryItems;
-    private ItemStack currentItem;
-    private int size;
-    private String customName;
-
-    public SeedInventory(ItemStack current) {
-        this.currentItem = current;
-        if (this.currentItem != null && this.currentItem.getItem() instanceof Planter) {
-            int itemNumSlots = ((Planter)this.currentItem.getItem()).getInvSlots();
-            this.size = itemNumSlots;
-            this.inventoryItems = new ItemStack[this.size];
-            if (this.currentItem.hasTagCompound()) {
-                readFromNBT(this.currentItem.getTagCompound());
-            }
-        }
-    }
-
-    @Override
-    public int getSizeInventory() {
-        return this.size;
-    }
-
-    @Override
-    public ItemStack getStackInSlot(int slot) {
-        return (slot >= 0 && slot < this.size) ? this.inventoryItems[slot] : null;
-    }
-
-    @Override
-    public ItemStack decrStackSize(int slot, int amount) {
-        if (this.inventoryItems[slot] != null) {
-            ItemStack itemstack;
-            if (this.inventoryItems[slot].stackSize <= amount) {
-                itemstack = this.inventoryItems[slot];
-                this.inventoryItems[slot] = null;
-                markDirty();
-                return itemstack;
-            }
-            itemstack = this.inventoryItems[slot].splitStack(amount);
-            if (this.inventoryItems[slot].stackSize == 0) {
-                this.inventoryItems[slot] = null;
-            }
-            markDirty();
-            return itemstack;
-        }
-        return null;
-    }
-
-    @Override
-    public ItemStack getStackInSlotOnClosing(int slot) {
-        if (this.inventoryItems[slot] != null) {
-            ItemStack itemstack = this.inventoryItems[slot];
-            this.inventoryItems[slot] = null;
-            return itemstack;
-        }
-        return null;
-    }
-
-    @Override
-    public void setInventorySlotContents(int slot, ItemStack stack) {
-        this.inventoryItems[slot] = stack;
-        if (stack != null && stack.stackSize > getInventoryStackLimit()) {
-            stack.stackSize = getInventoryStackLimit();
-        }
-        markDirty();
-    }
-
-    @Override
-    public String getInventoryName() {
-        return this.isCustomInventoryName() ? this.customName : "container.seedbag";
-    }
-
-    // ВАЖНО: Используем имя из вашего интерфейса
-    public boolean hasCustomInventoryName() {
-        return this.customName != null && !this.customName.isEmpty();
-    }
-
-    @Override
-    public boolean isCustomInventoryName() {
-        return hasCustomInventoryName();
-    }
-
-    @Override
-    public int getInventoryStackLimit() {
-        return 64;
-    }
-
-    @Override
-    public void markDirty() {
-        if (this.currentItem != null) {
-            NBTTagCompound nbt = this.currentItem.getTagCompound();
-            if (nbt == null) {
-                nbt = new NBTTagCompound();
-                this.currentItem.setTagCompound(nbt);
-            }
-            saveToNBT(nbt);
-        }
-    }
-
-    @Override
-    public boolean isUseableByPlayer(EntityPlayer player) {
-        return player.getCurrentEquippedItem() == this.currentItem;
-    }
-
-    // Имена методов ниже также взяты из вашего интерфейса
-    @Override
-    public void openChest() {}
-
-    @Override
-    public void closeChest() {}
-
-    @Override
-    public boolean isItemValidForSlot(int slot, ItemStack stack) {
-        return stack != null && stack.getItem() instanceof net.minecraftforge.common.IPlantable;
-    }
-
-    public void readFromNBT(NBTTagCompound nbt) {
-        if (nbt.hasKey("Items", 9)) {
-            NBTTagList list = nbt.getTagList("Items", 10);
-            for (int i = 0; i < list.tagCount(); ++i) {
-                NBTTagCompound tag = list.getCompoundTagAt(i);
-                int slot = tag.getByte("Slot") & 255;
-                if (slot >= 0 && slot < this.inventoryItems.length) {
-                    this.inventoryItems[slot] = ItemStack.loadItemStackFromNBT(tag);
-                }
-            }
-        }
-    }
-
-    public void saveToNBT(NBTTagCompound nbt) {
-        NBTTagList list = new NBTTagList();
-        for (int i = 0; i < this.inventoryItems.length; ++i) {
-            if (this.inventoryItems[i] != null) {
-                NBTTagCompound tag = new NBTTagCompound();
-                tag.setByte("Slot", (byte)i);
-                this.inventoryItems[i].writeToNBT(tag);
-                list.appendTag(tag);
-            }
-        }
-        nbt.setTag("Items", list);
-    }
-}
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\seedbags\SeedInventory.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
+ */

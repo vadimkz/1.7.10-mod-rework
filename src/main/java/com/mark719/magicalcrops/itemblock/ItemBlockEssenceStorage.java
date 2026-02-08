@@ -15,36 +15,31 @@
 /*    */   
 /*    */   public ItemBlockEssenceStorage(Block block) {
 /* 17 */     super(block);
-/* 18 */     setHasSubtypes(true);
+/* 18 */     func_77627_a(true);
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public int getMetadata(int meta) {
+/*    */   public int func_77647_b(int meta) {
 /* 23 */     return meta;
 /*    */   }
 /*    */   
-/*    */   public String getUnlocalizedName(ItemStack par1ItemStack) {
-/* 27 */     int i = MathHelper.clamp_int(par1ItemStack.getMetadata(), 0, 5);
-/* 28 */     return getUnlocalizedName() + "." + SUBNAMES[i];
+/*    */   public String func_77667_c(ItemStack par1ItemStack) {
+/* 27 */     int i = MathHelper.func_76125_a(par1ItemStack.func_77960_j(), 0, 5);
+/* 28 */     return func_77658_a() + "." + SUBNAMES[i];
 /*    */   }
 /*    */ 
 /*    */   
-/*    */   public String getItemStackDisplayName(ItemStack stack) {
-/* 33 */     int meta = stack.getMetadata();
-/* 34 */     if (meta == 0) {
-/* 35 */       return EnumChatFormatting.GREEN + super.getItemStackDisplayName(stack);
-/* 36 */     } else if (meta == 1) {
-/* 37 */       return EnumChatFormatting.GOLD + super.getItemStackDisplayName(stack);
-/* 38 */     } else if (meta == 2) {
-/* 39 */       return EnumChatFormatting.YELLOW + super.getItemStackDisplayName(stack);
-/* 40 */     } else if (meta == 3) {
-/* 41 */       return EnumChatFormatting.AQUA + super.getItemStackDisplayName(stack);
-/* 42 */     } else if (meta == 4) {
-/* 43 */       return EnumChatFormatting.LIGHT_PURPLE + super.getItemStackDisplayName(stack);
-/* 44 */     } else if (meta == 5) {
-/* 45 */       return EnumChatFormatting.DARK_GRAY + super.getItemStackDisplayName(stack);
-/*    */     }
-/* 47 */     return EnumChatFormatting.GRAY + super.getItemStackDisplayName(stack);
+/*    */   public String func_77653_i(ItemStack stack) {
+/* 33 */     switch (stack.func_77960_j()) {
+/*    */       case 0:
+/* 35 */         return EnumChatFormatting.GREEN + super.func_77653_i(stack);
+/* 36 */       case 1: return EnumChatFormatting.GOLD + super.func_77653_i(stack);
+/* 37 */       case 2: return EnumChatFormatting.YELLOW + super.func_77653_i(stack);
+/* 38 */       case 3: return EnumChatFormatting.AQUA + super.func_77653_i(stack);
+/* 39 */       case 4: return EnumChatFormatting.LIGHT_PURPLE + super.func_77653_i(stack);
+/* 40 */       case 5: return EnumChatFormatting.DARK_GRAY + super.func_77653_i(stack);
+/*    */     } 
+/* 42 */     return EnumChatFormatting.GRAY + super.func_77653_i(stack);
 /*    */   }
 /*    */ }
 

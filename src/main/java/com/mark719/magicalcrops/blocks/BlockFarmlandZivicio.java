@@ -23,47 +23,37 @@ public class BlockFarmlandZivicio extends Block {
     private IIcon iconDry;
 
     public BlockFarmlandZivicio() {
-        // Используем Material.ground (земля)
-        super(Material.ground);
+        // Если Material.field_151578_c не красный — оставляй его
+        super(Material.field_151578_c);
         this.setTickRandomly(true);
-        this.setUnlocalizedName("magicalcrops.ZivicioFarmland");
-        // Высота грядки чуть ниже целого блока (15/16 пикселя)
+        // Если func_149658_d красный, попробуй заменить на setBlockTextureName
+        this.func_149658_d("magicalcrops:farmland_");
+        this.setBlockName("ZivicioFarmland");
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
         this.setLightOpacity(255);
         this.setHardness(0.6F);
-        this.setStepSound(soundTypeGravel);
     }
 
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-        // Коллизия полного блока, чтобы нельзя было провалиться
-        return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1, z + 1);
+        return AxisAlignedBB.getBoundingBox((double)x, (double)y, (double)z, (double)(x + 1), (double)(y + 1), (double)(z + 1));
     }
 
     @Override
-    public boolean isOpaqueCube() {
-        return false;
-    }
+    public boolean isOpaqueCube() { return false; }
 
     @Override
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
+    public boolean renderAsNormalBlock() { return false; }
 
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIcon(int side, int meta) {
-        // side == 1 — это верхняя грань
-        if (side == 1) {
-            return (meta == 7) ? this.iconWet : this.iconDry;
-        }
-        // Для боков и низа используем текстуру обычной земли
-        return Blocks.dirt.getIcon(side, 0);
+        return (side == 1) ? this.iconWet : Blocks.dirt.getIcon(side, 0);
     }
 
     @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
-        // Zivicio пашня всегда влажная (метадата 7)
+        // Вечная влажность
         if (world.getBlockMetadata(x, y, z) < 7) {
             world.setBlockMetadataWithNotify(x, y, z, 7, 2);
         }
@@ -71,25 +61,24 @@ public class BlockFarmlandZivicio extends Block {
 
     @Override
     public void onFallenUpon(World world, int x, int y, int z, Entity entity, float fall) {
-        // Пустой метод предотвращает превращение грядки в землю при прыжках
+        // Защита от прыжков
     }
 
     @Override
     public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable) {
-        // Позволяет сажать любые культуры
         return true;
     }
 
     @Override
     public Item getItemDropped(int meta, Random random, int fortune) {
-        // При разрушении выпадает обычная земля
         return Item.getItemFromBlock(Blocks.dirt);
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     public void registerBlockIcons(IIconRegister reg) {
-        // Регистрируем текстуры напрямую из папки assets/magicalcrops/textures/blocks/
-        this.iconWet = reg.registerIcon("magicalcrops:farmland_wet_zivicio");
-        this.iconDry = reg.registerIcon("magicalcrops:farmland_dry_zivicio");
+        // Тот самый рабочий вариант
+        this.iconWet = reg.registerIcon(this.getTextureName() + "wet_zivicio");
+        this.iconDry = reg.registerIcon(this.getTextureName() + "dry_zivicio");
     }
 }

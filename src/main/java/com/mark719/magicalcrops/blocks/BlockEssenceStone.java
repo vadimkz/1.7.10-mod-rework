@@ -1,37 +1,35 @@
-package com.mark719.magicalcrops.blocks;
+/*    */ package com.mark719.magicalcrops.blocks;
+/*    */ 
+/*    */ import com.mark719.magicalcrops.MagicalCrops;
+/*    */ import net.minecraft.block.Block;
+/*    */ import net.minecraft.block.material.Material;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class BlockEssenceStone
+/*    */   extends Block
+/*    */ {
+/*    */   public BlockEssenceStone() {
+/* 22 */     super(Material.field_151576_e);
+/* 23 */     func_149658_d("magicalcrops:essence_stone");
+/* 24 */     func_149647_a(MagicalCrops.tabMagical);
+/* 25 */     func_149672_a(field_149780_i);
+/* 26 */     func_149711_c(3.0F);
+/* 27 */     func_149752_b(5.0F);
+/*    */   }
+/*    */ }
 
-import com.mark719.magicalcrops.MagicalCrops;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 
-/**
- * Класс блока Камня Эссенции.
- * Исправлены названия методов, которые чаще всего вызывают ошибки в IDE.
+/* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\BlockEssenceStone.class
+ * Java compiler version: 6 (50.0)
+ * JD-Core Version:       1.1.3
  */
-public class BlockEssenceStone extends Block {
-
-    public BlockEssenceStone() {
-        // Вызываем конструктор суперкласса с материалом "камень"
-        super(Material.rock);
-
-        // Если setUnlocalizedName красный, используем setUnlocalizedName
-        // Это имя используется для перевода в .lang файлах
-        this.setUnlocalizedName("essence_stone");
-
-        // Если setBlockTextureName красный, попробуйте setTextureName
-        // Формат: "modid:filename"
-        this.setTextureName("magicalcrops:essence_stone");
-
-        // Установка вкладки в креативном режиме
-        this.setCreativeTab(MagicalCrops.tabMagical);
-
-        // Стандартные звуки при ходьбе/разрушении (для камня)
-        this.setStepSound(soundTypePiston);
-
-        // Прочность (как у обсидиана или камня, на ваш вкус)
-        this.setHardness(3.0F);
-
-        // Сопротивление взрыву
-        this.setResistance(5.0F);
-    }
-}
