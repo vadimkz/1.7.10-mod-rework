@@ -35,7 +35,7 @@
 /* 35 */     this.icon = new IIcon[6];
 /*    */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     setHardness(2.0F);
-/*    */     setResistance(10.0F); } public void registerBlockIcons(IIconRegister iconRegister) {
+/*    */     setResistance(10.0F); } public void registerIcons(IIconRegister iconRegister) {
 /* 39 */     this.icon[0] = iconRegister.registerIcon(textureName + "dust_block_minicio");
 /* 40 */     this.icon[1] = iconRegister.registerIcon(textureName + "dust_block_accio");
 /* 41 */     this.icon[2] = iconRegister.registerIcon(textureName + "dust_block_crucio");

@@ -35,7 +35,7 @@
 /*    */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     setHardness(2.0F);
 /*    */     setResistance(10.0F);
-/* 38 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister iconRegister) { this.icon[0] = iconRegister.registerIcon(textureName + "block_essence_qbrick_coal");
+/* 38 */     setLightLevel(1.0F); } public void registerIcons(IIconRegister iconRegister) { this.icon[0] = iconRegister.registerIcon(textureName + "block_essence_qbrick_coal");
 /* 39 */     this.icon[1] = iconRegister.registerIcon(textureName + "block_essence_qbrick_earth");
 /* 40 */     this.icon[2] = iconRegister.registerIcon(textureName + "block_essence_qbrick_emerald");
 /* 41 */     this.icon[3] = iconRegister.registerIcon(textureName + "block_essence_qbrick_fire");

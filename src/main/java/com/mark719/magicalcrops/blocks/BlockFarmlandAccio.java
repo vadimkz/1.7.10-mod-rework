@@ -76,16 +76,19 @@ public class BlockFarmlandAccio extends Block {
 
             Block plant = world.getBlock(x, y + 1, z);
 
-            if (!world.isRemote && plant != null) {
+            if (!world.isRemote && plant instanceof IGrowable) {
+                IGrowable grow = (IGrowable) plant;
 
-                // шанс, чтобы не спамить тиками (очень важно)
-                if (rand.nextInt(3) == 0) {   // можно менять 3 → 2 для быстрее
-
-                    for (int i = 0; i < 50; i++) { // Accio = x3
-                        plant.updateTick(world, x, y + 1, z, rand);
+                for (int i = 0; i < 100; i++) { // Accio x3
+                    if (grow.canFertilize(world, x, y + 1, z, false)) {
+                        grow.fertilize(world, world.rand, x, y + 1, z);
                     }
                 }
             }
+
+
+        }
+
 
 
 
@@ -93,4 +96,3 @@ public class BlockFarmlandAccio extends Block {
     }
 
     }
-}

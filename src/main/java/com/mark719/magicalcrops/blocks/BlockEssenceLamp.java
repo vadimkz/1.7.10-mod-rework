@@ -38,7 +38,7 @@
 /*    */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */     setHardness(2.0F);
 /*    */     setResistance(10.0F);
-/* 41 */     setLightLevel(1.0F); } public void registerBlockIcons(IIconRegister iconRegister) { this.icon[0] = iconRegister.registerIcon(textureName + "EssLamp_coal");
+/* 41 */     setLightLevel(1.0F); } public void registerIcons(IIconRegister iconRegister) { this.icon[0] = iconRegister.registerIcon(textureName + "EssLamp_coal");
 /* 42 */     this.icon[1] = iconRegister.registerIcon(textureName + "EssLamp_brown");
 /* 43 */     this.icon[2] = iconRegister.registerIcon(textureName + "EssLamp_emerald");
 /* 44 */     this.icon[3] = iconRegister.registerIcon(textureName + "EssLamp_blaze");
