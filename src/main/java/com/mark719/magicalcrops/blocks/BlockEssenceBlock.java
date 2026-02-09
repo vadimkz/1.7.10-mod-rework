@@ -25,7 +25,7 @@
 /*    */   protected IIcon[] icon;
 /*    */   
 /* 27 */   public BlockEssenceBlock(Material material) { super(material);
-/*    */ 
+/*    */
 /*    */ 
 /*    */ 
 /*    */ 

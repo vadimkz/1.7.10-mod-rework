@@ -30,25 +30,22 @@
 /*    */   }
 /*    */   
 /*    */   @SideOnly(Side.CLIENT)
-/*    */   public void registerBlockIcons(IIconRegister reg) {
-/* 34 */     this.iconArray = new IIcon[4];
-/* 35 */     for (int i = 0; i < this.iconArray.length; i++) {
-/* 36 */       this.iconArray[i] = reg.registerIcon("magicalcrops:CropWater_" + i);
-/*    */     }
-/*    */   }
-/*    */   
-/*    */   @SideOnly(Side.CLIENT)
-/*    */   public IIcon getIcon(int side, int metadata) {
-/* 42 */     if (metadata < 7) {
-/* 43 */       if (metadata == 6) {
-/* 44 */         metadata = 5;
-/*    */       }
-/* 46 */       return this.iconArray[metadata >> 1];
-/*    */     } 
-/*    */     
-/* 49 */     return this.iconArray[3];
-/*    */   }
-/*    */ }
+public void registerIcons(IIconRegister reg) {
+    this.iconArray = new IIcon[4];
+    for (int i = 0; i < this.iconArray.length; i++)
+        this.iconArray[i] = reg.registerIcon("magicalcrops:CropWater_" + i);
+}
+
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(int side, int metadata) {
+        if (metadata < 7) {
+            if (metadata == 6)
+                metadata = 5;
+            return this.iconArray[metadata >> 1];
+        }
+        return this.iconArray[3];
+    }
+}
 
 
 /* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\blocks\crops\WaterCrop.class
