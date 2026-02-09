@@ -37,11 +37,11 @@
 /*    */   
 /* 38 */   public static Block CropBooster = (new BlockCropBooster()).setUnlocalizedName("CropBooster");
 /*    */ 
-/*    */   
-/* 41 */   public static Block FarmlandAccio = (Block)new BlockFarmlandAccio();
-/* 42 */   public static Block FarmlandCrucio = (Block)new BlockFarmlandCrucio();
-/* 43 */   public static Block FarmlandImperio = (Block)new BlockFarmlandImperio();
-/* 44 */   public static Block FarmlandZivicio = (Block)new BlockFarmlandZivicio();
+/*    */
+/* 41 */   public static Block FarmlandAccio = (new BlockFarmlandAccio()).setUnlocalizedName("FarmlandAccio");
+    /* 42 */   public static Block FarmlandCrucio = (new BlockFarmlandCrucio()).setUnlocalizedName("FarmlandCrucio");
+    /* 43 */   public static Block FarmlandImperio = (new BlockFarmlandImperio()).setUnlocalizedName("FarmlandImperio");
+    /* 44 */   public static Block FarmlandZivicio = (new BlockFarmlandZivicio()).setUnlocalizedName("FarmlandZivicio");
 /*    */ 
 /*    */   
 /* 47 */   public static Block EssenceStone = (new BlockEssenceStone()).setUnlocalizedName("EssenceStone");

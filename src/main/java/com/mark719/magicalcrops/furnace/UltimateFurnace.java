@@ -55,7 +55,7 @@
 /*     */ 
 /*     */   
 /*     */   @SideOnly(Side.CLIENT)
-/*     */   public void registerBlockIcons(IIconRegister reg) {
+/*     */   public void registerIcons(IIconRegister reg) {
 /*  59 */     this.blockIcon = reg.registerIcon("magicalcrops:furnaceultimate_side");
 /*  60 */     this.iconFront = reg.registerIcon(this.isBurning2 ? "magicalcrops:furnaceultimate_front_on" : "magicalcrops:furnaceultimate_front_off");
 /*  61 */     this.iconTop = reg.registerIcon("magicalcrops:furnaceultimate_top");
