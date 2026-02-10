@@ -26,9 +26,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class BlockMagicalCrops extends BlockBush implements IGrowable {
   @SideOnly(Side.CLIENT)
   private IIcon[] icons;
-  
+
   private static final String __OBFID = "CL_00000222";
-  
+
   public BlockMagicalCrops() {
     setTickRandomly(true);
     float f = 0.5F;
@@ -38,7 +38,7 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
     setStepSound(soundTypeGrass);
     disableStats();
   }
-  
+
   public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
     if (ConfigMain.CROP_DAMAGE) {
       if (entity instanceof net.minecraft.entity.EntityLiving || entity instanceof net.minecraft.entity.player.EntityPlayer) {
@@ -47,42 +47,58 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
           entity.attackEntityFrom(DamageSource.magic, 1.0F);
         } else if (meta < 7) {
           entity.attackEntityFrom(DamageSource.magic, 0.5F);
-        } 
-      } 
+        }
+      }
     } else {
       return;
-    } 
+    }
   }
-  
+
   public boolean canBlockStay(World world, int x, int y, int z) {
     return world.getBlock(x, y - 1, z).canSustainPlant((IBlockAccess)world, x, y - 1, z, ForgeDirection.UP, (IPlantable)this);
   }
-  
+
   public boolean canPlaceBlockOn(Block block) {
     return (block == Blocks.farmland);
   }
-  
+
   public void updateTick(World world, int x, int y, int z, Random random) {
     super.updateTick(world, x, y, z, random);
     if (world.getBlockLightValue(x, y + 1, z) >= 9) {
       int meta = world.getBlockMetadata(x, y, z);
       if (meta < 7) {
         float f = func_149864_n(world, x, y, z);
-        if (random.nextInt((int)(25.0F / f) + 1) == 0) {
-          meta++;
-          world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-        } 
-      } 
-    } 
+
+        // Growth boost based on magical farmland below
+        int attempts = 1;
+        Block soil = world.getBlock(x, y - 1, z);
+        if (soil instanceof com.mark719.magicalcrops.blocks.BlockFarmlandAccio) {
+          attempts = 50;
+        } else if (soil instanceof com.mark719.magicalcrops.blocks.BlockFarmlandCrucio) {
+          attempts = 150;
+        } else if (soil instanceof com.mark719.magicalcrops.blocks.BlockFarmlandImperio) {
+          attempts = 300;
+        } else if (soil instanceof com.mark719.magicalcrops.blocks.BlockFarmlandZivicio) {
+          attempts = 500;
+        }
+
+        for (int i = 0; i < attempts && meta < 7; i++) {
+          if (random.nextInt((int)(25.0F / f) + 1) == 0) {
+            meta++;
+            world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+          }
+        }
+      }
+    }
   }
-  
+
   public void fertilize(World world, int x, int y, int z) {
     int l = world.getBlockMetadata(x, y, z) + MathHelper.getRandomIntegerInRange(world.rand, 2, 5);
     if (l > 7)
-      l = 7; 
+      l = 7;
     world.setBlockMetadataWithNotify(x, y, z, 1, 2);
   }
-  
+
   public float func_149864_n(World world, int x, int y, int z) {
     float f = 0.1F;
     Block block = world.getBlock(x, y, z - 1);
@@ -102,60 +118,60 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
         if (world.getBlock(l, y - 1, i1).canSustainPlant((IBlockAccess)world, l, y - 1, i1, ForgeDirection.UP, (IPlantable)this)) {
           f1 = 1.0F;
           if (world.getBlock(l, y - 1, i1).isFertile(world, l, y - 1, i1))
-            f1 = 3.0F; 
-        } 
+            f1 = 3.0F;
+        }
         if (l != x || i1 != z)
-          f1 /= 4.0F; 
+          f1 /= 4.0F;
         f += f1;
-      } 
-    } 
+      }
+    }
     if (flag2 || (flag && flag1))
-      f /= 2.0F; 
+      f /= 2.0F;
     return f;
   }
-  
+
   protected Item getSeed() {
     return Items.wheat_seeds;
   }
-  
+
   protected Item getCrop() {
     return Items.wheat;
   }
-  
+
   public Item getItemDropped(int meta, Random random, int fortune) {
     return (meta == 7) ? getCrop() : getSeed();
   }
-  
+
   public int quantityDropped(Random random) {
     return 1;
   }
-  
+
   @SideOnly(Side.CLIENT)
   public Item getItem(World world, int x, int y, int z) {
     return getSeed();
   }
-  
+
   @SideOnly(Side.CLIENT)
   public IIcon getIcon(int side, int meta) {
     if (meta < 0 || meta > 7)
-      meta = 7; 
+      meta = 7;
     return this.icons[meta];
   }
-  
+
   public int getRenderType() {
     return 1;
   }
-  
+
   public boolean canFertilize(World world, int x, int y, int z, boolean isRemote) {
     return (world.getBlockMetadata(x, y, z) != 7);
   }
-  
+
   public boolean shouldFertilize(World world, Random random, int x, int y, int z) {
     return true;
   }
-  
+
   public void fertilize(World world, Random random, int x, int y, int z) {}
-  
+
   public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
     int meta = world.getBlockMetadata(x, y, z);
     if (meta >= 7) {
@@ -163,12 +179,12 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
         dropBlockAsItem(world, x, y, z, new ItemStack(getCrop(), 1, 0));
         dropBlockAsItem(world, x, y, z, new ItemStack(getSeed(), 1, 0));
         world.setBlockMetadataWithNotify(x, y, z, 0, 2);
-      } 
+      }
       return true;
-    } 
+    }
     return false;
   }
-  
+
   @SideOnly(Side.CLIENT)
   public void randomDisplayTick(World world, int x, int y, int z, Random random) {
     super.randomDisplayTick(world, x, y, z, random);
@@ -178,21 +194,21 @@ public class BlockMagicalCrops extends BlockBush implements IGrowable {
         world.spawnParticle("instantSpell", (x + random.nextFloat()), (y + 0.6F), (z + random.nextFloat()), 0.0D, 0.0D, 0.0D);
       } else if (random.nextInt(5) == 0 && meta <= 6) {
         world.spawnParticle("enchantmenttable", (x + random.nextFloat()), (y + 0.9F), (z + random.nextFloat()), 0.0D, 0.0D, 0.0D);
-      }  
+      }
   }
-  
+
   public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
     ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
     if (metadata >= 7 && !ConfigMain.PLANT_ON_BREAK)
       for (int i = 0; i < 1 + fortune; i++) {
         if (world.rand.nextInt(7) <= metadata)
-          ret.add(new ItemStack(getSeed(), 1, 0)); 
-      }  
+          ret.add(new ItemStack(getSeed(), 1, 0));
+      }
     if (metadata >= 7 && ConfigMain.SECOND_SEED_CHANCE > 0)
       for (int i = 0; i < 1 + fortune; i++) {
         if (world.rand.nextInt(100) <= Math.max(1, ConfigMain.SECOND_SEED_CHANCE))
-          ret.add(new ItemStack(getSeed(), 1, 0)); 
-      }  
+          ret.add(new ItemStack(getSeed(), 1, 0));
+      }
     return ret;
   }
 }

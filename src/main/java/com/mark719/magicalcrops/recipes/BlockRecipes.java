@@ -41,7 +41,13 @@
 /*     */ 
 /*     */   
 /*     */   public static void loadRecipes() {
-/*  44 */     GameRegistry.addRecipe(new ItemStack(MBlocks.AccioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Blocks.furnace });
+
+              GameRegistry.addRecipe(new ItemStack(MBlocks.FarmlandAccio, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Blocks.dirt });
+              GameRegistry.addRecipe(new ItemStack(MBlocks.FarmlandCrucio, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), Blocks.dirt });
+              GameRegistry.addRecipe(new ItemStack(MBlocks.FarmlandImperio, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), Blocks.dirt });
+              GameRegistry.addRecipe(new ItemStack(MBlocks.FarmlandZivicio, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), Blocks.dirt });
+
+              GameRegistry.addRecipe(new ItemStack(MBlocks.AccioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), accioEssence, Character.valueOf('Y'), Blocks.furnace });
 /*  45 */     GameRegistry.addRecipe(new ItemStack(MBlocks.CrucioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), crucioEssence, Character.valueOf('Y'), accioFurnace });
 /*  46 */     GameRegistry.addRecipe(new ItemStack(MBlocks.ImperioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), imperioEssence, Character.valueOf('Y'), crucioFurnace });
 /*  47 */     GameRegistry.addRecipe(new ItemStack(MBlocks.ZivicioFurnace, 1), new Object[] { " X ", "XYX", " X ", Character.valueOf('X'), zivicioEssence, Character.valueOf('Y'), imperioFurnace });

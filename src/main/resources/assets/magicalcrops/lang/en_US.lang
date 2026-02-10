@@ -1,7 +1,7 @@
-tile.AccioFarmland.name=Accio Farmland
-tile.CrucioFarmland.name=Crucio Farmland
-tile.ImperioFarmland.name=Imperio Farmland
-tile.ZivicioFarmland.name=Zivicio Farmland
+tile.FarmlandAccio.name=Accio Farmland
+tile.FarmlandCrucio.name=Crucio Farmland
+tile.FarmlandImperio.name=Imperio Farmland
+tile.FarmlandZivicio.name=Zivicio Farmland
 
 tile.MinicioOre.name=Minicio Ore
 tile.MinicioOreNether.name=Nether Minicio Ore

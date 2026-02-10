@@ -68,31 +68,14 @@ public class BlockFarmlandAccio extends Block {
 
     @Override
     public void updateTick(World world, int x, int y, int z, Random rand) {
-        if (!world.isRemote) {
 
+        if (!world.isRemote) {
             if (world.getBlockMetadata(x, y, z) != 7) {
                 world.setBlockMetadataWithNotify(x, y, z, 7, 2);
             }
-
-            Block plant = world.getBlock(x, y + 1, z);
-
-            if (!world.isRemote && plant instanceof IGrowable) {
-                IGrowable grow = (IGrowable) plant;
-
-                for (int i = 0; i < 100; i++) { // Accio x3
-                    if (grow.canFertilize(world, x, y + 1, z, false)) {
-                        grow.fertilize(world, world.rand, x, y + 1, z);
-                    }
-                }
-            }
-
-
         }
 
-
-
-
-            super.updateTick(world, x, y, z, rand);
+        super.updateTick(world, x, y, z, rand);
     }
 
-    }
+            }
