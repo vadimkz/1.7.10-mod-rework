@@ -21,7 +21,7 @@
 /*    */ {
 /*    */   public ZivicioSword(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 23 */     super(par2EnumToolMaterial);
-/* 24 */     this.maxStackSize = 1;
+/* 24 */     this.setMaxStackSize(1);
 /* 25 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

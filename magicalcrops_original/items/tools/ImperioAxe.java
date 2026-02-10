@@ -19,7 +19,7 @@
 /*    */ {
 /*    */   public ImperioAxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 21 */     super(par2EnumToolMaterial);
-/* 22 */     this.maxStackSize = 1;
+/* 22 */     this.setMaxStackSize(1);
 /* 23 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

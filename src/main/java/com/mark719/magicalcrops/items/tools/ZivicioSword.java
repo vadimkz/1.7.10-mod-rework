@@ -21,7 +21,7 @@
 /*    */ {
 /*    */   public ZivicioSword(int itemId, Item.ToolMaterial toolMaterial) {
 /* 23 */     super(toolMaterial);
-/* 24 */     this.maxStackSize = 1;
+/* 24 */     this.setMaxStackSize(1);
 /* 25 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

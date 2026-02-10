@@ -23,7 +23,7 @@
 /*    */ {
 /*    */   public ZivicioShovel(int itemId, Item.ToolMaterial toolMaterial) {
 /* 25 */     super(toolMaterial);
-/* 26 */     this.maxStackSize = 1;
+/* 26 */     this.setMaxStackSize(1);
 /* 27 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

@@ -11,30 +11,22 @@
 /*    */ 
 /*    */ 
 /*    */ 
-/*    */ public class tabMagical
-/*    */   extends CreativeTabs
-/*    */ {
-/*    */   public tabMagical(int ID, String name) {
-/* 18 */     super(ID, name);
-/* 19 */     setBackgroundImageName("magicalcrops.png");
-/* 20 */     setNoTitle();
-/*    */   }
-/*    */ 
-/*    */   
-/*    */   public boolean hasSearchBar() {
-/* 25 */     return true;
-/*    */   }
-/*    */   
-/*    */   @SideOnly(Side.CLIENT)
-/*    */   public String getTranslatedTabLabel() {
-/* 30 */     return "Magical Crops";
-/*    */   }
-/*    */ 
-/*    */   
-/*    */   public Item getTabIconItem() {
-/* 35 */     return MItems.InfusionStoneMaster;
-/*    */   }
-/*    */ }
+/*    */ public class tabMagical extends CreativeTabs {
+
+    public tabMagical(int ID, String name) {
+        super(ID, name);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public String getTranslatedTabLabel() {
+        return "Magical Crops";
+    }
+
+    public Item getTabIconItem() {
+        return MItems.InfusionStoneMaster;
+    }
+}
+
 
 
 /* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\tabMagical.class

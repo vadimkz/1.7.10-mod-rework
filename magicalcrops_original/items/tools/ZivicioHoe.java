@@ -27,7 +27,7 @@
 /*     */ {
 /*     */   public ZivicioHoe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /*  29 */     super(par2EnumToolMaterial);
-/*  30 */     this.maxStackSize = 1;
+/*  30 */     this.setMaxStackSize(1);
 /*  31 */     setCreativeTab(MagicalCrops.tabMagical);
 /*     */   }
 /*     */ 

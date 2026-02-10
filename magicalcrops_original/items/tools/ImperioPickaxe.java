@@ -20,7 +20,7 @@
 /*    */ {
 /*    */   public ImperioPickaxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 22 */     super(par2EnumToolMaterial);
-/* 23 */     this.maxStackSize = 1;
+/* 23 */     this.setMaxStackSize(1);
 /* 24 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

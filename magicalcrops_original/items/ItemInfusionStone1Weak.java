@@ -20,7 +20,7 @@
 /*    */ 
 /*    */   
 /*    */   public ItemInfusionStone1Weak() {
-/* 23 */     this.maxStackSize = 1;
+/* 23 */     this.setMaxStackSize(1);
 /* 24 */     setMaxDurability(this.durability);
 /* 25 */     setCreativeTab(MagicalCrops.tabMagical);
 /* 26 */     setTextureName("magicalcrops:InfusionStone_T1");

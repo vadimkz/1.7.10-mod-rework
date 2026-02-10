@@ -14,7 +14,7 @@
 /*    */ {
 /*    */   public CopperSeeds(Block crop, Block farmland) {
 /* 16 */     super(crop, farmland);
-/* 17 */     this.maxStackSize = 64;
+/* 17 */     this.setMaxStackSize(64);
 /* 18 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

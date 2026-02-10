@@ -18,7 +18,7 @@
 /*    */ {
 /*    */   public CrucioSword(int itemId, Item.ToolMaterial toolMaterial) {
 /* 20 */     super(toolMaterial);
-/* 21 */     this.maxStackSize = 1;
+/* 21 */     this.setMaxStackSize(1);
 /* 22 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

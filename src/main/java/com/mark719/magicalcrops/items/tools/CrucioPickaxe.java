@@ -20,7 +20,7 @@
 /*    */ {
 /*    */   public CrucioPickaxe(int itemId, Item.ToolMaterial toolMaterial) {
 /* 22 */     super(toolMaterial);
-/* 23 */     this.maxStackSize = 1;
+/* 23 */     this.setMaxStackSize(1);
 /* 24 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

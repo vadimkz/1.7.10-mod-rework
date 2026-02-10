@@ -22,7 +22,7 @@
 /*    */ {
 /*    */   public ZivicioAxe(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 24 */     super(par2EnumToolMaterial);
-/* 25 */     this.maxStackSize = 1;
+/* 25 */     this.setMaxStackSize(1);
 /* 26 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

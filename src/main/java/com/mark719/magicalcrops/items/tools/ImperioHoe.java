@@ -24,7 +24,7 @@
 /*    */ {
 /*    */   public ImperioHoe(int itemId, Item.ToolMaterial toolMaterial) {
 /* 26 */     super(toolMaterial);
-/* 27 */     this.maxStackSize = 1;
+/* 27 */     this.setMaxStackSize(1);
 /* 28 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

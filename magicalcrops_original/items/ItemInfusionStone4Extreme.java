@@ -19,7 +19,7 @@
 /*    */ 
 /*    */   
 /*    */   public ItemInfusionStone4Extreme() {
-/* 22 */     this.maxStackSize = 1;
+/* 22 */     this.setMaxStackSize(1);
 /* 23 */     setMaxDurability(this.durability);
 /* 24 */     setCreativeTab(MagicalCrops.tabMagical);
 /* 25 */     setTextureName("magicalcrops:InfusionStone_T4");

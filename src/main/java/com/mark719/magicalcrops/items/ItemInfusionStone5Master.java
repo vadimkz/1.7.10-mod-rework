@@ -18,7 +18,7 @@
 /*    */   extends Item
 /*    */ {
 /*    */   public ItemInfusionStone5Master() {
-/* 21 */     this.maxStackSize = 1;
+/* 21 */     this.setMaxStackSize(1);
 /* 22 */     setMaxDurability(0);
 /* 23 */     setCreativeTab(MagicalCrops.tabMagical);
 /* 24 */     setTextureName("magicalcrops:InfusionStone_T5");

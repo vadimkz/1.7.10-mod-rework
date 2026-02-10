@@ -19,7 +19,7 @@
 /*    */ {
 /*    */   public ImperioAxe(int itemId, Item.ToolMaterial toolMaterial) {
 /* 21 */     super(toolMaterial);
-/* 22 */     this.maxStackSize = 1;
+/* 22 */     this.setMaxStackSize(1);
 /* 23 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 

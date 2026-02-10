@@ -10,7 +10,7 @@
 /*    */ {
 /*    */   public RedstoneSeeds(Block crop, Block farmland) {
 /* 12 */     super(crop, farmland);
-/* 13 */     this.maxStackSize = 64;
+/* 13 */     this.setMaxStackSize(64);
 /* 14 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ }

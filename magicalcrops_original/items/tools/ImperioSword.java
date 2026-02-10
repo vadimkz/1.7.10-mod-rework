@@ -18,7 +18,7 @@
 /*    */ {
 /*    */   public ImperioSword(int par1, Item.ToolMaterial par2EnumToolMaterial) {
 /* 20 */     super(par2EnumToolMaterial);
-/* 21 */     this.maxStackSize = 1;
+/* 21 */     this.setMaxStackSize(1);
 /* 22 */     setCreativeTab(MagicalCrops.tabMagical);
 /*    */   }
 /*    */ 
