@@ -123,7 +123,9 @@ TECHNICAL NOTES
 • Fixed broken item/block registrations after MCP remapping  
 • Replaced broken custom creative tab to prevent client crashes  
 • Integrated MFR using postInit registration (correct for 1.7.10 API)  
-• Built using anatawa’s ForgeGradle environment  
+• Built using anatawa’s ForgeGradle environment 
+// ForgeGradle files in this repository are incorrect. antawa's version used local. You can use /src only and download clean anatawa's ForgeGradle
+// Also you need MFR to rebuilld this mod
 • Java 8 compatible  
 
 
