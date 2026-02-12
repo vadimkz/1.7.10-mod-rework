@@ -1,37 +1,148 @@
--------------------------------------------
-Source installation information for modders
--------------------------------------------
-This code follows the Minecraft Forge installation methodology. It will apply
-some small patches to the vanilla MCP source code, giving you and it access 
-to some of the data and functions you need to build a successful mod.
+MAGICAL CROPS – RESTORED & AUTOMATED (Minecraft 1.7.10)
 
-Note also that the patches are built against "unrenamed" MCP source code (aka
-srgnames) - this means that you will not be able to read them directly against
-normal code.
+====================================================
 
-Source pack installation information:
+SUMMARY OF CHANGES
+------------------
 
-Standalone source installation
-==============================
+✔ Restored decompiled Magical Crops source code  
+✔ Added right-click harvesting with plant regrowth  
+✔ Disabled legacy left-click harvest logic  
+✔ Implemented magical farmland behavior (always hydrated, protected, growth boost)  
+✔ Added MineFactory Reloaded harvester compatibility  
+✔ Fixed broken registrations after MCP remapping  
+✔ Replaced broken custom creative tab  
+✔ Rebuilt using modern ForgeGradle (anatawa)  
 
-To install this source code for development purposes, extract this zip file.
-It ships with a demonstration mod. Run 'gradlew setupDevWorkspace' to create
-a gradle environment primed with FML. Run 'gradlew eclipse' or 'gradlew idea' to
-create an IDE workspace of your choice.
-Refer to ForgeGradle for more information about the gradle environment
-Note: On macs or linux you run the './gradlew.sh' instead of 'gradlew'
+Compatible with:
+MineFactory Reloaded 2.8.2B1-201 (Minecraft 1.7.10)
 
-Forge source installation
-=========================
-MinecraftForge ships with this code and installs it as part of the forge
-installation process, no further action is required on your part.
+====================================================
 
-For reference this is version @MAJOR@.@MINOR@.@REV@.@BUILD@ of FML
-for Minecraft version @MCVERSION@.
 
-LexManos' Install Video
-=======================
-https://www.youtube.com/watch?v=8VEdtQLuLO0&feature=youtu.be
+PROJECT BACKGROUND
+------------------
 
-For more details update more often refer to the Forge Forums:
-http://www.minecraftforge.net/forum/index.php/topic,14048.0.html
+I originally downloaded a Minecraft 1.7.10 modpack that included the Magical Crops mod.
+
+While progressing through the pack, I noticed that this version of Magical Crops had no 
+right-click harvesting feature. At first it didn’t bother me much.
+
+However, the modpack also included Avaritia — a mod that requires hundreds of thousands 
+of resources for progression.
+
+After analyzing the pack, I realized that the only realistic way to progress in Avaritia 
+was through building and automating Magical Crops farms.
+
+Unfortunately, none of the many automation mods in the pack were able to properly harvest 
+Magical Crops.
+
+I had previously played newer Minecraft versions where crops could be automatically harvested 
+using the MineFactory Reloaded Harvester — which worked perfectly.
+
+But in this 1.7.10 environment, it didn’t work at all.
+
+So I decided to fix it myself — with zero Java knowledge.
+
+My helpers during this journey were ChatGPT and Gemini.
+
+
+====================================================
+
+
+SOURCE CODE RESTORATION
+-----------------------
+
+One of the hardest parts was restoring the decompiled Magical Crops source code.
+
+The original mod was heavily obfuscated and broken after decompilation.
+
+Fixing:
+- method mappings
+- field mappings
+- registrations
+- broken logic
+
+took me about two weeks (lol).
+
+
+====================================================
+
+
+GAMEPLAY CHANGES
+----------------
+
+After cleaning and restoring the code, I implemented the following:
+
+
+RIGHT-CLICK HARVESTING
+---------------------
+
+• Crops can now be harvested with right-click  
+• The plant automatically resets to growth stage 0  
+• 100% seed drop chance (original balance was lost during refactor, but I prefer it this way)
+
+The old left-click harvesting class was fully disabled.
+
+
+MAGICAL FARMLAND LOGIC
+---------------------
+
+Accio, Crucio and other Magical Crops farmlands now:
+
+✔ Are always hydrated  
+✔ Cannot be trampled  
+✔ Increase crop growth speed (Magical Crops only)
+
+They finally feel truly magical 😄
+
+
+====================================================
+
+
+MINEFACTORY RELOADED COMPATIBILITY
+---------------------------------
+
+Full automation support was added:
+
+• All Magical Crops are registered as harvestable plants  
+• MFR Harvester collects crops at full growth  
+• Plants are not broken — growth resets after harvest  
+
+Tested and compatible with:
+
+MineFactory Reloaded 2.8.2B1-201
+
+
+====================================================
+
+
+TECHNICAL NOTES
+---------------
+
+• Fixed broken item/block registrations after MCP remapping  
+• Replaced broken custom creative tab to prevent client crashes  
+• Integrated MFR using postInit registration (correct for 1.7.10 API)  
+• Built using anatawa’s ForgeGradle environment  
+• Java 8 compatible  
+
+
+====================================================
+
+
+FINAL RESULT
+------------
+
+Magical Crops is now:
+
+✔ Fully functional  
+✔ Automatable  
+✔ Balanced for large-scale resource farming  
+✔ Playable in heavy progression modpacks  
+
+Perfect for Avaritia-style late game setups.
+
+
+====================================================
+
+Enjoy farming 🌱
