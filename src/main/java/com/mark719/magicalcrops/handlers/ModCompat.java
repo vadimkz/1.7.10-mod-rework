@@ -107,8 +107,9 @@
 /*     */ import net.minecraft.item.crafting.IRecipe;
 /*     */ import net.minecraftforge.oredict.OreDictionary;
 /*     */ import net.minecraftforge.oredict.ShapedOreRecipe;
-/*     */ 
-/*     */ 
+
+
+/*     */
 /*     */ 
 /*     */ public class ModCompat
 /*     */ {
@@ -760,7 +761,10 @@
 /*     */   public static Item SignalumSeeds;
 /*     */   public static Item SteelSeeds;
 /*     */   public static Item TerrasteelSeeds;
-/*     */ }
+/*     */
+
+
+}
 
 
 /* Location:              C:\Users\Вадим\AppData\Roaming\.minecraft\versions\testcrop\mods\magicalcrops-4.0.0_PUBLIC_BETA_3.jar!\com\mark719\magicalcrops\handlers\ModCompat.class

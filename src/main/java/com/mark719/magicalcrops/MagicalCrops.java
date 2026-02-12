@@ -1,5 +1,6 @@
 package com.mark719.magicalcrops;
 
+import com.mark719.magicalcrops.compat.mfr.MFRCompat;
 import com.mark719.magicalcrops.config.ConfigCrafting;
 import com.mark719.magicalcrops.config.ConfigDisable;
 import com.mark719.magicalcrops.config.ConfigMain;
@@ -27,6 +28,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import java.io.File;
 import net.minecraft.creativetab.CreativeTabs;
@@ -65,6 +67,7 @@ public class MagicalCrops {
     BlockRecipes.loadRecipes();
     SeedRecipes.loadRecipes();
     ResourceRecipes.loadRecipes();
+
     if (ConfigMain.ENCHANT_CRAFT)
       EnchantmentRecipes.loadRecipes(); 
     GameRegistry.registerWorldGenerator((IWorldGenerator)new WorldGenEssence(), 0);
@@ -80,5 +83,9 @@ public class MagicalCrops {
       MinecraftForge.EVENT_BUS.register(new MobDropEvent()); 
     MinecraftForge.EVENT_BUS.register(new FireProtectionEvent());
     serverProxy.registerNetworkStuff();
+  }
+  @EventHandler
+  public void postInit(FMLPostInitializationEvent event) {
+    MFRCompat.registerAll();
   }
 }
